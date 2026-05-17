@@ -1,0 +1,287 @@
+<!DOCTYPE html><html lang="zh-Hant"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Step 10: 引用與文獻管理 — Academic Writing Tutorial</title>
+<link rel="stylesheet" href="styles.css">
+</head><body>
+<nav class="top-nav"><div class="top-nav-inner">
+  <a href="index.html" class="top-nav-brand"><span>📝</span> <span data-zh="高等論文寫作" data-en="Academic Writing">高等論文寫作</span></a>
+  <ul class="top-nav-links">
+    <li><a href="research-question.html" data-zh="問題" data-en="Question">問題</a></li>
+    <li><a href="literature-review.html" data-zh="文獻" data-en="LitRev">文獻</a></li>
+    <li><a href="structure-imrad.html">IMRaD</a></li>
+    <li><a href="introduction-writing.html" data-zh="緒論" data-en="Intro">緒論</a></li>
+    <li><a href="methods-writing.html" data-zh="方法" data-en="Methods">方法</a></li>
+    <li><a href="results-figures.html" data-zh="結果" data-en="Results">結果</a></li>
+    <li><a href="discussion-limits.html" data-zh="討論" data-en="Disc.">討論</a></li>
+    <li><a href="abstract-title.html" data-zh="摘要" data-en="Abstract">摘要</a></li>
+    <li><a href="style-language.html" data-zh="風格" data-en="Style">風格</a></li>
+    <li><a href="citation-references.html" class="active" data-zh="引用" data-en="Cite">引用</a></li>
+    <li><a href="journal-strategy.html" data-zh="期刊" data-en="Journal">期刊</a></li>
+    <li><a href="peer-review-response.html" data-zh="審查" data-en="Review">審查</a></li>
+    <li><a href="ethics-authorship.html" data-zh="倫理" data-en="Ethics">倫理</a></li>
+    <li><a href="ai-tools-reproducibility.html">AI</a></li>
+  </ul>
+</div></nav>
+<div class="progress-bar-container"><div class="progress-bar" id="progressBar"></div></div>
+<header class="page-hero"><div class="step-badge">STEP 10 / 14</div>
+<h1 data-zh="引用與文獻管理" data-en="Citation &amp; Reference Management">引用與文獻管理</h1>
+<p class="subtitle" data-lang="zh">Vancouver、APA、Author-Year 三大主流；Zotero / EndNote / Paperpile 工具選擇；CSL 客製化；DOI 與 ORCID 連結。</p>
+<p class="subtitle" data-lang="en">The three mainstream styles (Vancouver / APA / Author-Year); tool choice (Zotero / EndNote / Paperpile); CSL customization; DOI &amp; ORCID linking.</p>
+</header>
+<main class="content-wrap">
+
+<section class="section">
+<div class="section-label" data-zh="概覽" data-en="OVERVIEW">概覽</div>
+<h2 data-zh="為什麼引用比想像中重要？" data-en="Why Citation Matters More Than You Think">為什麼引用比想像中重要</h2>
+<div data-lang="zh">
+<p>引用做不好，論文會在三個地方被打回票：<strong>(1)</strong> Editor desk-reject 因為格式錯太多；<strong>(2)</strong> Reviewer 抓你「沒引用 obvious 的關鍵 paper」(常常是 reviewer 自己的論文)；<strong>(3)</strong> Production 階段被製作部要求重做整份 reference list。</p>
+<p>2026 年的標準工作流：<strong>用工具管理 (Zotero / EndNote / Paperpile)，用 CSL 自動套格式，DOI + ORCID 必填</strong>。手寫 reference 已是上一代做法。</p>
+</div>
+<div data-lang="en">
+<p>Bad citations get rejected in three places: <strong>(1)</strong> editor desk-reject for too many formatting errors; <strong>(2)</strong> reviewer flags "missing obvious key paper" (often their own); <strong>(3)</strong> production team kicks the manuscript back demanding a full reference rebuild.</p>
+<p>The 2026 workflow: <strong>manage with a tool (Zotero / EndNote / Paperpile), auto-format via CSL, DOI + ORCID required</strong>. Hand-typing references is a previous-generation practice.</p>
+</div>
+</section>
+
+<section class="section">
+<div class="section-label" data-zh="三大引用風格" data-en="3 STYLES">三大引用風格</div>
+<h2 data-zh="一、Vancouver / APA / Author-Year 三大風格" data-en="I. Vancouver / APA / Author-Year">一、三大引用風格</h2>
+<table class="comp-table">
+<thead><tr><th></th><th>Vancouver (Numbered)</th><th>APA 7th</th><th>Author-Year (Harvard)</th></tr></thead>
+<tbody>
+<tr><td><strong data-zh="文中引用" data-en="In-text">文中引用</strong></td>
+<td>... has been shown [1,2].</td>
+<td>... has been shown (Smith &amp; Lin, 2023).</td>
+<td>... has been shown (Smith and Lin, 2023).</td></tr>
+<tr><td><strong data-zh="文末順序" data-en="Reference order">文末順序</strong></td>
+<td><span data-lang="zh">出現先後排序</span><span data-lang="en">By appearance</span></td>
+<td><span data-lang="zh">作者字母順序</span><span data-lang="en">Alphabetical by author</span></td>
+<td><span data-lang="zh">作者字母順序</span><span data-lang="en">Alphabetical by author</span></td></tr>
+<tr><td><strong data-zh="使用領域" data-en="Used in">使用領域</strong></td>
+<td><span data-lang="zh">大多生醫期刊 (NEJM, JAMA, Cell, Nature 系列)</span><span data-lang="en">Most biomedical journals (NEJM, JAMA, Cell, Nature)</span></td>
+<td><span data-lang="zh">心理學、社會科學、教育</span><span data-lang="en">Psychology, social science, education</span></td>
+<td><span data-lang="zh">生態、地球科學、部分公衛</span><span data-lang="en">Ecology, earth sciences, some public health</span></td></tr>
+<tr><td><strong data-zh="範例" data-en="Reference example">範例</strong></td>
+<td>Smith J, Lin Y, Chen K. Single-cell profiling of TNBC. <em>Nat Med.</em> 2024;30:412–420. doi:10.1038/s41591-024-XXXX</td>
+<td>Smith, J., Lin, Y., &amp; Chen, K. (2024). Single-cell profiling of TNBC. <em>Nature Medicine, 30</em>(3), 412–420. https://doi.org/10.1038/s41591-024-XXXX</td>
+<td>Smith, J., Lin, Y. and Chen, K. 2024. Single-cell profiling of TNBC. <em>Nature Medicine,</em> 30(3): 412–420.</td></tr>
+</tbody></table>
+<div class="callout warn"><span class="callout-icon">⚠️</span><div>
+<div data-lang="zh"><strong>千萬不要：</strong>① 同一篇論文混用兩種風格 ② 自己手敲 references (打錯誤 100%) ③ 從 PDF 複製貼上而沒檢查格式 ④ 引用 retracted papers 而不知道 (用 Retraction Watch / Zotero 即時警示)。</div>
+<div data-lang="en"><strong>Never:</strong> ① mix two styles in one paper; ② type references by hand (100% will have typos); ③ copy-paste from PDFs without verification; ④ cite retracted papers unknowingly (use Retraction Watch / Zotero alerts).</div>
+</div></div>
+</section>
+
+<section class="section">
+<div class="section-label" data-zh="管理工具" data-en="TOOLS">文獻管理工具</div>
+<h2 data-zh="二、Zotero vs EndNote vs Paperpile vs Mendeley" data-en="II. Zotero vs EndNote vs Paperpile vs Mendeley">二、文獻管理工具比較</h2>
+<table class="comp-table">
+<thead><tr><th></th><th>Zotero</th><th>EndNote 21</th><th>Paperpile</th><th>Mendeley Reference Mgr</th></tr></thead>
+<tbody>
+<tr><td><strong data-zh="價格" data-en="Price">價格</strong></td>
+<td><span data-lang="zh">免費 + 300 MB 雲端 (付費升級)</span><span data-lang="en">Free + 300 MB cloud (paid upgrade)</span></td>
+<td><span data-lang="zh">~$249 USD 一次性 (學術 ~$140)</span><span data-lang="en">~$249 USD one-time (academic ~$140)</span></td>
+<td><span data-lang="zh">$2.99/月，學生 $9.99/年</span><span data-lang="en">$2.99/mo, students $9.99/yr</span></td>
+<td><span data-lang="zh">免費</span><span data-lang="en">Free</span></td></tr>
+<tr><td><strong data-zh="平台" data-en="Platform">平台</strong></td>
+<td>Win/Mac/Linux + Browser</td>
+<td>Win/Mac, no Linux</td>
+<td>Browser-only (Chrome/Firefox)</td>
+<td>Win/Mac/iOS/Android</td></tr>
+<tr><td><strong data-zh="與 Word/LaTeX" data-en="Word/LaTeX">與 Word/LaTeX</strong></td>
+<td>Word ✅、LibreOffice ✅、LaTeX ✅ (BibTeX/BibLaTeX)</td>
+<td>Word ✅、LaTeX ⚠️ (透過 export)</td>
+<td>Google Docs ✅、Word ✅、LaTeX ⚠️</td>
+<td>Word ✅、LaTeX ⚠️</td></tr>
+<tr><td><strong data-zh="協作分享" data-en="Sharing">協作</strong></td>
+<td>Group library 免費</td>
+<td>Library sharing 需付費</td>
+<td>Native shared folders</td>
+<td>有限</td></tr>
+<tr><td><strong data-zh="開源" data-en="Open source">開源</strong></td>
+<td>✅</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td></tr>
+<tr><td><strong data-zh="推薦對象" data-en="Best for">推薦對象</strong></td>
+<td><span data-lang="zh">學生、預算有限、開源愛好者</span><span data-lang="en">Students, limited budget, OSS fans</span></td>
+<td><span data-lang="zh">機構統一購買、Word 重度使用者</span><span data-lang="en">Institutional license, heavy Word users</span></td>
+<td><span data-lang="zh">Google Docs 重度使用、雲端原生</span><span data-lang="en">Heavy Google Docs use, cloud-native</span></td>
+<td><span data-lang="zh">Elsevier 生態使用者</span><span data-lang="en">Elsevier ecosystem users</span></td></tr>
+</tbody></table>
+<div class="callout tip"><span class="callout-icon">💡</span><div>
+<span data-lang="zh"><strong>2026 推薦：Zotero</strong>。免費 + 開源 + 跨平台 + LaTeX/Word/LibreOffice 都支援 + 可裝 Better BibTeX、ZotFile、Zotero Connector 等強力外掛 + 可整合 ChatGPT/Claude (Zotero Reading Assistant)。</span>
+<span data-lang="en"><strong>2026 pick: Zotero.</strong> Free + open-source + cross-platform + LaTeX/Word/LibreOffice support + powerful plugins (Better BibTeX, ZotFile, Zotero Connector) + AI integration via Zotero Reading Assistant.</span>
+</div></div>
+</section>
+
+<section class="section">
+<div class="section-label" data-zh="CSL" data-en="CSL">CSL 客製化</div>
+<h2 data-zh="三、CSL：一鍵切換期刊格式" data-en="III. CSL: One-Click Style Switching">三、CSL 客製化</h2>
+<div data-lang="zh">
+<p><strong>CSL (Citation Style Language)</strong> 是業界標準 XML 格式，由 Mendeley 與 Zotero 共同維護。<a href="https://www.zotero.org/styles" target="_blank">Zotero Style Repository</a> 提供超過 10000 種期刊樣式，幾乎涵蓋所有 SCI/SSCI 期刊。</p>
+<p><strong>典型工作流：</strong></p>
+<ol>
+<li>Zotero 建立 collection，把要引的論文拖進去</li>
+<li>在 Word/LibreOffice 安裝 Zotero plugin</li>
+<li>「Document Preferences → Style」選擇目標期刊（如 "Nature Medicine"）</li>
+<li>插入引用 → 文末按 "Insert Bibliography" 自動生成</li>
+<li>改投另一期刊？只需要切換 Style，自動全篇重排</li>
+</ol>
+</div>
+<div data-lang="en">
+<p><strong>CSL (Citation Style Language)</strong> is the industry-standard XML format jointly maintained by Mendeley and Zotero. The <a href="https://www.zotero.org/styles" target="_blank">Zotero Style Repository</a> hosts 10000+ journal styles covering virtually all SCI/SSCI journals.</p>
+<p><strong>Typical workflow:</strong></p>
+<ol>
+<li>Create a Zotero collection; drag papers in.</li>
+<li>Install the Zotero Word/LibreOffice plugin.</li>
+<li>Document Preferences → Style → pick target journal (e.g., "Nature Medicine").</li>
+<li>Insert citations → click "Insert Bibliography" at the end.</li>
+<li>Switching journals? Just change the Style — the whole paper reformats automatically.</li>
+</ol>
+</div>
+</section>
+
+<section class="section">
+<div class="section-label" data-zh="範例對照" data-en="EXAMPLES">範例對照</div>
+<h2 data-zh="四、in-text 引用好壞對照" data-en="IV. In-text Citation Examples">四、in-text 引用對照</h2>
+
+<div class="example-pair">
+<div class="ex-bad"><h5>❌ <span data-zh="籠統" data-en="Vague">籠統</span></h5>
+<p data-lang="zh">"Many studies have shown that single-cell technology is useful in cancer research [1-15]."<br><em>(這 15 篇是哪些？讀者要怎麼追？「many studies」沒有指向性。)</em></p>
+<p data-lang="en">"Many studies have shown that single-cell technology is useful in cancer research [1-15]."<br><em>(Which 15 papers? How does the reader follow up? "Many studies" is non-specific.)</em></p>
+</div>
+<div class="ex-good"><h5>✅ <span data-zh="具體 + 對話" data-en="Specific + dialogue">具體 + 對話</span></h5>
+<p data-lang="zh">"Pioneering scRNA-seq atlases of TNBC have characterized inter-tumoral heterogeneity (Wu et al. 2021; Bassez et al. 2021), but the longitudinal cell-state changes during chemotherapy remain unexplored."</p>
+<p data-lang="en">"Pioneering scRNA-seq atlases of TNBC have characterized inter-tumoral heterogeneity (Wu et al., 2021; Bassez et al., 2021), but the longitudinal cell-state changes during chemotherapy remain unexplored."</p>
+</div>
+</div>
+
+<div class="example-pair">
+<div class="ex-bad"><h5>❌ <span data-zh="自我引用過量" data-en="Self-cite spam">自我引用過量</span></h5>
+<p data-lang="zh">「我們先前做了 X (Lee 2020, Lee 2021, Lee 2022, Lee 2023)，這次延伸到 Y。」(自引 4 篇且都 first-author)</p>
+<p data-lang="en">"We previously did X (Lee 2020; Lee 2021; Lee 2022; Lee 2023) and now extend to Y." (4 self-cites, all first-author)</p>
+</div>
+<div class="ex-good"><h5>✅ <span data-zh="節制 + 必要" data-en="Restrained + necessary">節制 + 必要</span></h5>
+<p data-lang="zh">「我們先前建立 cell atlas (Lee et al. 2023)，本研究延伸到 chemotherapy 介入後的時間點。」</p>
+<p data-lang="en">"We previously established a cell atlas (Lee et al., 2023); here we extend to post-chemotherapy time points."</p>
+</div>
+</div>
+</section>
+
+<section class="section">
+<div class="section-label" data-zh="LaTeX / Word" data-en="LaTeX / Word">引用範本</div>
+<h2 data-zh="五、Zotero × LaTeX / Word 實作" data-en="V. Zotero × LaTeX / Word Practice">五、實作範本</h2>
+<div class="code-tabs"><div class="code-tab-btns">
+<button class="code-tab-btn active" onclick="switchTab(this,'tex')">LaTeX (BibLaTeX)</button>
+<button class="code-tab-btn" onclick="switchTab(this,'word')">Word + Zotero</button>
+<button class="code-tab-btn" onclick="switchTab(this,'qmd')">Quarto / R Markdown</button>
+</div>
+
+<div class="code-tab-content active" id="tex"><pre><span class="comment">% In preamble</span>
+\usepackage[backend=biber,style=numeric-comp,sorting=none]{biblatex}
+\addbibresource{refs.bib}    <span class="comment">% Zotero 匯出 Better BibTeX</span>
+
+<span class="comment">% In text</span>
+Recent scRNA-seq atlases of TNBC \cite{wu2021,bassez2021} characterized
+inter-tumoral heterogeneity, but \cite[see][]{lee2023} did not address
+chemotherapy response.
+
+<span class="comment">% At end</span>
+\printbibliography</pre></div>
+
+<div class="code-tab-content" id="word"><pre><span class="comment"># Workflow</span>
+1. Install <span class="str">Zotero Connector</span> (Chrome/Firefox)
+2. Install <span class="str">Zotero Word plugin</span> (auto-installs with Zotero)
+3. Open Word → <span class="str">Zotero ribbon</span> appears
+4. Place cursor where citation goes
+5. Click <span class="str">"Add/Edit Citation"</span> → search for paper → Enter
+6. At end, click <span class="str">"Add/Edit Bibliography"</span>
+7. Switch journal? <span class="str">"Document Preferences"</span> → pick new style
+8. Reformat happens <span class="kw">automatically</span></pre></div>
+
+<div class="code-tab-content" id="qmd"><pre><span class="comment"># YAML header</span>
+title: <span class="str">"Single-cell profiling of TNBC"</span>
+bibliography: refs.bib
+csl: nature.csl
+
+<span class="comment"># In body</span>
+Recent atlases [@wu2021; @bassez2021] characterized heterogeneity, but
+@lee2023 did not address chemotherapy.
+
+<span class="comment"># Render</span>
+quarto render manuscript.qmd --to pdf</pre></div>
+</div>
+</section>
+
+<section class="section">
+<div class="section-label" data-zh="決策引導" data-en="DECISION GUIDE">決策引導</div>
+<h2 data-zh="六、5 個工具選擇問題" data-en="VI. 5 Questions to Pick Your Tool">六、工具選擇決策樹</h2>
+<div class="decision-tree">
+<h4>🌳 <span data-zh="選擇文獻管理工具" data-en="Choosing a reference manager">選擇文獻管理工具</span></h4>
+<div data-lang="zh">
+<div class="dt-node"><span class="dt-q">Q1:</span><div>主要用 LaTeX 寫作？<span class="dt-arrow">→ 是 →</span> Zotero + Better BibTeX 是事實標準。</div></div>
+<div class="dt-node"><span class="dt-q">Q2:</span><div>機構提供 EndNote 校園授權？<span class="dt-arrow">→ 是 →</span> 用 EndNote (生態系成熟、Word 整合好)。</div></div>
+<div class="dt-node"><span class="dt-q">Q3:</span><div>主要用 Google Docs / Browser？<span class="dt-arrow">→ 是 →</span> Paperpile 最順手。</div></div>
+<div class="dt-node"><span class="dt-q">Q4:</span><div>跨大樣本協作 (5+ 作者)？<span class="dt-arrow">→ 是 →</span> Zotero group library 免費且穩定。</div></div>
+<div class="dt-node"><span class="dt-q">Q5:</span><div>需要 PDF 標註 + AI 摘要？<span class="dt-arrow">→ 是 →</span> Zotero 7 + 內建 AI / 或 Paperpile + ChatPDF。</div></div>
+</div>
+<div data-lang="en">
+<div class="dt-node"><span class="dt-q">Q1:</span><div>Mainly LaTeX? <span class="dt-arrow">→ Yes →</span> Zotero + Better BibTeX is the de facto standard.</div></div>
+<div class="dt-node"><span class="dt-q">Q2:</span><div>Institution provides EndNote site license? <span class="dt-arrow">→ Yes →</span> Use EndNote (mature ecosystem, great Word integration).</div></div>
+<div class="dt-node"><span class="dt-q">Q3:</span><div>Mainly Google Docs / browser? <span class="dt-arrow">→ Yes →</span> Paperpile is smoothest.</div></div>
+<div class="dt-node"><span class="dt-q">Q4:</span><div>Large team collaboration (5+ authors)? <span class="dt-arrow">→ Yes →</span> Zotero group library — free and stable.</div></div>
+<div class="dt-node"><span class="dt-q">Q5:</span><div>Need PDF annotation + AI summary? <span class="dt-arrow">→ Yes →</span> Zotero 7 with built-in AI, or Paperpile + ChatPDF.</div></div>
+</div>
+</div>
+</section>
+
+<section class="quiz-section">
+<h3>📝 <span data-zh="自我檢測" data-en="Self-Check">自我檢測</span></h3>
+<div class="quiz-q" data-answer="0">
+<p data-lang="zh">1. 大多數生醫期刊（含 NEJM, JAMA, Cell, Nature）使用的引用風格是？</p>
+<p data-lang="en">1. The citation style used by most biomedical journals (NEJM, JAMA, Cell, Nature) is?</p>
+<div class="quiz-options">
+<div class="quiz-opt" data-idx="0"><span data-lang="zh">A. Vancouver (numbered)</span><span data-lang="en">A. Vancouver (numbered)</span></div>
+<div class="quiz-opt" data-idx="1"><span data-lang="zh">B. APA 7th</span><span data-lang="en">B. APA 7th</span></div>
+<div class="quiz-opt" data-idx="2"><span data-lang="zh">C. Chicago Author-Date</span><span data-lang="en">C. Chicago Author-Date</span></div>
+<div class="quiz-opt" data-idx="3"><span data-lang="zh">D. MLA</span><span data-lang="en">D. MLA</span></div>
+</div><div class="quiz-feedback" id="fb1"></div></div>
+
+<div class="quiz-q" data-answer="2">
+<p data-lang="zh">2. 想要在 LaTeX 中以 BibLaTeX 管理引用，最佳工作流是？</p>
+<p data-lang="en">2. Best workflow for managing citations in LaTeX with BibLaTeX?</p>
+<div class="quiz-options">
+<div class="quiz-opt" data-idx="0"><span data-lang="zh">A. 手寫每個 \bibitem</span><span data-lang="en">A. Hand-type every \bibitem</span></div>
+<div class="quiz-opt" data-idx="1"><span data-lang="zh">B. EndNote 然後手動轉成 BibTeX 格式</span><span data-lang="en">B. EndNote then manually convert to BibTeX</span></div>
+<div class="quiz-opt" data-idx="2"><span data-lang="zh">C. Zotero + Better BibTeX 外掛 → 自動同步 .bib</span><span data-lang="en">C. Zotero + Better BibTeX plugin → auto-sync .bib</span></div>
+<div class="quiz-opt" data-idx="3"><span data-lang="zh">D. 從 Google Scholar 複製貼上</span><span data-lang="en">D. Copy-paste from Google Scholar</span></div>
+</div><div class="quiz-feedback" id="fb2"></div></div>
+
+<div class="quiz-q" data-answer="1">
+<p data-lang="zh">3. 「ref [1-15]」這樣引用 15 篇論文的問題是？</p>
+<p data-lang="en">3. The problem with citing 15 papers as "[1-15]" in one place is?</p>
+<div class="quiz-options">
+<div class="quiz-opt" data-idx="0"><span data-lang="zh">A. 數量太多違反期刊規定</span><span data-lang="en">A. Too many citations violates journal rules</span></div>
+<div class="quiz-opt" data-idx="1"><span data-lang="zh">B. 沒有指向性，讀者無法判斷哪篇對應哪個 claim</span><span data-lang="en">B. Non-specific — readers can't tell which paper supports which claim</span></div>
+<div class="quiz-opt" data-idx="2"><span data-lang="zh">C. Vancouver 不能引用超過 10 篇</span><span data-lang="en">C. Vancouver caps at 10 citations</span></div>
+<div class="quiz-opt" data-idx="3"><span data-lang="zh">D. 沒有問題，越多越好</span><span data-lang="en">D. No problem; the more the better</span></div>
+</div><div class="quiz-feedback" id="fb3"></div></div>
+</section>
+
+<nav class="page-nav">
+<a href="style-language.html"><span class="nav-dir" data-zh="← 上一步" data-en="← Previous">← 上一步</span><span class="nav-title">Step 9: Style &amp; Language</span></a>
+<a href="journal-strategy.html"><span class="nav-dir" data-zh="下一步 →" data-en="Next →">下一步 →</span><span class="nav-title">Step 11: Journal Strategy</span></a>
+</nav>
+</main>
+<footer class="site-footer">© Charlene — Advanced Academic Writing Interactive Tutorial</footer>
+<script src="i18n.js"></script>
+<script>
+window.addEventListener('scroll',()=>{const h=document.documentElement;document.getElementById('progressBar').style.width=(h.scrollTop/(h.scrollHeight-h.clientHeight))*100+'%';});
+function switchTab(b,id){const p=b.closest('.code-tabs');p.querySelectorAll('.code-tab-btn').forEach(x=>x.classList.remove('active'));p.querySelectorAll('.code-tab-content').forEach(x=>x.classList.remove('active'));b.classList.add('active');document.getElementById(id).classList.add('active');}
+const QF={
+  zh:{q1_y:'Vancouver (numbered, by appearance) 是大多生醫主刊的標準。',q1_n:'生醫期刊以 Vancouver 為主流。',q2_y:'Zotero + Better BibTeX 是 LaTeX 寫作的事實標準。',q2_n:'手寫 BibTeX 容易錯且不可重用；BBT 自動同步最穩。',q3_y:'籠統群引讓 reviewer 無法追蹤論點來源；應一一指向。',q3_n:'引用要有指向性，避免「many studies」這種寫法。'},
+  en:{q1_y:'Vancouver (numbered, by appearance) is the biomedical mainstream.',q1_n:'Biomedical journals predominantly use Vancouver.',q2_y:'Zotero + Better BibTeX is the de facto LaTeX workflow.',q2_n:'Hand-coded BibTeX is error-prone; BBT auto-sync is robust.',q3_y:'Bulk citation hides which paper supports which claim — be specific.',q3_n:'Citations need direction; avoid "many studies" phrasing.'}
+};
+document.querySelectorAll('.quiz-q').forEach((q,qi)=>{const ans=+q.dataset.answer;q.querySelectorAll('.quiz-opt').forEach(o=>{o.addEventListener('click',()=>{if(q.classList.contains('answered'))return;q.classList.add('answered');const fb=document.getElementById('fb'+(qi+1));const ok=+o.dataset.idx===ans;o.classList.add(ok?'correct':'wrong');if(!ok)q.querySelectorAll('.quiz-opt')[ans].classList.add('correct');const L=I18n.get();fb.className='quiz-feedback show '+(ok?'correct-fb':'wrong-fb');fb.textContent=(ok?'✅ ':'❌ ')+(QF[L]['q'+(qi+1)+'_'+(ok?'y':'n')]||'');});});});
+</script>
+</body></html>

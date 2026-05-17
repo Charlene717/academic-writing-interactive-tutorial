@@ -1,0 +1,261 @@
+<!DOCTYPE html><html lang="zh-Hant"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Step 5: 方法寫作 (可重現) — Academic Writing Tutorial</title>
+<link rel="stylesheet" href="styles.css">
+</head><body>
+<nav class="top-nav"><div class="top-nav-inner">
+  <a href="index.html" class="top-nav-brand"><span>📝</span> <span data-zh="高等論文寫作" data-en="Academic Writing">高等論文寫作</span></a>
+  <ul class="top-nav-links">
+    <li><a href="research-question.html" data-zh="問題" data-en="Question">問題</a></li>
+    <li><a href="literature-review.html" data-zh="文獻" data-en="LitRev">文獻</a></li>
+    <li><a href="structure-imrad.html">IMRaD</a></li>
+    <li><a href="introduction-writing.html" data-zh="緒論" data-en="Intro">緒論</a></li>
+    <li><a href="methods-writing.html" class="active" data-zh="方法" data-en="Methods">方法</a></li>
+    <li><a href="results-figures.html" data-zh="結果" data-en="Results">結果</a></li>
+    <li><a href="discussion-limits.html" data-zh="討論" data-en="Disc.">討論</a></li>
+    <li><a href="abstract-title.html" data-zh="摘要" data-en="Abstract">摘要</a></li>
+    <li><a href="style-language.html" data-zh="風格" data-en="Style">風格</a></li>
+    <li><a href="citation-references.html" data-zh="引用" data-en="Cite">引用</a></li>
+    <li><a href="journal-strategy.html" data-zh="期刊" data-en="Journal">期刊</a></li>
+    <li><a href="peer-review-response.html" data-zh="審查" data-en="Review">審查</a></li>
+    <li><a href="ethics-authorship.html" data-zh="倫理" data-en="Ethics">倫理</a></li>
+    <li><a href="ai-tools-reproducibility.html">AI</a></li>
+  </ul>
+</div></nav>
+<div class="progress-bar-container"><div class="progress-bar" id="progressBar"></div></div>
+<header class="page-hero"><div class="step-badge">STEP 5 / 14</div>
+<h1 data-zh="方法寫作 (可重現)" data-en="Methods (Reproducible)">方法寫作 (可重現)</h1>
+<p class="subtitle" data-lang="zh">方法的標準是「另一個合格的研究者能依此重做你的研究」。EQUATOR checklists 與 code/data availability 是最低門檻。</p>
+<p class="subtitle" data-lang="en">The standard for Methods is "another qualified researcher can redo your study from this." EQUATOR checklists and code/data availability are the minimum bar.</p>
+</header>
+<main class="content-wrap">
+
+<section class="section">
+<div class="section-label" data-zh="概覽" data-en="OVERVIEW">概覽</div>
+<h2 data-zh="為什麼方法寫作決定了論文壽命" data-en="Why Methods Determines a Paper's Lifespan">為什麼方法寫作決定了論文壽命</h2>
+<div data-lang="zh">
+<p>Introduction 與 Discussion 會因為時代改變而過時，但<strong>方法是論文唯一不會被時間打折的部分</strong>——只要寫得夠詳細，10 年後仍能被引用、被重做、被擴充。</p>
+<p>2026 年的標準是：<strong>(1)</strong> 對應的 EQUATOR reporting checklist 必須 cited 在文末；<strong>(2)</strong> 軟體/套件版本必須明確；<strong>(3)</strong> Code 與 Data 必須有 availability statement，無論是公開還是 reasonable request。</p>
+</div>
+<div data-lang="en">
+<p>Introductions and Discussions age. <strong>Methods are the only timeless part of a paper</strong> — written well, they can be cited, replicated, and extended a decade later.</p>
+<p>The 2026 standard: <strong>(1)</strong> the relevant EQUATOR reporting checklist must be cited; <strong>(2)</strong> software / package versions must be explicit; <strong>(3)</strong> code &amp; data must have an availability statement — whether deposited publicly or "available upon reasonable request."</p>
+</div>
+<div class="callout tip"><span class="callout-icon">💡</span><div>
+<span data-lang="zh"><strong>核心檢驗：</strong>把 Methods 拿給一位剛入行的同領域研究者讀。他能不能在 1 個月內、不問你任何問題、把你的實驗 / 分析重做一次？答不出「可以」就還沒寫完。</span>
+<span data-lang="en"><strong>Acid test:</strong> hand the Methods to a junior researcher in your field. Can they redo your experiment / analysis within 1 month without asking you anything? If not, it's incomplete.</span>
+</div></div>
+</section>
+
+<section class="section">
+<div class="section-label" data-zh="EQUATOR" data-en="EQUATOR">EQUATOR Checklist</div>
+<h2 data-zh="一、依研究類型挑選 reporting checklist" data-en="I. Pick the Right Reporting Checklist">一、依研究類型挑選 checklist</h2>
+<div data-lang="zh"><p><a href="https://www.equator-network.org" target="_blank">EQUATOR Network</a> 維護著 500+ 種報告指引，目的是讓不同研究類型有對應的「最低資訊清單」。投稿前先抓 checklist 並逐項核對，比起寫完再回頭補要省時很多。</p></div>
+<div data-lang="en"><p>The <a href="https://www.equator-network.org" target="_blank">EQUATOR Network</a> maintains 500+ reporting guidelines — a minimum-information checklist per study type. Download the checklist <em>before</em> writing, not after.</p></div>
+<table class="comp-table">
+<thead><tr><th>Checklist</th><th data-zh="適用研究" data-en="Study Type">適用研究</th><th data-zh="重點項目" data-en="Key Items">重點項目</th></tr></thead>
+<tbody>
+<tr><td><strong>CONSORT 2025</strong></td>
+<td><span data-lang="zh">隨機對照試驗 (RCT)</span><span data-lang="en">Randomized controlled trials</span></td>
+<td><span data-lang="zh">隨機分派、盲化、CONSORT flow diagram</span><span data-lang="en">Randomization, blinding, flow diagram</span></td></tr>
+<tr><td><strong>STROBE</strong></td>
+<td><span data-lang="zh">觀察性研究 (cohort / case-control / cross-sectional)</span><span data-lang="en">Observational studies (cohort / case-control / cross-sectional)</span></td>
+<td><span data-lang="zh">study setting、sampling、bias control、confounders</span><span data-lang="en">Setting, sampling, bias control, confounders</span></td></tr>
+<tr><td><strong>PRISMA 2020</strong></td>
+<td><span data-lang="zh">系統性回顧、meta-analysis</span><span data-lang="en">Systematic reviews, meta-analyses</span></td>
+<td><span data-lang="zh">PROSPERO 註冊、搜尋策略、PRISMA flow diagram</span><span data-lang="en">PROSPERO registration, search strategy, flow diagram</span></td></tr>
+<tr><td><strong>ARRIVE 2.0</strong></td>
+<td><span data-lang="zh">動物實驗</span><span data-lang="en">Animal studies</span></td>
+<td><span data-lang="zh">3R、IACUC、樣本量計算、隨機化、blinding</span><span data-lang="en">3Rs, IACUC, sample size, randomization, blinding</span></td></tr>
+<tr><td><strong>SPIRIT</strong></td>
+<td><span data-lang="zh">臨床試驗 protocol</span><span data-lang="en">Clinical trial protocols</span></td>
+<td><span data-lang="zh">trial design、endpoint hierarchy、stopping rules</span><span data-lang="en">Trial design, endpoint hierarchy, stopping rules</span></td></tr>
+<tr><td><strong>STARD</strong></td>
+<td><span data-lang="zh">診斷準確度研究</span><span data-lang="en">Diagnostic accuracy</span></td>
+<td><span data-lang="zh">參考標準、樣本選擇、cut-off 設定</span><span data-lang="en">Reference standard, sample selection, cut-off determination</span></td></tr>
+<tr><td><strong>TRIPOD-AI</strong></td>
+<td><span data-lang="zh">機器學習預測模型</span><span data-lang="en">ML prediction models</span></td>
+<td><span data-lang="zh">資料來源、特徵工程、外部驗證、calibration</span><span data-lang="en">Data sources, features, external validation, calibration</span></td></tr>
+<tr><td><strong>CARE</strong></td>
+<td><span data-lang="zh">病例報告</span><span data-lang="en">Case reports</span></td>
+<td><span data-lang="zh">時間軸、患者觀點、informed consent</span><span data-lang="en">Timeline, patient perspective, informed consent</span></td></tr>
+</tbody></table>
+</section>
+
+<section class="section">
+<div class="section-label" data-zh="必備子段" data-en="REQUIRED SUBSECTIONS">必備子段</div>
+<h2 data-zh="二、Methods 的 6 個子段" data-en="II. The 6 Subsections of Methods">二、Methods 的 6 個子段</h2>
+<div class="workflow">
+<div class="workflow-step" data-step="1"><h4>Study design &amp; setting</h4>
+<div data-lang="zh"><p>研究設計（cohort / RCT / cross-sectional）、時間（recruitment dates）、地點（醫院、實驗室）、是否多中心。第一句就要清楚交代，避免讀者腦補。</p></div>
+<div data-lang="en"><p>Design (cohort / RCT / cross-sectional), period (recruitment dates), site (hospital, lab), single- or multi-center. Make the first sentence unambiguous.</p></div>
+</div>
+<div class="workflow-step" data-step="2"><h4>Participants / samples</h4>
+<div data-lang="zh"><p>Inclusion / exclusion criteria 必須完整列出。臨床研究：年齡、性別、診斷準則。生資/Omics：物種、組織、批次資訊、樣本來源（GEO accession、collaborator）。</p></div>
+<div data-lang="en"><p>Inclusion / exclusion criteria — fully spelled out. Clinical: age, sex, diagnostic criteria. Bioinformatics/omics: species, tissue, batch info, accession (GEO/SRA) or collaborator source.</p></div>
+</div>
+<div class="workflow-step" data-step="3"><h4>Variables / measurements</h4>
+<div data-lang="zh"><p>每個變項：定義、單位、量測工具、測量者、reliability。Primary outcome 與 secondary outcomes 分開列。</p></div>
+<div data-lang="en"><p>Per variable: definition, unit, instrument, measurer, reliability. List primary outcome and secondary outcomes separately.</p></div>
+</div>
+<div class="workflow-step" data-step="4"><h4>Sample size &amp; power</h4>
+<div data-lang="zh"><p>α、β、effect size、預期 dropout、最後算出 n。引用所用軟體（G*Power、PASS、R <code>pwr</code>）。RCT 與 ML 模型尤其必要。</p></div>
+<div data-lang="en"><p>α, β, effect size, expected dropout, final n. Cite software (G*Power, PASS, R <code>pwr</code>). Mandatory for RCTs and ML models.</p></div>
+</div>
+<div class="workflow-step" data-step="5"><h4>Statistical / computational analysis</h4>
+<div data-lang="zh"><p>所用統計檢定 + 假設檢驗條件、效應量、CI、缺失值處理、敏感度分析。生資：完整 pipeline、所有套件版本、隨機種子。</p></div>
+<div data-lang="en"><p>Statistical tests + assumptions, effect sizes, CIs, missing-data handling, sensitivity analyses. Bioinformatics: full pipeline, all package versions, random seeds.</p></div>
+</div>
+<div class="workflow-step" data-step="6"><h4>Ethics, code &amp; data availability</h4>
+<div data-lang="zh"><p>IRB/IACUC 編號、informed consent、利益衝突；data deposit (GEO / Zenodo / Figshare) + DOI；code repository (GitHub) + commit hash + license。</p></div>
+<div data-lang="en"><p>IRB/IACUC number, informed consent, COI; data deposit (GEO / Zenodo / Figshare) + DOI; code repo (GitHub) + commit hash + license.</p></div>
+</div>
+</div>
+</section>
+
+<section class="section">
+<div class="section-label" data-zh="範例對照" data-en="EXAMPLES">範例對照</div>
+<h2 data-zh="三、生資/Omics 方法寫作好壞對照" data-en="III. Bioinformatics Methods: Bad vs Good">三、生資/Omics 方法寫作對照</h2>
+
+<div class="example-pair">
+<div class="ex-bad"><h5>❌ <span data-zh="無法重現" data-en="Not reproducible">無法重現</span></h5>
+<p data-lang="zh">「我們使用 Seurat 分析 scRNA-seq 數據，過濾低品質細胞並進行 clustering 與 differential expression。」</p>
+<p data-lang="en">"We analyzed scRNA-seq data with Seurat, filtered low-quality cells, then clustered and ran differential expression."</p>
+</div>
+<div class="ex-good"><h5>✅ <span data-zh="可重現版" data-en="Reproducible">可重現版</span></h5>
+<p data-lang="zh">「Cellranger v8.0 (refdata-gex-GRCh38-2024) 處理原始 fastq 後，以 Seurat v5.1.0 (R 4.4.1) 過濾 nFeature_RNA 200–6000 且 percent.mt &lt; 15% 的細胞 (n=18 432)。SCTransform v2 標準化後取前 30 個 PCs，以 Louvain (resolution=0.6) 聚類，UMAP n.neighbors=30, min.dist=0.3。差異表達採 Wilcoxon (FindMarkers, only.pos=TRUE, logfc.threshold=0.25)，BH 校正，FDR&lt;0.05。完整程式：github.com/charlene/tnbc-scrna (commit a3f9c12)，原始矩陣 GEO: GSE298765。」</p>
+<p data-lang="en">"Raw fastq processed with Cellranger v8.0 (refdata-gex-GRCh38-2024). Seurat v5.1.0 (R 4.4.1) filtered cells with nFeature_RNA 200–6000 and percent.mt &lt; 15% (n=18,432). SCTransform v2 normalization, top 30 PCs, Louvain clustering (resolution=0.6), UMAP (n.neighbors=30, min.dist=0.3). Differential expression: Wilcoxon (FindMarkers, only.pos=TRUE, logfc.threshold=0.25), BH-adjusted FDR&lt;0.05. Full code: github.com/charlene/tnbc-scrna (commit a3f9c12); raw matrices GEO: GSE298765."</p>
+</div>
+</div>
+</section>
+
+<section class="section">
+<div class="section-label" data-zh="範本" data-en="TEMPLATES">範本</div>
+<h2 data-zh="四、可重現 Methods 範本" data-en="IV. Reproducible Methods Templates">四、可重現範本</h2>
+<div class="code-tabs"><div class="code-tab-btns">
+<button class="code-tab-btn active" onclick="switchTab(this,'tmpl-stat')">Statistical analysis</button>
+<button class="code-tab-btn" onclick="switchTab(this,'tmpl-data')">Data availability</button>
+<button class="code-tab-btn" onclick="switchTab(this,'tmpl-code')">Code availability</button>
+<button class="code-tab-btn" onclick="switchTab(this,'tmpl-ethics')">Ethics</button>
+</div>
+
+<div class="code-tab-content active" id="tmpl-stat"><pre><span class="comment"># Statistical analysis paragraph template</span>
+Continuous variables are presented as <span class="str">[mean (SD)]</span> if normally distributed
+or <span class="str">[median (IQR)]</span> otherwise; categorical variables as n (%).
+
+Between-group comparisons used <span class="str">[Student's t-test / Mann-Whitney U]</span>
+for continuous and <span class="str">[chi-squared / Fisher's exact]</span> for categorical
+variables. Multivariable adjustment used <span class="str">[logistic / Cox]</span> regression
+adjusting for <span class="str">[a priori confounders: age, sex, ...]</span>.
+
+Two-sided p &lt; <span class="num">0.05</span> was considered significant. Multiple-testing was
+controlled with <span class="str">[Benjamini-Hochberg FDR / Bonferroni]</span>. All analyses
+used <span class="str">[R 4.4.1 / Python 3.12]</span> with package versions in Supplementary Table S1.</pre></div>
+
+<div class="code-tab-content" id="tmpl-data"><pre><span class="comment"># Data Availability Statement</span>
+Raw sequencing data have been deposited in <span class="str">[GEO under accession GSEXXXXXX]</span>
+and are publicly available as of the date of publication.
+
+Processed Seurat objects, intermediate matrices, and figure source data are
+available at Zenodo (DOI: <span class="str">10.5281/zenodo.XXXXXXX</span>).
+
+De-identified clinical data supporting the findings of this study are available
+from the corresponding author upon reasonable request, subject to <span class="str">[IRB approval]</span>.</pre></div>
+
+<div class="code-tab-content" id="tmpl-code"><pre><span class="comment"># Code Availability Statement</span>
+All analysis code is available at <span class="str">github.com/yourgroup/projectname</span>
+(commit hash: <span class="str">abc1234</span>) under MIT license.
+
+A frozen Zenodo snapshot of the repository at time of publication is archived at
+DOI: <span class="str">10.5281/zenodo.XXXXXXX</span>.
+
+The pipeline is containerised (Docker image: <span class="str">ghcr.io/yourgroup/proj:v1.0.0</span>)
+and managed by Snakemake v8.20. A workflow diagram is in Supplementary Figure S1.</pre></div>
+
+<div class="code-tab-content" id="tmpl-ethics"><pre><span class="comment"># Ethics &amp; Consent Statement</span>
+This study was approved by the <span class="str">[Institutional Review Board of XXX Hospital]</span>
+(approval no. <span class="str">XXX-2025-001</span>) and conducted in accordance with the
+Declaration of Helsinki (2024 revision). Written informed consent was obtained
+from all participants prior to enrollment.
+
+Animal experiments were approved by the IACUC of <span class="str">[Institution]</span>
+(protocol no. <span class="str">XXX-A-2025-007</span>) and reported per the ARRIVE 2.0 guidelines.</pre></div>
+</div>
+
+<div class="callout warn"><span class="callout-icon">⚠️</span><div>
+<div data-lang="zh"><strong>常見錯誤：</strong><br>① 寫「Seurat 進行分析」但沒寫版本——5 年內 Seurat 已從 v3 改到 v5，演算法差很大。<br>② 「significant at p&lt;0.05」但沒交代 multiple testing 校正。<br>③ "data available upon request" 但作者離職、實驗室解散後就拿不到——deposit 才是負責任做法。</div>
+<div data-lang="en"><strong>Common mistakes:</strong><br>① "We used Seurat" without version — Seurat v3→v5 algorithms differ substantially.<br>② "Significant at p&lt;0.05" without mentioning multiple-testing correction.<br>③ "Available upon request" fails when authors move or labs close — depositing is the responsible approach.</div>
+</div></div>
+</section>
+
+<section class="section">
+<div class="section-label" data-zh="決策引導" data-en="DECISION GUIDE">決策引導</div>
+<h2 data-zh="五、寫 Methods 之前的 5 個問題" data-en="V. 5 Questions Before Writing Methods">五、寫 Methods 之前的 5 個問題</h2>
+<div class="decision-tree">
+<h4>🌳 <span data-zh="開始寫之前先問自己" data-en="Ask Yourself First">開始寫之前先問自己</span></h4>
+<div data-lang="zh">
+<div class="dt-node"><span class="dt-q">Q1:</span><div>對應的 EQUATOR checklist 下載了嗎？<span class="dt-arrow">→ 否 →</span> 先到 equator-network.org 找你研究類型對應的 checklist。</div></div>
+<div class="dt-node"><span class="dt-q">Q2:</span><div>所有軟體/套件版本記下了嗎？<span class="dt-arrow">→ 否 →</span> R 跑 <code>sessionInfo()</code>、Python 跑 <code>pip freeze</code>，存成 supplementary。</div></div>
+<div class="dt-node"><span class="dt-q">Q3:</span><div>code/data 已經 deposit 了嗎？<span class="dt-arrow">→ 否 →</span> 至少先佔位 GitHub repo + Zenodo placeholder DOI。</div></div>
+<div class="dt-node"><span class="dt-q">Q4:</span><div>IRB / IACUC approval 編號齊全？<span class="dt-arrow">→ 否 →</span> 立刻向研究助理或 PI 確認。</div></div>
+<div class="dt-node"><span class="dt-q">Q5:</span><div>Methods 會超過 word limit？<span class="dt-arrow">→ 是 →</span> 把 detailed protocols 移到 supplementary，主文留 high-level 概覽。</div></div>
+</div>
+<div data-lang="en">
+<div class="dt-node"><span class="dt-q">Q1:</span><div>Downloaded the relevant EQUATOR checklist? <span class="dt-arrow">→ No →</span> Visit equator-network.org and grab one for your study type.</div></div>
+<div class="dt-node"><span class="dt-q">Q2:</span><div>All software versions recorded? <span class="dt-arrow">→ No →</span> Run <code>sessionInfo()</code> in R or <code>pip freeze</code> in Python; save as supplementary.</div></div>
+<div class="dt-node"><span class="dt-q">Q3:</span><div>Code/data deposited? <span class="dt-arrow">→ No →</span> At minimum reserve a GitHub repo + Zenodo placeholder DOI.</div></div>
+<div class="dt-node"><span class="dt-q">Q4:</span><div>IRB / IACUC numbers complete? <span class="dt-arrow">→ No →</span> Confirm with RA or PI immediately.</div></div>
+<div class="dt-node"><span class="dt-q">Q5:</span><div>Methods over word limit? <span class="dt-arrow">→ Yes →</span> Move detailed protocols to supplementary; keep main text high-level.</div></div>
+</div>
+</div>
+</section>
+
+<section class="quiz-section">
+<h3>📝 <span data-zh="自我檢測" data-en="Self-Check">自我檢測</span></h3>
+<div class="quiz-q" data-answer="2">
+<p data-lang="zh">1. 你做的是觀察性 cohort 研究（追蹤 5 年發病率），最該對照哪個 EQUATOR checklist？</p>
+<p data-lang="en">1. You ran an observational cohort study (5-year incidence). Which EQUATOR checklist applies?</p>
+<div class="quiz-options">
+<div class="quiz-opt" data-idx="0"><span data-lang="zh">A. CONSORT</span><span data-lang="en">A. CONSORT</span></div>
+<div class="quiz-opt" data-idx="1"><span data-lang="zh">B. PRISMA</span><span data-lang="en">B. PRISMA</span></div>
+<div class="quiz-opt" data-idx="2"><span data-lang="zh">C. STROBE</span><span data-lang="en">C. STROBE</span></div>
+<div class="quiz-opt" data-idx="3"><span data-lang="zh">D. ARRIVE</span><span data-lang="en">D. ARRIVE</span></div>
+</div><div class="quiz-feedback" id="fb1"></div></div>
+
+<div class="quiz-q" data-answer="3">
+<p data-lang="zh">2. 關於 code/data availability，最負責任的作法是？</p>
+<p data-lang="en">2. The most responsible approach to code/data availability is?</p>
+<div class="quiz-options">
+<div class="quiz-opt" data-idx="0"><span data-lang="zh">A. "available upon request" 即可</span><span data-lang="en">A. "available upon request" is enough</span></div>
+<div class="quiz-opt" data-idx="1"><span data-lang="zh">B. 放在自己 lab 的私人伺服器</span><span data-lang="en">B. Host on the lab's private server</span></div>
+<div class="quiz-opt" data-idx="2"><span data-lang="zh">C. 寄給有需要的同行</span><span data-lang="en">C. Email to interested colleagues</span></div>
+<div class="quiz-opt" data-idx="3"><span data-lang="zh">D. 公開 deposit (GitHub + Zenodo DOI / GEO accession) 並在文中標明</span><span data-lang="en">D. Public deposit (GitHub + Zenodo DOI / GEO accession) and cite in the paper</span></div>
+</div><div class="quiz-feedback" id="fb2"></div></div>
+
+<div class="quiz-q" data-answer="1">
+<p data-lang="zh">3. 寫 scRNA-seq 方法時，下列何項可以省略？</p>
+<p data-lang="en">3. Which item is OK to omit from a scRNA-seq Methods section?</p>
+<div class="quiz-options">
+<div class="quiz-opt" data-idx="0"><span data-lang="zh">A. Seurat 的版本號 (v4 vs v5 演算法不同)</span><span data-lang="en">A. Seurat version (v4 vs v5 algorithms differ)</span></div>
+<div class="quiz-opt" data-idx="1"><span data-lang="zh">B. 每張圖的顏色配色方案</span><span data-lang="en">B. The color palette of each figure</span></div>
+<div class="quiz-opt" data-idx="2"><span data-lang="zh">C. UMAP 的 n.neighbors 與 min.dist</span><span data-lang="en">C. UMAP n.neighbors and min.dist</span></div>
+<div class="quiz-opt" data-idx="3"><span data-lang="zh">D. 多重檢定校正方法 (BH / Bonferroni)</span><span data-lang="en">D. Multiple-testing correction method (BH / Bonferroni)</span></div>
+</div><div class="quiz-feedback" id="fb3"></div></div>
+</section>
+
+<nav class="page-nav">
+<a href="introduction-writing.html"><span class="nav-dir" data-zh="← 上一步" data-en="← Previous">← 上一步</span><span class="nav-title">Step 4: Introduction</span></a>
+<a href="results-figures.html"><span class="nav-dir" data-zh="下一步 →" data-en="Next →">下一步 →</span><span class="nav-title">Step 6: Results &amp; Figures</span></a>
+</nav>
+</main>
+<footer class="site-footer">© Charlene — Advanced Academic Writing Interactive Tutorial</footer>
+<script src="i18n.js"></script>
+<script>
+window.addEventListener('scroll',()=>{const h=document.documentElement;document.getElementById('progressBar').style.width=(h.scrollTop/(h.scrollHeight-h.clientHeight))*100+'%';});
+function switchTab(b,id){const p=b.closest('.code-tabs');p.querySelectorAll('.code-tab-btn').forEach(x=>x.classList.remove('active'));p.querySelectorAll('.code-tab-content').forEach(x=>x.classList.remove('active'));b.classList.add('active');document.getElementById(id).classList.add('active');}
+const QF={
+  zh:{q1_y:'觀察性研究 (cohort / case-control / cross-sectional) 對應 STROBE。',q1_n:'STROBE 才是觀察性研究的對應 checklist。',q2_y:'公開 deposit 是 2026 年的標準，"upon request" 已被多數期刊視為不足。',q2_n:'Public deposit + 文中明確 citation 才符合 FAIR 原則。',q3_y:'圖的配色不影響可重現性；其他三項都會影響。',q3_n:'方法可重現性不取決於配色，但其他三項缺一就無法重做。'},
+  en:{q1_y:'Observational studies (cohort/case-control/cross-sectional) → STROBE.',q1_n:'STROBE is the matching checklist for observational designs.',q2_y:'Public deposit is the 2026 standard; "upon request" is increasingly seen as inadequate.',q2_n:'Public deposit + clear citation in the paper meets FAIR principles.',q3_y:'Color palette doesn\'t affect reproducibility; the others do.',q3_n:'Reproducibility doesn\'t hinge on color, but missing any of the other three blocks replication.'}
+};
+document.querySelectorAll('.quiz-q').forEach((q,qi)=>{const ans=+q.dataset.answer;q.querySelectorAll('.quiz-opt').forEach(o=>{o.addEventListener('click',()=>{if(q.classList.contains('answered'))return;q.classList.add('answered');const fb=document.getElementById('fb'+(qi+1));const ok=+o.dataset.idx===ans;o.classList.add(ok?'correct':'wrong');if(!ok)q.querySelectorAll('.quiz-opt')[ans].classList.add('correct');const L=I18n.get();fb.className='quiz-feedback show '+(ok?'correct-fb':'wrong-fb');fb.textContent=(ok?'✅ ':'❌ ')+(QF[L]['q'+(qi+1)+'_'+(ok?'y':'n')]||'');});});});
+</script>
+</body></html>

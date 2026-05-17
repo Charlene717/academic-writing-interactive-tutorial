@@ -1,0 +1,265 @@
+<!DOCTYPE html><html lang="zh-Hant"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Step 14: AI 工具與可重現實踐 (2026) — Academic Writing Tutorial</title>
+<link rel="stylesheet" href="styles.css">
+</head><body>
+<nav class="top-nav"><div class="top-nav-inner">
+  <a href="index.html" class="top-nav-brand"><span>📝</span> <span data-zh="高等論文寫作" data-en="Academic Writing">高等論文寫作</span></a>
+  <ul class="top-nav-links">
+    <li><a href="research-question.html" data-zh="問題" data-en="Question">問題</a></li>
+    <li><a href="literature-review.html" data-zh="文獻" data-en="LitRev">文獻</a></li>
+    <li><a href="structure-imrad.html">IMRaD</a></li>
+    <li><a href="introduction-writing.html" data-zh="緒論" data-en="Intro">緒論</a></li>
+    <li><a href="methods-writing.html" data-zh="方法" data-en="Methods">方法</a></li>
+    <li><a href="results-figures.html" data-zh="結果" data-en="Results">結果</a></li>
+    <li><a href="discussion-limits.html" data-zh="討論" data-en="Disc.">討論</a></li>
+    <li><a href="abstract-title.html" data-zh="摘要" data-en="Abstract">摘要</a></li>
+    <li><a href="style-language.html" data-zh="風格" data-en="Style">風格</a></li>
+    <li><a href="citation-references.html" data-zh="引用" data-en="Cite">引用</a></li>
+    <li><a href="journal-strategy.html" data-zh="期刊" data-en="Journal">期刊</a></li>
+    <li><a href="peer-review-response.html" data-zh="審查" data-en="Review">審查</a></li>
+    <li><a href="ethics-authorship.html" data-zh="倫理" data-en="Ethics">倫理</a></li>
+    <li><a href="ai-tools-reproducibility.html" class="active">AI</a></li>
+  </ul>
+</div></nav>
+<div class="progress-bar-container"><div class="progress-bar" id="progressBar"></div></div>
+<header class="page-hero"><div class="step-badge">STEP 14 / 14</div>
+<h1 data-zh="AI 工具與可重現實踐 (2026)" data-en="AI Tools &amp; Reproducibility (2026)">AI 工具與可重現實踐 (2026)</h1>
+<p class="subtitle" data-lang="zh">2026 期刊 AI 政策、preprint (bioRxiv/medRxiv)、code/data deposit、Quarto/R Markdown——從寫作到發表的現代工具鏈。</p>
+<p class="subtitle" data-lang="en">2026 journal AI policies, preprints (bioRxiv/medRxiv), code/data deposits, Quarto/R Markdown — the modern stack from writing to publishing.</p>
+</header>
+<main class="content-wrap">
+
+<section class="section">
+<div class="section-label" data-zh="概覽" data-en="OVERVIEW">概覽</div>
+<h2 data-zh="2026 的論文寫作生態" data-en="The 2026 Manuscript Ecosystem">2026 的寫作生態</h2>
+<div data-lang="zh">
+<p>2023-2026 之間，學術寫作的工具鏈經歷了三波變革：<strong>(1)</strong> generative AI (ChatGPT, Claude, Gemini) 進入寫作流程；<strong>(2)</strong> Preprint 從可選變成標準（bioRxiv 已超過 30 萬篇）；<strong>(3)</strong> Reproducibility tools (Quarto, Snakemake, Docker) 從「nice to have」變成「期刊要求」。</p>
+<p>這頁告訴你 2026 主流期刊到底要什麼、不要什麼，以及如何在合規的前提下用 AI 加速你的寫作。</p>
+</div>
+<div data-lang="en">
+<p>From 2023 to 2026, the academic writing toolchain saw three shifts: <strong>(1)</strong> generative AI (ChatGPT, Claude, Gemini) entered the workflow; <strong>(2)</strong> preprints went from optional to standard (bioRxiv exceeds 300k papers); <strong>(3)</strong> Reproducibility tools (Quarto, Snakemake, Docker) shifted from "nice to have" to "journal-required."</p>
+<p>This page covers what 2026 mainstream journals actually require, what they prohibit, and how to use AI compliantly.</p>
+</div>
+</section>
+
+<section class="section">
+<div class="section-label" data-zh="AI 政策" data-en="AI POLICIES">2026 AI 政策</div>
+<h2 data-zh="一、主流期刊的 AI 政策共識" data-en="I. Consensus AI Policies of Major Publishers">一、AI 政策共識</h2>
+<div data-lang="zh">
+<p>截至 2026/05，Elsevier, Springer Nature, Wiley, Taylor &amp; Francis, SAGE, Cell Press 等主流期刊的 AI 政策已收斂為以下五點。</p>
+</div>
+<div data-lang="en">
+<p>As of 2026/05, AI policies across Elsevier, Springer Nature, Wiley, Taylor &amp; Francis, SAGE, Cell Press, and other major publishers have converged to the following five points.</p>
+</div>
+<table class="comp-table">
+<thead><tr><th data-zh="政策" data-en="Policy">政策</th><th data-zh="說明" data-en="Description">說明</th></tr></thead>
+<tbody>
+<tr><td><strong data-zh="① AI 不能掛 author" data-en="① AI cannot be an author">① AI 不能掛 author</strong></td>
+<td><span data-lang="zh">所有主流期刊禁止 ChatGPT, Claude, Gemini 等列為 author 或 co-author。理由：AI 無法承擔 ICMJE 第 ④ 條 "accountability"。</span><span data-lang="en">All major publishers prohibit ChatGPT, Claude, Gemini etc. as authors. Rationale: AI cannot bear ICMJE criterion ④ "accountability".</span></td></tr>
+<tr><td><strong data-zh="② Generative 內容須揭露" data-en="② Generative content must be disclosed">② Generative 內容必須揭露</strong></td>
+<td><span data-lang="zh">若 AI 用於草擬實質內容，必須在 Methods 或 Acknowledgements 揭露：工具名稱 + 版本 + 用途 + 用在哪個段落。</span><span data-lang="en">If AI drafted substantive content, disclose in Methods or Acknowledgements: tool name + version + purpose + where used.</span></td></tr>
+<tr><td><strong data-zh="③ 文法/翻譯/校對例外" data-en="③ Grammar / translation / proofreading exception">③ 文法/翻譯/校對例外</strong></td>
+<td><span data-lang="zh">用 Grammarly, DeepL, Claude 純粹做語法 / 翻譯 / 校對，多數期刊不要求揭露 (但 APA、Cell 仍鼓勵揭露)。</span><span data-lang="en">Using Grammarly, DeepL, Claude purely for grammar/translation/proofreading typically doesn't need disclosure (but APA, Cell still encourage it).</span></td></tr>
+<tr><td><strong data-zh="④ 圖片生成/變造嚴禁" data-en="④ AI image generation/editing prohibited">④ 圖片生成/變造嚴禁</strong></td>
+<td><span data-lang="zh">Cell Press 等明文禁止 generative AI 製作或修改科學圖片 (DALL-E, Midjourney, Stable Diffusion)。Conceptual graphical abstract 可能例外但要揭露。</span><span data-lang="en">Cell Press etc. explicitly prohibit generative AI for creating/altering scientific images (DALL-E, Midjourney, Stable Diffusion). Conceptual graphical abstracts may be exempt but require disclosure.</span></td></tr>
+<tr><td><strong data-zh="⑤ Reviewer 不得用 AI" data-en="⑤ Reviewers cannot use AI">⑤ Reviewer 不得用 AI</strong></td>
+<td><span data-lang="zh">Cell, NEJM, JAMA, NIH 明文禁止 reviewer 把 confidential manuscript 上傳到 ChatGPT 等公開 AI (洩漏 confidential research)。違反 = peer review breach。</span><span data-lang="en">Cell, NEJM, JAMA, NIH explicitly prohibit reviewers from uploading confidential manuscripts to public AI (ChatGPT, Claude). Doing so = peer review breach.</span></td></tr>
+</tbody></table>
+<div class="callout warn"><span class="callout-icon">⚠️</span><div>
+<div data-lang="zh"><strong>2026 的灰色地帶：</strong>(a) 用 AI 做 literature review 摘要——多數期刊不要求揭露，但要求 author 對引用的所有事實負責（AI 常 hallucinate citations！）；(b) 用 AI 做 Statistical analysis code——若 AI 寫了 code 然後 author 跑、debug、解釋，多數期刊視為 "tool use" 不要求揭露 (但要在 Code Availability 註明)。</div>
+<div data-lang="en"><strong>2026 grey zones:</strong> (a) Using AI to summarize literature — most journals don't require disclosure but you remain accountable for every cited fact (AI hallucinates citations!); (b) Using AI to write statistical code — if AI drafts and author runs/debugs/explains, most journals treat as "tool use" without disclosure (but note in Code Availability).</div>
+</div></div>
+</section>
+
+<section class="section">
+<div class="section-label" data-zh="揭露範本" data-en="DISCLOSURE TEMPLATE">AI 揭露範本</div>
+<h2 data-zh="二、AI 使用揭露範本" data-en="II. AI Use Disclosure Templates">二、AI 揭露範本</h2>
+<div class="code-tabs"><div class="code-tab-btns">
+<button class="code-tab-btn active" onclick="switchTab(this,'ai-acks')">Acknowledgements</button>
+<button class="code-tab-btn" onclick="switchTab(this,'ai-meth')">Methods</button>
+<button class="code-tab-btn" onclick="switchTab(this,'ai-cell')">Cell Press style</button>
+</div>
+
+<div class="code-tab-content active" id="ai-acks"><pre><span class="comment"># Generic acknowledgements style</span>
+During the preparation of this manuscript, the author(s) used
+<span class="str">Claude 3.7 Sonnet (Anthropic, 2025-Q4)</span> to <span class="str">improve language and check
+grammar in the Discussion section</span>. After using this tool, the
+author(s) reviewed and edited the content as needed and take full
+responsibility for the content of the publication.</pre></div>
+
+<div class="code-tab-content" id="ai-meth"><pre><span class="comment"># Methods section AI use</span>
+Initial drafts of the data preprocessing pipeline (Snakemake rules
+and R scripts) were generated with <span class="str">ChatGPT-5 (OpenAI, January 2026)</span>
+and <span class="str">Claude Sonnet 4.6 (Anthropic, March 2026)</span>. All generated code
+was independently tested, validated against benchmark datasets
+(GSE298765), and manually corrected before use. Authors take full
+responsibility for code correctness and have deposited the final
+verified pipeline at <span class="str">github.com/charlene/tnbc-pipeline</span>.</pre></div>
+
+<div class="code-tab-content" id="ai-cell"><pre><span class="comment"># Cell Press 2026 disclosure (most stringent)</span>
+<span class="kw">Declaration of generative AI in scientific writing:</span>
+
+During the preparation of this work the author(s) used
+<span class="str">[Tool name] [Version]</span> for <span class="str">[specific use: e.g., language polishing
+of the Introduction; structuring the Discussion; literature retrieval]</span>.
+
+The authors reviewed and edited the content and take full
+responsibility for the content of the publication.
+
+<span class="comment"># Cell Press additionally disallows AI for image creation/editing</span></pre></div>
+</div>
+</section>
+
+<section class="section">
+<div class="section-label" data-zh="Preprints" data-en="PREPRINTS">Preprints</div>
+<h2 data-zh="三、Preprint：bioRxiv / medRxiv 工作流" data-en="III. Preprints: bioRxiv / medRxiv Workflow">三、Preprint 工作流</h2>
+<div data-lang="zh">
+<p>2026 年 preprint 已成主流。Cell Press, Nature, PNAS, eLife 等主刊均明確支援 preprint 與後續正式發表並行 (post-bioRxiv 不被視為 prior publication)。</p>
+<p>建議流程：</p>
+<ol>
+<li>論文寫好後 → 投 bioRxiv (生命科學) / medRxiv (臨床) / arXiv (計算/物理) / Research Square (跨領域)。</li>
+<li>同時 / 之後投正式期刊。</li>
+<li>Preprint DOI 立刻引用，可用於 grant application、conference talk、招聘材料。</li>
+<li>正式被接受後，bioRxiv 自動連結到正式版本。</li>
+</ol>
+</div>
+<div data-lang="en">
+<p>By 2026, preprints are mainstream. Cell Press, Nature, PNAS, eLife etc. explicitly support preprints alongside formal publication (post-bioRxiv ≠ prior publication).</p>
+<p>Recommended workflow:</p>
+<ol>
+<li>Draft complete → post to bioRxiv (life sciences) / medRxiv (clinical) / arXiv (computational/physics) / Research Square (interdisciplinary).</li>
+<li>Simultaneously / subsequently submit to a formal journal.</li>
+<li>Preprint DOI is immediately citable — useful for grant applications, conference talks, recruitment.</li>
+<li>Once accepted, bioRxiv auto-links to the formal published version.</li>
+</ol>
+</div>
+<table class="comp-table">
+<thead><tr><th data-zh="Preprint server" data-en="Preprint server">Preprint server</th><th data-zh="領域" data-en="Field">領域</th><th data-zh="特色" data-en="Notable">特色</th></tr></thead>
+<tbody>
+<tr><td><strong>bioRxiv</strong></td><td><span data-lang="zh">生命科學</span><span data-lang="en">Life sciences</span></td><td><span data-lang="zh">CSHL 維護；多數生醫主刊皆認可</span><span data-lang="en">CSHL maintained; recognized by most biomedical journals</span></td></tr>
+<tr><td><strong>medRxiv</strong></td><td><span data-lang="zh">臨床醫學</span><span data-lang="en">Clinical medicine</span></td><td><span data-lang="zh">嚴格 screening (避免直接影響病人決策)</span><span data-lang="en">Stricter screening (to avoid direct patient impact)</span></td></tr>
+<tr><td><strong>arXiv</strong></td><td><span data-lang="zh">物理 / 數學 / CS</span><span data-lang="en">Physics / math / CS</span></td><td><span data-lang="zh">最早的 preprint server (1991-)</span><span data-lang="en">Oldest preprint server (since 1991)</span></td></tr>
+<tr><td><strong>chemRxiv</strong></td><td><span data-lang="zh">化學</span><span data-lang="en">Chemistry</span></td><td><span data-lang="zh">由 ACS, RSC, GDCh, CSJ 共同維護</span><span data-lang="en">Co-maintained by ACS, RSC, GDCh, CSJ</span></td></tr>
+<tr><td><strong>Research Square</strong></td><td><span data-lang="zh">跨領域</span><span data-lang="en">Interdisciplinary</span></td><td><span data-lang="zh">與 Springer Nature 整合 (In Review feature)</span><span data-lang="en">Integrated with Springer Nature (In Review feature)</span></td></tr>
+</tbody></table>
+</section>
+
+<section class="section">
+<div class="section-label" data-zh="可重現工具" data-en="REPRO TOOLS">可重現工具</div>
+<h2 data-zh="四、Quarto / R Markdown / Jupyter：寫作 + 程式 + 圖整合" data-en="IV. Quarto / R Markdown / Jupyter: Writing + Code + Figures Integrated">四、Quarto / R Markdown / Jupyter</h2>
+<div data-lang="zh">
+<p>2026 reproducibility 的標準做法：論文與程式 / 圖表 / 數據在同一個檔案內，確保 every figure 都可以從原始數據一鍵重生。</p>
+</div>
+<div data-lang="en">
+<p>2026 reproducibility best practice: paper, code, figures, data live in one file — every figure regeneratable from raw data with one command.</p>
+</div>
+<div class="card-grid cols-3">
+<div class="card"><h4>📘 Quarto (2022+)</h4>
+<div data-lang="zh"><p>R Markdown 的下一代，支援 R + Python + Julia + Observable。可一鍵 render 成 PDF / HTML / docx / pptx。Posit (前 RStudio) 維護。<strong>2026 推薦首選</strong>。</p></div>
+<div data-lang="en"><p>R Markdown's successor — supports R + Python + Julia + Observable. One-click render to PDF / HTML / docx / pptx. Maintained by Posit (formerly RStudio). <strong>2026 top pick</strong>.</p></div></div>
+
+<div class="card"><h4>📗 R Markdown</h4>
+<div data-lang="zh"><p>knitr-based。R 為主、Python via reticulate。已被 Quarto 取代但仍廣泛使用。bookdown 適合 thesis-length。</p></div>
+<div data-lang="en"><p>knitr-based; R-first, Python via reticulate. Superseded by Quarto but still widely used. bookdown is suited to thesis-length docs.</p></div></div>
+
+<div class="card"><h4>📙 Jupyter (nbconvert)</h4>
+<div data-lang="zh"><p>Python-first。Jupyter Book 適合做 large reproducibility report。但同行常因 cell 順序問題 reproducibility 不穩。</p></div>
+<div data-lang="en"><p>Python-first. Jupyter Book suits large reproducibility reports. But cell-order issues hurt reproducibility in practice.</p></div></div>
+</div>
+</section>
+
+<section class="section">
+<div class="section-label" data-zh="工作流" data-en="WORKFLOW">2026 寫作工作流</div>
+<h2 data-zh="五、2026 推薦寫作工作流 (生資/生醫)" data-en="V. 2026 Recommended Workflow (Bioinformatics/Biomedical)">五、2026 工作流</h2>
+<div class="workflow">
+<div class="workflow-step" data-step="1"><h4><span data-zh="專案管理" data-en="Project structure">專案管理</span></h4>
+<div data-lang="zh"><p>用 Snakemake / Nextflow 管理 pipeline；GitHub repo 從 day 1 開始；用 <code>renv</code> (R) / <code>uv</code> (Python) lock 套件版本。</p></div>
+<div data-lang="en"><p>Manage pipelines via Snakemake / Nextflow; start GitHub repo from day 1; lock package versions with <code>renv</code> (R) / <code>uv</code> (Python).</p></div>
+</div>
+<div class="workflow-step" data-step="2"><h4><span data-zh="文獻 + 寫作" data-en="Literature + Writing">文獻 + 寫作</span></h4>
+<div data-lang="zh"><p>Zotero (with Better BibTeX) → Quarto + LaTeX/Word；可在 Quarto chunk 內直接放分析 code，避免 figure 與 paper 不同步。</p></div>
+<div data-lang="en"><p>Zotero (with Better BibTeX) → Quarto + LaTeX/Word; Quarto chunks hold analysis code so figures and paper never desynchronize.</p></div>
+</div>
+<div class="workflow-step" data-step="3"><h4><span data-zh="AI 輔助" data-en="AI assistance">AI 輔助</span></h4>
+<div data-lang="zh"><p>Claude / ChatGPT 用於：(a) 結構回饋、(b) 語言潤稿、(c) 程式 debug。<strong>不用於</strong>：直接生成最終敘述、引用、圖片。每次 AI 生成後手動驗證並修改。</p></div>
+<div data-lang="en"><p>Claude / ChatGPT for: (a) structural feedback; (b) language polishing; (c) code debugging. <strong>Not for</strong>: directly generating final prose, citations, or images. Always manually verify and revise.</p></div>
+</div>
+<div class="workflow-step" data-step="4"><h4><span data-zh="Preprint + 投稿" data-en="Preprint + Submit">Preprint + 投稿</span></h4>
+<div data-lang="zh"><p>同時送 bioRxiv + 投正式期刊。Code 同步 deposit GitHub + Zenodo (frozen DOI)；data 送 GEO/Zenodo/Figshare。</p></div>
+<div data-lang="en"><p>Post to bioRxiv simultaneously with formal submission. Deposit code on GitHub + Zenodo (frozen DOI); data on GEO/Zenodo/Figshare.</p></div>
+</div>
+<div class="workflow-step" data-step="5"><h4><span data-zh="Revision + 接受" data-en="Revision + Acceptance">Revision + 接受</span></h4>
+<div data-lang="zh"><p>Revision response 用 Quarto track-changes；接受後在 ORCID 上發布、社群分享 (X, BlueSky, Mastodon, Slack)、寫 lay summary 給 institutional press office。</p></div>
+<div data-lang="en"><p>Quarto track-changes for revision response; on acceptance update ORCID, share on social media (X, BlueSky, Mastodon, Slack), write lay summary for institutional press office.</p></div>
+</div>
+</div>
+</section>
+
+<section class="section">
+<div class="section-label" data-zh="決策引導" data-en="DECISION GUIDE">決策引導</div>
+<h2 data-zh="六、AI 用在何處安全？" data-en="VI. Where Is AI Use Safe?">六、AI 安全使用決策樹</h2>
+<div class="decision-tree">
+<h4>🌳 <span data-zh="AI 使用紅綠燈" data-en="AI use traffic light">AI 使用紅綠燈</span></h4>
+<div data-lang="zh">
+<div class="dt-node"><span class="dt-q">🟢</span><div><strong>建議用：</strong>語法檢查、翻譯、結構建議、程式 debug、benchmarking 別人的方法、總結文獻 (再人工驗證每個事實)。</div></div>
+<div class="dt-node"><span class="dt-q">🟡</span><div><strong>需揭露：</strong>大段落草擬、重新組織 Discussion、自動生成 abstract、code 大段生成。</div></div>
+<div class="dt-node"><span class="dt-q">🔴</span><div><strong>禁止：</strong>掛 AI 為 author、生成 / 修改科學圖片 (Cell Press 等)、把 confidential manuscript 上傳到 public AI 做 review、生成虛構數據或引用 (絕對紅線)。</div></div>
+</div>
+<div data-lang="en">
+<div class="dt-node"><span class="dt-q">🟢</span><div><strong>Recommended:</strong> grammar/translation/structure suggestions, code debugging, benchmarking others' methods, summarizing literature (then manually verify every fact).</div></div>
+<div class="dt-node"><span class="dt-q">🟡</span><div><strong>Disclose:</strong> drafting whole paragraphs, reorganizing Discussion, auto-generating abstracts, large code generation.</div></div>
+<div class="dt-node"><span class="dt-q">🔴</span><div><strong>Prohibited:</strong> listing AI as author; AI-generated/edited scientific images (Cell Press etc.); uploading confidential manuscripts to public AI for review; fabricating data or citations (absolute red line).</div></div>
+</div>
+</div>
+</section>
+
+<section class="quiz-section">
+<h3>📝 <span data-zh="自我檢測" data-en="Self-Check">自我檢測</span></h3>
+<div class="quiz-q" data-answer="2">
+<p data-lang="zh">1. 你用 ChatGPT-5 草擬 Discussion 的 2 段，再大幅修改。2026 主流期刊的標準做法是？</p>
+<p data-lang="en">1. You used ChatGPT-5 to draft 2 paragraphs of Discussion then heavily revised. 2026 standard practice?</p>
+<div class="quiz-options">
+<div class="quiz-opt" data-idx="0"><span data-lang="zh">A. 把 ChatGPT 列為 co-author</span><span data-lang="en">A. List ChatGPT as a co-author</span></div>
+<div class="quiz-opt" data-idx="1"><span data-lang="zh">B. 完全不用揭露 (反正都已修改)</span><span data-lang="en">B. No disclosure needed (since you revised it)</span></div>
+<div class="quiz-opt" data-idx="2"><span data-lang="zh">C. 在 Acknowledgements 或 Methods 揭露工具名 + 版本 + 用途，並聲明作者對內容負全責</span><span data-lang="en">C. Disclose in Acknowledgements/Methods: tool + version + use; affirm authors take full responsibility</span></div>
+<div class="quiz-opt" data-idx="3"><span data-lang="zh">D. 撤稿不能投了</span><span data-lang="en">D. Cannot submit at all</span></div>
+</div><div class="quiz-feedback" id="fb1"></div></div>
+
+<div class="quiz-q" data-answer="3">
+<p data-lang="zh">2. 關於 preprint (bioRxiv) 與正式期刊，下列何者正確？</p>
+<p data-lang="en">2. Which is correct about preprint (bioRxiv) and formal journals?</p>
+<div class="quiz-options">
+<div class="quiz-opt" data-idx="0"><span data-lang="zh">A. 一旦投 bioRxiv 就不能再投正式期刊 (視為 prior publication)</span><span data-lang="en">A. Once on bioRxiv, you can't submit to formal journals (counted as prior publication)</span></div>
+<div class="quiz-opt" data-idx="1"><span data-lang="zh">B. preprint 只能投放在 arXiv</span><span data-lang="en">B. Preprints can only go to arXiv</span></div>
+<div class="quiz-opt" data-idx="2"><span data-lang="zh">C. preprint DOI 不能引用</span><span data-lang="en">C. Preprint DOIs cannot be cited</span></div>
+<div class="quiz-opt" data-idx="3"><span data-lang="zh">D. 2026 主流期刊 (Cell, Nature, PNAS, eLife) 普遍接受 preprint 並行，並且 preprint DOI 可立刻引用</span><span data-lang="en">D. 2026 mainstream journals (Cell, Nature, PNAS, eLife) generally support parallel preprinting; preprint DOIs are citable immediately</span></div>
+</div><div class="quiz-feedback" id="fb2"></div></div>
+
+<div class="quiz-q" data-answer="1">
+<p data-lang="zh">3. 你被邀請當 reviewer，可不可以把 manuscript 上傳到 ChatGPT 幫你寫 review？</p>
+<p data-lang="en">3. As a reviewer, can you upload the manuscript to ChatGPT to help write the review?</p>
+<div class="quiz-options">
+<div class="quiz-opt" data-idx="0"><span data-lang="zh">A. 可以，AI 用得越多越好</span><span data-lang="en">A. Yes — the more AI the better</span></div>
+<div class="quiz-opt" data-idx="1"><span data-lang="zh">B. 不可以——Cell, NEJM, JAMA, NIH 等明文禁止 (洩漏 confidential research)</span><span data-lang="en">B. No — Cell, NEJM, JAMA, NIH explicitly prohibit it (leaks confidential research)</span></div>
+<div class="quiz-opt" data-idx="2"><span data-lang="zh">C. 可以，只要不告訴 editor</span><span data-lang="en">C. Yes, as long as you don't tell the editor</span></div>
+<div class="quiz-opt" data-idx="3"><span data-lang="zh">D. 只有 Claude 不可以、ChatGPT 可以</span><span data-lang="en">D. Only Claude is prohibited; ChatGPT is fine</span></div>
+</div><div class="quiz-feedback" id="fb3"></div></div>
+</section>
+
+<nav class="page-nav">
+<a href="ethics-authorship.html"><span class="nav-dir" data-zh="← 上一步" data-en="← Previous">← 上一步</span><span class="nav-title">Step 13: Ethics &amp; Authorship</span></a>
+<a href="index.html"><span class="nav-dir" data-zh="🏠 回首頁" data-en="🏠 Back to Hub">🏠 回首頁</span><span class="nav-title">Tutorial Hub</span></a>
+</nav>
+</main>
+<footer class="site-footer">© Charlene — Advanced Academic Writing Interactive Tutorial</footer>
+<script src="i18n.js"></script>
+<script>
+window.addEventListener('scroll',()=>{const h=document.documentElement;document.getElementById('progressBar').style.width=(h.scrollTop/(h.scrollHeight-h.clientHeight))*100+'%';});
+function switchTab(b,id){const p=b.closest('.code-tabs');p.querySelectorAll('.code-tab-btn').forEach(x=>x.classList.remove('active'));p.querySelectorAll('.code-tab-content').forEach(x=>x.classList.remove('active'));b.classList.add('active');document.getElementById(id).classList.add('active');}
+const QF={
+  zh:{q1_y:'2026 共識：揭露工具名 + 版本 + 用途；author 對內容負全責；AI 不能掛 author。',q1_n:'草擬段落需揭露 (但不必撤稿)。',q2_y:'2026 主流期刊普遍接受 preprint，DOI 可即時引用。',q2_n:'preprint 不被視為 prior publication；DOI 可立刻使用。',q3_y:'Cell, NEJM, JAMA, NIH 明文禁止 reviewer 上傳 confidential manuscript 到 public AI。',q3_n:'Reviewer 把 manuscript 上傳 public AI 是 confidentiality breach。'},
+  en:{q1_y:'2026 consensus: disclose tool + version + use; authors take full responsibility; AI cannot be author.',q1_n:'Drafting paragraphs requires disclosure (but not withdrawal).',q2_y:'2026 mainstream journals widely support preprints; DOIs are immediately citable.',q2_n:'Preprints are not prior publication; DOIs are usable immediately.',q3_y:'Cell, NEJM, JAMA, NIH explicitly prohibit reviewers from uploading confidential manuscripts to public AI.',q3_n:'Uploading manuscripts to public AI is a confidentiality breach.'}
+};
+document.querySelectorAll('.quiz-q').forEach((q,qi)=>{const ans=+q.dataset.answer;q.querySelectorAll('.quiz-opt').forEach(o=>{o.addEventListener('click',()=>{if(q.classList.contains('answered'))return;q.classList.add('answered');const fb=document.getElementById('fb'+(qi+1));const ok=+o.dataset.idx===ans;o.classList.add(ok?'correct':'wrong');if(!ok)q.querySelectorAll('.quiz-opt')[ans].classList.add('correct');const L=I18n.get();fb.className='quiz-feedback show '+(ok?'correct-fb':'wrong-fb');fb.textContent=(ok?'✅ ':'❌ ')+(QF[L]['q'+(qi+1)+'_'+(ok?'y':'n')]||'');});});});
+</script>
+</body></html>

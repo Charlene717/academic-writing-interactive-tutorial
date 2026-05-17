@@ -1,0 +1,251 @@
+<!DOCTYPE html><html lang="zh-Hant"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Step 6: 結果與圖表設計 — Academic Writing Tutorial</title>
+<link rel="stylesheet" href="styles.css">
+</head><body>
+<nav class="top-nav"><div class="top-nav-inner">
+  <a href="index.html" class="top-nav-brand"><span>📝</span> <span data-zh="高等論文寫作" data-en="Academic Writing">高等論文寫作</span></a>
+  <ul class="top-nav-links">
+    <li><a href="research-question.html" data-zh="問題" data-en="Question">問題</a></li>
+    <li><a href="literature-review.html" data-zh="文獻" data-en="LitRev">文獻</a></li>
+    <li><a href="structure-imrad.html">IMRaD</a></li>
+    <li><a href="introduction-writing.html" data-zh="緒論" data-en="Intro">緒論</a></li>
+    <li><a href="methods-writing.html" data-zh="方法" data-en="Methods">方法</a></li>
+    <li><a href="results-figures.html" class="active" data-zh="結果" data-en="Results">結果</a></li>
+    <li><a href="discussion-limits.html" data-zh="討論" data-en="Disc.">討論</a></li>
+    <li><a href="abstract-title.html" data-zh="摘要" data-en="Abstract">摘要</a></li>
+    <li><a href="style-language.html" data-zh="風格" data-en="Style">風格</a></li>
+    <li><a href="citation-references.html" data-zh="引用" data-en="Cite">引用</a></li>
+    <li><a href="journal-strategy.html" data-zh="期刊" data-en="Journal">期刊</a></li>
+    <li><a href="peer-review-response.html" data-zh="審查" data-en="Review">審查</a></li>
+    <li><a href="ethics-authorship.html" data-zh="倫理" data-en="Ethics">倫理</a></li>
+    <li><a href="ai-tools-reproducibility.html">AI</a></li>
+  </ul>
+</div></nav>
+<div class="progress-bar-container"><div class="progress-bar" id="progressBar"></div></div>
+<header class="page-hero"><div class="step-badge">STEP 6 / 14</div>
+<h1 data-zh="結果與圖表設計" data-en="Results &amp; Figures">結果與圖表設計</h1>
+<p class="subtitle" data-lang="zh">結果只報告事實，不解讀意義。每張圖都是獨立故事，搭配完整效應量、CI 與校正後 p 值。</p>
+<p class="subtitle" data-lang="en">Results report facts, not interpretation. Every figure tells its own story, paired with full effect size, CI, and adjusted p.</p>
+</header>
+<main class="content-wrap">
+
+<section class="section">
+<div class="section-label" data-zh="概覽" data-en="OVERVIEW">概覽</div>
+<h2 data-zh="Results 的黃金鐵則" data-en="The Golden Rules of Results">Results 的黃金鐵則</h2>
+<div data-lang="zh">
+<p><strong>鐵則 1：只報告，不解讀。</strong>解讀放 Discussion。<br>
+<strong>鐵則 2：圖能獨立說故事。</strong>讀者不看正文，只看圖與 caption 也能懂主結論。<br>
+<strong>鐵則 3：所有 p 值都要有效應量 + 95% CI 配對。</strong>p 值只說「有沒有差」，效應量說「差多少」。</p>
+</div>
+<div data-lang="en">
+<p><strong>Rule 1: Report, don't interpret.</strong> Interpretation belongs in Discussion.<br>
+<strong>Rule 2: Figures must stand alone.</strong> A reader skimming only figures + captions should grasp the main findings.<br>
+<strong>Rule 3: Every p value needs an effect size + 95% CI.</strong> p tells you "is there a difference"; effect size tells you "how much."</p>
+</div>
+<div class="callout tip"><span class="callout-icon">💡</span><div>
+<span data-lang="zh"><strong>結構提示：</strong>Results 段落順序通常是 (1) Cohort/sample 描述 (Table 1) → (2) Primary outcome (Figure 1-2) → (3) Secondary outcomes (Figure 3-4) → (4) Sensitivity / subgroup analyses。每個 figure 對應 1 段文字。</span>
+<span data-lang="en"><strong>Structure hint:</strong> Results paragraphs typically flow (1) Cohort/sample description (Table 1) → (2) Primary outcome (Figs 1-2) → (3) Secondary outcomes (Figs 3-4) → (4) Sensitivity/subgroup analyses. One paragraph per figure.</span>
+</div></div>
+</section>
+
+<section class="section">
+<div class="section-label" data-zh="Table 1" data-en="TABLE 1">Table 1 慣例</div>
+<h2 data-zh="一、Table 1：cohort/sample 描述" data-en="I. Table 1: Cohort / Sample Characteristics">一、Table 1：cohort 描述</h2>
+<div data-lang="zh"><p><strong>Table 1</strong> 是臨床 / 觀察性 / 流病研究的標配，列出受試者基本特徵。生資研究通常改成「Sample characteristics」表格。</p></div>
+<div data-lang="en"><p><strong>Table 1</strong> is the standard cohort-characteristics table in clinical / observational / epidemiological research. Bioinformatics papers typically retitle as "Sample characteristics."</p></div>
+<table class="comp-table">
+<thead><tr><th data-zh="變項" data-en="Variable">變項</th><th>Treated (n=120)</th><th>Control (n=120)</th><th>p / SMD</th></tr></thead>
+<tbody>
+<tr><td><span data-lang="zh">年齡 (歲)，mean (SD)</span><span data-lang="en">Age (years), mean (SD)</span></td><td>58.4 (11.2)</td><td>57.9 (10.8)</td><td>0.74</td></tr>
+<tr><td><span data-lang="zh">女性，n (%)</span><span data-lang="en">Female, n (%)</span></td><td>62 (51.7)</td><td>65 (54.2)</td><td>0.79</td></tr>
+<tr><td><span data-lang="zh">BMI (kg/m²)，median (IQR)</span><span data-lang="en">BMI (kg/m²), median (IQR)</span></td><td>26.4 (23.8–29.1)</td><td>26.9 (24.0–29.6)</td><td>0.42</td></tr>
+<tr><td><span data-lang="zh">糖尿病，n (%)</span><span data-lang="en">Diabetes, n (%)</span></td><td>28 (23.3)</td><td>31 (25.8)</td><td>0.76</td></tr>
+<tr><td><span data-lang="zh">基線 HbA1c，mean (SD)</span><span data-lang="en">Baseline HbA1c, mean (SD)</span></td><td>6.8 (0.9)</td><td>6.7 (1.0)</td><td>0.51</td></tr>
+</tbody></table>
+<div class="callout warn"><span class="callout-icon">⚠️</span><div>
+<div data-lang="zh"><strong>Table 1 的 3 個常見錯誤：</strong>① 對連續變項硬套 mean (SD)，沒檢查常態性 (應改 median (IQR)) ② 把 outcome 變項放進 Table 1 (Table 1 只放 baseline) ③ Propensity-matched cohorts 沒列 SMD (Standardized Mean Difference)。</div>
+<div data-lang="en"><strong>Three common Table 1 errors:</strong> ① Forcing mean (SD) on non-normal continuous variables (should be median (IQR)). ② Putting outcome variables in Table 1 (baseline only). ③ Propensity-matched cohorts without SMD (Standardized Mean Difference).</div>
+</div></div>
+</section>
+
+<section class="section">
+<div class="section-label" data-zh="統計報告" data-en="STATS REPORTING">統計報告</div>
+<h2 data-zh="二、p 值、效應量與 CI 的完整報告" data-en="II. Full p / Effect Size / CI Reporting">二、p / 效應量 / CI 完整報告</h2>
+<div data-lang="zh"><p>單獨報 p 值在 2026 年已被視為不充分。<a href="https://amstat.tandfonline.com/doi/full/10.1080/00031305.2016.1154108" target="_blank">ASA 2016 Statement on p-values</a> 明確指出：p 值不能單獨判斷「重要性」。</p></div>
+<div data-lang="en"><p>Reporting p alone is now considered inadequate. The <a href="https://amstat.tandfonline.com/doi/full/10.1080/00031305.2016.1154108" target="_blank">ASA 2016 Statement on p-values</a> stresses that p alone cannot judge importance.</p></div>
+<table class="comp-table">
+<thead><tr><th data-zh="比較類型" data-en="Comparison">比較類型</th><th data-zh="效應量" data-en="Effect size">效應量</th><th data-zh="完整報告範例" data-en="Full reporting example">完整報告範例</th></tr></thead>
+<tbody>
+<tr><td><span data-lang="zh">兩組均值差</span><span data-lang="en">Two-group means</span></td><td>Cohen's d, mean diff</td><td>Mean difference 3.2 mmHg (95% CI 1.4–5.0; p&lt;0.001; Cohen's d=0.42)</td></tr>
+<tr><td><span data-lang="zh">類別 vs 結果</span><span data-lang="en">Categorical vs outcome</span></td><td>OR / RR / HR</td><td>HR 0.68 (95% CI 0.52–0.89; p=0.005)</td></tr>
+<tr><td><span data-lang="zh">相關</span><span data-lang="en">Correlation</span></td><td>Pearson r / Spearman ρ</td><td>r = 0.45 (95% CI 0.28–0.59; p&lt;0.001, n=152)</td></tr>
+<tr><td><span data-lang="zh">基因差異表達</span><span data-lang="en">Gene DE</span></td><td>log2 fold-change</td><td>log2FC = 2.3, FDR = 1.2 × 10⁻⁵ (BH-adjusted)</td></tr>
+<tr><td><span data-lang="zh">分類器表現</span><span data-lang="en">Classifier performance</span></td><td>AUC</td><td>AUC 0.87 (95% CI 0.83–0.91; bootstrap n=1000)</td></tr>
+</tbody></table>
+</section>
+
+<section class="section">
+<div class="section-label" data-zh="圖表設計" data-en="FIGURE DESIGN">圖表設計</div>
+<h2 data-zh="三、Figure 設計 7 大原則" data-en="III. 7 Principles of Figure Design">三、Figure 設計 7 大原則</h2>
+<div class="card-grid cols-2">
+<div class="card"><h4>① <span data-zh="One figure, one message" data-en="One figure, one message">One figure, one message</span></h4>
+<div data-lang="zh"><p>每張主圖傳達一個核心訊息，多 panel (A/B/C/D) 是同一個故事的多個面向，不是塞滿空間。</p></div>
+<div data-lang="en"><p>One figure conveys one core message. Multi-panel (A/B/C/D) figures are facets of one story, not space-fillers.</p></div></div>
+
+<div class="card"><h4>② <span data-zh="色盲友善 (Viridis / ColorBrewer)" data-en="Color-blind safe (Viridis / ColorBrewer)">色盲友善</span></h4>
+<div data-lang="zh"><p>避開 jet/rainbow。連續變項用 viridis / magma；類別變項用 ColorBrewer Set1/Set2。約 8% 男性、0.5% 女性是紅綠色盲。</p></div>
+<div data-lang="en"><p>Avoid jet / rainbow. Continuous: viridis / magma. Categorical: ColorBrewer Set1/Set2. ~8% of men and 0.5% of women have red-green color blindness.</p></div></div>
+
+<div class="card"><h4>③ <span data-zh="字體 ≥7 pt at print size" data-en="Font ≥7 pt at print size">字體 ≥7 pt</span></h4>
+<div data-lang="zh"><p>大多期刊要求印刷後最小字體 ≥7 pt (約 2 mm)。300 dpi、export 時記得算實際尺寸。</p></div>
+<div data-lang="en"><p>Most journals require ≥7 pt (~2 mm) at print size. Export at 300 dpi and verify physical dimensions.</p></div></div>
+
+<div class="card"><h4>④ <span data-zh="去除 chartjunk (Tufte)" data-en="Remove chartjunk (Tufte)">去除 chartjunk</span></h4>
+<div data-lang="zh"><p>3D 效果、漸層背景、雙 Y 軸都要小心。Edward Tufte 的 data-ink ratio：墨水越多用在 data 越好。</p></div>
+<div data-lang="en"><p>Drop 3D, gradient backgrounds, dual Y-axes (with caution). Tufte's data-ink ratio: maximize ink dedicated to data.</p></div></div>
+
+<div class="card"><h4>⑤ <span data-zh="顯示原始數據" data-en="Show raw data">顯示原始數據</span></h4>
+<div data-lang="zh"><p>單純 bar chart 隱藏分布。改用 boxplot + jitter / violin / dot plot 讓讀者看到 n 與離群值。</p></div>
+<div data-lang="en"><p>Bar charts hide distributions. Use boxplot + jitter / violin / dot plot so readers see n and outliers.</p></div></div>
+
+<div class="card"><h4>⑥ <span data-zh="Caption 包含 n、test、CI" data-en="Caption includes n, test, CI">Caption 完整自包含</span></h4>
+<div data-lang="zh"><p>Caption 應寫：n 數、所用統計檢定、誤差條代表的是 SD/SEM/95% CI、什麼校正法。</p></div>
+<div data-lang="en"><p>Captions must state: n, statistical test used, what error bars represent (SD/SEM/95% CI), correction method.</p></div></div>
+</div>
+</section>
+
+<section class="section">
+<div class="section-label" data-zh="範例對照" data-en="EXAMPLES">範例對照</div>
+<h2 data-zh="四、結果段落寫作對照" data-en="IV. Results Paragraph Examples">四、結果段落寫作對照</h2>
+
+<div class="example-pair">
+<div class="ex-bad"><h5>❌ <span data-zh="解讀混入" data-en="Interpretation leaks in">解讀混入</span></h5>
+<p data-lang="zh">「治療組的 PFS 顯著比對照組好 (p=0.001)，這顯示我們的新療法非常有效，可能改變臨床實踐。」<br><em>(「非常有效」「可能改變臨床實踐」是 Discussion，不是 Results。也缺 HR 與 95% CI。)</em></p>
+<p data-lang="en">"Treated PFS was significantly better than control (p=0.001), showing our therapy is highly effective and may change clinical practice."<br><em>("highly effective" / "may change practice" belong in Discussion. HR and 95% CI also missing.)</em></p>
+</div>
+<div class="ex-good"><h5>✅ <span data-zh="只報告" data-en="Reports only">只報告</span></h5>
+<p data-lang="zh">「治療組的中位 PFS 為 11.4 個月 (95% CI 9.8–13.2)，對照組為 7.6 個月 (95% CI 6.4–9.1)。Cox 模型 HR 為 0.62 (95% CI 0.48–0.81; log-rank p=0.001)，調整年齡、性別與 PD-L1 後 HR 維持 0.65 (95% CI 0.50–0.84) (Figure 2)。」</p>
+<p data-lang="en">"Median PFS was 11.4 months (95% CI 9.8–13.2) in the treated group vs 7.6 months (95% CI 6.4–9.1) in control. Cox model HR 0.62 (95% CI 0.48–0.81; log-rank p=0.001); adjusted HR 0.65 (95% CI 0.50–0.84) after age, sex, and PD-L1 (Figure 2)."</p>
+</div>
+</div>
+
+<div class="example-pair">
+<div class="ex-bad"><h5>❌ <span data-zh="只 p 值" data-en="p alone">只報 p 值</span></h5>
+<p data-lang="zh">「Gene X 在腫瘤組顯著上調 (p=0.03)。」</p>
+<p data-lang="en">"Gene X was significantly upregulated in tumors (p=0.03)."</p>
+</div>
+<div class="ex-good"><h5>✅ <span data-zh="完整版" data-en="Complete">完整版</span></h5>
+<p data-lang="zh">「Gene X 在腫瘤 (n=24) 表達中位數 4.2 TPM (IQR 3.1–5.6)，正常組織 (n=18) 為 1.9 TPM (IQR 1.2–2.7)；Mann-Whitney U=89, p=0.03，BH 校正後 q=0.08，效應量 r=0.34 (Figure 3A)。」</p>
+<p data-lang="en">"Median Gene X expression was 4.2 TPM (IQR 3.1–5.6) in tumors (n=24) vs 1.9 TPM (IQR 1.2–2.7) in normal (n=18). Mann-Whitney U=89, p=0.03, BH-adjusted q=0.08, effect size r=0.34 (Figure 3A)."</p>
+</div>
+</div>
+</section>
+
+<section class="section">
+<div class="section-label" data-zh="決策引導" data-en="DECISION GUIDE">決策引導</div>
+<h2 data-zh="五、選對圖型決策樹" data-en="V. Choosing the Right Plot Type">五、選對圖型決策樹</h2>
+<div class="decision-tree">
+<h4>🌳 <span data-zh="什麼數據用什麼圖？" data-en="Which plot for which data?">什麼數據用什麼圖？</span></h4>
+<div data-lang="zh">
+<div class="dt-node"><span class="dt-q">Q1:</span><div>連續變項分佈？<span class="dt-arrow">→</span> Histogram / density / boxplot + jitter / violin。</div></div>
+<div class="dt-node"><span class="dt-q">Q2:</span><div>兩個連續變項關係？<span class="dt-arrow">→</span> Scatter + 回歸線 + 95% CI band。n 大時用 hexbin。</div></div>
+<div class="dt-node"><span class="dt-q">Q3:</span><div>類別 vs 連續？<span class="dt-arrow">→</span> Boxplot + dot overlay (避免純 bar chart)。</div></div>
+<div class="dt-node"><span class="dt-q">Q4:</span><div>時間序列 / 存活？<span class="dt-arrow">→</span> Kaplan-Meier 含 risk table + log-rank p。</div></div>
+<div class="dt-node"><span class="dt-q">Q5:</span><div>多基因 vs 多樣本？<span class="dt-arrow">→</span> Heatmap (z-score 標準化、annotate columns、用 viridis)。</div></div>
+<div class="dt-node"><span class="dt-q">Q6:</span><div>多重比較顯著性？<span class="dt-arrow">→</span> Volcano (x: log2FC, y: -log10 q) 或 Manhattan (GWAS)。</div></div>
+<div class="dt-node"><span class="dt-q">Q7:</span><div>分類器效能？<span class="dt-arrow">→</span> ROC + AUC + 95% CI；不要只報 accuracy。</div></div>
+</div>
+<div data-lang="en">
+<div class="dt-node"><span class="dt-q">Q1:</span><div>Continuous distribution? <span class="dt-arrow">→</span> Histogram / density / boxplot + jitter / violin.</div></div>
+<div class="dt-node"><span class="dt-q">Q2:</span><div>Two continuous variables? <span class="dt-arrow">→</span> Scatter + regression line + 95% CI band; hexbin for large n.</div></div>
+<div class="dt-node"><span class="dt-q">Q3:</span><div>Categorical vs continuous? <span class="dt-arrow">→</span> Boxplot + dot overlay (avoid plain bar charts).</div></div>
+<div class="dt-node"><span class="dt-q">Q4:</span><div>Time series / survival? <span class="dt-arrow">→</span> Kaplan-Meier with risk table + log-rank p.</div></div>
+<div class="dt-node"><span class="dt-q">Q5:</span><div>Many genes × samples? <span class="dt-arrow">→</span> Heatmap (z-score, column annotations, viridis).</div></div>
+<div class="dt-node"><span class="dt-q">Q6:</span><div>Many comparisons w/ significance? <span class="dt-arrow">→</span> Volcano (log2FC vs -log10 q) or Manhattan (GWAS).</div></div>
+<div class="dt-node"><span class="dt-q">Q7:</span><div>Classifier performance? <span class="dt-arrow">→</span> ROC + AUC + 95% CI; never only accuracy.</div></div>
+</div>
+</div>
+</section>
+
+<section class="section">
+<div class="section-label" data-zh="程式碼" data-en="CODE">程式碼</div>
+<h2 data-zh="六、出版級圖表程式範本" data-en="VI. Publication-Grade Figure Code">六、出版級圖表範本</h2>
+<div class="code-tabs"><div class="code-tab-btns">
+<button class="code-tab-btn active" onclick="switchTab(this,'fig-r')">R / ggplot2</button>
+<button class="code-tab-btn" onclick="switchTab(this,'fig-py')">Python / matplotlib</button>
+</div>
+<div class="code-tab-content active" id="fig-r"><pre><span class="comment"># Publication-quality boxplot + jitter</span>
+<span class="func">library</span>(ggplot2); <span class="func">library</span>(viridis)
+p &lt;- <span class="func">ggplot</span>(df, <span class="func">aes</span>(group, expr, fill=group)) +
+  <span class="func">geom_boxplot</span>(outlier.shape=NA, alpha=<span class="num">0.7</span>) +
+  <span class="func">geom_jitter</span>(width=<span class="num">0.2</span>, size=<span class="num">1.2</span>, alpha=<span class="num">0.6</span>) +
+  <span class="func">scale_fill_viridis_d</span>() +
+  <span class="func">labs</span>(x=<span class="str">""</span>, y=<span class="str">"Expression (TPM)"</span>) +
+  <span class="func">theme_classic</span>(base_size=<span class="num">8</span>) +
+  <span class="func">theme</span>(legend.position=<span class="str">"none"</span>,
+        axis.text=<span class="func">element_text</span>(color=<span class="str">"black"</span>))
+<span class="func">ggsave</span>(<span class="str">"fig2a.pdf"</span>, p, width=<span class="num">3.5</span>, height=<span class="num">3</span>, units=<span class="str">"in"</span>, dpi=<span class="num">300</span>)</pre></div>
+
+<div class="code-tab-content" id="fig-py"><pre><span class="kw">import</span> matplotlib.pyplot <span class="kw">as</span> plt
+<span class="kw">import</span> seaborn <span class="kw">as</span> sns
+plt.rcParams.update({<span class="str">"font.size"</span>:<span class="num">8</span>,<span class="str">"pdf.fonttype"</span>:<span class="num">42</span>})
+fig, ax = plt.subplots(figsize=(<span class="num">3.5</span>,<span class="num">3</span>))
+sns.boxplot(data=df, x=<span class="str">"group"</span>, y=<span class="str">"expr"</span>, palette=<span class="str">"viridis"</span>,
+            showfliers=<span class="kw">False</span>, ax=ax)
+sns.stripplot(data=df, x=<span class="str">"group"</span>, y=<span class="str">"expr"</span>, color=<span class="str">"black"</span>,
+              alpha=<span class="num">0.5</span>, size=<span class="num">3</span>, ax=ax)
+ax.set_ylabel(<span class="str">"Expression (TPM)"</span>); ax.spines[[<span class="str">"top"</span>,<span class="str">"right"</span>]].set_visible(<span class="kw">False</span>)
+fig.tight_layout(); fig.savefig(<span class="str">"fig2a.pdf"</span>, dpi=<span class="num">300</span>)</pre></div>
+</div>
+</section>
+
+<section class="quiz-section">
+<h3>📝 <span data-zh="自我檢測" data-en="Self-Check">自我檢測</span></h3>
+<div class="quiz-q" data-answer="1">
+<p data-lang="zh">1. 哪一句最違反 Results 的「鐵則 1」？</p>
+<p data-lang="en">1. Which sentence most violates the "Rule 1" of Results?</p>
+<div class="quiz-options">
+<div class="quiz-opt" data-idx="0"><span data-lang="zh">A. 「中位 PFS 為 11.4 個月 (95% CI 9.8–13.2)」</span><span data-lang="en">A. "Median PFS was 11.4 months (95% CI 9.8–13.2)"</span></div>
+<div class="quiz-opt" data-idx="1"><span data-lang="zh">B. 「這顯示我們的療法可能改變臨床實踐」</span><span data-lang="en">B. "This shows our therapy may change clinical practice"</span></div>
+<div class="quiz-opt" data-idx="2"><span data-lang="zh">C. 「Cox 模型 HR 0.62 (log-rank p=0.001)」</span><span data-lang="en">C. "Cox HR 0.62 (log-rank p=0.001)"</span></div>
+<div class="quiz-opt" data-idx="3"><span data-lang="zh">D. 「BH 校正後 q=0.08」</span><span data-lang="en">D. "BH-adjusted q=0.08"</span></div>
+</div><div class="quiz-feedback" id="fb1"></div></div>
+
+<div class="quiz-q" data-answer="3">
+<p data-lang="zh">2. 完整報告兩組均值差異，最少需要包含？</p>
+<p data-lang="en">2. Minimum required to fully report a between-group mean difference?</p>
+<div class="quiz-options">
+<div class="quiz-opt" data-idx="0"><span data-lang="zh">A. 只要 p 值</span><span data-lang="en">A. p value alone</span></div>
+<div class="quiz-opt" data-idx="1"><span data-lang="zh">B. p 值 + n</span><span data-lang="en">B. p value + n</span></div>
+<div class="quiz-opt" data-idx="2"><span data-lang="zh">C. 平均差 + p 值</span><span data-lang="en">C. mean difference + p</span></div>
+<div class="quiz-opt" data-idx="3"><span data-lang="zh">D. 平均差 + 95% CI + p 值（+ 效應量）</span><span data-lang="en">D. mean difference + 95% CI + p (+ effect size)</span></div>
+</div><div class="quiz-feedback" id="fb2"></div></div>
+
+<div class="quiz-q" data-answer="2">
+<p data-lang="zh">3. 連續基因表達 vs 多個樣本群，最佳圖型？</p>
+<p data-lang="en">3. Best plot for a continuous gene-expression value across multiple sample groups?</p>
+<div class="quiz-options">
+<div class="quiz-opt" data-idx="0"><span data-lang="zh">A. 3D bar chart</span><span data-lang="en">A. 3D bar chart</span></div>
+<div class="quiz-opt" data-idx="1"><span data-lang="zh">B. Pie chart</span><span data-lang="en">B. Pie chart</span></div>
+<div class="quiz-opt" data-idx="2"><span data-lang="zh">C. Boxplot + jitter / violin</span><span data-lang="en">C. Boxplot + jitter / violin</span></div>
+<div class="quiz-opt" data-idx="3"><span data-lang="zh">D. Bar chart with SEM error bar</span><span data-lang="en">D. Bar chart with SEM error bar</span></div>
+</div><div class="quiz-feedback" id="fb3"></div></div>
+</section>
+
+<nav class="page-nav">
+<a href="methods-writing.html"><span class="nav-dir" data-zh="← 上一步" data-en="← Previous">← 上一步</span><span class="nav-title">Step 5: Methods</span></a>
+<a href="discussion-limits.html"><span class="nav-dir" data-zh="下一步 →" data-en="Next →">下一步 →</span><span class="nav-title">Step 7: Discussion</span></a>
+</nav>
+</main>
+<footer class="site-footer">© Charlene — Advanced Academic Writing Interactive Tutorial</footer>
+<script src="i18n.js"></script>
+<script>
+window.addEventListener('scroll',()=>{const h=document.documentElement;document.getElementById('progressBar').style.width=(h.scrollTop/(h.scrollHeight-h.clientHeight))*100+'%';});
+function switchTab(b,id){const p=b.closest('.code-tabs');p.querySelectorAll('.code-tab-btn').forEach(x=>x.classList.remove('active'));p.querySelectorAll('.code-tab-content').forEach(x=>x.classList.remove('active'));b.classList.add('active');document.getElementById(id).classList.add('active');}
+const QF={
+  zh:{q1_y:'「可能改變臨床實踐」是解讀，屬 Discussion。',q1_n:'解讀性語言不應出現在 Results。',q2_y:'2026 標準：效應量 + 95% CI 是必備，p 值單獨不充分。',q2_n:'p 值只說「有沒有差」，效應量 + CI 才能完整描述。',q3_y:'Boxplot + jitter 同時顯示分布、中位數與離群值，最不誤導。',q3_n:'Bar chart + SEM 隱藏分布且 SEM 比 SD 小造成誤解。'},
+  en:{q1_y:'"May change clinical practice" is interpretation — Discussion territory.',q1_n:'Interpretive language should not appear in Results.',q2_y:'2026 standard: effect size + 95% CI required; p alone is inadequate.',q2_n:'p only states "is there a difference"; effect size + CI describe how much.',q3_y:'Boxplot + jitter shows distribution, median, outliers without misleading.',q3_n:'Bar + SEM hides distribution and SEM is smaller than SD, misleading readers.'}
+};
+document.querySelectorAll('.quiz-q').forEach((q,qi)=>{const ans=+q.dataset.answer;q.querySelectorAll('.quiz-opt').forEach(o=>{o.addEventListener('click',()=>{if(q.classList.contains('answered'))return;q.classList.add('answered');const fb=document.getElementById('fb'+(qi+1));const ok=+o.dataset.idx===ans;o.classList.add(ok?'correct':'wrong');if(!ok)q.querySelectorAll('.quiz-opt')[ans].classList.add('correct');const L=I18n.get();fb.className='quiz-feedback show '+(ok?'correct-fb':'wrong-fb');fb.textContent=(ok?'✅ ':'❌ ')+(QF[L]['q'+(qi+1)+'_'+(ok?'y':'n')]||'');});});});
+</script>
+</body></html>
