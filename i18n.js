@@ -1,6 +1,6 @@
 (function(){
   const SK='acadwrite_lang';
-  let lang=localStorage.getItem(SK)||'en';
+  let lang=localStorage.getItem(SK)||'zh';
 
   function apply(l){
     lang=l; localStorage.setItem(SK,l);
