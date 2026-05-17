@@ -1,0 +1,288 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>高等論文寫作 · 互動考題</title>
+<style>
+:root{
+  --bg:#f8f6f1; --card:#fff; --ink:#1a1a1a; --soft:#555; --line:#d5cfc0;
+  --primary:#1e3a5f; --primary-soft:#e8eef5; --primary-dark:#14283f;
+  --accent:#b8860b; --accent-soft:#faf3dd;
+  --green:#2f9e44; --green-soft:#d3f9d8;
+  --red:#c92a2a; --red-soft:#ffe3e3;
+  --yellow:#d9a700; --yellow-soft:#fff4c2;
+  --grey-soft:#f3f0e8;
+  --shadow:0 1px 2px rgba(0,0,0,.04),0 4px 12px rgba(0,0,0,.04);
+  --radius:10px;
+}
+*{box-sizing:border-box}html,body{margin:0;padding:0}
+body{font-family:-apple-system,"Segoe UI","PingFang TC","Microsoft JhengHei","Noto Sans TC",system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;font-size:16px}
+header{background:linear-gradient(135deg,#14283f 0%,#1e3a5f 60%,#2d4f7c 100%);color:#fff;padding:14px 22px;position:sticky;top:0;z-index:10;box-shadow:0 2px 8px rgba(0,0,0,.08)}
+.h-row{max-width:1280px;margin:0 auto;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+h1{font-size:18px;margin:0;font-weight:700;display:flex;align-items:center;gap:8px}
+.homelink,.lang-btn{color:#fff;text-decoration:none;font-size:13px;padding:5px 12px;border:1px solid rgba(255,255,255,.5);border-radius:999px;white-space:nowrap;cursor:pointer;background:transparent;font-family:inherit}
+.homelink:hover,.lang-btn:hover{background:rgba(255,255,255,.15);border-color:#fff}
+.stat{margin-left:auto;color:rgba(255,255,255,.95);font-size:13px}
+.stat strong{color:#fff;font-size:17px}
+main{max-width:1180px;margin:22px auto;padding:0 18px 40px}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:18px;margin-bottom:18px}
+.panel h2{margin:0 0 6px;font-size:18px;font-weight:700;color:var(--primary-dark)}
+.panel .desc{color:var(--soft);font-size:13px;margin-bottom:14px}
+.global-prog{display:flex;align-items:center;gap:12px;padding:10px 14px;background:var(--primary-soft);border:1px solid var(--primary);border-radius:8px;margin-bottom:14px;font-size:13px;flex-wrap:wrap}
+.global-prog .gp-label{color:var(--primary);font-weight:600;min-width:90px}
+.global-prog .gp-bar{flex:1;height:8px;background:#fff;border-radius:4px;overflow:hidden;box-shadow:inset 0 0 0 1px var(--line);min-width:160px}
+.global-prog .gp-fill{height:100%;background:var(--green);transition:width .35s;width:0%}
+.global-prog .gp-text{color:var(--ink);font-variant-numeric:tabular-nums;font-weight:600}
+.global-prog .gp-reset{background:#fff;border:1px solid var(--red);color:var(--red);padding:4px 10px;border-radius:6px;font-size:12px;cursor:pointer;font-family:inherit}
+.global-prog .gp-reset:hover{background:var(--red);color:#fff}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:12px}
+.ycard{background:var(--grey-soft);border:1px solid var(--line);border-radius:8px;padding:14px;display:flex;flex-direction:column;gap:8px}
+.ytitle{font-weight:700;font-size:14px;display:flex;align-items:center;gap:8px;flex-wrap:wrap;color:var(--primary-dark)}
+.ytitle .step-num{font-family:monospace;background:var(--primary);color:#fff;padding:2px 8px;border-radius:6px;font-size:12px}
+.ytitle .ycount{color:var(--soft);font-weight:400;font-size:12px;margin-left:auto}
+.ystatus{font-size:12px;color:var(--soft);display:flex;align-items:center;gap:6px}
+.ystatus .badge{padding:2px 8px;border-radius:999px;font-weight:600;font-size:11px}
+.ystatus .badge.ip{background:var(--yellow-soft);color:#a06a00}
+.ystatus .badge.done{background:var(--green-soft);color:var(--green)}
+.action-row{display:flex;gap:6px}
+.chip{display:inline-flex;align-items:center;gap:5px;padding:8px 14px;border-radius:999px;font-size:13px;font-weight:600;cursor:pointer;font-family:inherit;border:1px solid var(--primary);background:var(--primary-soft);color:var(--primary-dark);flex:1;justify-content:center;transition:.15s}
+.chip:hover{background:var(--primary);color:#fff;transform:translateY(-1px)}
+.layout{display:grid;grid-template-columns:280px 1fr;gap:22px;max-width:1180px;margin:18px auto;padding:0 18px}
+@media (max-width:880px){.layout{grid-template-columns:1fr;padding:0 14px}.sidebar{order:2;position:static}}
+.sidebar{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:14px;height:fit-content;position:sticky;top:78px}
+.grid{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;margin-bottom:10px}
+.gbtn{aspect-ratio:1;display:flex;align-items:center;justify-content:center;border:1px solid var(--line);border-radius:6px;background:#fff;color:var(--soft);font-size:13px;cursor:pointer;font-variant-numeric:tabular-nums;font-family:inherit;padding:0;font-weight:600}
+.gbtn:hover{border-color:var(--primary)}
+.gbtn.cur{background:var(--primary);color:#fff;border-color:var(--primary)}
+.gbtn.right{background:var(--green-soft);color:var(--green);border-color:var(--green)}
+.gbtn.wrong{background:var(--red-soft);color:var(--red);border-color:var(--red)}
+.legend{font-size:11px;color:var(--soft);display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.dot{display:inline-block;width:10px;height:10px;border-radius:3px;vertical-align:middle;margin-right:4px;border:1px solid var(--line)}
+.dot.r{background:var(--green-soft);border-color:var(--green)}
+.dot.w{background:var(--red-soft);border-color:var(--red)}
+.dot.cur{background:var(--primary);border-color:var(--primary)}
+.qbox{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:24px;box-shadow:var(--shadow)}
+.qhead{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;font-size:14px;color:var(--soft);font-weight:600}
+.qhead .qbadge{background:var(--primary-soft);color:var(--primary-dark);padding:3px 10px;border-radius:6px;font-size:12px}
+.qhead .type-tag{background:var(--accent-soft);color:#a06a00;padding:3px 10px;border-radius:6px;font-size:12px;border:1px solid var(--accent)}
+.qtext{font-size:16px;font-weight:600;line-height:1.7;margin-bottom:18px;color:var(--ink)}
+.opts{display:flex;flex-direction:column;gap:8px;margin-bottom:18px}
+.opt{display:flex;align-items:flex-start;gap:10px;padding:12px 16px;background:#fafafa;border:1px solid var(--line);border-radius:8px;cursor:pointer;font-size:14px;transition:.15s;line-height:1.6}
+.opt:hover{border-color:var(--primary);background:var(--primary-soft)}
+.opt.selected{background:var(--primary-soft);border-color:var(--primary)}
+.opt.right{background:var(--green-soft);border-color:var(--green)}
+.opt.wrong{background:var(--red-soft);border-color:var(--red)}
+.opt .opt-letter{font-weight:700;color:var(--primary-dark);min-width:18px}
+.btnrow{display:flex;gap:10px;justify-content:space-between;margin-top:16px}
+.btn{padding:10px 20px;border:1px solid var(--primary);background:#fff;color:var(--primary-dark);border-radius:8px;font-size:14px;font-weight:600;cursor:pointer;font-family:inherit;transition:.15s}
+.btn:hover{background:var(--primary);color:#fff}
+.btn.primary{background:var(--primary);color:#fff}
+.btn.primary:hover{background:var(--primary-dark)}
+.btn:disabled{opacity:.4;cursor:not-allowed}
+.fb{margin-top:14px;padding:12px 16px;border-radius:8px;font-size:14px;display:none;line-height:1.6}
+.fb.show{display:block}
+.fb.right-fb{background:var(--green-soft);color:#0a5b1f;border:1px solid var(--green)}
+.fb.wrong-fb{background:var(--red-soft);color:#7d1313;border:1px solid var(--red)}
+.fb strong{display:block;margin-bottom:4px;font-size:13px}
+.summary{padding:24px;text-align:center}
+.summary h3{font-size:20px;margin:0 0 14px;color:var(--primary-dark)}
+.summary .score{font-size:48px;font-weight:700;color:var(--primary);margin:14px 0}
+.summary .pct{font-size:16px;color:var(--soft)}
+</style>
+</head>
+<body>
+
+<header>
+<div class="h-row">
+<h1>📝 <span data-zh="高等論文寫作 · 互動考題" data-en="Academic Writing · Interactive Quiz">高等論文寫作 · 互動考題</span></h1>
+<a class="homelink" href="../academic-writing-interactive-tutorial-main/index.html">← <span data-zh="返回教學首頁" data-en="Back to Tutorial">返回教學首頁</span></a>
+<button class="lang-btn" id="langBtn">EN</button>
+<div class="stat" id="topStat"></div>
+</div>
+</header>
+
+<main id="main">
+<!-- Hub view -->
+<div class="panel">
+<h2 data-zh="14 主題 × 10 題 = 140 題自我檢測" data-en="14 Topics × 10 Questions = 140 Self-Check Questions">14 主題 × 10 題 = 140 題自我檢測</h2>
+<p class="desc" data-zh="點選任一主題開始練習。所有進度自動存在瀏覽器 (localStorage)，下次回來會接續。" data-en="Click any topic to start. All progress is auto-saved (localStorage); pick up where you left off next time.">點選任一主題開始練習。所有進度自動存在瀏覽器 (localStorage)，下次回來會接續。</p>
+<div class="global-prog">
+<span class="gp-label" data-zh="總進度" data-en="Overall">總進度</span>
+<div class="gp-bar"><div class="gp-fill" id="gpFill"></div></div>
+<span class="gp-text" id="gpText">0 / 140</span>
+<button class="gp-reset" onclick="resetAll()" data-zh="重置所有進度" data-en="Reset all">重置所有進度</button>
+</div>
+<div class="cards" id="hubCards"></div>
+</div>
+</main>
+
+<script src="data.js"></script>
+<script>
+const SK_LANG='acadwrite_quiz_lang', SK_PROG='acadwrite_quiz_progress_v1';
+let lang=localStorage.getItem(SK_LANG)||'zh';
+let progress=JSON.parse(localStorage.getItem(SK_PROG)||'{}');
+
+function applyLang(l){
+  lang=l; localStorage.setItem(SK_LANG,l);
+  document.documentElement.lang=l==='zh'?'zh-Hant':'en';
+  document.querySelectorAll('[data-zh][data-en]').forEach(el=>{el.textContent=el.dataset[l]});
+  document.getElementById('langBtn').textContent=l==='zh'?'EN':'中文';
+}
+document.getElementById('langBtn').onclick=()=>applyLang(lang==='zh'?'en':'zh');
+
+function saveProg(){localStorage.setItem(SK_PROG,JSON.stringify(progress))}
+function resetAll(){if(confirm(lang==='zh'?'確定要重置所有進度？':'Reset all progress?')){progress={};saveProg();renderHub();}}
+
+function totalQs(){return QUIZ_DATA.reduce((s,t)=>s+t.qs.length,0)}
+function answeredCount(){let c=0;for(const k in progress){c+=Object.keys(progress[k].ans||{}).length}return c}
+function topicStats(tid){
+  const p=progress[tid]||{ans:{}};
+  const total=QUIZ_DATA.find(t=>t.id===tid).qs.length;
+  const answered=Object.keys(p.ans).length;
+  const right=Object.values(p.ans).filter(a=>a.right).length;
+  return {total,answered,right};
+}
+
+function renderHub(){
+  const total=totalQs();
+  const ans=answeredCount();
+  const right=Object.values(progress).reduce((s,t)=>s+Object.values(t.ans||{}).filter(a=>a.right).length,0);
+  document.getElementById('gpFill').style.width=(ans/total*100)+'%';
+  document.getElementById('gpText').textContent=`${ans} / ${total} (${lang==='zh'?'答對':'correct'} ${right})`;
+  document.getElementById('topStat').innerHTML=`<strong>${ans}</strong> / ${total}`;
+
+  const cards=QUIZ_DATA.map((t,i)=>{
+    const s=topicStats(t.id);
+    const status=s.answered===0?'':s.answered<s.total?'<span class="badge ip">'+(lang==='zh'?'進行中':'In progress')+'</span>':'<span class="badge done">'+(lang==='zh'?'完成':'Done')+'</span>';
+    const stat=s.answered===0?(lang==='zh'?'未開始':'Not started'):`${s.answered}/${s.total} · ${lang==='zh'?'答對':'correct'} ${s.right}`;
+    return `<div class="ycard">
+      <div class="ytitle"><span class="step-num">${String(i+1).padStart(2,'0')}</span> ${lang==='zh'?t.title_zh:t.title_en} <span class="ycount">${t.qs.length} Q</span></div>
+      <div class="ystatus">${stat} ${status}</div>
+      <div class="action-row"><button class="chip" onclick="startQuiz('${t.id}')">${lang==='zh'?'開始 / 繼續 →':'Start / Continue →'}</button></div>
+    </div>`;
+  }).join('');
+  document.getElementById('hubCards').innerHTML=cards;
+  applyLang(lang);
+}
+
+function startQuiz(tid){
+  const topic=QUIZ_DATA.find(t=>t.id===tid);
+  if(!progress[tid])progress[tid]={ans:{},cur:0};
+  const idx=progress[tid].cur||0;
+  renderQuiz(tid,idx);
+}
+
+function renderQuiz(tid,idx){
+  const topic=QUIZ_DATA.find(t=>t.id===tid);
+  const q=topic.qs[idx];
+  const ans=(progress[tid].ans||{})[idx];
+
+  // sidebar
+  const grid=topic.qs.map((qq,i)=>{
+    const a=(progress[tid].ans||{})[i];
+    let cls='gbtn';
+    if(i===idx)cls+=' cur';
+    else if(a)cls+=a.right?' right':' wrong';
+    return `<button class="${cls}" onclick="renderQuiz('${tid}',${i})">${i+1}</button>`;
+  }).join('');
+
+  const sidebar=`<div class="sidebar">
+    <div style="font-weight:700;margin-bottom:10px;color:var(--primary-dark)">📋 ${lang==='zh'?'題目導航':'Navigator'}</div>
+    <div class="grid">${grid}</div>
+    <div class="legend"><span><i class="dot cur"></i>${lang==='zh'?'目前':'Current'}</span><span><i class="dot r"></i>${lang==='zh'?'答對':'Correct'}</span><span><i class="dot w"></i>${lang==='zh'?'答錯':'Wrong'}</span></div>
+    <div style="margin-top:14px;padding-top:14px;border-top:1px solid var(--line);font-size:13px">
+      <button class="btn" style="width:100%" onclick="backToHub()">← ${lang==='zh'?'返回主題列表':'Back to topics'}</button>
+    </div>
+  </div>`;
+
+  // question
+  const opts=q.opts.map((o,i)=>{
+    const letter='ABCD'[i];
+    let cls='opt';
+    if(ans){
+      if(i===q.ans)cls+=' right';
+      else if(ans.idx===i)cls+=' wrong';
+    }
+    return `<div class="${cls}" data-idx="${i}" onclick="answer('${tid}',${idx},${i})"><span class="opt-letter">${letter}.</span> <span>${o[lang]}</span></div>`;
+  }).join('');
+
+  let fbHtml='';
+  if(ans){
+    const expl=q.exp[lang];
+    fbHtml=`<div class="fb show ${ans.right?'right-fb':'wrong-fb'}"><strong>${ans.right?'✅ '+(lang==='zh'?'答對！':'Correct!'):'❌ '+(lang==='zh'?'答錯。正解：'+'ABCD'[q.ans]:'Wrong. Correct: '+'ABCD'[q.ans])}</strong>${expl}</div>`;
+  }
+
+  const typeTag=q.type==='tf'?(lang==='zh'?'是非題':'True/False'):(lang==='zh'?'單選題':'Multiple Choice');
+
+  const main=`<div class="qbox">
+    <div class="qhead">
+      <span><span class="qbadge">${idx+1} / ${topic.qs.length}</span> · ${lang==='zh'?topic.title_zh:topic.title_en}</span>
+      <span class="type-tag">${typeTag}</span>
+    </div>
+    <div class="qtext">${q.q[lang]}</div>
+    <div class="opts">${opts}</div>
+    ${fbHtml}
+    <div class="btnrow">
+      <button class="btn" onclick="renderQuiz('${tid}',${Math.max(0,idx-1)})" ${idx===0?'disabled':''}>← ${lang==='zh'?'上一題':'Previous'}</button>
+      ${idx<topic.qs.length-1?`<button class="btn primary" onclick="renderQuiz('${tid}',${idx+1})">${lang==='zh'?'下一題':'Next'} →</button>`:`<button class="btn primary" onclick="showSummary('${tid}')">${lang==='zh'?'看結果':'See results'} 🏆</button>`}
+    </div>
+  </div>`;
+
+  document.getElementById('main').innerHTML=`<div class="layout">${sidebar}<div>${main}</div></div>`;
+  progress[tid].cur=idx;
+  saveProg();
+  applyLang(lang);
+}
+
+function answer(tid,idx,sel){
+  const q=QUIZ_DATA.find(t=>t.id===tid).qs[idx];
+  if(!progress[tid].ans)progress[tid].ans={};
+  if(progress[tid].ans[idx])return; // already answered
+  progress[tid].ans[idx]={idx:sel,right:sel===q.ans};
+  saveProg();
+  renderQuiz(tid,idx);
+}
+
+function showSummary(tid){
+  const topic=QUIZ_DATA.find(t=>t.id===tid);
+  const s=topicStats(tid);
+  const pct=Math.round(s.right/s.total*100);
+  let comment;
+  if(pct>=90)comment=lang==='zh'?'🎉 優異！這個主題你已掌握。':'🎉 Excellent! You have this topic mastered.';
+  else if(pct>=70)comment=lang==='zh'?'👍 不錯，建議複習答錯的題目。':'👍 Solid. Review the wrong ones.';
+  else if(pct>=50)comment=lang==='zh'?'📖 還需要再讀一遍對應的教學。':'📖 Re-read the matching tutorial.';
+  else comment=lang==='zh'?'💪 從頭再來一次，搭配教學頁。':'💪 Start over alongside the tutorial.';
+
+  document.getElementById('main').innerHTML=`<div class="panel summary">
+    <h3>${lang==='zh'?'結果':'Results'} · ${lang==='zh'?topic.title_zh:topic.title_en}</h3>
+    <div class="score">${s.right} / ${s.total}</div>
+    <div class="pct">${pct}% · ${comment}</div>
+    <div style="margin-top:24px;display:flex;gap:10px;justify-content:center">
+      <button class="btn" onclick="renderQuiz('${tid}',0)">↻ ${lang==='zh'?'重做這個主題':'Redo this topic'}</button>
+      <button class="btn primary" onclick="backToHub()">← ${lang==='zh'?'返回主題列表':'Back to topics'}</button>
+    </div>
+  </div>`;
+  applyLang(lang);
+}
+
+function backToHub(){
+  document.getElementById('main').innerHTML=`<div class="panel">
+<h2 data-zh="14 主題 × 10 題 = 140 題自我檢測" data-en="14 Topics × 10 Questions = 140 Self-Check Questions">14 主題 × 10 題 = 140 題自我檢測</h2>
+<p class="desc" data-zh="點選任一主題開始練習。所有進度自動存在瀏覽器 (localStorage)，下次回來會接續。" data-en="Click any topic to start. All progress is auto-saved (localStorage); pick up where you left off next time.">點選任一主題開始練習。所有進度自動存在瀏覽器 (localStorage)，下次回來會接續。</p>
+<div class="global-prog">
+<span class="gp-label" data-zh="總進度" data-en="Overall">總進度</span>
+<div class="gp-bar"><div class="gp-fill" id="gpFill"></div></div>
+<span class="gp-text" id="gpText">0 / 140</span>
+<button class="gp-reset" onclick="resetAll()" data-zh="重置所有進度" data-en="Reset all">重置所有進度</button>
+</div>
+<div class="cards" id="hubCards"></div>
+</div>`;
+  renderHub();
+}
+
+renderHub();
+applyLang(lang);
+</script>
+</body>
+</html>
