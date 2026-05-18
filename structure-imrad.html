@@ -20,6 +20,7 @@
     <li><a href="peer-review-response.html" data-zh="審查" data-en="Review">審查</a></li>
     <li><a href="ethics-authorship.html" data-zh="倫理" data-en="Ethics">倫理</a></li>
     <li><a href="ai-tools-reproducibility.html">AI</a></li>
+    <li><a href="references/index.html" data-zh="📚 參考資料" data-en="📚 References">📚 參考資料</a></li>
   </ul>
 </div></nav>
 <div class="progress-bar-container"><div class="progress-bar" id="progressBar"></div></div>
@@ -234,8 +235,8 @@
 </section>
 
 <nav class="page-nav">
-<a href="literature-review.html"><span class="nav-dir" data-zh="← 上一步" data-en="← Previous">← 上一步</span><span class="nav-title">Step 2: Literature Review</span></a>
-<a href="introduction-writing.html"><span class="nav-dir" data-zh="下一步 →" data-en="Next →">下一步 →</span><span class="nav-title">Step 4: Introduction</span></a>
+<a href="literature-review.html"><span class="nav-dir" data-zh="← 上一步" data-en="← Previous">← 上一步</span><span class="nav-title" data-zh="Step 2: 文獻回顧策略" data-en="Step 2: Literature Review Strategy">Step 2: 文獻回顧策略</span></a>
+<a href="introduction-writing.html"><span class="nav-dir" data-zh="下一步 →" data-en="Next →">下一步 →</span><span class="nav-title" data-zh="Step 4: 緒論寫作" data-en="Step 4: Introduction Writing">Step 4: 緒論寫作</span></a>
 </nav>
 </main>
 <footer class="site-footer">© Charlene — Advanced Academic Writing Interactive Tutorial</footer>
@@ -258,7 +259,7 @@ function renderLen(){
   const w=+document.getElementById('wordSlider').value;
   document.getElementById('wordValue').textContent=fmt(w);
   const r=RATIOS[t];
-  const L=(typeof I18n!=='undefined'&&I18n.get)?I18n.get():'zh';
+  const L=(typeof I18n!=='undefined'&&I18n.get)?I18n.get():'en';
   const labelMap=L==='en'?LABELS_EN:LABELS_ZH;
   const keys=Object.keys(r);
   const labels=keys.map(k=>labelMap[k]);

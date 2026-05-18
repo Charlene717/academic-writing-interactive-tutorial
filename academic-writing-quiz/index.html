@@ -18,7 +18,7 @@
 }
 *{box-sizing:border-box}html,body{margin:0;padding:0}
 body{font-family:-apple-system,"Segoe UI","PingFang TC","Microsoft JhengHei","Noto Sans TC",system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;font-size:16px}
-header{background:linear-gradient(135deg,#14283f 0%,#1e3a5f 60%,#2d4f7c 100%);color:#fff;padding:14px 22px;position:sticky;top:0;z-index:10;box-shadow:0 2px 8px rgba(0,0,0,.08)}
+header{background:linear-gradient(135deg,var(--primary-dark) 0%,var(--primary) 60%,var(--accent) 100%);color:#fff;padding:14px 22px;position:sticky;top:0;z-index:10;box-shadow:0 2px 8px rgba(0,0,0,.08)}
 .h-row{max-width:1280px;margin:0 auto;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
 h1{font-size:18px;margin:0;font-weight:700;display:flex;align-items:center;gap:8px}
 .homelink,.lang-btn{color:#fff;text-decoration:none;font-size:13px;padding:5px 12px;border:1px solid rgba(255,255,255,.5);border-radius:999px;white-space:nowrap;cursor:pointer;background:transparent;font-family:inherit}
@@ -95,7 +95,7 @@ main{max-width:1180px;margin:22px auto;padding:0 18px 40px}
 
 <header>
 <div class="h-row">
-<h1>📝 <span data-zh="高等論文寫作 · 互動考題" data-en="Academic Writing · Interactive Quiz">高等論文寫作 · 互動考題</span></h1>
+<h1 data-zh="📝 高等論文寫作 互動式考題" data-en="📝 Academic Writing Interactive Quiz">📝 高等論文寫作 互動式考題</h1>
 <a class="homelink" href="../index.html">← <span data-zh="返回教學首頁" data-en="Back to Tutorial">返回教學首頁</span></a>
 <button class="lang-btn" id="langBtn">EN</button>
 <div class="stat" id="topStat"></div>
@@ -120,7 +120,7 @@ main{max-width:1180px;margin:22px auto;padding:0 18px 40px}
 <script src="data.js"></script>
 <script>
 const SK_LANG='acadwrite_quiz_lang', SK_PROG='acadwrite_quiz_progress_v1';
-let lang=localStorage.getItem(SK_LANG)||'zh';
+let lang=localStorage.getItem(SK_LANG)||'en';
 let progress=JSON.parse(localStorage.getItem(SK_PROG)||'{}');
 
 function applyLang(l){
