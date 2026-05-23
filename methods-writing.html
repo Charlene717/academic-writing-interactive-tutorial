@@ -30,6 +30,425 @@
 </header>
 <main class="content-wrap">
 
+<!-- ===== Section TOC ===== -->
+<div class="section-toc">
+<strong data-zh="本章導覽（閱讀時間 ~22 分）" data-en="Chapter map (reading time ~22 min)">本章導覽（閱讀時間 ~22 分）</strong>
+<div class="pill-row">
+<span class="level-badge l-beg" data-zh="初學者" data-en="Beginner">初學者</span>
+<span class="level-badge l-mid" data-zh="中階" data-en="Intermediate">中階</span>
+<span class="level-badge l-adv" data-zh="進階" data-en="Advanced">進階</span>
+<span class="pill navy">EQUATOR</span><span class="pill amber">STROBE</span><span class="pill violet">CONSORT</span><span class="pill teal">FAIR</span><span class="pill rose">TRIPOD-AI</span>
+</div>
+<ol>
+<li><a href="#story" data-zh="開場故事：Alex 的可重現之痛" data-en="Story: Alex and the reproducibility lesson">開場故事：Alex 的可重現之痛</a></li>
+<li><a href="#glossary" data-zh="核心詞彙表（14 個雙版本）" data-en="Glossary (14 terms, two versions)">核心詞彙表（14 個雙版本）</a></li>
+<li><a href="#history" data-zh="從 Hippocrates 到 EQUATOR LIVE" data-en="From Hippocrates to EQUATOR LIVE">從 Hippocrates 到 EQUATOR LIVE</a></li>
+<li><a href="#kpi" data-zh="關鍵指標" data-en="Key numbers">關鍵指標</a></li>
+<li><a href="#analogy" data-zh="食譜比喻：5g NaCl 還是 some salt？" data-en="Recipe analogy: 5g NaCl vs some salt">食譜比喻：5g NaCl 還是 some salt？</a></li>
+<li><a href="#walkthrough" data-zh="Σ 步驟：從零開始寫 Methods 的 8 步" data-en="Σ-walkthrough: 8 steps to write Methods">Σ 步驟：8 步走完整個 Methods</a></li>
+<li><a href="#discussion" data-zh="專家辯論：Methods 該放 Supplementary 嗎？" data-en="Expert debate: Methods in Supplementary?">專家辯論：Methods 該放 Supplementary 嗎？</a></li>
+<li><a href="#spotlight" data-zh="案例聚光：ENCODE vs Duke 化療醜聞" data-en="Spotlight: ENCODE vs Duke scandal">案例聚光：ENCODE vs Duke 化療醜聞</a></li>
+<li><a href="#pitfalls" data-zh="6 個典型陷阱" data-en="6 typical pitfalls">6 個典型陷阱</a></li>
+<li><a href="#contrast" data-zh="對照：壞段 vs 好段（scRNA-seq）" data-en="Contrast: bad vs good (scRNA-seq)">對照：壞段 vs 好段（scRNA-seq）</a></li>
+<li><a href="#reflection" data-zh="自我反思 6 問" data-en="6 self-test questions">自我反思 6 問</a></li>
+<li><a href="#advanced" data-zh="進階 2024-2026 SOTA（TRIPOD+AI / Quarto / AI 政策）" data-en="Advanced 2024-2026 SOTA">進階 2024-2026 SOTA</a></li>
+</ol>
+</div>
+
+<!-- ===== STORY ===== -->
+<section id="story" class="section">
+<div class="section-label" data-zh="故事開場" data-en="OPENING STORY">故事開場</div>
+<h2 data-zh="場景：Alex 與 reviewer 的「我無法重現你的 pipeline」" data-en="Scene: Alex and the reviewer's "We cannot reproduce your pipeline"">場景：Alex 與 reviewer 的「我無法重現你的 pipeline」</h2>
+<div class="story-block">
+<span class="story-tag">SCENE · 2025 · scRNA-seq paper</span>
+<h3 data-zh="從 desk-reject 到 Zenodo DOI——一個博士生的覺醒" data-en="From desk-reject to Zenodo DOI — a PhD's awakening">從 desk-reject 到 Zenodo DOI——一個博士生的覺醒</h3>
+<div data-lang="zh">
+<p>博士生 <strong>Alex</strong> 投出了人生第一篇 scRNA-seq 論文，題目是「TNBC 化療後免疫細胞態變化」。他自認 Methods 寫得鉅細靡遺：「使用 Seurat 進行 QC、PCA、UMAP、Louvain clustering 與 differential expression。差異基因用 ggplot2 可視化。」三週後 reviewer 2 回信只有兩句：「<em>We cannot reproduce your pipeline. Which Seurat version? What resolution? Where is the code?</em>」</p>
+<p>Alex 當下覺得委屈——「明明該寫的都寫了」。但實驗室師姐 Dora 翻出她去年被 Nature Communications 接受的 paper，逐段對照：版本號（Seurat v5.1.0, R 4.4.1）、隨機種子（set.seed(42)）、cluster resolution=0.6、PCs=30、UMAP n.neighbors=30。每一行都精確到「下個人不必猜」。</p>
+<p>Alex 花了一整週重做：跑 <code>sessionInfo()</code> 把 R 套件版本鎖到 supplementary、把分析腳本推到 GitHub、領了 Zenodo DOI、用 EQUATOR 的 MIBBI/STROBE 自我核對。為了 ctDNA 子實驗，他追加了 IRB 編號與 informed consent 條款。最後在 Methods 末尾加上一段 Code &amp; Data Availability。</p>
+<p>修改稿三個月後接受，bioRxiv 同步上預印本。Reviewer 2 在公開的 review 中寫：「<em>The revised Methods are exemplary — every step is now reproducible.</em>」Alex 把這封 review 截圖貼在筆電上，成為他往後每次寫 Methods 的提醒：<strong>「方法不是給自己看的，是寫給 5 年後讀者重做用的。」</strong></p>
+</div>
+<div data-lang="en">
+<p>PhD student <strong>Alex</strong> submitted his first scRNA-seq paper — "Immune cell-state shifts in TNBC after chemotherapy." He believed his Methods were thorough: "Seurat was used for QC, PCA, UMAP, Louvain clustering, and differential expression; ggplot2 for visualization." Three weeks later reviewer 2 replied in two sentences: "<em>We cannot reproduce your pipeline. Which Seurat version? What resolution? Where is the code?</em>"</p>
+<p>Alex felt wronged — "I wrote everything that mattered." But senior labmate Dora pulled out her own Nat Commun paper and went paragraph by paragraph: package versions (Seurat v5.1.0, R 4.4.1), random seed (<code>set.seed(42)</code>), cluster resolution=0.6, PCs=30, UMAP n.neighbors=30. Every line was precise enough that "the next person doesn't have to guess."</p>
+<p>Alex spent a week redoing it: ran <code>sessionInfo()</code> and froze all R package versions to a supplementary table, pushed the analysis script to GitHub, minted a Zenodo DOI, and self-checked against EQUATOR's STROBE checklist. For a ctDNA sub-experiment, he added the IRB number and informed-consent statement. A formal Code &amp; Data Availability paragraph closed the Methods section.</p>
+<p>Three months after resubmission, the paper was accepted, with the manuscript also released on bioRxiv. Reviewer 2's public comment: "<em>The revised Methods are exemplary — every step is now reproducible.</em>" Alex screenshotted that line and pinned it to his laptop. His rule for every Methods section since: <strong>"Methods aren't for me — they're for the reader who has to redo it 5 years from now."</strong></p>
+</div>
+</div>
+</section>
+
+<!-- ===== GLOSSARY ===== -->
+<section id="glossary" class="section">
+<div class="section-label" data-zh="核心詞彙" data-en="GLOSSARY">核心詞彙</div>
+<h2 data-zh="14 個關鍵術語（雙版本）" data-en="14 Key Terms (two versions)">14 個關鍵術語（雙版本）</h2>
+<p data-lang="zh"><em>每個詞兩個版本：🧒「給小孩看」用比喻、📐「給研究者看」給定義。</em></p>
+<p data-lang="en"><em>Each term has two versions: 🧒 "for kids" uses a metaphor; 📐 "for researchers" gives the formal definition.</em></p>
+<div class="glossary-grid">
+
+<div class="glossary-card">
+<div class="term-en">Methods section</div><div class="term-zh">方法章節</div>
+<div class="term-kid" data-lang="zh">論文的「食譜」——告訴別人怎麼把你的菜煮一次。</div>
+<div class="term-kid" data-lang="en">The paper's "recipe" — tells others how to cook your dish.</div>
+<div class="term-tech" data-lang="zh">IMRaD 結構中 M 部分；應包含 study design、participants、variables、sample size、analysis、ethics 等 ≥5 子段，目標：可被獨立重現。</div>
+<div class="term-tech" data-lang="en">The M in IMRaD; must contain ≥5 subsections — study design, participants, variables, sample size, analysis, ethics. Target: independent reproducibility.</div>
+</div>
+
+<div class="glossary-card">
+<div class="term-en">EQUATOR Network</div><div class="term-zh">EQUATOR 網絡</div>
+<div class="term-kid" data-lang="zh">「報告寫作的食譜總集」——每種研究都有對應的清單告訴你該寫什麼。</div>
+<div class="term-kid" data-lang="en">"A cookbook of cookbooks" — one checklist per study type telling you what to report.</div>
+<div class="term-tech" data-lang="zh">Enhancing the QUAlity and Transparency Of health Research；2008 成立、Oxford 託管；目前維護 500+ reporting guidelines。</div>
+<div class="term-tech" data-lang="en">Enhancing the QUAlity and Transparency Of health Research; founded 2008, hosted at Oxford; maintains 500+ reporting guidelines.</div>
+</div>
+
+<div class="glossary-card">
+<div class="term-en">STROBE</div><div class="term-zh">STROBE 觀察性研究清單</div>
+<div class="term-kid" data-lang="zh">如果你的研究是「在旁邊看」而不是「主動做」，就用這份清單。</div>
+<div class="term-kid" data-lang="en">If your study "watches" rather than "intervenes," use this checklist.</div>
+<div class="term-tech" data-lang="zh">Strengthening the Reporting of Observational Studies in Epidemiology；von Elm 2007 PLoS Med；cohort / case-control / cross-sectional 共 22 項。</div>
+<div class="term-tech" data-lang="en">Strengthening the Reporting of Observational Studies in Epidemiology; von Elm 2007 PLoS Med; 22 items across cohort / case-control / cross-sectional.</div>
+</div>
+
+<div class="glossary-card">
+<div class="term-en">CONSORT</div><div class="term-zh">CONSORT 臨床試驗清單</div>
+<div class="term-kid" data-lang="zh">如果你做的是「給藥 vs 給安慰劑」這種隨機分派試驗，用這份。</div>
+<div class="term-kid" data-lang="en">If you randomly assigned people to drug vs placebo, this checklist is for you.</div>
+<div class="term-tech" data-lang="zh">CONsolidated Standards Of Reporting Trials；Schulz 2010 BMJ；CONSORT 2025 強化 estimand、harms、open data。</div>
+<div class="term-tech" data-lang="en">CONsolidated Standards Of Reporting Trials; Schulz 2010 BMJ; CONSORT 2025 strengthens estimand, harms, open data.</div>
+</div>
+
+<div class="glossary-card">
+<div class="term-en">ARRIVE</div><div class="term-zh">ARRIVE 動物實驗清單</div>
+<div class="term-kid" data-lang="zh">老鼠、斑馬魚的實驗該寫的事——年齡、性別、住哪、吃什麼，全要交代。</div>
+<div class="term-kid" data-lang="en">For mouse / zebrafish studies — age, sex, housing, diet must all be reported.</div>
+<div class="term-tech" data-lang="zh">Animal Research: Reporting of In Vivo Experiments；Percie du Sert 2020 PLoS Biol；ARRIVE 2.0 含 essential 10 + recommended set。</div>
+<div class="term-tech" data-lang="en">Animal Research: Reporting of In Vivo Experiments; Percie du Sert 2020 PLoS Biol; ARRIVE 2.0 has essential 10 + recommended set.</div>
+</div>
+
+<div class="glossary-card">
+<div class="term-en">TRIPOD+AI</div><div class="term-zh">TRIPOD+AI 機器學習模型清單</div>
+<div class="term-kid" data-lang="zh">用 AI 蓋了一個「預測病人會不會生病」的模型？這份清單告訴你怎麼寫。</div>
+<div class="term-kid" data-lang="en">Built an AI model to predict disease? This checklist tells you how to report it.</div>
+<div class="term-tech" data-lang="zh">Collins 2024 BMJ doi:10.1136/bmj-2023-078378；27 主項 + AI-specific items：資料來源、特徵工程、外部驗證、calibration。</div>
+<div class="term-tech" data-lang="en">Collins 2024 BMJ doi:10.1136/bmj-2023-078378; 27 main items + AI-specific items: data sources, features, external validation, calibration.</div>
+</div>
+
+<div class="glossary-card">
+<div class="term-en">PRISMA</div><div class="term-zh">PRISMA 系統性回顧清單</div>
+<div class="term-kid" data-lang="zh">如果你的論文是「整理 200 篇別人的論文」——這份是你的清單。</div>
+<div class="term-kid" data-lang="en">If your paper synthesizes 200 other papers, this is your checklist.</div>
+<div class="term-tech" data-lang="zh">Preferred Reporting Items for Systematic reviews and Meta-Analyses；Page 2021 BMJ；PRISMA 2020 含 flow diagram + 27 items。</div>
+<div class="term-tech" data-lang="en">Preferred Reporting Items for Systematic reviews and Meta-Analyses; Page 2021 BMJ; PRISMA 2020 with flow diagram + 27 items.</div>
+</div>
+
+<div class="glossary-card">
+<div class="term-en">Reproducibility</div><div class="term-zh">可重現性</div>
+<div class="term-kid" data-lang="zh">「同樣食材、同樣食譜，做出來味道一樣」——這才算科學。</div>
+<div class="term-kid" data-lang="en">"Same ingredients, same recipe, same taste" — that's what counts as science.</div>
+<div class="term-tech" data-lang="zh">NASEM 2019 三層級：computational reproducibility (相同 code 跑出相同結果)、replicability (新資料相同結論)、generalizability。</div>
+<div class="term-tech" data-lang="en">NASEM 2019 three levels: computational reproducibility (same code → same result), replicability (new data → same conclusion), generalizability.</div>
+</div>
+
+<div class="glossary-card">
+<div class="term-en">Code Availability</div><div class="term-zh">程式碼公開聲明</div>
+<div class="term-kid" data-lang="zh">「我的食譜放在這個網址，你可以照著做」——指引讀者去哪拿 code。</div>
+<div class="term-kid" data-lang="en">"My recipe is at this URL, follow along" — tells readers where the code is.</div>
+<div class="term-tech" data-lang="zh">標準格式：GitHub URL + commit hash + license + Zenodo DOI snapshot；2026 Cell / Nature Press 期刊已強制。</div>
+<div class="term-tech" data-lang="en">Standard format: GitHub URL + commit hash + license + Zenodo DOI snapshot; mandated by Cell / Nature Press in 2026.</div>
+</div>
+
+<div class="glossary-card">
+<div class="term-en">Data Availability</div><div class="term-zh">資料可取得聲明</div>
+<div class="term-kid" data-lang="zh">「實驗數據放在哪？要怎麼拿？」每篇論文都要回答這題。</div>
+<div class="term-kid" data-lang="en">"Where's the raw data and how do I get it?" Every paper must answer this.</div>
+<div class="term-tech" data-lang="zh">優先順序：公開 repository (GEO/SRA/Zenodo/Figshare + DOI) &gt; controlled access (dbGaP/EGA) &gt; "upon reasonable request"（最弱、漸被禁）。</div>
+<div class="term-tech" data-lang="en">Priority: public repo (GEO/SRA/Zenodo/Figshare + DOI) &gt; controlled access (dbGaP/EGA) &gt; "upon reasonable request" (weakest, increasingly disallowed).</div>
+</div>
+
+<div class="glossary-card">
+<div class="term-en">Sample-size justification</div><div class="term-zh">樣本量正當性</div>
+<div class="term-kid" data-lang="zh">「為什麼要找 50 個人不是 5 個？」事先計算才不會被退稿。</div>
+<div class="term-kid" data-lang="en">"Why 50 people not 5?" Pre-calculate it so reviewers don't reject the paper.</div>
+<div class="term-tech" data-lang="zh">需報 α、β (power=1-β)、預期 effect size、dropout、最終 n；常用工具：G*Power (Faul 2007)、PASS、R <code>pwr</code>。</div>
+<div class="term-tech" data-lang="en">Report α, β (power=1-β), expected effect size, dropout, and final n; common tools: G*Power (Faul 2007), PASS, R <code>pwr</code>.</div>
+</div>
+
+<div class="glossary-card">
+<div class="term-en">IRB / IACUC</div><div class="term-zh">人體 / 動物倫理委員會</div>
+<div class="term-kid" data-lang="zh">「做人體 / 動物實驗要先得到許可」——沒這個審查號就不該寫論文。</div>
+<div class="term-kid" data-lang="en">"You need permission before studying humans / animals" — no approval number, no paper.</div>
+<div class="term-tech" data-lang="zh">IRB = Institutional Review Board (人體)；IACUC = Institutional Animal Care and Use Committee (動物)；必須寫核准號 + Declaration of Helsinki (2024) / ARRIVE 2.0 引用。</div>
+<div class="term-tech" data-lang="en">IRB = Institutional Review Board (human); IACUC = Institutional Animal Care and Use Committee (animal); must cite approval number + Declaration of Helsinki (2024) / ARRIVE 2.0.</div>
+</div>
+
+<div class="glossary-card">
+<div class="term-en">Random seed</div><div class="term-zh">隨機種子</div>
+<div class="term-kid" data-lang="zh">「亂數骰子的起始位置」——同一個種子，下次擲出來一模一樣。</div>
+<div class="term-kid" data-lang="en">"The dice's starting position" — same seed, same throw next time.</div>
+<div class="term-tech" data-lang="zh">隨機過程 (UMAP, t-SNE, clustering, train-test split, ML) 必須 set.seed(42) 或 np.random.seed(42)；缺乏 = 結果不可重現。</div>
+<div class="term-tech" data-lang="en">Any stochastic step (UMAP, t-SNE, clustering, train-test split, ML) needs <code>set.seed(42)</code> or <code>np.random.seed(42)</code>; without it = non-reproducible.</div>
+</div>
+
+<div class="glossary-card">
+<div class="term-en">FAIR principles</div><div class="term-zh">FAIR 原則</div>
+<div class="term-kid" data-lang="zh">資料要 4 件事：找得到 (F)、拿得到 (A)、能跟別資料合 (I)、可再用 (R)。</div>
+<div class="term-kid" data-lang="en">Data must be 4 things: Findable, Accessible, Interoperable, Reusable.</div>
+<div class="term-tech" data-lang="zh">Wilkinson 2016 Sci Data；NIH Data Management &amp; Sharing Policy 2023 全面採用；DOI + 標準化 metadata + API + 開放授權。</div>
+<div class="term-tech" data-lang="en">Wilkinson 2016 Sci Data; adopted by NIH Data Management &amp; Sharing Policy 2023; DOI + standardized metadata + API + open license.</div>
+</div>
+
+</div>
+</section>
+
+<!-- ===== HISTORY TIMELINE ===== -->
+<section id="history" class="section">
+<div class="section-label" data-zh="歷史" data-en="HISTORY">歷史</div>
+<h2 data-zh="從 Hippocrates 到 EQUATOR LIVE" data-en="From Hippocrates to EQUATOR LIVE">方法寫作的簡史：從希波克拉底到 AI 時代</h2>
+<div class="timeline">
+<div class="timeline-item"><span class="tl-year">~400 BCE</span><span class="tl-title" data-zh="Hippocratic 醫派：protocols 雛形" data-en="Hippocratic school: proto-protocols">Hippocratic 醫派：protocols 雛形</span><span class="tl-desc" data-zh="希波克拉底傳統強調逐字記下症狀、治療與結果——Methods 寫作的祖先。" data-en="The Hippocratic tradition stressed writing down symptoms, treatment, outcome — the ancestor of Methods writing."></span></div>
+<div class="timeline-item"><span class="tl-year">1948</span><span class="tl-title" data-zh="Streptomycin RCT：首個現代 RCT" data-en="Streptomycin RCT: first modern RCT">Streptomycin RCT：首個現代 RCT</span><span class="tl-desc" data-zh="Hill 設計、MRC 發表；首次將「隨機分派 + 盲化 + 預先 protocol」明確寫進 Methods。" data-en="Designed by Hill, published by the MRC; first explicit "randomization + blinding + pre-defined protocol" in Methods."></span></div>
+<div class="timeline-item"><span class="tl-year">1962</span><span class="tl-title" data-zh="Beecher：研究倫理當頭棒喝" data-en="Beecher: research ethics wake-up call">Beecher：研究倫理當頭棒喝</span><span class="tl-desc" data-zh="NEJM「Ethics and Clinical Research」揭露 22 個違反倫理研究；改寫 Methods 必交代 IRB。" data-en="NEJM "Ethics and Clinical Research" exposed 22 unethical studies; rewrote the rule that Methods must disclose IRB."></span></div>
+<div class="timeline-item"><span class="tl-year">1979</span><span class="tl-title" data-zh="Belmont Report：3 大倫理原則" data-en="Belmont Report: 3 ethical principles">Belmont Report：3 大倫理原則</span><span class="tl-desc" data-zh="US National Commission；Respect / Beneficence / Justice 成為 IRB 審查骨幹。" data-en="US National Commission; Respect / Beneficence / Justice became the backbone of IRB review."></span></div>
+<div class="timeline-item"><span class="tl-year">1996</span><span class="tl-title" data-zh="CONSORT v1 發表" data-en="CONSORT v1 published">CONSORT v1 發表</span><span class="tl-desc" data-zh="JAMA；首個跨期刊 RCT 報告清單；定下「checklist + flow diagram」典範。" data-en="JAMA; first cross-journal RCT reporting checklist; established "checklist + flow diagram" template."></span></div>
+<div class="timeline-item"><span class="tl-year">2001</span><span class="tl-title" data-zh="MIAME：基因晶片元資料標準" data-en="MIAME: microarray metadata standard">MIAME：基因晶片元資料標準</span><span class="tl-desc" data-zh="Brazma 2001 Nat Genet；首次把「資料 metadata」納入 Methods 規範；催生 GEO/ArrayExpress deposit 文化。" data-en="Brazma 2001 Nat Genet; first formalization of "data metadata" in Methods; spawned GEO/ArrayExpress deposit culture."></span></div>
+<div class="timeline-item"><span class="tl-year">2007</span><span class="tl-title" data-zh="STROBE 上線" data-en="STROBE launched">STROBE 上線</span><span class="tl-desc" data-zh="von Elm PLoS Med；觀察性研究第一份標準化 reporting checklist。" data-en="von Elm PLoS Med; first standardized reporting checklist for observational studies."></span></div>
+<div class="timeline-item"><span class="tl-year">2008</span><span class="tl-title" data-zh="EQUATOR Network 成立 / ARRIVE 發表" data-en="EQUATOR founded / ARRIVE released">EQUATOR Network 成立 / ARRIVE 發表</span><span class="tl-desc" data-zh="EQUATOR 集合所有 reporting guidelines；ARRIVE 為動物實驗報告補位。" data-en="EQUATOR consolidated all reporting guidelines; ARRIVE filled the animal-study gap."></span></div>
+<div class="timeline-item"><span class="tl-year">2015</span><span class="tl-title" data-zh="EQUATOR 增設 reporting guideline knowledge translation" data-en="EQUATOR rolls out knowledge translation">EQUATOR 推廣與教育網絡擴張</span><span class="tl-desc" data-zh="Simera 2010+, Moher 2015 開始將 reporting guideline 嵌入期刊投稿流程。" data-en="Simera 2010+, Moher 2015 began embedding reporting guidelines in journal submission workflows."></span></div>
+<div class="timeline-item"><span class="tl-year">2016</span><span class="tl-title" data-zh="FAIR Data 原則" data-en="FAIR Data principles">FAIR Data 原則</span><span class="tl-desc" data-zh="Wilkinson Sci Data；Findable / Accessible / Interoperable / Reusable 成為資料管理金標。" data-en="Wilkinson Sci Data; Findable / Accessible / Interoperable / Reusable became data-management gold standard."></span></div>
+<div class="timeline-item"><span class="tl-year">2020</span><span class="tl-title" data-zh="PRISMA 2020 更新" data-en="PRISMA 2020 update">PRISMA 2020 更新</span><span class="tl-desc" data-zh="Page BMJ；27 items + flow diagram；系統性回顧的當代標準。" data-en="Page BMJ; 27 items + flow diagram; current standard for systematic reviews."></span></div>
+<div class="timeline-item"><span class="tl-year">2024</span><span class="tl-title" data-zh="TRIPOD+AI 發表" data-en="TRIPOD+AI released">TRIPOD+AI 發表</span><span class="tl-desc" data-zh="Collins BMJ doi:10.1136/bmj-2023-078378；ML 預測模型 Methods 寫作的權威 checklist。" data-en="Collins BMJ doi:10.1136/bmj-2023-078378; authoritative checklist for ML prediction-model Methods."></span></div>
+<div class="timeline-item"><span class="tl-year">2025-26</span><span class="tl-title" data-zh="EQUATOR LIVE / AI-aware Methods" data-en="EQUATOR LIVE / AI-aware Methods">EQUATOR LIVE 與 AI-aware 報告</span><span class="tl-desc" data-zh="EQUATOR 推出機器可讀 LIVE checklists；Cell Press 2026 要求 AI 工具使用揭露 (model name + version + prompt + role)。" data-en="EQUATOR launched machine-readable LIVE checklists; Cell Press 2026 requires AI-tool disclosure (model name + version + prompt + role)."></span></div>
+</div>
+</section>
+
+<!-- ===== KPI ===== -->
+<section id="kpi" class="section">
+<div class="section-label" data-zh="關鍵指標" data-en="KEY METRICS">關鍵指標</div>
+<h2 data-zh="方法寫作的數字感" data-en="Numbers to Anchor the Methods">方法寫作的數字感</h2>
+<div class="kpi-grid">
+<div class="kpi-card"><span class="kpi-num">500+</span><span class="kpi-label" data-zh="EQUATOR 指引總數" data-en="EQUATOR guidelines">EQUATOR 指引總數</span></div>
+<div class="kpi-card"><span class="kpi-num">5-6</span><span class="kpi-label" data-zh="Methods 必備子段" data-en="Methods subsections">Methods 必備子段</span></div>
+<div class="kpi-card"><span class="kpi-num">30+</span><span class="kpi-label" data-zh="R/Python 套件版本" data-en="R/Python pkg versions">R/Python 套件版本</span></div>
+<div class="kpi-card"><span class="kpi-num">~50%</span><span class="kpi-label" data-zh="無法重現的論文比例" data-en="Papers failing repro (OSC 2015)">無法重現的論文比例</span></div>
+<div class="kpi-card"><span class="kpi-num">1-click</span><span class="kpi-label" data-zh="切換 checklist" data-en="Switch checklist">切換 checklist</span></div>
+<div class="kpi-card"><span class="kpi-num">24h</span><span class="kpi-label" data-zh="Zenodo DOI 領取" data-en="DOI via Zenodo">Zenodo DOI 領取</span></div>
+</div>
+<div class="tip-bar" data-lang="zh">數字告訴你：方法寫作不是文字遊戲，是 reproducibility 的工程問題。Open Science Collaboration 2015 Science 顯示心理學論文約有 50% 結果無法重現，生醫領域比例也接近。</div>
+<div class="tip-bar" data-lang="en">The numbers tell you: Methods writing isn't wordplay — it's a reproducibility engineering problem. Open Science Collaboration 2015 Science showed ~50% of psychology results failed replication; biomedicine is similar.</div>
+</section>
+
+<!-- ===== ANALOGY ===== -->
+<section id="analogy" class="section">
+<div class="section-label" data-zh="比喻" data-en="ANALOGY">比喻</div>
+<h2 data-zh="Methods 就是一份食譜" data-en="Methods Is a Recipe">Methods 就是一份食譜</h2>
+<div class="analogy-box">
+<div class="ana-icon">🍳</div>
+<div class="ana-body">
+<div data-lang="zh"><p>想像你拿到一份食譜，上面只寫「加一點鹽、煮到熟、想吃辣可以加點辣」——你能煮出跟原作者一樣的菜嗎？絕對不行。同樣的，Methods 寫「我們用 Seurat 跑了 clustering」也是徒勞——版本？resolution？PCs 數？random seed？都是「加一點鹽」級的模糊。</p><p>好的食譜會說「<strong>5g NaCl，中火 8 分鐘，油溫 180°C</strong>」。好的 Methods 會說「<strong>Seurat v5.1.0 (R 4.4.1)，resolution=0.6，top 30 PCs，random seed=42</strong>」。差別不在於「夠不夠詳細」，而在於「下一個人能不能跟你做出一模一樣的菜」。</p></div>
+<div data-lang="en"><p>Imagine getting a recipe that says "add some salt, cook till done, add chili if you like spicy." Could you reproduce the original chef's dish? Of course not. The same is true for "We used Seurat for clustering" — version? resolution? PCs? random seed? They're all "some salt"-level vague.</p><p>A good recipe says "<strong>5g NaCl, medium heat 8 min, oil at 180°C</strong>." Good Methods say "<strong>Seurat v5.1.0 (R 4.4.1), resolution=0.6, top 30 PCs, random seed=42</strong>." The difference isn't "how detailed" — it's "can the next person cook the same dish."</p></div>
+</div>
+<span class="ana-tag" data-zh="比喻" data-en="ANALOGY">比喻</span>
+</div>
+</section>
+
+<!-- ===== WALKTHROUGH ===== -->
+<section id="walkthrough" class="section">
+<div class="section-label" data-zh="步驟導引" data-en="WALKTHROUGH">步驟導引</div>
+<h2 data-zh="從零開始寫 Methods 的 8 個步驟" data-en="8 Steps to Write Methods from Scratch">從零開始寫 Methods 的 8 個步驟</h2>
+<div class="walkthrough">
+<div class="walkthrough-header">
+<span class="wt-num">Σ</span>
+<span class="wt-tag" data-zh="可重現 Methods 的工作流" data-en="Reproducible-Methods workflow">可重現 Methods 的工作流</span>
+</div>
+<div class="wt-step"><span class="wt-label">Σ₁</span><div class="wt-body">
+<div data-lang="zh"><strong>挑選 EQUATOR checklist。</strong>到 equator-network.org 找對應研究類型：RCT → CONSORT 2025、cohort/case-control → STROBE、SR → PRISMA 2020、動物 → ARRIVE 2.0、ML 模型 → TRIPOD+AI。下載 PDF 並在 Word/Quarto 旁邊開著。</div>
+<div data-lang="en"><strong>Pick the EQUATOR checklist.</strong> At equator-network.org find the one for your study type: RCT → CONSORT 2025, cohort/case-control → STROBE, SR → PRISMA 2020, animal → ARRIVE 2.0, ML model → TRIPOD+AI. Download the PDF and keep it open beside Word/Quarto.</div>
+</div></div>
+<div class="wt-step"><span class="wt-label">Σ₂</span><div class="wt-body">
+<div data-lang="zh"><strong>鎖死 study design 一句話。</strong>例如：「This is a single-center retrospective cohort of stage III-IV TNBC patients (NTUH, 2020-2024)」。寫死設計類型、地點、時間、單/多中心。</div>
+<div data-lang="en"><strong>Lock the study-design sentence.</strong> Example: "This is a single-center retrospective cohort of stage III-IV TNBC patients (NTUH, 2020-2024)." Pin design, site, period, single/multi-center.</div>
+</div></div>
+<div class="wt-step"><span class="wt-label">Σ₃</span><div class="wt-body">
+<div data-lang="zh"><strong>定義 inclusion / exclusion。</strong>每條規則一行：年齡範圍、診斷準則、用藥史、樣本品質門檻。Omics：物種、組織、batch、accession。「不寫的就是不知道」是審查者預設。</div>
+<div data-lang="en"><strong>Define inclusion / exclusion.</strong> One line per rule: age range, diagnostic criteria, medication history, sample-quality thresholds. Omics: species, tissue, batch, accession. Reviewers assume "what you didn't write, you didn't think about."</div>
+</div></div>
+<div class="wt-step"><span class="wt-label">Σ₄</span><div class="wt-body">
+<div data-lang="zh"><strong>樣本量正當性（用 G*Power / pwr）。</strong>列出 α、β、預期 effect size、預期 dropout、最終 n。RCT、動物、ML 模型尤其必要；探索性 omics 也應給「power for primary contrast」。</div>
+<div data-lang="en"><strong>Sample-size justification (G*Power / pwr).</strong> List α, β, expected effect size, expected dropout, final n. Mandatory for RCT, animal, ML; even exploratory omics should give "power for the primary contrast."</div>
+</div></div>
+<div class="wt-step"><span class="wt-label">Σ₅</span><div class="wt-body">
+<div data-lang="zh"><strong>軟體版本逐一列。</strong>R 跑 <code>sessionInfo()</code>、Python 跑 <code>pip freeze &gt; requirements.txt</code>；Cellranger、bcftools、Seurat、Scanpy、scikit-learn、torch、CUDA、OS 全部列入 Supplementary Table。「Seurat」沒版本 = Methods 失敗。</div>
+<div data-lang="en"><strong>List every software version.</strong> Run <code>sessionInfo()</code> in R, <code>pip freeze &gt; requirements.txt</code> in Python; Cellranger, bcftools, Seurat, Scanpy, scikit-learn, torch, CUDA, OS all go into a Supplementary Table. "Seurat" without a version = Methods failure.</div>
+</div></div>
+<div class="wt-step"><span class="wt-label">Σ₆</span><div class="wt-body">
+<div data-lang="zh"><strong>預先註冊 (pre-register)。</strong>RCT → ClinicalTrials.gov；SR → PROSPERO；其他 → OSF Registry / AsPredicted。先註冊再做，可避免 HARKing 被指控。Registered Report 是更強形式。</div>
+<div data-lang="en"><strong>Pre-register.</strong> RCT → ClinicalTrials.gov; SR → PROSPERO; other → OSF Registry / AsPredicted. Pre-register before running prevents HARKing accusations. Registered Reports go further.</div>
+</div></div>
+<div class="wt-step"><span class="wt-label">Σ₇</span><div class="wt-body">
+<div data-lang="zh"><strong>Deposit code 與 data。</strong>Code → GitHub repo + tag/release，再到 Zenodo 領 DOI snapshot；Data → 原始 fastq/bam 到 GEO/SRA；處理後物件到 Zenodo/Figshare；clinical → dbGaP/EGA (controlled)。每樣留下 accession/DOI。</div>
+<div data-lang="en"><strong>Deposit code and data.</strong> Code → GitHub repo + tag/release, then mint a Zenodo DOI snapshot; Data → raw fastq/bam to GEO/SRA; processed objects to Zenodo/Figshare; clinical → dbGaP/EGA (controlled). Keep every accession/DOI.</div>
+</div></div>
+<div class="wt-step"><span class="wt-label">Σ₈</span><div class="wt-body">
+<div data-lang="zh"><strong>寫 Code &amp; Data Availability + Ethics 段。</strong>明確點出 GitHub URL + commit hash + license + Zenodo DOI + 資料 accession + IRB/IACUC 編號 + Declaration of Helsinki (2024) 引用 + AI 工具使用揭露（如有）。這段是審查者第一個看的。</div>
+<div data-lang="en"><strong>Write the Code &amp; Data Availability + Ethics paragraphs.</strong> Spell out GitHub URL + commit hash + license + Zenodo DOI + data accession + IRB/IACUC number + Declaration of Helsinki (2024) citation + AI-tool disclosure (if applicable). Reviewers read this first.</div>
+</div></div>
+</div>
+</section>
+
+<!-- ===== DISCUSSION ===== -->
+<section id="discussion" class="section">
+<div class="section-label" data-zh="專家辯論" data-en="EXPERT DEBATE">專家辯論</div>
+<h2 data-zh="3 個 Methods 寫作的灰色地帶" data-en="3 Grey Zones in Methods Writing">3 個 Methods 寫作的灰色地帶</h2>
+<div class="discussion-card">
+<span class="disc-label" data-zh="爭論 1" data-en="Debate 1">爭論 1</span>
+<div class="disc-q" data-zh="Methods 該放正文還是 Supplementary？" data-en="Methods in main text or Supplementary?">Methods 該放正文還是 Supplementary？</div>
+<div class="disc-pov" data-lang="zh"><strong>正方（Nature/Science 風格）：</strong>主文限 1500-3000 字，所以詳細 protocol 應移到 Online Methods / Supplementary，讓主文聚焦故事敘事。<br><strong>反方（PLOS/eLife 風格）：</strong>Methods 是論文的「不過時部分」，藏在 Supplementary 等於削弱可重現性；應留在主文。<br><strong>共識：</strong>high-level 概覽留主文，detailed protocol（試劑、儀器設定、程式參數）入 Supplementary 並加 DOI。讀者一查就找得到。</div>
+<div class="disc-pov" data-lang="en"><strong>For (Nature/Science style):</strong> Main text caps at 1500-3000 words, so detailed protocols go to Online Methods / Supplementary; main text focuses on narrative.<br><strong>Against (PLOS/eLife style):</strong> Methods is the "timeless" part — hiding it in Supplementary weakens reproducibility; keep in main text.<br><strong>Consensus:</strong> High-level overview in main text; detailed protocol (reagents, instrument settings, code parameters) in Supplementary with a DOI. Readers can locate it.</div>
+</div>
+<div class="discussion-card">
+<span class="disc-label" data-zh="爭論 2" data-en="Debate 2">爭論 2</span>
+<div class="disc-q" data-zh="AI 寫的程式碼 (GitHub Copilot / ChatGPT)，要不要在 Methods 揭露？" data-en="AI-generated code (Copilot/ChatGPT) — disclose in Methods?">AI 寫的程式碼，要不要在 Methods 揭露？</div>
+<div class="disc-pov" data-lang="zh"><strong>正方（保守派）：</strong>AI 是工具，跟 IDE 自動補全一樣，不必每段都揭露；只要結果可重現即可。<br><strong>反方（透明派）：</strong>Cell Press 2026 已明令揭露 AI 工具的 model name、version、prompt、role；不揭露 = 違反 publishing ethics。<br><strong>當前實務：</strong>若 AI 僅做 boilerplate（函式樣板、命名建議），可在 Acknowledgments 一句帶過；若 AI 設計演算法/分析邏輯，必須在 Methods 詳列。</div>
+<div class="disc-pov" data-lang="en"><strong>For (conservative):</strong> AI is a tool like IDE autocomplete — no need to disclose every snippet if results reproduce.<br><strong>Against (transparency):</strong> Cell Press 2026 mandates disclosing AI-tool model name, version, prompt, role; non-disclosure = ethics breach.<br><strong>Current practice:</strong> Boilerplate (function templates, naming hints) → one line in Acknowledgments; AI designing algorithms / analysis logic → full Methods detail.</div>
+</div>
+<div class="discussion-card">
+<span class="disc-label" data-zh="爭論 3" data-en="Debate 3">爭論 3</span>
+<div class="disc-q" data-zh="「data available upon reasonable request」還能用嗎？" data-en=""Data available upon reasonable request" — still acceptable?">「data available upon reasonable request」還能用嗎？</div>
+<div class="disc-pov" data-lang="zh"><strong>研究 (Gabelica 2022 J Clin Epidemiol)：</strong>聲稱「upon request」的 1792 篇論文中，僅 6.7% 真的能拿到資料——這句話是 reproducibility 的最大謊言。<br><strong>限制條件：</strong>當資料含個資（病人資訊、罕見疾病）受法規約束，"controlled access via dbGaP/EGA" 才是正解，仍須給 accession。<br><strong>結論：</strong>純探索性 omics、模擬資料、code — 都應公開 deposit；唯有個資 / 智財 / 商業敏感才能「controlled access」，但不可空話 "upon request"。</div>
+<div class="disc-pov" data-lang="en"><strong>Evidence (Gabelica 2022 J Clin Epidemiol):</strong> Of 1792 papers saying "upon request," only 6.7% actually shared data — biggest reproducibility lie.<br><strong>Constraints:</strong> When data contains PII (patient info, rare disease) and is regulated, "controlled access via dbGaP/EGA" is the answer — but still give an accession.<br><strong>Bottom line:</strong> Exploratory omics / simulated data / code → public deposit. Only PII / IP / commercially sensitive → controlled access, with accession; never empty "upon request."</div>
+</div>
+</section>
+
+<!-- ===== SPOTLIGHT ===== -->
+<section id="spotlight" class="section">
+<div class="section-label" data-zh="案例聚光" data-en="SPOTLIGHTS">案例聚光</div>
+<h2 data-zh="一好一壞：方法寫作的兩極案例" data-en="One Best, One Worst: Two Extremes">一好一壞：方法寫作的兩極案例</h2>
+<div class="spotlight">
+<div class="sp-icon">⭐</div>
+<div class="sp-body">
+<div data-lang="zh"><strong>FAMOUS SUCCESS — ENCODE Project 2012 Nature：</strong>ENCODE 集合 32 篇論文同時刊出，1640 個資料集全部開放下載；每篇 Methods 在 Online 補充近 100 頁 protocols、code、metadata schema、quality control thresholds。GitHub & UCSC Genome Browser snapshots 完整公開。從那時起，「ENCODE-style Methods」成為大型 consortium 論文的標竿，且因可重現性極高，至 2026 年仍被頻繁引用、再用、擴充——這就是「Methods 是論文唯一不過時的部分」最好的證據。</div>
+<div data-lang="en"><strong>FAMOUS SUCCESS — ENCODE Project 2012 Nature:</strong> ENCODE released 32 papers simultaneously, with all 1640 datasets publicly downloadable; each paper's Methods provided ~100 pages of online supplementary protocols, code, metadata schema, and QC thresholds. GitHub &amp; UCSC Genome Browser snapshots were fully open. Since then "ENCODE-style Methods" has been the benchmark for large-consortium papers — and because reproducibility is exceptional, they are still being cited, reused, and extended in 2026. The best proof that "Methods are the only timeless part of a paper."</div>
+</div>
+<span class="sp-tag" data-zh="✨ 成功" data-en="✨ Success">✨ 成功</span>
+</div>
+<div class="spotlight">
+<div class="sp-icon">⚠️</div>
+<div class="sp-body">
+<div data-lang="zh"><strong>FAMOUS FAILURE — Duke 化療預測醜聞 (Potti et al. 2006 Nat Med)：</strong>Potti 與 Nevins 在 Nat Med 發表「gene-expression 預測化療反應」，部分基於該模型啟動臨床試驗。Baggerly &amp; Coombes 2009 Ann Appl Stat 用「forensic bioinformatics」逐字重做：發現訓練集／驗證集 row 對齊錯、heatmap label off-by-one、原 code 從未公開。最終 11 篇 paper 撤稿，3 個 NIH 臨床試驗中止，Potti 失去 Duke 教職。教訓：<strong>未公開 code/data 的可重現性災難會吞噬整個職涯。</strong></div>
+<div data-lang="en"><strong>FAMOUS FAILURE — Duke chemotherapy-prediction scandal (Potti et al. 2006 Nat Med):</strong> Potti and Nevins published a gene-expression model predicting chemotherapy response in Nat Med; clinical trials launched on its basis. Baggerly &amp; Coombes 2009 Ann Appl Stat performed "forensic bioinformatics" — they found row-misalignment between training and validation sets, off-by-one heatmap labels, and code never released. Eleven papers were retracted, three NIH trials halted, Potti lost his Duke faculty position. Lesson: <strong>a reproducibility disaster from undisclosed code/data can swallow an entire career.</strong></div>
+</div>
+<span class="sp-tag" data-zh="⚠️ 失敗" data-en="⚠️ Failure">⚠️ 失敗</span>
+</div>
+</section>
+
+<!-- ===== PITFALLS ===== -->
+<section id="pitfalls" class="section">
+<div class="section-label" data-zh="陷阱" data-en="PITFALLS">陷阱</div>
+<h2 data-zh="6 個 Methods 典型陷阱" data-en="6 Typical Methods Pitfalls">6 個 Methods 典型陷阱</h2>
+<div class="pitfall-grid">
+<div class="pitfall-card">
+<h4 data-zh="陷阱 1：含糊「我們用 Seurat 做 clustering」" data-en="Pitfall 1: Vague "We used Seurat for clustering"">陷阱 1：含糊「我們用 Seurat 做 clustering」</h4>
+<div data-lang="zh"><p>無版本、無 resolution、無 PCs、無 seed = 等同於沒寫。Seurat v4→v5 的 SCTransform、Louvain 預設值差異足以改變 cluster 邊界。</p><p><strong>修法：</strong>Seurat v5.1.0 + resolution=0.6 + top 30 PCs + random seed=42。</p></div>
+<div data-lang="en"><p>No version, no resolution, no PCs, no seed = unwritten. Seurat v4 vs v5 SCTransform / Louvain defaults differ enough to shift cluster boundaries.</p><p><strong>Fix:</strong> Seurat v5.1.0 + resolution=0.6 + top 30 PCs + random seed=42.</p></div>
+</div>
+<div class="pitfall-card">
+<h4 data-zh="陷阱 2：缺隨機種子" data-en="Pitfall 2: No random seed">陷阱 2：缺隨機種子</h4>
+<div data-lang="zh"><p>UMAP、t-SNE、k-means、train-test split、bootstrap 都依賴隨機過程。沒 <code>set.seed()</code> = 同一份 code 第二次跑出來圖不一樣。</p><p><strong>修法：</strong>R <code>set.seed(42)</code>、Python <code>np.random.seed(42)</code> + <code>torch.manual_seed(42)</code>。</p></div>
+<div data-lang="en"><p>UMAP, t-SNE, k-means, train-test split, bootstrap all rely on stochastic steps. Without <code>set.seed()</code>, the same code yields different plots next time.</p><p><strong>Fix:</strong> R <code>set.seed(42)</code>; Python <code>np.random.seed(42)</code> + <code>torch.manual_seed(42)</code>.</p></div>
+</div>
+<div class="pitfall-card">
+<h4 data-zh="陷阱 3：「Data available upon request」當免責牌" data-en="Pitfall 3: "Available upon request" as a fig leaf">陷阱 3：「Data available upon request」當免責牌</h4>
+<div data-lang="zh"><p>Gabelica 2022 顯示只有 6.7% 真的會分享。當你沒打算 deposit 就不要寫——直接用 controlled access (dbGaP) 或標示「將於 N 個月內 deposit」。</p><p><strong>修法：</strong>論文接受日 deposit + DOI；無法公開時用 controlled access + accession。</p></div>
+<div data-lang="en"><p>Gabelica 2022 showed only 6.7% actually share. If you don't plan to deposit, don't write it — use controlled access (dbGaP) or "will deposit within N months."</p><p><strong>Fix:</strong> Deposit at acceptance + DOI; if can't go public, use controlled access + accession.</p></div>
+</div>
+<div class="pitfall-card">
+<h4 data-zh="陷阱 4：缺 IRB / IACUC 編號" data-en="Pitfall 4: Missing IRB / IACUC number">陷阱 4：缺 IRB / IACUC 編號</h4>
+<div data-lang="zh"><p>沒有編號 = 期刊 desk-reject。臨床／動物研究的所有層級都必須核准號 + Declaration of Helsinki (2024 revision) 引用。</p><p><strong>修法：</strong>Ethics section 第一行寫上 approval no. XXX-2025-001 + 引用 Declaration of Helsinki / ARRIVE 2.0。</p></div>
+<div data-lang="en"><p>No number = journal desk-reject. Any human / animal study tier requires an approval number + Declaration of Helsinki (2024 revision) citation.</p><p><strong>Fix:</strong> Ethics section opens with approval no. XXX-2025-001 + cite Declaration of Helsinki / ARRIVE 2.0.</p></div>
+</div>
+<div class="pitfall-card">
+<h4 data-zh="陷阱 5：未揭露多重分析 / p-hacking" data-en="Pitfall 5: Undisclosed multiple analyses / p-hacking">陷阱 5：未揭露多重分析 / p-hacking</h4>
+<div data-lang="zh"><p>跑了 12 種 cutoff 只報 p&lt;0.05 那一種 = p-hacking。即使無心，也應交代所有嘗試。</p><p><strong>修法：</strong>列出所有 cut-off 與 sensitivity analyses，並用 BH-FDR 或 pre-registration 鎖死 primary endpoint。</p></div>
+<div data-lang="en"><p>Tested 12 cutoffs and reported only the p&lt;0.05 one = p-hacking. Even unintentional — disclose all attempts.</p><p><strong>Fix:</strong> List every cutoff and sensitivity analysis; lock primary endpoint with BH-FDR or pre-registration.</p></div>
+</div>
+<div class="pitfall-card">
+<h4 data-zh="陷阱 6：事後 (post-hoc) 計算樣本量" data-en="Pitfall 6: Post-hoc sample-size calculation">陷阱 6：事後 (post-hoc) 計算樣本量</h4>
+<div data-lang="zh"><p>實驗做完才反算 power = 套套邏輯 (Hoenig &amp; Heisey 2001 Am Stat)，毫無資訊量。樣本量計算必須事前。</p><p><strong>修法：</strong>實驗前用 G*Power / pwr 計算，公開設定參數；實驗後若樣本不足，誠實在 Limitations 交代。</p></div>
+<div data-lang="en"><p>Computing power after the experiment = tautology (Hoenig &amp; Heisey 2001 Am Stat); zero information. Sample size must be computed a priori.</p><p><strong>Fix:</strong> Pre-experiment with G*Power / pwr, publish parameters; if underpowered, honestly disclose in Limitations.</p></div>
+</div>
+</div>
+</section>
+
+<!-- ===== CONTRAST ===== -->
+<section id="contrast" class="section">
+<div class="section-label" data-zh="對照" data-en="CONTRAST">對照</div>
+<h2 data-zh="壞段 vs 好段：scRNA-seq Clustering Methods" data-en="Bad vs Good: scRNA-seq Clustering Methods">壞段 vs 好段：scRNA-seq Clustering Methods</h2>
+<div class="contrast-2col">
+<div class="con-card bad">
+<h4 data-zh="❌ 不可重現版" data-en="❌ Non-reproducible">❌ 不可重現版</h4>
+<div data-lang="zh"><p>「We used Seurat to cluster cells and identified differentially expressed genes between conditions. Quality control was performed to remove low-quality cells, and downstream analyses including UMAP and differential expression were carried out using standard parameters.」</p><p><strong>問題：</strong>沒版本、沒 QC 門檻、沒 normalization 方法、沒 cluster resolution、沒 PCs 數、沒 seed、沒 code 連結、「standard parameters」是空話。</p></div>
+<div data-lang="en"><p>"We used Seurat to cluster cells and identified differentially expressed genes between conditions. Quality control was performed to remove low-quality cells, and downstream analyses including UMAP and differential expression were carried out using standard parameters."</p><p><strong>Problems:</strong> no version, no QC thresholds, no normalization method, no cluster resolution, no PCs, no seed, no code link, "standard parameters" is empty.</p></div>
+</div>
+<div class="con-card good">
+<h4 data-zh="✅ 可重現版" data-en="✅ Reproducible">✅ 可重現版</h4>
+<div data-lang="zh"><p>「Seurat v5.1.0 (R 4.4.1) was used. Cells passing QC (nFeature_RNA 200–6000, percent.mt &lt;15%, n=18,432) were normalized with SCTransform v2, the top 30 PCs were retained, and Louvain clustering was performed at resolution=0.6 with <code>set.seed(42)</code>. UMAP used n.neighbors=30 and min.dist=0.3. Differential expression used <code>FindMarkers</code> (Wilcoxon, only.pos=TRUE, logfc.threshold=0.25, BH-adjusted FDR&lt;0.05). Full pipeline: github.com/lab/proj-tnbc (commit a3f9c12) and Zenodo DOI 10.5281/zenodo.XXXXXXX.」</p><p><strong>為何好：</strong>版本鎖死、QC 門檻清楚、隨機種子、code commit、Zenodo DOI 全列。下個人 1 個月內可重做。</p></div>
+<div data-lang="en"><p>"Seurat v5.1.0 (R 4.4.1) was used. Cells passing QC (nFeature_RNA 200–6000, percent.mt &lt;15%, n=18,432) were normalized with SCTransform v2, the top 30 PCs were retained, and Louvain clustering was performed at resolution=0.6 with <code>set.seed(42)</code>. UMAP used n.neighbors=30 and min.dist=0.3. Differential expression used <code>FindMarkers</code> (Wilcoxon, only.pos=TRUE, logfc.threshold=0.25, BH-adjusted FDR&lt;0.05). Full pipeline: github.com/lab/proj-tnbc (commit a3f9c12) and Zenodo DOI 10.5281/zenodo.XXXXXXX."</p><p><strong>Why it works:</strong> versions pinned, QC thresholds explicit, random seed, code commit, Zenodo DOI — the next person can redo it within a month.</p></div>
+</div>
+</div>
+</section>
+
+<!-- ===== REFLECTION ===== -->
+<section id="reflection" class="section">
+<div class="section-label" data-zh="反思" data-en="REFLECTION">反思</div>
+<h2 data-zh="自我反思 6 問" data-en="6 Self-Test Questions">自我反思 6 問</h2>
+<div class="reflection-q">
+<ol>
+<li><span data-lang="zh">若你的論文 5 年後被引，讀者能照你的 Methods 重做嗎？</span><span data-lang="en">If your paper is cited 5 years from now, can readers redo your study from your Methods?</span></li>
+<li><span data-lang="zh">你研究類型對應的 EQUATOR checklist 是哪個？下載了嗎？</span><span data-lang="en">Which EQUATOR checklist matches your study type? Have you downloaded it?</span></li>
+<li><span data-lang="zh">你所有 R / Python 套件版本都記在 supplementary table 了嗎？</span><span data-lang="en">Are all your R / Python package versions logged in a supplementary table?</span></li>
+<li><span data-lang="zh">你所有隨機過程都 <code>set.seed()</code> 了嗎？</span><span data-lang="en">Did you <code>set.seed()</code> on every stochastic step?</span></li>
+<li><span data-lang="zh">Code 已 deposit 到 GitHub + Zenodo DOI 了嗎？Data 已 deposit 到 GEO/SRA/Zenodo 了嗎？</span><span data-lang="en">Is code deposited to GitHub + Zenodo DOI? Data deposited to GEO/SRA/Zenodo?</span></li>
+<li><span data-lang="zh">IRB / IACUC 編號 + Declaration of Helsinki / ARRIVE 引用都寫了嗎？</span><span data-lang="en">Have you written IRB / IACUC numbers + Declaration of Helsinki / ARRIVE citations?</span></li>
+</ol>
+</div>
+</section>
+
+<!-- ===== ADVANCED ===== -->
+<section id="advanced" class="section">
+<div class="section-label" data-zh="進階" data-en="ADVANCED">進階</div>
+<h2 data-zh="2024-2026 SOTA：Methods 寫作的最新標準" data-en="2024-2026 SOTA: Latest Methods Standards">2024-2026 SOTA：方法寫作的最新標準</h2>
+
+<div class="advanced-note">
+<span class="adv-label" data-zh="2024 TRIPOD+AI" data-en="2024 TRIPOD+AI">2024 TRIPOD+AI</span>
+<details class="detail-toggle"><summary data-zh="TRIPOD+AI 2024 (Collins BMJ) — ML 預測模型 Methods 標準" data-en="TRIPOD+AI 2024 (Collins BMJ) — ML prediction-model Methods standard">TRIPOD+AI 2024 (Collins BMJ) — ML 預測模型 Methods 標準</summary>
+<div class="detail-body">
+<div data-lang="zh"><p>Collins 2024 BMJ doi:10.1136/bmj-2023-078378 將 TRIPOD 擴展為 TRIPOD+AI，新增針對機器學習與深度學習模型的 27 主項：資料來源、樣本選擇偏差、特徵工程詳述、超參數搜尋策略、訓練／驗證／測試分割、外部驗證 (external validation) 至少一組獨立資料、calibration plot、decision-curve analysis。Methods 必須揭露：模型架構、訓練步驟、loss function、optimizer、early stopping、權重 init、random seed。Open Science：訓練 code + trained model weights deposit。</p></div>
+<div data-lang="en"><p>Collins 2024 BMJ doi:10.1136/bmj-2023-078378 extends TRIPOD to TRIPOD+AI with 27 main items targeting ML / DL models: data sources, sample-selection bias, feature engineering detail, hyper-parameter search, train/val/test split, external validation on at least one independent dataset, calibration plot, decision-curve analysis. Methods must disclose: model architecture, training procedure, loss function, optimizer, early stopping, weight init, random seed. Open science: deposit training code + trained model weights.</p></div>
+</div>
+</details>
+</div>
+
+<div class="advanced-note">
+<span class="adv-label" data-zh="2025 Quarto + Reproducible Publishing" data-en="2025 Quarto + Reproducible Publishing">2025 Quarto + Reproducible Publishing</span>
+<details class="detail-toggle"><summary data-zh="Quarto / Manuscripts as Code — 論文即可執行" data-en="Quarto / Manuscripts as Code — paper as executable">Quarto / Manuscripts as Code — 論文即可執行</summary>
+<div class="detail-body">
+<div data-lang="zh"><p>Quarto (Allaire 2022+, RStudio→Posit) 在 2025 推出 manuscripts feature：以 <code>.qmd</code> + <code>_quarto.yml</code> 為單一原始檔，生成 HTML / PDF / Word + 自動執行 code chunks，每個 figure / table 都從 raw data 重新算。Nature Methods、eLife、PLOS Comp Biol 從 2025 接受 Quarto manuscript notebook 投稿。Methods 段落可直接嵌入 <code>sessionInfo()</code> 的 live output，編譯時動態更新版本——徹底解決「文字版本與實際版本不同步」的老問題。</p></div>
+<div data-lang="en"><p>Quarto (Allaire 2022+, RStudio→Posit) launched its manuscripts feature in 2025: a single source <code>.qmd</code> + <code>_quarto.yml</code> produces HTML / PDF / Word and re-executes code chunks so every figure / table recomputes from raw data. Nature Methods, eLife, PLOS Comp Biol have accepted Quarto manuscript notebooks since 2025. Methods sections can embed live <code>sessionInfo()</code> output that auto-updates at compile time — eliminating the perennial "text version doesn't match actual version" bug.</p></div>
+</div>
+</details>
+</div>
+
+<div class="advanced-note">
+<span class="adv-label" data-zh="2026 Cell Press AI 揭露政策" data-en="2026 Cell Press AI disclosure policy">2026 Cell Press AI 揭露政策</span>
+<details class="detail-toggle"><summary data-zh="Cell Press 2026 — Methods 必須揭露 AI 使用 (model + version + prompt + role)" data-en="Cell Press 2026 — Methods must disclose AI use (model + version + prompt + role)">Cell Press 2026 — Methods 必須揭露 AI 使用</summary>
+<div class="detail-body">
+<div data-lang="zh"><p>Cell Press 2026 編輯政策更新（與 ICMJE 同步）：論文若使用 generative AI（ChatGPT-5、Claude Sonnet 4.6、Gemini 2.5、Llama 4 等）於 (1) 程式碼生成、(2) 文字編修、(3) 圖表設計、(4) 資料分析任一環節，皆須在 Methods 對應段落寫明：model name + version + access date + prompt (or prompt template) + role (生成 / 編修 / 校對)。匿名審查者已開始使用 GPTZero / Turnitin AI 偵測器交叉比對。<strong>未揭露 = potentially retractable offense。</strong>Nature Press 與 BMJ 預計 2026 Q3 跟進相同要求。</p></div>
+<div data-lang="en"><p>Cell Press 2026 editorial policy update (aligned with ICMJE): if a paper uses generative AI (ChatGPT-5, Claude Sonnet 4.6, Gemini 2.5, Llama 4, etc.) for (1) code generation, (2) text editing, (3) figure design, or (4) data analysis, the Methods must state: model name + version + access date + prompt (or template) + role (generation / editing / proofreading). Anonymous reviewers have begun cross-checking with GPTZero / Turnitin AI detectors. <strong>Non-disclosure = potentially retractable offense.</strong> Nature Press and BMJ are expected to follow in 2026 Q3.</p></div>
+</div>
+</details>
+</div>
+</section>
+
 <section class="section">
 <div class="section-label" data-zh="概覽" data-en="OVERVIEW">概覽</div>
 <h2 data-zh="為什麼方法寫作決定了論文壽命" data-en="Why Methods Determines a Paper's Lifespan">為什麼方法寫作決定了論文壽命</h2>
@@ -242,6 +661,11 @@ Animal experiments were approved by the IACUC of <span class="str">[Institution]
 <div class="quiz-opt" data-idx="3"><span data-lang="zh">D. 多重檢定校正方法 (BH / Bonferroni)</span><span data-lang="en">D. Multiple-testing correction method (BH / Bonferroni)</span></div>
 </div><div class="quiz-feedback" id="fb3"></div></div>
 </section>
+
+<div class="history-note">
+<div data-lang="zh"><strong>歷史小註：</strong>「Methods 章節」並非自始存在。17 世紀 Galileo 與 Kepler 通信中已有 proto-Methods 式的步驟描述（例如望遠鏡鏡片打磨方法），但正式區隔出 Methods 段落要等到 19 世紀末科學期刊標準化——Rudolf Virchow 編 Archiv 1847 開始要求作者交代材料來源與切片方法。20 世紀中期 American Psychological Association 1929 Publication Manual 首度將 "Method" 列為 paper 的必備節，催生今日 IMRaD 結構。1948 Streptomycin RCT 之後，「Methods 須交代隨機分派與盲化」成為臨床研究金標。到 2008 EQUATOR 成立，Methods 寫作從「個人風格」轉為「跨期刊標準」。2026 年的 AI 揭露要求，可視為 Methods 段持續演化的最新一章。</div>
+<div data-lang="en"><strong>Historical note:</strong> The "Methods section" wasn't always a thing. Letters between Galileo and Kepler in the 17th century contained proto-Methods step descriptions (e.g. how to grind a telescope lens), but a formal Methods section had to wait for 19th-century journal standardization — Rudolf Virchow's Archiv (1847) began demanding that authors disclose specimen sources and sectioning methods. The American Psychological Association's 1929 Publication Manual was the first to list "Method" as a required section, seeding today's IMRaD. After the 1948 Streptomycin RCT, "Methods must disclose randomization and blinding" became the clinical-research gold standard. With EQUATOR's founding in 2008, Methods writing moved from "personal style" to "cross-journal standard." The 2026 AI-disclosure requirements are the latest chapter in the Methods section's ongoing evolution.</div>
+</div>
 
 <nav class="page-nav">
 <a href="introduction-writing.html"><span class="nav-dir" data-zh="← 上一步" data-en="← Previous">← 上一步</span><span class="nav-title" data-zh="Step 4: 緒論寫作" data-en="Step 4: Introduction Writing">Step 4: 緒論寫作</span></a>

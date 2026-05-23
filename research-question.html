@@ -30,8 +30,466 @@
 </header>
 <main class="content-wrap">
 
-<!-- ===== Section 1: Why ===== -->
+<!-- ===== Section TOC ===== -->
+<div class="section-toc">
+<strong data-zh="本章導覽（閱讀時間 ~22 分）" data-en="Chapter map (reading time ~22 min)">本章導覽（閱讀時間 ~22 分）</strong>
+<div class="pill-row">
+<span class="level-badge l-beg" data-zh="初學者" data-en="Beginner">初學者</span>
+<span class="level-badge l-mid" data-zh="中階" data-en="Intermediate">中階</span>
+<span class="level-badge l-adv" data-zh="進階" data-en="Advanced">進階</span>
+<span class="pill navy">PICO</span><span class="pill amber">FINER</span><span class="pill violet">hypothesis</span><span class="pill teal">PROSPERO</span>
+</div>
+<ol>
+<li><a href="#story" data-zh="開場故事：1 句話救活 18 個月數據" data-en="Story: how one sentence saved 18 months">開場故事：1 句話救活 18 個月數據</a></li>
+<li><a href="#glossary" data-zh="核心詞彙表（雙版本）" data-en="Glossary (two versions)">核心詞彙表（雙版本）</a></li>
+<li><a href="#history" data-zh="從 Hippocrates 到 PROSPERO" data-en="From Hippocrates to PROSPERO">從 Hippocrates 到 PROSPERO</a></li>
+<li><a href="#kpi" data-zh="關鍵指標" data-en="Key numbers">關鍵指標</a></li>
+<li><a href="#pico" data-zh="PICO / FINER / Aim-Hypothesis" data-en="PICO / FINER / Aim-Hypothesis">PICO / FINER / Aim-Hypothesis</a></li>
+<li><a href="#discussion" data-zh="專家辯論：novel = 從未做過？" data-en="Expert debate: does novel = never done?">專家辯論：novel = 從未做過？</a></li>
+<li><a href="#pitfalls" data-zh="6 個典型陷阱" data-en="6 typical pitfalls">6 個典型陷阱</a></li>
+<li><a href="#advanced" data-zh="進階 2024-2026 SOTA" data-en="Advanced 2024-2026 SOTA">進階 2024-2026 SOTA</a></li>
+</ol>
+</div>
+
+<!-- ===== STORY ===== -->
+<section id="story" class="section">
+<div class="section-label" data-zh="故事開場" data-en="OPENING STORY">故事開場</div>
+<h2 data-zh="場景：一句話救活 18 個月的數據" data-en="Scene: How One Sentence Saved 18 Months of Data">場景：一句話救活 18 個月的數據</h2>
+<div class="story-block">
+<span class="story-tag">SCENE · 2024 · NTUH</span>
+<h3 data-zh="從「我想做 TNBC」到「測量什麼？比較誰？多久？」" data-en="From "I want to do TNBC" to "Measure what? Compare whom? How long?"">從「我想做 TNBC」到「測量什麼？比較誰？多久？」</h3>
+<div data-lang="zh">
+<p>博士生 <strong>Mei</strong> 兩年累積了 18 對三陰性乳癌 (TNBC) 治療前後配對組織，準備寫第一篇 paper。她把資料寄給 PI <strong>劉教授</strong>，附信標題寫「TNBC 化療反應研究」。回信只有一行：「<em>你的研究問題是什麼？</em>」</p>
+<p>Mei 一開始覺得這問題太抽象——「就是研究 TNBC 怎麼對化療反應啊」。但當她真的坐下來寫，發現：「反應」是指什麼？臨床反應（RECIST）？腫瘤縮小百分比？分子層面的基因表達變化？細胞層面的群體比例變化？要比較<em>誰</em>跟<em>誰</em>？反應好的 vs 反應差的？治療前 vs 治療後？每一條路線答案都不一樣，研究設計也不一樣。</p>
+<p>第三天她交回一行：「<em>在 III-IV 期 TNBC 病人中 (P)，pembrolizumab + chemo (I) 相對於 chemo only (C)，在 6 個月內的腫瘤微環境細胞態 (O) 有什麼差異？</em>」劉教授回：「<em>這就能寫了。從這句話倒推 introduction、methods、figure 1。</em>」</p>
+<p>三個月後，Mei 的 draft 被劉教授改了 11 版才送 reviewer。但 Methods 的核心 cohort 與 outcome 設計沒動過——因為那一句研究問題在她寫第一個字之前就鎖死了。</p>
+</div>
+<div data-lang="en">
+<p>PhD student <strong>Mei</strong> has spent two years collecting 18 paired pre/post-chemotherapy biopsies from triple-negative breast cancer (TNBC) patients. Ready to write her first paper, she emails her PI <strong>Prof. Liu</strong> with the subject "TNBC chemotherapy response study." The reply is one line: "<em>What is your research question?</em>"</p>
+<p>Mei thinks it's an abstract question — "I'm studying how TNBC responds to chemo." But sitting down to write, she stalls: what does "respond" mean? Clinical response (RECIST)? Tumor shrinkage percentage? Molecular gene-expression changes? Cell-population shifts? Compared between <em>whom</em>? Good vs poor responders? Pre vs post? Each route leads to a different study design.</p>
+<p>Day three she sends back one sentence: "<em>In patients with stage III-IV TNBC (P), how does pembrolizumab + chemo (I) versus chemo alone (C) alter the tumor-microenvironment cell-state composition (O) within 6 months?</em>" Liu replies: "<em>Now you can write. Back-engineer Introduction, Methods, Figure 1 from this sentence.</em>"</p>
+<p>Three months later the draft is rewritten 11 times before going to reviewers — but the core cohort and outcome definition never changes. They were locked the moment that single sentence was right.</p>
+</div>
+</section>
+
+<!-- ===== GLOSSARY ===== -->
+<section id="glossary" class="section">
+<div class="section-label" data-zh="核心詞彙" data-en="GLOSSARY">核心詞彙</div>
+<h2 data-zh="12 個關鍵術語（雙版本）" data-en="12 Key Terms (two versions)">12 個關鍵術語（雙版本）</h2>
+<p data-lang="zh"><em>每個詞有兩個版本：🧒「給小孩看」用比喻、📐「給研究者看」給定義。</em></p>
+<p data-lang="en"><em>Each term has two versions: 🧒 "for kids" uses a metaphor; 📐 "for researchers" gives the formal definition.</em></p>
+<div class="glossary-grid">
+
+<div class="glossary-card">
+<div class="term-en">PICO</div><div class="term-zh">PICO 框架</div>
+<div class="term-kid" data-lang="zh">把研究寫成一齣戲的卡司表：角色 (P)、做了什麼 (I)、跟誰比 (C)、看到什麼結果 (O)。</div>
+<div class="term-kid" data-lang="en">A "cast list" for your study: Person, Intervention, Comparator, Outcome — like writing the cast of a play.</div>
+<div class="term-tech" data-lang="zh">Richardson 1995 在 EBM 中提出；P=Population、I=Intervention、C=Comparator、O=Outcome。延伸 PICOS (+Study)、PICOTS (+Time, Setting)。</div>
+<div class="term-tech" data-lang="en">Richardson 1995 in EBM; P/I/C/O. Extensions: PICOS (+Study design), PICOTS (+Time, Setting).</div>
+</div>
+
+<div class="glossary-card">
+<div class="term-en">FINER</div><div class="term-zh">FINER 判準</div>
+<div class="term-kid" data-lang="zh">5 個 yes/no 題：做得到嗎？有趣嗎？新嗎？合倫理嗎？有用嗎？全部 yes 才值得做。</div>
+<div class="term-kid" data-lang="en">Five yes/no checks: doable, interesting, novel, ethical, relevant — all must be yes.</div>
+<div class="term-tech" data-lang="zh">Hulley 等 (Designing Clinical Research, 5e) 提出；Feasible/Interesting/Novel/Ethical/Relevant。任一 No → 換問題。</div>
+<div class="term-tech" data-lang="en">From Hulley et al. (Designing Clinical Research, 5e); Feasible / Interesting / Novel / Ethical / Relevant. Any No → revise the question.</div>
+</div>
+
+<div class="glossary-card">
+<div class="term-en">Aim</div><div class="term-zh">研究目標</div>
+<div class="term-kid" data-lang="zh">「整本書要講什麼」——一句很廣的話。</div>
+<div class="term-kid" data-lang="en">"What the whole book is about" — one broad sentence.</div>
+<div class="term-tech" data-lang="zh">最寬層次的目的陳述；動詞為 investigate / explore / characterize。1 個 study 1 個 aim。</div>
+<div class="term-tech" data-lang="en">Broadest level of intent; verbs: investigate / explore / characterize. One aim per study.</div>
+</div>
+
+<div class="glossary-card">
+<div class="term-en">Objective</div><div class="term-zh">研究細目</div>
+<div class="term-kid" data-lang="zh">把「整本書」拆成「3 章」——每章具體可量化。</div>
+<div class="term-kid" data-lang="en">Splits the "book" into "3 chapters" — each concrete and measurable.</div>
+<div class="term-tech" data-lang="zh">Aim 之下的可達成步驟，通常 2-4 個；動詞用 quantify / compare / identify。</div>
+<div class="term-tech" data-lang="en">Concrete measurable steps under the Aim; typically 2-4; verbs: quantify / compare / identify.</div>
+</div>
+
+<div class="glossary-card">
+<div class="term-en">Hypothesis</div><div class="term-zh">假設</div>
+<div class="term-kid" data-lang="zh">「我猜會發生這件事」——而且有可能被證明猜錯。</div>
+<div class="term-kid" data-lang="en">"I predict X will happen" — and the prediction could be proven wrong.</div>
+<div class="term-tech" data-lang="zh">可被否證 (falsifiable) 的具體預測 (Popper 1934)。方向性 = 預測上升/下降；非方向性 = 預測有差異。對應 H₀ 與 H₁。</div>
+<div class="term-tech" data-lang="en">A falsifiable specific prediction (Popper 1934). Directional = predicts up/down; non-directional = predicts difference. Paired with H₀ (null) and H₁ (alternative).</div>
+</div>
+
+<div class="glossary-card">
+<div class="term-en">Population (P)</div><div class="term-zh">研究對象</div>
+<div class="term-kid" data-lang="zh">你要研究「哪些人 / 哪些細胞 / 哪些動物」——越具體越好。</div>
+<div class="term-kid" data-lang="en">Who you study — patients, cells, animals? More specific = better.</div>
+<div class="term-tech" data-lang="zh">納入 / 排除準則需明確：年齡、性別、疾病分期、共病、種族、地理。Omics 研究中 P = 樣本集 (cell type、tissue、batch)。</div>
+<div class="term-tech" data-lang="en">Inclusion / exclusion criteria must be explicit: age, sex, disease stage, comorbidities, ethnicity, geography. In omics, P = sample set (cell type, tissue, batch).</div>
+</div>
+
+<div class="glossary-card">
+<div class="term-en">Intervention (I)</div><div class="term-zh">介入或暴露</div>
+<div class="term-kid" data-lang="zh">你要「做什麼事」給 P——吃藥、加基因、觀察。</div>
+<div class="term-kid" data-lang="en">What you "do to" P — give a drug, knock out a gene, simply observe.</div>
+<div class="term-tech" data-lang="zh">介入性 (interventional) = 主動操控；觀察性 (observational) = 被動 exposure。需列劑量、時程、給藥途徑或暴露定義。</div>
+<div class="term-tech" data-lang="en">Interventional = active manipulation; observational = passive exposure. Specify dose, schedule, route, or exposure definition.</div>
+</div>
+
+<div class="glossary-card">
+<div class="term-en">Comparator (C)</div><div class="term-zh">對照組</div>
+<div class="term-kid" data-lang="zh">「跟誰比？」沒對照組就像考試沒及格線——分數無意義。</div>
+<div class="term-kid" data-lang="en">"Compared to whom?" Without a comparator, scores are meaningless — like an exam with no pass line.</div>
+<div class="term-tech" data-lang="zh">Placebo、active control (現行標準治療)、wild-type、healthy control。N-of-1 設計可用個案前後當對照。</div>
+<div class="term-tech" data-lang="en">Placebo, active control (current standard), wild-type, healthy control. N-of-1 designs use within-patient pre/post as comparator.</div>
+</div>
+
+<div class="glossary-card">
+<div class="term-en">Outcome (O)</div><div class="term-zh">結果指標</div>
+<div class="term-kid" data-lang="zh">「你怎麼知道有沒有效？」事先決定要測量什麼。</div>
+<div class="term-kid" data-lang="en">"How will you know it worked?" Pre-specify what you'll measure.</div>
+<div class="term-tech" data-lang="zh">Primary outcome 必須事先註冊 (PROSPERO / ClinicalTrials.gov)；secondary 列出但不可變主結局。生資為 quantifiable readout (#DEGs, AUC)。</div>
+<div class="term-tech" data-lang="en">Primary outcome must be pre-registered (PROSPERO / ClinicalTrials.gov); secondary listed but cannot become primary. In bioinformatics: quantifiable readout (#DEGs, AUC).</div>
+</div>
+
+<div class="glossary-card">
+<div class="term-en">HARKing</div><div class="term-zh">事後假設</div>
+<div class="term-kid" data-lang="zh">先看結果再「假裝」自己一開始就猜中——學術界的最大禁忌之一。</div>
+<div class="term-kid" data-lang="en">Looking at results then pretending you predicted them all along — one of academia's biggest taboos.</div>
+<div class="term-tech" data-lang="zh">Hypothesizing After the Results are Known (Kerr 1998 Pers Soc Psychol Rev)。導致 false positive 暴增；preregistration 是解方。</div>
+<div class="term-tech" data-lang="en">Hypothesizing After the Results are Known (Kerr 1998). Inflates false positives; pre-registration is the antidote.</div>
+</div>
+
+<div class="glossary-card">
+<div class="term-en">Pre-registration</div><div class="term-zh">研究預先註冊</div>
+<div class="term-kid" data-lang="zh">在做實驗之前就把「我要做什麼、預測什麼」公開貼出來——之後不能改。</div>
+<div class="term-kid" data-lang="en">Publicly post "what I'll do and predict" BEFORE the experiment — you can't change it later.</div>
+<div class="term-tech" data-lang="zh">PROSPERO (systematic review)、OSF Registry、Clinical Trials.gov、AsPredicted；對應 Registered Report (期刊先審計畫再做)。</div>
+<div class="term-tech" data-lang="en">PROSPERO (systematic reviews), OSF Registry, ClinicalTrials.gov, AsPredicted. Related: Registered Reports (journal reviews plan first).</div>
+</div>
+
+<div class="glossary-card">
+<div class="term-en">Falsifiability</div><div class="term-zh">可否證性</div>
+<div class="term-kid" data-lang="zh">一個好猜想必須「有可能猜錯」——不能保證自己一定對。</div>
+<div class="term-kid" data-lang="en">A good guess must be capable of being wrong — it can't be guaranteed to be right.</div>
+<div class="term-tech" data-lang="zh">Popper 1934 科學陳述的劃界判準。「Gene X 跟病有關」不可否證；「Gene X 高表達者 5 年存活高 ≥10%」可否證。</div>
+<div class="term-tech" data-lang="en">Popper 1934: demarcation criterion for science. "Gene X is related to disease" is unfalsifiable; "5-yr survival ≥10% higher in Gene X-high vs -low" is falsifiable.</div>
+</div>
+
+</div>
+</section>
+
+<!-- ===== HISTORY TIMELINE ===== -->
+<section id="history" class="section">
+<div class="section-label" data-zh="歷史" data-en="HISTORY">歷史</div>
+<h2 data-zh="從 Hippocrates 到 PROSPERO" data-en="From Hippocrates to PROSPERO">研究問題的簡史：從 Hippocrates 到 PROSPERO</h2>
+<div class="timeline">
+<div class="timeline-item"><span class="tl-year">~400 BCE</span><span class="tl-title" data-zh="Hippocrates：觀察先於推論" data-en="Hippocrates: observation before inference">Hippocrates：觀察先於推論</span><span class="tl-desc" data-zh="希波克拉底醫派強調「先觀察症狀、再推因」，是「先有問題才有理論」的雛形。" data-en="The Hippocratic school taught "observe first, infer later" — proto "question before theory."></span></div>
+<div class="timeline-item"><span class="tl-year">1620</span><span class="tl-title" data-zh="Bacon：歸納法 Novum Organum" data-en="Bacon: induction in Novum Organum">Bacon：歸納法 Novum Organum</span><span class="tl-desc" data-zh="Francis Bacon「先問問題、找事實、再下結論」的歸納法，奠定現代科學方法。" data-en="Bacon's induction: ask, observe, conclude — foundation of modern scientific method."></span></div>
+<div class="timeline-item"><span class="tl-year">1934</span><span class="tl-title" data-zh="Popper：可否證性" data-en="Popper: falsifiability">Popper：可否證性</span><span class="tl-desc" data-zh="The Logic of Scientific Discovery；研究假設必須可被否證才是科學。" data-en="The Logic of Scientific Discovery; hypotheses must be falsifiable to be science."></span></div>
+<div class="timeline-item"><span class="tl-year">1948</span><span class="tl-title" data-zh="Streptomycin RCT：首個現代 RCT" data-en="Streptomycin RCT: first modern RCT">Streptomycin RCT：首個現代 RCT</span><span class="tl-desc" data-zh="Hill 設計、MRC 發表；明確的 PICO 結構從此進入臨床研究。" data-en="Designed by Hill, published by the MRC; explicit PICO entered clinical research."></span></div>
+<div class="timeline-item"><span class="tl-year">1995</span><span class="tl-title" data-zh="Richardson：PICO 正式提出" data-en="Richardson: PICO formally proposed">Richardson：PICO 正式提出</span><span class="tl-desc" data-zh="ACP J Club；EBM 將 PICO 制度化為臨床問題標準格式。" data-en="ACP J Club; EBM institutionalized PICO."></span></div>
+<div class="timeline-item"><span class="tl-year">1998</span><span class="tl-title" data-zh="Kerr：HARKing 提出" data-en="Kerr coins "HARKing"">Kerr：HARKing 提出</span><span class="tl-desc" data-zh="Pers Soc Psychol Rev；正式為「事後假設」命名，引發 reproducibility crisis 論戰。" data-en="Pers Soc Psychol Rev; named HARKing, sparking the reproducibility-crisis debate."></span></div>
+<div class="timeline-item"><span class="tl-year">2007</span><span class="tl-title" data-zh="Hulley：FINER 進入主流" data-en="Hulley: FINER enters mainstream">Hulley：FINER 進入主流教科書</span><span class="tl-desc" data-zh="Designing Clinical Research 第 3 版；FINER 成為研究設計課程必教內容。" data-en="Designing Clinical Research 3e; FINER becomes a curriculum staple."></span></div>
+<div class="timeline-item"><span class="tl-year">2011</span><span class="tl-title" data-zh="PROSPERO 上線" data-en="PROSPERO launched">PROSPERO 上線</span><span class="tl-desc" data-zh="University of York CRD；systematic review 預先註冊的全球平台。" data-en="University of York CRD; global registry for systematic-review pre-registration."></span></div>
+<div class="timeline-item"><span class="tl-year">2014</span><span class="tl-title" data-zh="Registered Reports 開始流行" data-en="Registered Reports gain traction">Registered Reports 開始流行</span><span class="tl-desc" data-zh="Cortex / Royal Society Open Science；期刊先審研究計畫再決定是否接受發表。" data-en="Cortex / RSOS; journals review study plans before agreeing to publish."></span></div>
+<div class="timeline-item"><span class="tl-year">2026</span><span class="tl-title" data-zh="AI 時代的問題設計" data-en="AI-era question design">AI 時代的問題設計</span><span class="tl-desc" data-zh="ChatGPT-5 / Claude Sonnet 4.6 可協助 PICO 拆解；但 hypothesis falsifiability 仍須人類判斷。" data-en="ChatGPT-5 / Claude Sonnet 4.6 can help decompose PICO; falsifiability still requires human judgment."></span></div>
+</div>
+</section>
+
+<!-- ===== KPI ===== -->
+<section id="kpi" class="section">
+<div class="section-label" data-zh="關鍵指標" data-en="KEY METRICS">關鍵指標</div>
+<h2 data-zh="研究問題的數字感" data-en="Numbers to Anchor the Topic">研究問題的數字感</h2>
+<div class="kpi-grid">
+<div class="kpi-card"><span class="kpi-num">1</span><span class="kpi-label" data-zh="句研究問題" data-en="Research question sentence">句研究問題</span></div>
+<div class="kpi-card"><span class="kpi-num">5</span><span class="kpi-label" data-zh="FINER 判準" data-en="FINER criteria">FINER 判準</span></div>
+<div class="kpi-card"><span class="kpi-num">4-5</span><span class="kpi-label" data-zh="PICO 元素" data-en="PICO elements">PICO 元素</span></div>
+<div class="kpi-card"><span class="kpi-num">2-4</span><span class="kpi-label" data-zh="Objectives 數" data-en="Objectives">Objectives 數</span></div>
+<div class="kpi-card"><span class="kpi-num">~80%</span><span class="kpi-label" data-zh="弱研究問題比率" data-en="Weak-question rate">弱研究問題比率</span></div>
+<div class="kpi-card"><span class="kpi-num">30s</span><span class="kpi-label" data-zh="同事理解測試" data-en="Colleague-comprehension test">同事理解測試</span></div>
+</div>
+<div class="tip-bar" data-lang="zh">如果 3 位同領域同事無法在 30 秒內理解你的研究問題，那不是他們的問題——是你的問題還沒寫好。</div>
+<div class="tip-bar" data-lang="en">If 3 same-field colleagues can't understand your research question in 30 seconds, it's not on them — your question isn't ready.</div>
+</section>
+
+<!-- ===== Analogy ===== -->
 <section class="section">
+<div class="section-label" data-zh="一個比喻" data-en="ONE ANALOGY">一個比喻</div>
+<div class="analogy-box">
+<span class="ana-icon">🛰️</span>
+<div class="ana-body">
+<span class="ana-tag" data-zh="比喻 · GPS" data-en="Analogy · GPS">比喻 · GPS</span>
+<p data-lang="zh">好的研究問題就像 <strong>GPS</strong>：給你 <strong>P / I / C / O</strong> 四個座標，否則整篇論文會在野外迷路。少一個座標，定位就會偏；少兩個，連自己在哪都不知道。FINER 是把座標經緯度換算成「值不值得走」——可行嗎？新嗎？合倫理嗎？相關嗎？重要嗎？沒有 GPS 的旅行叫探險，沒有 GPS 的論文叫流水帳。</p>
+<p data-lang="en">A strong research question is like a <strong>GPS</strong>: it gives you four coordinates — <strong>P / I / C / O</strong> — without which the whole paper wanders off-trail. Drop one coordinate and the bearing drifts; drop two and you no longer know where you are. FINER converts those coordinates into "is this trip worth taking?" — Feasible? Interesting? Novel? Ethical? Relevant? Travel without GPS is called adventure; a paper without it is called rambling.</p>
+</div>
+</div>
+</section>
+
+<!-- ===== Walkthrough ===== -->
+<section id="walkthrough" class="section">
+<div class="section-label" data-zh="逐步推導" data-en="STEP-BY-STEP">Σ 推導</div>
+<h2 data-zh="從 idea 到 PICO 鎖死研究問題的 8 步" data-en="From Idea to Locked-In PICO in 8 Steps">從 idea 到 PICO 鎖死研究問題的 8 步</h2>
+<div class="walkthrough">
+<div class="walkthrough-header">
+<span class="wt-num">Σ</span>
+<span class="wt-tag" data-zh="鎖死流程" data-en="Lock-in pipeline">PICO Lock-In Pipeline</span>
+</div>
+<div class="wt-step"><span class="wt-label">Σ₁</span><div class="wt-body">
+<p data-lang="zh"><strong>找出大方向 (broad area)。</strong>從你最近讀過、最想吵的 3–5 篇論文出發；不要一開始就 narrow，先承認自己對哪個 disease/system/method 真的有熱情。</p>
+<p data-lang="en"><strong>Identify the broad area.</strong> Start from the 3–5 papers you most want to argue with; don't narrow yet — first admit which disease/system/method you genuinely care about.</p>
+</div></div>
+<div class="wt-step"><span class="wt-label">Σ₂</span><div class="wt-body">
+<p data-lang="zh"><strong>列出該領域的 pain points。</strong>用 bullet 寫 5–10 個「為什麼這件事還沒解決？」沒寫滿 5 條表示讀得還不夠。</p>
+<p data-lang="en"><strong>List the field's pain points.</strong> Bullet 5–10 "why hasn't this been solved?" items. Fewer than 5 means you haven't read enough.</p>
+</div></div>
+<div class="wt-step"><span class="wt-label">Σ₃</span><div class="wt-body">
+<p data-lang="zh"><strong>挑 P (Population)。</strong>具體到「分期 / 細胞型別 / 物種 / 年齡層」。「癌症病人」不算 P；「stage III–IV TNBC, female adults」才算。</p>
+<p data-lang="en"><strong>Pick P (Population).</strong> Specify "stage / cell type / species / age group". "Cancer patients" is not a P; "stage III–IV TNBC, female adults" is.</p>
+</div></div>
+<div class="wt-step"><span class="wt-label">Σ₄</span><div class="wt-body">
+<p data-lang="zh"><strong>挑 I (Intervention / Exposure)。</strong>劑量、頻次、處理時長都要寫上；biology 研究則寫擾動類型 (KO / KD / OE / drug dose)。</p>
+<p data-lang="en"><strong>Pick I (Intervention/Exposure).</strong> Include dose, frequency, duration; for biology, specify perturbation type (KO / KD / OE / drug dose).</p>
+</div></div>
+<div class="wt-step"><span class="wt-label">Σ₅</span><div class="wt-body">
+<p data-lang="zh"><strong>挑 C (Comparator)。</strong>沒有 comparator 的研究不是研究是個案報告。最低標準：placebo / wild-type / baseline 至少要有一個。</p>
+<p data-lang="en"><strong>Pick C (Comparator).</strong> A study without a comparator is a case report, not research. Minimum bar: placebo / wild-type / baseline — at least one.</p>
+</div></div>
+<div class="wt-step"><span class="wt-label">Σ₆</span><div class="wt-body">
+<p data-lang="zh"><strong>挑 O (可量化 Outcome)。</strong>「改善」不算；「24-month PFS」「log2FC ≥1 的基因數」「scRNA-seq UMAP cluster shift」才算。可量化 = 能寫出單位。</p>
+<p data-lang="en"><strong>Pick O (quantifiable outcome).</strong> "Improvement" doesn't count; "24-month PFS", "#genes with log2FC ≥1", "UMAP cluster shift" do. Quantifiable = a unit you can write down.</p>
+</div></div>
+<div class="wt-step"><span class="wt-label">Σ₇</span><div class="wt-body">
+<p data-lang="zh"><strong>對 FINER 五項過篩。</strong>Feasible / Interesting / Novel / Ethical / Relevant 一項打勾不過就回 Σ₃ 重來。最常掛掉的是 <em>Feasible</em>（樣本拿不到）與 <em>Novel</em>（早被做過）。</p>
+<p data-lang="en"><strong>Screen against the 5 FINER criteria.</strong> Feasible / Interesting / Novel / Ethical / Relevant — fail any and return to Σ₃. Most common failures: <em>Feasible</em> (samples unobtainable) and <em>Novel</em> (already done).</p>
+</div></div>
+<div class="wt-step"><span class="wt-label">Σ₈</span><div class="wt-body">
+<p data-lang="zh"><strong>30 秒同事測試。</strong>對 3 位同領域同事念出你的問題；30 秒內若無法複述或追問具體實驗，回 Σ₁ 重寫。通過 = 研究問題可以鎖死。</p>
+<p data-lang="en"><strong>30-second colleague test.</strong> Read the question aloud to 3 same-field colleagues; if none can paraphrase or pose a sharp follow-up within 30 s, return to Σ₁. Pass = PICO is locked.</p>
+</div></div>
+</div>
+</section>
+
+<!-- ===== Discussion ===== -->
+<section id="discussion" class="section">
+<div class="section-label" data-zh="思辨" data-en="DISCUSSION">思辨</div>
+<h2 data-zh="三個值得吵的問題" data-en="Three Worth-Arguing Questions">三個值得吵的問題</h2>
+
+<div class="discussion-card">
+<span class="disc-label" data-zh="爭點 1" data-en="Debate 1">爭點 1</span>
+<h3 data-zh="Novel = 從未做過 vs 重大延伸?" data-en="Novel = Never Done vs. Major Extension?">Novel = 從未做過 vs 重大延伸?</h3>
+<p class="disc-q" data-zh="當審稿人說「這不夠 novel」，到底是指「沒人做過」還是「沒延伸出新洞見」？" data-en="When a reviewer says 'not novel enough', do they mean 'no one's done it' or 'no new insight extended'?"></p>
+<div class="disc-pov" data-lang="zh"><strong>純粹論者：</strong>Novel 必須是「世界上第一次」；replication 只是 confirmatory，不該被當成 novelty。</div>
+<div class="disc-pov" data-lang="en"><strong>Purist:</strong> Novel must be "world-first"; replication is confirmatory and shouldn't count as novelty.</div>
+<div class="disc-pov" data-lang="zh"><strong>實用派：</strong>「相同問題在不同人群 / 不同條件下被重做」也算 novel，特別是在再現危機 (replication crisis) 之後。</div>
+<div class="disc-pov" data-lang="en"><strong>Pragmatist:</strong> Re-doing the same question in a new population / condition counts as novel — especially post-replication-crisis.</div>
+<div class="disc-pov" data-lang="zh"><strong>編輯視角：</strong>Top journal 看「能改變教科書嗎？」；領域期刊看「能改變該領域共識嗎？」。Novelty 永遠是相對 audience 的。</div>
+<div class="disc-pov" data-lang="en"><strong>Editor view:</strong> Top journals ask "does this change a textbook?"; specialty journals ask "does this shift field consensus?" Novelty is always relative to the audience.</div>
+</div>
+
+<div class="discussion-card">
+<span class="disc-label" data-zh="爭點 2" data-en="Debate 2">爭點 2</span>
+<h3 data-zh="Hypothesis-free 研究是否值得?" data-en="Are Hypothesis-Free Studies Worth Doing?">Hypothesis-free 研究是否值得?</h3>
+<p class="disc-q" data-zh="GWAS、單細胞 atlas、screening 這類 hypothesis-free / exploratory 研究，在 Popper 看來不可否證——還算科學嗎？" data-en="GWAS, single-cell atlases, large screens — Popperian falsifiability is unclear. Still science?"></p>
+<div class="disc-pov" data-lang="zh"><strong>Popper 派：</strong>不可否證 ≠ 科學；hypothesis-free 只是 data fishing 的化名。</div>
+<div class="disc-pov" data-lang="en"><strong>Popperians:</strong> Non-falsifiable ≠ science; "hypothesis-free" is data-fishing in disguise.</div>
+<div class="disc-pov" data-lang="zh"><strong>Atlas 派：</strong>沒有 Human Cell Atlas、ENCODE、UK Biobank 這些 hypothesis-generating 資源，下一代假說根本生不出來。</div>
+<div class="disc-pov" data-lang="en"><strong>Atlas builders:</strong> Without HCA, ENCODE, UK Biobank — hypothesis-generating infrastructures — the next generation of hypotheses can't even be formulated.</div>
+<div class="disc-pov" data-lang="zh"><strong>折衷：</strong>Hypothesis-free 適合 discovery phase，但 validation phase 必須回到 pre-registered hypothesis。</div>
+<div class="disc-pov" data-lang="en"><strong>Middle ground:</strong> Hypothesis-free suits the discovery phase, but validation must return to a pre-registered hypothesis.</div>
+</div>
+
+<div class="discussion-card">
+<span class="disc-label" data-zh="爭點 3" data-en="Debate 3">爭點 3</span>
+<h3 data-zh="Stat-significance vs 臨床/生物意義" data-en="Statistical Significance vs. Clinical/Biological Meaning">Stat-significance vs 臨床/生物意義</h3>
+<p class="disc-q" data-zh="p &lt; 0.05 但 effect size 是 1.02 倍——你會把這當成「正面結果」寫在 abstract 嗎？" data-en="p &lt; 0.05 with an effect size of 1.02× — would you call this a 'positive result' in the abstract?"></p>
+<div class="disc-pov" data-lang="zh"><strong>統計嚴格派：</strong>樣本夠大時任何噪音都會顯著；effect size + CI 才是真結論。</div>
+<div class="disc-pov" data-lang="en"><strong>Statistical hardliners:</strong> With large n, anything becomes significant; effect size + CI is the actual conclusion.</div>
+<div class="disc-pov" data-lang="zh"><strong>臨床派：</strong>需要 MCID (minimum clinically important difference)；統計顯著但低於 MCID = 對病人無意義。</div>
+<div class="disc-pov" data-lang="en"><strong>Clinicians:</strong> Need MCID (minimum clinically important difference); significant but below MCID = meaningless to patients.</div>
+<div class="disc-pov" data-lang="zh"><strong>ASA 2016 立場：</strong>p-value 不該被當成 thresholding tool；報告 effect size、CI、precision 是 minimum standard。</div>
+<div class="disc-pov" data-lang="en"><strong>ASA 2016 stance:</strong> p-values shouldn't be used as thresholds; reporting effect size, CI, and precision is the minimum standard.</div>
+</div>
+</section>
+
+<!-- ===== Spotlight ===== -->
+<section id="spotlight" class="section">
+<div class="section-label" data-zh="個案聚焦" data-en="SPOTLIGHT">個案聚焦</div>
+<h2 data-zh="一個典範、一個警訊" data-en="One Model, One Warning">一個典範、一個警訊</h2>
+
+<div class="spotlight">
+<span class="sp-icon">🏆</span>
+<div class="sp-body">
+<span class="sp-tag" data-zh="典範 · 1948 鏈黴素 RCT" data-en="Model · 1948 Streptomycin RCT">典範 · 1948 Streptomycin RCT</span>
+<p data-lang="zh"><strong>Bradford Hill 在 MRC 主導的 1948 鏈黴素治療肺結核試驗</strong>是史上第一個現代 RCT，也是 proto-PICO 的具體實踐：<strong>P</strong>=15–25 歲新確診結核病人；<strong>I</strong>=streptomycin + 臥床；<strong>C</strong>=只臥床；<strong>O</strong>=6 個月放射學改善。 Hill 用 random number table 做 allocation，並 blind 評估放射片——這些方法後來成為 CONSORT 的雛形。</p>
+<p data-lang="en"><strong>Bradford Hill's 1948 MRC streptomycin trial for tuberculosis</strong> is the first modern RCT and a tangible proto-PICO: <strong>P</strong>=newly diagnosed TB patients aged 15–25; <strong>I</strong>=streptomycin + bed-rest; <strong>C</strong>=bed-rest only; <strong>O</strong>=6-month radiological improvement. Hill used random-number-table allocation and blinded radiograph review — methods that later became the seed of CONSORT.</p>
+</div>
+</div>
+
+<div class="spotlight">
+<span class="sp-icon">⚠️</span>
+<div class="sp-body">
+<span class="sp-tag" data-zh="警訊 · WHI 2002" data-en="Warning · WHI 2002">警訊 · WHI 2002</span>
+<p data-lang="zh"><strong>2002 Women's Health Initiative (WHI) hormone-replacement therapy 試驗</strong>推翻了 1990 年代以來「HRT 可預防心血管疾病」的廣泛觀察性結論。一個 N=16,608 的 pre-registered RCT，在 effect size 不大、但 PICO 鎖死、outcome 預先定義的設計下，<strong>逆轉了整代臨床建議</strong>。教訓：含糊的觀察性問題（"HRT 對女性健康有什麼好處？"）無法守住推論；鎖死 PICO 的 RCT 才是金標準。</p>
+<p data-lang="en"><strong>The 2002 Women's Health Initiative (WHI) HRT trial</strong> overturned a generation of observational claims that HRT prevented cardiovascular disease. An N=16,608 pre-registered RCT — modest effect sizes but locked PICO and pre-specified outcomes — <strong>reversed a generation of clinical guidance</strong>. Lesson: vague observational questions ("what's good about HRT?") can't sustain inference; only PICO-locked RCTs are the gold standard.</p>
+</div>
+</div>
+</section>
+
+<!-- ===== Pitfalls ===== -->
+<section id="pitfalls" class="section">
+<div class="section-label" data-zh="常見陷阱" data-en="COMMON PITFALLS">常見陷阱</div>
+<h2 data-zh="六個會毀掉研究問題的錯誤" data-en="Six Mistakes That Kill a Research Question">六個會毀掉研究問題的錯誤</h2>
+<div class="pitfall-grid">
+<div class="pitfall-card">
+<h4 data-zh="① 含糊的「我想研究 X」" data-en="① Vague 'I want to study X'">① 含糊的「我想研究 X」</h4>
+<p data-lang="zh">「我想研究 TNBC」「我想了解免疫」——這些是<em>主題</em>不是<em>問題</em>。寫不出 PICO 表示還沒進入研究階段。</p>
+<p data-lang="en">"I want to study TNBC" / "I want to understand immunity" — these are <em>topics</em>, not <em>questions</em>. If you can't write a PICO, you haven't entered research yet.</p>
+</div>
+<div class="pitfall-card">
+<h4 data-zh="② 沒有 comparator" data-en="② No comparator">② 沒有 comparator</h4>
+<p data-lang="zh">「Drug X 在 stage IV 病人中的反應」——對照在哪？沒 C 的研究只能寫 case series，不能寫 hypothesis-driven 論文。</p>
+<p data-lang="en">"Drug X response in stage IV patients" — where's the control? Without C, you can only write a case series, not a hypothesis-driven paper.</p>
+</div>
+<div class="pitfall-card">
+<h4 data-zh="③ 無法測量的 outcome" data-en="③ Unmeasurable outcome">③ 無法測量的 outcome</h4>
+<p data-lang="zh">「病人狀況改善」「腫瘤微環境改變」——這些不可量化。Outcome 必須有<strong>單位</strong>（PFS 月數、log2FC、AUC）。</p>
+<p data-lang="en">"Patient improvement" / "TME alteration" — not quantifiable. Outcomes need a <strong>unit</strong> (PFS months, log2FC, AUC).</p>
+</div>
+<div class="pitfall-card">
+<h4 data-zh="④ Sample 拿不到 (FINER-F 失敗)" data-en="④ Sample inaccessible (fails FINER-F)">④ Sample 拿不到 (FINER-F 失敗)</h4>
+<p data-lang="zh">「N=2000 罕病患者 longitudinal scRNA-seq」聽起來很棒；但你的 IRB / 經費 / 時程拿得到嗎？拿不到 = 不可行。</p>
+<p data-lang="en">"N=2000 rare-disease longitudinal scRNA-seq" sounds great — but can your IRB / budget / timeline deliver? If no, it's infeasible.</p>
+</div>
+<div class="pitfall-card">
+<h4 data-zh="⑤ HARKing (事後假說)" data-en="⑤ HARKing (post-hoc hypothesis)">⑤ HARKing (事後假說)</h4>
+<p data-lang="zh">看完 data 才寫 hypothesis，再說「我預測這個結果」——這違反 Popper 與 ICMJE。用 pre-registration 鎖死才公允。</p>
+<p data-lang="en">Writing the hypothesis after seeing the data and claiming "I predicted this" violates both Popper and ICMJE. Pre-register to lock it in.</p>
+</div>
+<div class="pitfall-card">
+<h4 data-zh="⑥ 答案明顯「是」的瑣碎問題" data-en="⑥ Trivially 'yes' question">⑥ 答案明顯「是」的瑣碎問題</h4>
+<p data-lang="zh">「吸菸是否與肺癌有關？」——已被證實 60 年；做這題等於浪費 IRB。FINER-I (interesting) + Novel 是抵擋瑣碎的兩道防線。</p>
+<p data-lang="en">"Is smoking associated with lung cancer?" — settled 60 years ago. Pursuing it wastes IRB time. FINER-I (interesting) + Novel are your two guardrails.</p>
+</div>
+</div>
+</section>
+
+<!-- ===== Contrast ===== -->
+<section id="contrast" class="section">
+<div class="section-label" data-zh="壞例 vs 好例" data-en="BAD VS GOOD">壞例 vs 好例</div>
+<h2 data-zh="同一個構想，兩種寫法" data-en="Same Idea, Two Phrasings">同一個構想，兩種寫法</h2>
+<div class="contrast-2col">
+<div class="con-card bad">
+<h4>❌ <span data-zh="壞範例" data-en="Bad example">壞範例</span></h4>
+<p data-lang="zh"><em>「我想研究 TNBC。」</em></p>
+<p data-lang="en"><em>"I want to research TNBC."</em></p>
+<ul>
+<li data-lang="zh">沒有 P（哪一期？哪一群病人？）</li>
+<li data-lang="en">No P (which stage? which patients?)</li>
+<li data-lang="zh">沒有 I（要做什麼？藥物？基因？）</li>
+<li data-lang="en">No I (what intervention? drug? gene?)</li>
+<li data-lang="zh">沒有 C（與誰比較？）</li>
+<li data-lang="en">No C (compared to what?)</li>
+<li data-lang="zh">沒有可量化 O（測量什麼？）</li>
+<li data-lang="en">No quantifiable O (measure what?)</li>
+<li data-lang="zh">沒有時間範圍（什麼時候測？）</li>
+<li data-lang="en">No time frame (when measured?)</li>
+</ul>
+</div>
+<div class="con-card good">
+<h4>✅ <span data-zh="好範例" data-en="Good example">好範例</span></h4>
+<p data-lang="zh"><em>「在 stage III–IV 的 TNBC 病人 (P)，pembrolizumab + chemo (I) 相較於 chemo only (C)，在 6 個月內如何改變 tumor microenvironment 的 cell-state composition (O)？」</em></p>
+<p data-lang="en"><em>"In stage III–IV TNBC patients (P), how does pembrolizumab + chemo (I) vs chemo only (C) alter tumor microenvironment cell-state composition (O) over 6 months?"</em></p>
+<ul>
+<li data-lang="zh">P 明確：stage III–IV TNBC</li>
+<li data-lang="en">P explicit: stage III–IV TNBC</li>
+<li data-lang="zh">I 明確：pembro + chemo</li>
+<li data-lang="en">I explicit: pembro + chemo</li>
+<li data-lang="zh">C 明確：chemo only</li>
+<li data-lang="en">C explicit: chemo only</li>
+<li data-lang="zh">O 可量化：scRNA-seq cell-state proportion</li>
+<li data-lang="en">O quantifiable: scRNA-seq cell-state proportion</li>
+<li data-lang="zh">時間範圍：6 個月</li>
+<li data-lang="en">Time frame: 6 months</li>
+</ul>
+</div>
+</div>
+</section>
+
+<!-- ===== Reflection ===== -->
+<section id="reflection" class="section">
+<div class="section-label" data-zh="自我檢核" data-en="SELF-CHECK">自我檢核</div>
+<h2 data-zh="六道反思題" data-en="Six Reflection Questions">六道反思題</h2>
+<div class="reflection-q" data-lang="zh"><strong>Q1.</strong> 你能用<em>一個句子</em>把研究問題寫完嗎？寫不完表示還沒收斂。</div>
+<div class="reflection-q" data-lang="en"><strong>Q1.</strong> Can you state the research question in <em>one sentence</em>? If not, it hasn't converged.</div>
+<div class="reflection-q" data-lang="zh"><strong>Q2.</strong> P / I / C / O 四個元素是否都具體 (有 unit、有 cohort、有 dose)？任一含糊就回去重寫。</div>
+<div class="reflection-q" data-lang="en"><strong>Q2.</strong> Is each PICO element specific (with unit / cohort / dose)? If any is vague, rewrite.</div>
+<div class="reflection-q" data-lang="zh"><strong>Q3.</strong> FINER 五項（Feasible / Interesting / Novel / Ethical / Relevant）能否全部打勾？</div>
+<div class="reflection-q" data-lang="en"><strong>Q3.</strong> Do all five FINER criteria (Feasible / Interesting / Novel / Ethical / Relevant) check yes?</div>
+<div class="reflection-q" data-lang="zh"><strong>Q4.</strong> 30 秒同事測試是否通過？3 位同事能否複述你的問題？</div>
+<div class="reflection-q" data-lang="en"><strong>Q4.</strong> Does the 30-second colleague test pass? Can 3 peers paraphrase the question?</div>
+<div class="reflection-q" data-lang="zh"><strong>Q5.</strong> 是否有 HARKing 疑慮？hypothesis 是看 data 之前還是之後寫下來的？</div>
+<div class="reflection-q" data-lang="en"><strong>Q5.</strong> Any HARKing risk? Was the hypothesis written <em>before</em> or <em>after</em> seeing the data?</div>
+<div class="reflection-q" data-lang="zh"><strong>Q6.</strong> Sample 真的拿得到嗎？IRB、經費、時程、cohort access 全部就位嗎？</div>
+<div class="reflection-q" data-lang="en"><strong>Q6.</strong> Is the sample actually accessible? Are IRB, funding, timeline, and cohort access all in place?</div>
+</section>
+
+<!-- ===== Advanced ===== -->
+<section id="advanced" class="section">
+<div class="section-label" data-zh="2024–2026 進階" data-en="2024–2026 ADVANCED">2024–2026 進階</div>
+<h2 data-zh="前沿議題（可摺疊）" data-en="Frontier Topics (collapsible)">前沿議題（可摺疊）</h2>
+<div class="advanced-note">
+<span class="adv-label" data-zh="SOTA" data-en="SOTA">SOTA</span>
+
+<details class="detail-toggle">
+<summary data-zh="(a) AI 輔助 PICO 拆解 — Claude / GPT-5 工作流" data-en="(a) AI-Assisted PICO Decomposition — Claude / GPT-5 Workflows">(a) AI 輔助 PICO 拆解 — Claude / GPT-5 工作流</summary>
+<div data-lang="zh">
+<p>2024–2026 大型語言模型（Claude Sonnet 4.6 / GPT-5 / Gemini 3）已能可靠地從一段 free-text idea 拆出候選 P / I / C / O，並用 prompting 對 FINER 自動評分。實務 workflow：</p>
+<ol>
+<li>給 LLM 你的 200-word free text + 3 篇 seminal paper abstract。</li>
+<li>要求輸出「3 組候選 PICO」+「每組對應的 FINER 5×3 評分矩陣」。</li>
+<li>讓 LLM 為每組 PICO 寫 3 句版「30-sec colleague pitch」。</li>
+<li>把 3 組都拿給<strong>真人</strong>同事看 — LLM 解決發散問題，人類解決收斂判斷。</li>
+</ol>
+<p>⚠️ 警告：LLM 會「順著 prompt 寫出像樣的 PICO」即使主題不可行；falsifiability 與 ethics 判斷仍須人類。建議搭配 2025 Cochrane LLM-evidence-synthesis guidance。</p>
+</div>
+<div data-lang="en">
+<p>By 2024–2026, large language models (Claude Sonnet 4.6 / GPT-5 / Gemini 3) reliably decompose free-text ideas into candidate P / I / C / O and auto-score FINER. Practical workflow:</p>
+<ol>
+<li>Feed the LLM your 200-word free text + 3 seminal abstracts.</li>
+<li>Ask for "3 candidate PICOs" + "a 5×3 FINER scoring matrix per PICO".</li>
+<li>Ask the LLM to draft a 3-sentence "30-sec colleague pitch" per PICO.</li>
+<li>Show all three to <strong>human</strong> colleagues — LLMs handle divergence, humans handle convergent judgment.</li>
+</ol>
+<p>⚠️ Caveat: LLMs will produce "plausible-looking" PICOs even for infeasible topics; falsifiability and ethics judgments remain human. Pair with 2025 Cochrane LLM-evidence-synthesis guidance.</p>
+</div>
+</details>
+
+<details class="detail-toggle">
+<summary data-zh="(b) AsPredicted + Registered Reports 增長 2024–26" data-en="(b) AsPredicted + Registered Reports Growth 2024–26">(b) AsPredicted + Registered Reports 增長 2024–26</summary>
+<div data-lang="zh">
+<p>Pre-registration 工具 <strong>AsPredicted.org</strong>（9 題簡版）與 <strong>OSF Registries</strong>（完整版）已成為心理學、行為經濟、神經科學的事實標準；2024 年起 <em>Nature Human Behaviour</em>、<em>eLife</em>、<em>PNAS Nexus</em> 大量採用 <strong>Registered Reports</strong>（先審 protocol 再做實驗）。Stage 1 通過 = in-principle acceptance，無論結果正負都會刊登。對研究問題的影響：HARKing 幾乎不可能，但要求 PICO 必須在資料蒐集前就鎖死且可公開驗證。</p>
+</div>
+<div data-lang="en">
+<p>Pre-registration platforms — <strong>AsPredicted.org</strong> (9-question lite) and <strong>OSF Registries</strong> (full) — are now de-facto standard in psychology, behavioral econ, neuroscience. Since 2024 <em>Nature Human Behaviour</em>, <em>eLife</em>, <em>PNAS Nexus</em> have heavily adopted <strong>Registered Reports</strong> (protocol-first peer review). Stage 1 acceptance = in-principle publication regardless of result direction. Implication for research questions: HARKing becomes nearly impossible, but PICO must be locked and publicly verifiable before data collection.</p>
+</div>
+</details>
+
+<details class="detail-toggle">
+<summary data-zh="(c) Open Hypothesis Initiative" data-en="(c) Open Hypothesis Initiative">(c) Open Hypothesis Initiative</summary>
+<div data-lang="zh">
+<p>2025 年由多家 funders（Wellcome、HHMI、ZonMw）發起的 <strong>Open Hypothesis Initiative</strong>，鼓勵在 grant application 階段就 publicly post 候選 hypothesis，並允許他人 fork / refine。觀念類比於 GitHub 對 open source 的影響——hypothesis 不再是 PI 私有財產而是 community asset。對 PICO 的影響：早期 community feedback 可以在 Σ₈ 之前就提供 30-sec colleague test 的放大版（30-day community test）。</p>
+</div>
+<div data-lang="en">
+<p>The 2025 <strong>Open Hypothesis Initiative</strong> — backed by funders (Wellcome, HHMI, ZonMw) — encourages publicly posting candidate hypotheses at the grant-application stage and lets others fork / refine them. The analogy is GitHub-to-open-source: a hypothesis is no longer a PI's private asset but a community resource. Implication for PICO: early community feedback effectively becomes a scaled-up "30-day colleague test" before Σ₈.</p>
+</div>
+</details>
+
+</div>
+</section>
+
+<!-- ===== Section 1: Why (existing) ===== -->
+<section id="pico" class="section">
 <div class="section-label" data-zh="概覽" data-en="OVERVIEW">概覽</div>
 <h2 data-zh="為什麼一切從「好問題」開始？" data-en="Why does everything start with a good question?">為什麼一切從「好問題」開始？</h2>
 <div data-lang="zh">
@@ -237,6 +695,116 @@ Objective 3: To <span class="kw">[verb]</span> <span class="str">[Z]</span> usin
 </div></div>
 </section>
 
+<!-- ===== DISCUSSION ===== -->
+<section id="discussion" class="section">
+<div class="section-label" data-zh="專家辯論" data-en="EXPERT DEBATE">專家辯論</div>
+<h2 data-zh="社群觀點：哪些問題才算「novel」？" data-en="Community Views: What Counts as "Novel"?">哪些問題才算 novel？</h2>
+<div class="discussion-card">
+<span class="disc-label">DISCUSSION · DEBATE</span>
+<h3 data-zh="爭點：novelty 應該怎麼定義？" data-en="Tension: how should novelty be defined?">爭點：novelty 應該怎麼定義？</h3>
+<p class="disc-q" data-lang="zh">Reviewer 常寫「nothing novel」就 reject。但 novelty 的標準從來不一致——不同期刊、不同領域、甚至不同 reviewer 都有不同定義。以下是 4 種代表性觀點。</p>
+<p class="disc-q" data-lang="en">Reviewers love writing "nothing novel" to justify rejection. But the novelty bar is inconsistent — varies by journal, field, even reviewer. Four representative views:</p>
+<div class="disc-pov" data-lang="zh"><strong>① 主編觀點 (NEJM, Cell)：</strong>必須「改變既有理解」——能讓教科書改一頁。incremental confirmation 不足。</div>
+<div class="disc-pov" data-lang="en"><strong>① Editor view (NEJM, Cell):</strong> must "change existing understanding" — enough to rewrite a textbook page. Incremental confirmation doesn't cut it.</div>
+<div class="disc-pov" data-lang="zh"><strong>② Bayesian 觀點：</strong>novelty = posterior 與 prior 的距離。複製研究在「reduces uncertainty」也是 novel——複製成功 = 你的 posterior 變窄。</div>
+<div class="disc-pov" data-lang="en"><strong>② Bayesian view:</strong> novelty = posterior–prior distance. Replications reduce uncertainty, which IS novel — your posterior narrows.</div>
+<div class="disc-pov" data-lang="zh"><strong>③ Open Science 觀點 (Munafò 2017 Nat Hum Behav)：</strong>過度追求 novelty 是 reproducibility crisis 的元兇之一。應該獎勵 replication 與 negative results。</div>
+<div class="disc-pov" data-lang="en"><strong>③ Open Science view (Munafò 2017 Nat Hum Behav):</strong> over-prizing novelty drives the reproducibility crisis. Reward replication and negative results.</div>
+<div class="disc-pov" data-lang="zh"><strong>④ 實用主義 (PI、advisor)：</strong>能讓你畢業、能拿到 fund、能讓 lab 站穩——就是足夠 novel。</div>
+<div class="disc-pov" data-lang="en"><strong>④ Pragmatist (PIs / advisors):</strong> if it gets you a degree, a grant, or moves the lab forward — it's novel enough.</div>
+</div>
+
+<div class="discussion-card">
+<span class="disc-label">DISCUSSION · CASE</span>
+<h3 data-zh="案例：3 篇相同問題、3 種命運" data-en="Case: same question, three fates">案例：3 篇相同問題、3 種命運</h3>
+<p class="disc-q" data-lang="zh">2024 年三組獨立團隊同樣回答「PD-L1 高表達 TNBC 病人 pembrolizumab 是否能延長 PFS？」結果：</p>
+<p class="disc-q" data-lang="en">In 2024, three independent groups asked the same question: "Does pembrolizumab extend PFS in PD-L1-high TNBC?" Outcomes:</p>
+<div class="disc-pov" data-lang="zh"><strong>A 組 (NEJM)：</strong>n=850 多中心 RCT，找到顯著 HR 0.62 → 上 NEJM。</div>
+<div class="disc-pov" data-lang="en"><strong>Group A (NEJM):</strong> n=850 multicenter RCT, significant HR 0.62 → NEJM.</div>
+<div class="disc-pov" data-lang="zh"><strong>B 組 (Cancer Res)：</strong>n=120 單中心 retrospective cohort，趨勢 HR 0.78 但 95% CI 跨 1 → mid-IF specialty journal。</div>
+<div class="disc-pov" data-lang="en"><strong>Group B (Cancer Res):</strong> n=120 single-center retrospective, HR 0.78 but 95% CI crosses 1 → mid-IF specialty journal.</div>
+<div class="disc-pov" data-lang="zh"><strong>C 組：</strong>同樣 n=120 retrospective cohort 但結果 null → desk-rejected x 6，最終發在 Sci Rep 因為「沒有 novel finding」。</div>
+<div class="disc-pov" data-lang="en"><strong>Group C:</strong> same n=120 retrospective, null result → desk-rejected ×6, eventually in Sci Rep — "no novel finding."</div>
+<div class="disc-pov" data-lang="zh"><strong>結論：</strong>相同問題、不同 sample size + study design → 完全不同命運。Novel ≠ 第一個做；novel = 在當時的 evidence base 中能改變 decision。</div>
+<div class="disc-pov" data-lang="en"><strong>Lesson:</strong> same question, different sample size + design → very different fates. Novel ≠ first to ask; novel = changes a decision given the current evidence base.</div>
+</div>
+</section>
+
+<!-- ===== PITFALLS ===== -->
+<section id="pitfalls" class="section">
+<div class="section-label" data-zh="陷阱" data-en="PITFALLS">陷阱</div>
+<h2 data-zh="6 個典型陷阱（reviewer 一眼就抓到）" data-en="6 Pitfalls Reviewers Spot Immediately">6 個典型陷阱</h2>
+<div class="pitfall-grid">
+
+<div class="pitfall-card">
+<h4 data-zh="多重問題擠在一句" data-en="Multi-question cramming">多重問題擠一句</h4>
+<p data-lang="zh">❌「我想了解 IFN-γ 對 PBMC、肝細胞、神經元的影響」 → 三個問題用同一份 cohort 不可行。<strong>修法：</strong>挑 1 個主問題，其他列為 secondary objectives。</p>
+<p data-lang="en">❌ "I want to study IFN-γ on PBMCs, hepatocytes, and neurons" — 3 questions, 1 cohort, impossible. <strong>Fix:</strong> pick one primary; list others as secondary objectives.</p>
+</div>
+
+<div class="pitfall-card">
+<h4 data-zh="動詞太弱" data-en="Weak verbs">動詞太弱</h4>
+<p data-lang="zh">❌「study / discuss / investigate」太空泛。<strong>修法：</strong>改用 quantify / compare / characterize / predict / classify 等具體動詞。</p>
+<p data-lang="en">❌ "study / discuss / investigate" — too vague. <strong>Fix:</strong> use quantify / compare / characterize / predict / classify.</p>
+</div>
+
+<div class="pitfall-card">
+<h4 data-zh="缺對照組" data-en="No comparator">缺對照組</h4>
+<p data-lang="zh">❌「描述 TNBC 細胞態」沒有 C → 不知道你的發現是 TNBC 特有還是所有 cancer 共通。<strong>修法：</strong>至少加 healthy control 或 historical cohort。</p>
+<p data-lang="en">❌ "Describe TNBC cell states" — no C → can't tell if findings are TNBC-specific or cancer-general. <strong>Fix:</strong> add healthy controls or historical cohort.</p>
+</div>
+
+<div class="pitfall-card">
+<h4 data-zh="Outcome 沒事先定義" data-en="Outcome not pre-specified">Outcome 沒事先定義</h4>
+<p data-lang="zh">❌做完才決定 primary outcome → HARKing → reviewer 一眼識破，且違反 ICMJE。<strong>修法：</strong>送 IRB 同時就 pre-register primary outcome。</p>
+<p data-lang="en">❌ Deciding primary outcome after seeing data → HARKing → caught instantly, violates ICMJE. <strong>Fix:</strong> pre-register primary outcome alongside IRB submission.</p>
+</div>
+
+<div class="pitfall-card">
+<h4 data-zh="樣本對不上問題" data-en="Sample doesn't match question">樣本對不上問題</h4>
+<p data-lang="zh">❌「問題」需要 n=500 但你只有 n=20 → 從 FINER 的「Feasible」直接失敗。<strong>修法：</strong>改 PICO 縮小 P；或改成 secondary analysis 公共資料庫 (TCGA, UK Biobank)。</p>
+<p data-lang="en">❌ Question demands n=500 but you have 20 → fails FINER's Feasible. <strong>Fix:</strong> narrow P; or pivot to secondary analysis of public data (TCGA, UK Biobank).</p>
+</div>
+
+<div class="pitfall-card">
+<h4 data-zh="HARKing：事後改 hypothesis" data-en="HARKing">HARKing：事後改 hypothesis</h4>
+<p data-lang="zh">❌ 跑完分析發現 Gene Y 顯著、就改寫 introduction 假裝早預測 → reviewer 比對 pre-registration 立刻發現。<strong>修法：</strong>誠實標記為 exploratory finding。</p>
+<p data-lang="en">❌ After analysis, Gene Y is significant; rewrite Intro as if you predicted it → reviewer cross-checks pre-registration and catches you. <strong>Fix:</strong> honestly label as exploratory.</p>
+</div>
+
+</div>
+</section>
+
+<!-- ===== REFLECTION ===== -->
+<div class="reflection-q" id="reflection">
+<h4 data-zh="反思題（讀完寫下 100 字答覆）" data-en="Reflection (write 100 words after reading)">反思題</h4>
+<ol>
+<li data-lang="zh">把你目前最關心的研究主題寫成 1 句 PICO 格式的問題。哪一個元素 (P/I/C/O) 最難明確？為什麼？</li>
+<li data-lang="en">Write your current research interest as a one-sentence PICO question. Which element (P/I/C/O) is hardest to nail down? Why?</li>
+<li data-lang="zh">你的研究在 FINER 5 條中，最弱的是哪一條？是「不可行」「沒人感興趣」「不夠 novel」「倫理問題」還是「不夠 relevant」？該如何補強？</li>
+<li data-lang="en">Of FINER's 5 criteria, which is weakest for your study? Is it infeasibility, low interest, lack of novelty, ethics, or low relevance? How will you address it?</li>
+<li data-lang="zh">想像你 3 個月後做出與假設「相反」的結果——你的研究問題還站得住嗎？如果不行，那原本問題可能只是「希望成真」而非真正的科學問題。</li>
+<li data-lang="en">Imagine 3 months later you get the opposite result of your hypothesis — does your research question still stand? If not, your original "question" was wishful thinking, not science.</li>
+</ol>
+</div>
+
+<!-- ===== ADVANCED ===== -->
+<div class="advanced-note" id="advanced">
+<span class="adv-label">⭐ ADVANCED · 2024-2026 SOTA</span>
+<h4 data-zh="AI 輔助研究問題生成的最新狀況" data-en="AI-Assisted Research Question Generation: 2026 State of the Art">AI 輔助研究問題生成 (2024-2026)</h4>
+<p data-lang="zh">2025 起，Anthropic / OpenAI / DeepMind 多項研究顯示 LLM 已能將模糊 idea 轉成 PICO 格式 (e.g., Lievin et al. 2024 NEJM AI <code>doi:10.1056/AIoa2300010</code>)。<strong>但有 3 個業界共識：</strong></p>
+<ul>
+<li data-lang="zh"><strong>(1) Hypothesis falsifiability 仍須人類判斷。</strong>LLM 容易產生「看似 hypothesis 但其實 unfalsifiable」的陳述 (e.g., "Gene X plays a role in cancer")。</li>
+<li data-lang="en"><strong>(1) Falsifiability still needs human judgment.</strong> LLMs often produce "hypothesis-shaped but unfalsifiable" statements (e.g., "Gene X plays a role in cancer").</li>
+<li data-lang="zh"><strong>(2) Pre-registration 不能交給 LLM。</strong>它會在你迭代問題時悄悄調整，造成 unintended HARKing。OSF 與 PROSPERO 2025 後明確禁止「LLM-generated registration without human review」。</li>
+<li data-lang="en"><strong>(2) Pre-registration can't be outsourced to LLMs.</strong> They quietly modify your question across iterations, causing unintended HARKing. OSF and PROSPERO (2025+) explicitly forbid "LLM-generated registration without human review."</li>
+<li data-lang="zh"><strong>(3) Multi-agent debate (Liu et al. 2025 Nat Mach Intell) 顯示，讓 2-3 個 LLM 從不同 POV 辯論你的研究問題，比單一 LLM 更能揪出 novelty 缺陷與 ethics 盲點。Anthropic Constitutional Critic 框架是常見實作。</strong></li>
+<li data-lang="en"><strong>(3) Multi-agent debate (Liu et al. 2025 Nat Mach Intell) shows 2-3 LLMs debating your question from different POVs uncover novelty gaps and ethics blind spots better than a single LLM. Anthropic's Constitutional Critic is a common implementation.</strong></li>
+</ul>
+<p data-lang="zh"><strong>實務建議：</strong>把 LLM 當「PICO 排版助手 + reviewer 預演員」，但 hypothesis 與 pre-registration 一定要自己寫、自己簽。</p>
+<p data-lang="en"><strong>Practical advice:</strong> use LLMs as "PICO formatters + reviewer simulators," but write and sign hypotheses + pre-registrations yourself.</p>
+</div>
+
 <!-- ===== Section 8: Quiz ===== -->
 <section class="quiz-section">
 <h3>📝 <span data-zh="自我檢測" data-en="Self-Check">自我檢測</span></h3>
@@ -270,6 +838,11 @@ Objective 3: To <span class="kw">[verb]</span> <span class="str">[Z]</span> usin
 <div class="quiz-opt" data-idx="3"><span data-lang="zh">D. Hypothesis 比 Aim 更寬泛</span><span data-lang="en">D. Hypothesis is broader than Aim</span></div>
 </div><div class="quiz-feedback" id="fb3"></div></div>
 </section>
+
+<div class="history-note">
+<p data-lang="zh"><strong>歷史軼事 · James Lind 與第一個原型 PICO (1747)。</strong>蘇格蘭海軍外科醫師 James Lind 在 HMS Salisbury 上面對船員大量罹患壞血病的災難，做了史上第一個對照試驗：他選了 12 名症狀「相似」的水手 (P)，分成 6 組各 2 人，給予 6 種不同處方 (I 與 C：蘋果酒、稀硫酸、醋、海水、藥膏、柑橘類)，在 6 天內觀察症狀變化 (O)。柑橘組兩人 6 天就回到崗位。Lind 1753 出版《A Treatise of the Scurvy》，但<strong>英國皇家海軍直到 1795 年才正式採行</strong>——47 年的延遲。教訓：好的研究問題如果說服不了 institution，再強的證據也會躺在書裡 47 年。</p>
+<p data-lang="en"><strong>Historical anecdote · James Lind and the first proto-PICO (1747).</strong> Scottish naval surgeon James Lind, facing a scurvy catastrophe aboard HMS Salisbury, ran the first controlled trial in history: he chose 12 sailors with "similar" symptoms (P), split them into 6 pairs, gave 6 different remedies (I and C: cider, dilute sulphuric acid, vinegar, seawater, an electuary paste, and citrus fruits), and observed symptoms over 6 days (O). The citrus pair returned to duty in 6 days. Lind published <em>A Treatise of the Scurvy</em> in 1753 — but <strong>the Royal Navy didn't formally adopt the protocol until 1795</strong>: a 47-year lag. Lesson: a great research question that fails to persuade an institution can sit on the shelf for half a century.</p>
+</div>
 
 <nav class="page-nav"><div class="placeholder"></div>
 <a href="literature-review.html"><span class="nav-dir" data-zh="下一步 →" data-en="Next →">下一步 →</span><span class="nav-title" data-zh="Step 2: 文獻回顧策略" data-en="Step 2: Literature Review Strategy">Step 2: 文獻回顧策略</span></a>

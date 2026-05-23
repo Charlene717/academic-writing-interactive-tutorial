@@ -30,6 +30,392 @@
 </header>
 <main class="content-wrap">
 
+<!-- ===== Section TOC ===== -->
+<div class="section-toc">
+<strong data-zh="本章導覽（閱讀時間 ~24 分）" data-en="Chapter map (reading time ~24 min)">本章導覽（閱讀時間 ~24 分）</strong>
+<div class="pill-row">
+<span class="level-badge l-beg" data-zh="初學者" data-en="Beginner">初學者</span>
+<span class="level-badge l-mid" data-zh="中階" data-en="Intermediate">中階</span>
+<span class="level-badge l-adv" data-zh="進階" data-en="Advanced">進階</span>
+<span class="pill navy">CARS</span><span class="pill amber">Funnel</span><span class="pill violet">Gap</span><span class="pill teal">Hypothesis</span>
+</div>
+<ol>
+<li><a href="#story" data-zh="開場故事：Sofia 改寫 Cell 退稿緒論" data-en="Story: Sofia rewrites a Cell-rejected intro">開場故事：Sofia 改寫 Cell 退稿緒論</a></li>
+<li><a href="#glossary" data-zh="核心詞彙表（雙版本）" data-en="Glossary (two versions)">核心詞彙表（雙版本）</a></li>
+<li><a href="#history" data-zh="從 1665 Philosophical Transactions 到 LLM 草稿時代" data-en="From 1665 Philosophical Transactions to the LLM-draft era">從 1665 Philosophical Transactions 到 LLM 草稿時代</a></li>
+<li><a href="#kpi" data-zh="關鍵指標" data-en="Key numbers">關鍵指標</a></li>
+<li><a href="#cars-model" data-zh="Swales CARS 三 Move" data-en="Swales' CARS three moves">Swales CARS 三 Move</a></li>
+<li><a href="#funnel" data-zh="漏斗段落結構" data-en="Funnel paragraph structure">漏斗段落結構</a></li>
+<li><a href="#discussion" data-zh="專家辯論：要不要劇透你的發現？" data-en="Expert debate: should you reveal the finding?">專家辯論：要不要劇透你的發現？</a></li>
+<li><a href="#advanced" data-zh="進階 2024-2026 SOTA" data-en="Advanced 2024-2026 SOTA">進階 2024-2026 SOTA</a></li>
+</ol>
+</div>
+
+<!-- ===== STORY ===== -->
+<section id="story" class="section">
+<div class="section-label" data-zh="故事開場" data-en="OPENING STORY">故事開場</div>
+<h2 data-zh="場景：Sofia 用 CARS 救活被 Cell 退稿的緒論" data-en="Scene: How Sofia Rewrote a Cell-Rejected Introduction Using CARS">場景：Sofia 用 CARS 救活被 Cell 退稿的緒論</h2>
+<div class="story-block">
+<span class="story-tag">SCENE · ZOOM CALL 2024</span>
+<h3 data-zh="從「五句負評」到「進入同儕審查」的一週" data-en="From "five reviewer comments" to "out for peer review" in one week">從「五句負評」到「進入同儕審查」的一週</h3>
+<div data-lang="zh">
+<p>博後 <strong>Sofia</strong> 把她第一篇主導的 scRNA-seq TNBC 論文投到 <em>Cell</em>。三週後 desk-reject 通知出現在信箱裡，附了一段編輯前內審的回饋：「<em>Introduction does not state a gap; previous literature is mentioned but not engaged with; the aim is hidden in the last sentence of paragraph 4; the first sentence reads like a textbook; we do not see why this study is necessary now.</em>」共 5 條評論——而論文連送外審都沒到。</p>
+<p>她在 Zoom 上把緒論逐段念給她在 EMBL 的 mentor 聽。Mentor 只問一句：「<em>你的緒論裡有沒有一句話以 'However' 或 'remains' 開頭？</em>」Sofia 翻了三遍——沒有。整篇緒論是 4 段「文獻摘要式」的羅列，第三段把 Wu 2022、Bassez 2023、Chen 2024 都引了，但只是並列「他們做了 X、他們發現 Y、他們報告 Z」，沒有任何一句把這些研究放在一起<strong>比較</strong>並指出共通的限制。</p>
+<p>Mentor 把 Swales 1990 的 CARS 模型寄給她。Sofia 用週末重寫——第三段現在明確寫著：「<em>However, three studies (Wu 2022, Bassez 2023, Chen 2024) all profiled pre-treatment samples; the post-chemotherapy landscape remains uncharacterized.</em>」這一句話把三篇文獻整合進一個明確的 gap，並把 Move 2 完整佔位。她也把 aim 從第 4 段最後一句搬到段首，並在段尾加了一句「<em>We show that…</em>」預告主要結果。</p>
+<p>修改版隔週投出。四天內收到「<em>out for peer review</em>」通知——這次連 desk reject 都沒踩到。Mentor 在 Slack 留言：「<em>內容沒變，是結構變了。CARS 不是寫作技巧，是論證的骨架。</em>」</p>
+</div>
+<div data-lang="en">
+<p>Postdoc <strong>Sofia</strong> submitted her first lead-author scRNA-seq TNBC paper to <em>Cell</em>. Three weeks later a desk-reject landed in her inbox with a pre-review editorial note: "<em>Introduction does not state a gap; previous literature is mentioned but not engaged with; the aim is hidden in the last sentence of paragraph 4; the first sentence reads like a textbook; we do not see why this study is necessary now.</em>" Five comments — and the paper never even reached external review.</p>
+<p>On Zoom she read the Introduction paragraph by paragraph to her EMBL mentor. The mentor asked one question: "<em>Is there a single sentence in your Introduction that opens with 'However' or 'remains'?</em>" Sofia scrolled three times. There wasn't one. The whole Intro was four "literature-summary" paragraphs in a row; paragraph 3 cited Wu 2022, Bassez 2023, and Chen 2024 — but only as "they did X, they found Y, they reported Z." Nothing put those three side-by-side to <strong>compare</strong> them and surface a shared limitation.</p>
+<p>The mentor emailed Sofia the Swales 1990 CARS model. Over the weekend she rewrote. Paragraph 3 now reads: "<em>However, three studies (Wu 2022, Bassez 2023, Chen 2024) all profiled pre-treatment samples; the post-chemotherapy landscape remains uncharacterized.</em>" One sentence — three citations integrated into one explicit gap — Move 2 fully occupied. She also pulled the aim from the last sentence of paragraph 4 up to the top of that paragraph, and added a "<em>We show that…</em>" preview at the end.</p>
+<p>Resubmitted the next week. Four days later: "<em>out for peer review</em>." No desk-reject this time. Her mentor's Slack message: "<em>The content didn't change. The structure did. CARS is not a writing trick — it's the skeleton of the argument.</em>"</p>
+</div>
+</section>
+
+<!-- ===== GLOSSARY ===== -->
+<section id="glossary" class="section">
+<div class="section-label" data-zh="核心詞彙" data-en="GLOSSARY">核心詞彙</div>
+<h2 data-zh="12 個關鍵術語（雙版本）" data-en="12 Key Terms (two versions)">12 個關鍵術語（雙版本）</h2>
+<p data-lang="zh"><em>每個詞有兩個版本：🧒「給小孩看」用比喻、📐「給研究者看」給定義。</em></p>
+<p data-lang="en"><em>Each term has two versions: 🧒 "for kids" uses a metaphor; 📐 "for researchers" gives the formal definition.</em></p>
+<div class="glossary-grid">
+
+<div class="glossary-card">
+<div class="term-en">CARS model</div><div class="term-zh">CARS 模型</div>
+<div class="term-kid" data-lang="zh">寫緒論就像在森林裡<strong>插旗子佔地</strong>：先說這座山很重要、再說這塊地還沒人佔、最後說「我來佔」。</div>
+<div class="term-kid" data-lang="en">Writing an Intro is like <strong>planting a flag in a forest</strong>: say the mountain matters, say this patch is unclaimed, then say "I claim it."</div>
+<div class="term-tech" data-lang="zh">Create A Research Space；Swales 1990《Genre Analysis》以 110 篇 STEM 緒論歸納出三個論證 Move (Territory → Niche → Occupying)。是 EAP 與寫作中心最常教的模型。</div>
+<div class="term-tech" data-lang="en">Create A Research Space; Swales 1990 (<em>Genre Analysis</em>) induced three argumentative Moves (Territory → Niche → Occupying) from 110 STEM introductions. Standard model in EAP and writing centres.</div>
+</div>
+
+<div class="glossary-card">
+<div class="term-en">Move 1 — Territory</div><div class="term-zh">Move 1 — 建立領域</div>
+<div class="term-kid" data-lang="zh">「這座山很大、很重要、很多人爬過」——讓讀者覺得這個領域值得花時間讀。</div>
+<div class="term-kid" data-lang="en">"This mountain is big, important, many have climbed it" — convince the reader the field is worth their time.</div>
+<div class="term-tech" data-lang="zh">3 個子步驟：(a) claiming centrality、(b) topic generalisation、(c) reviewing prior research。對應論文段落 1-2，引用密度由低 (1-3) 到高 (5-15)。</div>
+<div class="term-tech" data-lang="en">Three sub-steps: (a) claiming centrality, (b) topic generalisation, (c) reviewing prior research. Maps to paragraphs 1-2; citation density rises from low (1-3) to high (5-15).</div>
+</div>
+
+<div class="glossary-card">
+<div class="term-en">Move 2 — Niche</div><div class="term-zh">Move 2 — 建立利基</div>
+<div class="term-kid" data-lang="zh">「但這座山有一塊地沒人去過、或大家走的路其實有錯」——指出缺口或矛盾。</div>
+<div class="term-kid" data-lang="en">"But there's a patch nobody has explored — or the paths people take are wrong" — name the gap or contradiction.</div>
+<div class="term-tech" data-lang="zh">4 種子步驟擇一：(a) counter-claim、(b) gap、(c) question-raising、(d) continuing tradition。必出現 however / despite / yet / remains。最常被忘記的 Move，也是被退稿主因。</div>
+<div class="term-tech" data-lang="en">Choose one of four sub-steps: (a) counter-claim, (b) gap, (c) question-raising, (d) continuing tradition. Must contain however / despite / yet / remains. The most-forgotten Move and the most common rejection trigger.</div>
+</div>
+
+<div class="glossary-card">
+<div class="term-en">Move 3 — Occupying</div><div class="term-zh">Move 3 — 佔領利基</div>
+<div class="term-kid" data-lang="zh">「我來佔這塊地，做這幾件事」——把自己的工作大聲講清楚。</div>
+<div class="term-kid" data-lang="en">"I'm claiming this patch, here's what I'll do" — declare your work loudly and clearly.</div>
+<div class="term-tech" data-lang="zh">子步驟：(a) outlining purpose、(b) listing RQ/hypotheses、(c) announcing principal findings、(d) indicating structure。對應段落 4，零引用（除方法 paper 例外）。</div>
+<div class="term-tech" data-lang="en">Sub-steps: (a) outlining purpose, (b) listing RQ/hypotheses, (c) announcing principal findings, (d) indicating structure. Maps to paragraph 4; zero citations (method-paper exception aside).</div>
+</div>
+
+<div class="glossary-card">
+<div class="term-en">Funnel structure</div><div class="term-zh">漏斗結構</div>
+<div class="term-kid" data-lang="zh">像沙漏：上面很寬（領域），中間變窄（已知），下面再窄（gap），最下面就是你自己的研究——一格比一格小。</div>
+<div class="term-kid" data-lang="en">Like an hourglass: wide on top (field), narrowing (known), narrower (gap), narrowest (your study) — each level smaller than the last.</div>
+<div class="term-tech" data-lang="zh">3-4 段結構：(P1) broad importance、(P2) what's known、(P3) gap、(P4) our study。每段「scope」逐步收窄；對應 Hyland 2024 的「topic-narrowing trajectory」。</div>
+<div class="term-tech" data-lang="en">3-4 paragraph structure: (P1) broad importance, (P2) what's known, (P3) gap, (P4) our study. Each paragraph narrows in scope; matches Hyland 2024's "topic-narrowing trajectory."</div>
+</div>
+
+<div class="glossary-card">
+<div class="term-en">Gap statement</div><div class="term-zh">Gap 陳述</div>
+<div class="term-kid" data-lang="zh">「這件事還沒人做過」、「兩派意見打架沒解」——一句很具體、有比較對象的話。</div>
+<div class="term-kid" data-lang="en">"Nobody has done this yet" or "two camps disagree and nobody has settled it" — one specific sentence with named comparisons.</div>
+<div class="term-tech" data-lang="zh">合格 gap 需要 3 元素：(1) 引述既有研究、(2) 明確 contrast (however/yet)、(3) 量化或限定 (cell type / cohort / setting)。「few studies」「more research needed」屬不合格 gap。</div>
+<div class="term-tech" data-lang="en">A valid gap needs 3 ingredients: (1) cite prior work, (2) explicit contrast (however/yet), (3) quantify or scope (cell type / cohort / setting). "Few studies" or "more research needed" are non-gaps.</div>
+</div>
+
+<div class="glossary-card">
+<div class="term-en">Counter-claim</div><div class="term-zh">反證</div>
+<div class="term-kid" data-lang="zh">「之前大家以為 A，但其實 B」——一個翻轉的小爆點。</div>
+<div class="term-kid" data-lang="en">"Everyone thought A — actually it's B" — a small reversal.</div>
+<div class="term-tech" data-lang="zh">Swales Move 2(a)；學界最有說服力的 gap 形式，但需要直接證據與引用作支撐。常見句型：「Contrary to the prevailing view that…」「Recent evidence challenges this assumption…」。</div>
+<div class="term-tech" data-lang="en">Swales Move 2(a); the most persuasive gap form, but requires direct evidence and citations to support. Common phrasing: "Contrary to the prevailing view that…", "Recent evidence challenges this assumption…".</div>
+</div>
+
+<div class="glossary-card">
+<div class="term-en">Citation density</div><div class="term-zh">引用密度</div>
+<div class="term-kid" data-lang="zh">每段塞了幾個 (Author, year)——太少看起來不熟領域，太多像在抄文獻回顧。</div>
+<div class="term-kid" data-lang="en">How many (Author, year) tags each paragraph carries — too few looks unread, too many looks like a lit review.</div>
+<div class="term-tech" data-lang="zh">期刊論文 (~3000 字本文) 緒論建議：P1 (1-3)、P2 (5-15)、P3 (3-8)、P4 (0)。Thesis 章節可放大 2-3 倍。> 40 篇通常代表論證凝聚不足。</div>
+<div class="term-tech" data-lang="en">For a journal article (~3000-word body): P1 (1-3), P2 (5-15), P3 (3-8), P4 (0). Thesis chapters scale 2-3×. > 40 refs usually means the argument hasn't been condensed enough.</div>
+</div>
+
+<div class="glossary-card">
+<div class="term-en">Aim statement (in Intro)</div><div class="term-zh">緒論中的研究目標</div>
+<div class="term-kid" data-lang="zh">緒論最後那一句「我要做什麼」——一定要在最後一段、最好是第一句。</div>
+<div class="term-kid" data-lang="en">The "what we did" sentence at the end of the Intro — must be in the last paragraph, ideally the first sentence of it.</div>
+<div class="term-tech" data-lang="zh">與研究問題章的 Aim 同義，但位置嚴格：Move 3 第一句或第二句。動詞用 characterize / quantify / compare / identify / show，避免 study / discuss / investigate。</div>
+<div class="term-tech" data-lang="en">Same concept as the Research Question chapter's Aim, but the position is strict: first or second sentence of Move 3. Verbs: characterize / quantify / compare / identify / show. Avoid study / discuss / investigate.</div>
+</div>
+
+<div class="glossary-card">
+<div class="term-en">Lay reader test</div><div class="term-zh">外行讀者測試</div>
+<div class="term-kid" data-lang="zh">把緒論給<strong>不是這領域的朋友</strong>看——如果他讀完不知道你要做什麼，就還沒寫好。</div>
+<div class="term-kid" data-lang="en">Hand the Intro to <strong>a friend outside your field</strong> — if they don't know what you did after reading, it's not done.</div>
+<div class="term-tech" data-lang="zh">PLOS 2004 創刊時的明確要求：「the broad readership of working scientists」。對應「3-paragraph rule」——前三段對相鄰領域的研究者應可讀。</div>
+<div class="term-tech" data-lang="en">PLOS 2004 launch criterion: "the broad readership of working scientists." Maps to the "3-paragraph rule" — first three paragraphs should be readable to adjacent-field researchers.</div>
+</div>
+
+<div class="glossary-card">
+<div class="term-en">Importance statement</div><div class="term-zh">重要性陳述</div>
+<div class="term-kid" data-lang="zh">「為什麼這件事值得做？」——通常用一個流病數字、一個臨床痛點、或一個方法瓶頸來開頭。</div>
+<div class="term-kid" data-lang="en">"Why is this worth doing?" — usually opens with an epidemiology number, a clinical pain point, or a methodological bottleneck.</div>
+<div class="term-tech" data-lang="zh">Move 1(a) claiming centrality 的具體實現；高 IF 期刊偏好量化的 importance（「affects X million; mortality Y%」）而非定性宣稱（「is important」）。</div>
+<div class="term-tech" data-lang="en">Concrete realisation of Move 1(a) claiming centrality; high-IF journals prefer quantified importance ("affects X million; Y% mortality") over qualitative claims ("is important").</div>
+</div>
+
+<div class="glossary-card">
+<div class="term-en">Hook (first sentence)</div><div class="term-zh">引子（第一句）</div>
+<div class="term-kid" data-lang="zh">論文的<strong>黃金第一句</strong>——讀者只給你 5 秒。第一句沒抓到他，後面寫得再好也沒用。</div>
+<div class="term-kid" data-lang="en">The <strong>golden first sentence</strong>. Readers give you 5 seconds. Miss the hook and the rest is wasted.</div>
+<div class="term-tech" data-lang="zh">eye-tracking 研究 (Eyal-Wronski 2021 J Doc) 顯示，editors 平均 5 秒判斷是否續讀；Cell Press 2023 數據顯示 70% 退稿在第一段內決定。</div>
+<div class="term-tech" data-lang="en">Eye-tracking (Eyal-Wronski 2021 <em>J Doc</em>) shows editors decide to keep reading within ~5 seconds; Cell Press 2023 internal data: 70% of rejections are decided within paragraph 1.</div>
+</div>
+
+</div>
+</section>
+
+<!-- ===== HISTORY TIMELINE ===== -->
+<section id="history" class="section">
+<div class="section-label" data-zh="歷史" data-en="HISTORY">歷史</div>
+<h2 data-zh="從 1665 Philosophical Transactions 到 LLM 草稿時代" data-en="From 1665 Philosophical Transactions to the LLM-draft era">緒論寫作的簡史</h2>
+<div class="timeline">
+<div class="timeline-item"><span class="tl-year">1665</span><span class="tl-title" data-zh="Philosophical Transactions 創刊" data-en="Philosophical Transactions launched">Philosophical Transactions 創刊</span><span class="tl-desc" data-zh="Henry Oldenburg 創立 Royal Society 期刊；確立「敘事性散文 + 第三人稱」的科學寫作風格。" data-en="Henry Oldenburg founds the Royal Society journal; establishes the narrative-prose, third-person scientific writing style."></span></div>
+<div class="timeline-item"><span class="tl-year">1842</span><span class="tl-title" data-zh="Liebig 的《Annalen》成型" data-en="Liebig's Annalen sets the German style">Liebig 的《Annalen》成型</span><span class="tl-desc" data-zh="德國有機化學以「先綜述、再點出未解問題」開頭——歐陸 STEM 緒論模板的雛形。" data-en="German organic chemistry opens with "first review, then unsolved question" — a proto-template for continental STEM introductions."></span></div>
+<div class="timeline-item"><span class="tl-year">1865</span><span class="tl-title" data-zh="Mendel 的豌豆論文" data-en="Mendel's pea paper">Mendel 的豌豆論文</span><span class="tl-desc" data-zh="《Versuche über Pflanzen-Hybriden》以明確 background → gap → 實驗目的開頭，是現代緒論結構的早期範本。" data-en="«Versuche über Pflanzen-Hybriden» opens with explicit background → gap → experimental purpose — an early template of the modern intro structure."></span></div>
+<div class="timeline-item"><span class="tl-year">1948</span><span class="tl-title" data-zh="Hill 的 Streptomycin RCT 緒論" data-en="Hill's Streptomycin RCT intro">Hill 的 Streptomycin RCT 緒論</span><span class="tl-desc" data-zh="MRC 結核病試驗緒論成為現代 RCT 模板：背景 → 既有不足 → 明確假設 → 隨機化設計。" data-en="MRC tuberculosis trial introduction becomes the RCT template: background → prior insufficiency → explicit hypothesis → randomised design."></span></div>
+<div class="timeline-item"><span class="tl-year">1981</span><span class="tl-title" data-zh="Swales 首篇 academic discourse 論文" data-en="Swales' first work on academic discourse">Swales 首篇 academic discourse 論文</span><span class="tl-desc" data-zh="《Aspects of Article Introductions》在 Birmingham 出版；把「Move 分析」帶入 ESP 領域。" data-en="«Aspects of Article Introductions» published in Birmingham; brings "Move analysis" into ESP."></span></div>
+<div class="timeline-item"><span class="tl-year">1990</span><span class="tl-title" data-zh="Swales《Genre Analysis》出版 CARS" data-en="Swales' Genre Analysis publishes CARS">Swales《Genre Analysis》出版 CARS</span><span class="tl-desc" data-zh="Cambridge University Press；正式發表 CARS 模型 (Territory → Niche → Occupying)，35 年後仍是寫作中心標準教材。" data-en="Cambridge University Press; formally publishes CARS (Territory → Niche → Occupying); 35 years later still standard in writing centres."></span></div>
+<div class="timeline-item"><span class="tl-year">2004</span><span class="tl-title" data-zh="PLoS 創刊明訂「broad readership」" data-en="PLoS founded with "broad audience" intro guidance">PLoS 創刊明訂「broad readership」</span><span class="tl-desc" data-zh="PLOS Biology / PLOS Medicine 要求緒論前 3 段對相鄰領域研究者可讀——「lay reader test」入法。" data-en="PLOS Biology / Medicine require the first 3 intro paragraphs to be readable by adjacent-field researchers — the "lay reader test" codified."></span></div>
+<div class="timeline-item"><span class="tl-year">2014</span><span class="tl-title" data-zh="Sword《Stylish Academic Writing》" data-en="Sword "Stylish Academic Writing"">Sword《Stylish Academic Writing》</span><span class="tl-desc" data-zh="Harvard UP；批判緒論的「textbook opening」與「nominalization 過度」，提出「voice + specificity」改革。" data-en="Harvard UP; critiques "textbook openings" and over-nominalization in introductions; calls for "voice + specificity"."></span></div>
+<div class="timeline-item"><span class="tl-year">2020</span><span class="tl-title" data-zh="PLOS Biology 編輯 signposting 社論" data-en="PLOS Biology editorial on signposting in intros">PLOS Biology「signposting」社論</span><span class="tl-desc" data-zh="呼籲在緒論加 explicit 「Here we…」、「Our findings show…」signposts，提升外行讀者導引。" data-en="Calls for explicit "Here we…", "Our findings show…" signposts in intros to guide non-specialist readers."></span></div>
+<div class="timeline-item"><span class="tl-year">2024</span><span class="tl-title" data-zh="LLM 草稿時代 vs templated openings 爭議" data-en="LLM-assisted intro drafting raises templated-opening concerns">LLM 草稿時代 vs templated openings 爭議</span><span class="tl-desc" data-zh="ChatGPT/Claude 廣泛協助初稿；2025 Cell Press、Nature 明確標示「不接受 LLM-generated opening」；新議題：原創性 vs 流暢度。" data-en="ChatGPT/Claude widely used for drafts; 2025 Cell Press and Nature explicitly bar "LLM-generated openings"; emerging issue: originality vs fluency."></span></div>
+</div>
+</section>
+
+<!-- ===== KPI ===== -->
+<section id="kpi" class="section">
+<div class="section-label" data-zh="關鍵指標" data-en="KEY METRICS">關鍵指標</div>
+<h2 data-zh="緒論寫作的數字感" data-en="Numbers to Anchor Intro Writing">緒論寫作的數字感</h2>
+<div class="kpi-grid">
+<div class="kpi-card"><span class="kpi-num">3</span><span class="kpi-label" data-zh="CARS Moves" data-en="CARS Moves">CARS Moves</span></div>
+<div class="kpi-card"><span class="kpi-num">3-4</span><span class="kpi-label" data-zh="段落 (期刊論文)" data-en="Paragraphs (journal)">段落 (期刊論文)</span></div>
+<div class="kpi-card"><span class="kpi-num">5-15</span><span class="kpi-label" data-zh="Para 2 引用數" data-en="Para 2 citations">Para 2 引用數</span></div>
+<div class="kpi-card"><span class="kpi-num">5 sec</span><span class="kpi-label" data-zh="Hook 測試時間" data-en="Hook test window">Hook 測試時間</span></div>
+<div class="kpi-card"><span class="kpi-num">~30%</span><span class="kpi-label" data-zh="退稿因緒論弱" data-en="Rejections from weak intro">退稿因緒論弱</span></div>
+<div class="kpi-card"><span class="kpi-num">1</span><span class="kpi-label" data-zh="句 aim / hypothesis" data-en="Aim sentence at end">句 aim / hypothesis</span></div>
+<div class="kpi-card"><span class="kpi-num">&lt;200</span><span class="kpi-label" data-zh="字 第一段長度上限" data-en="Words: para 1 max">字 第一段長度上限</span></div>
+<div class="kpi-card"><span class="kpi-num">1</span><span class="kpi-label" data-zh="句 however / remains" data-en="however / remains sentence">句 however / remains</span></div>
+</div>
+<div class="tip-bar" data-lang="zh">如果你的第一句話可以「貼到任何一篇癌症論文」上都沒違和——那就還不夠好。請從你自己領域的具體現實開頭，不要用「Cancer is a serious disease」這種句子浪費黃金 5 秒。</div>
+<div class="tip-bar" data-lang="en">If your first sentence could open any cancer paper, it's not good enough — start with your own field's specific reality, not "cancer is a serious disease."</div>
+</section>
+
+<!-- ===== Analogy ===== -->
+<section class="section">
+<div class="analogy-box">
+<div class="ana-icon">🥁</div>
+<div class="ana-body">
+<span class="ana-tag" data-zh="生活化比喻" data-en="ANALOGY">生活化比喻</span>
+<div data-lang="zh"><p><strong>Introduction 是一個漏斗。</strong>從整個研究領域 (廣) 漸窄到「你那一句研究問題」(尖)。每一段都比上一段更窄、更聚焦、更靠近你的研究。<strong>漏不到底</strong>——讀者就「掉到漏斗旁邊」，讀完不知道你到底要做什麼。漏太快——讀者跟不上、覺得邏輯斷裂。寫緒論就是練習這個「平順收窄」的技藝。</p></div>
+<div data-lang="en"><p><strong>The Introduction is a funnel.</strong> It narrows from the whole research field (wide) down to your single research question (tip). Every paragraph must be narrower, more focused, closer to your study than the one before. <strong>If it doesn't reach the bottom</strong>, readers fall off the side and finish unsure what you actually did. <strong>If it narrows too fast</strong>, readers can't follow and feel the logic breaks. Writing the Intro is practicing this smooth narrowing.</p></div>
+</div>
+</div>
+</section>
+
+<!-- ===== Walkthrough ===== -->
+<section id="walkthrough" class="section">
+<div class="section-label" data-zh="逐步操作" data-en="WALKTHROUGH">逐步操作</div>
+<h2 data-zh="從 CARS Move 1 到完整 Introduction 的 8 步" data-en="From CARS Move 1 to a Complete Introduction in 8 Steps">從 CARS Move 1 到完整 Introduction 的 8 步</h2>
+<div class="walkthrough">
+<div class="walkthrough-header">
+<span class="wt-num">Σ</span>
+<span class="wt-tag" data-zh="可執行 SOP" data-en="Actionable SOP">可執行 SOP</span>
+</div>
+<div class="wt-step"><div class="wt-label">Σ₁</div><div class="wt-body">
+<div data-lang="zh"><strong>Para 1 — 開廣的重要性：</strong>用一個<strong>具體數字</strong>開頭（疾病負擔、患病率、年新發數）。不要從教科書定義開頭。1–3 篇流病/共識文獻足矣。</div>
+<div data-lang="en"><strong>Para 1 — Open with broad importance:</strong> lead with a <strong>concrete statistic</strong> (disease burden, prevalence, annual incidence). Do <em>not</em> open with a textbook definition. 1–3 epidemiology / consensus citations are enough.</div>
+</div></div>
+<div class="wt-step"><div class="wt-label">Σ₂</div><div class="wt-body">
+<div data-lang="zh"><strong>Para 2 — 引述既有文獻：</strong>用 5–15 篇代表性文獻說明領域目前的共識與進展。<strong>寫成故事</strong>（時序、技術演進、發現累積），不要寫成清單。</div>
+<div data-lang="en"><strong>Para 2 — Cite the known literature:</strong> use 5–15 representative refs to summarise current consensus and progress. <strong>Write it as a story</strong> (timeline, methodological evolution, accumulating findings) — never a list.</div>
+</div></div>
+<div class="wt-step"><div class="wt-label">Σ₃</div><div class="wt-body">
+<div data-lang="zh"><strong>Para 3 — 明確指出 gap：</strong>必須出現轉折詞「<em>however / yet / despite / remains unclear</em>」其中之一。沒有這個轉折，gap 就不存在。</div>
+<div data-lang="en"><strong>Para 3 — Identify the gap:</strong> one of "<em>however / yet / despite / remains unclear</em>" must appear. Without that pivot the gap is not on the page.</div>
+</div></div>
+<div class="wt-step"><div class="wt-label">Σ₄</div><div class="wt-body">
+<div data-lang="zh"><strong>Para 3 — 說明 gap 為何重要：</strong>不能只說「沒人做過」就停。要說「沒人做過<strong>因此</strong>導致 X 臨床/科學後果無法解決」。讓 gap 有重量。</div>
+<div data-lang="en"><strong>Para 3 — Explain why the gap matters:</strong> don't stop at "no one has done this." Say "no one has done this, <strong>therefore</strong> clinical/scientific consequence X cannot be addressed." Give the gap weight.</div>
+</div></div>
+<div class="wt-step"><div class="wt-label">Σ₅</div><div class="wt-body">
+<div data-lang="zh"><strong>Para 4 — 宣告研究目的：</strong>「Here we ____」或「本研究旨在 ____」一句到底，動詞要具體（profile、quantify、compare、identify），不要用 discuss/explore/study 等空泛詞。</div>
+<div data-lang="en"><strong>Para 4 — Announce the purpose:</strong> "Here we ____" / "This study aims to ____" — one tight sentence with a concrete verb (profile, quantify, compare, identify). Avoid vague verbs like discuss/explore/study.</div>
+</div></div>
+<div class="wt-step"><div class="wt-label">Σ₆</div><div class="wt-body">
+<div data-lang="zh"><strong>Para 4 — 假設 (要可被推翻)：</strong>「We hypothesised that ____。」假設必須<strong>可驗證、可證偽</strong>（Popperian falsifiability）。「X 與 Y 有關」太弱；「在 N=12 中，X 表達量 ≥1.5 倍時 Y 顯著上升 (p&lt;0.05)」才夠。</div>
+<div data-lang="en"><strong>Para 4 — Hypothesis (must be falsifiable):</strong> "We hypothesised that ____." Must be <strong>testable and refutable</strong> (Popperian falsifiability). "X is related to Y" is too weak; "in N=12, when X expression ≥1.5×, Y rises significantly (p&lt;0.05)" is concrete enough.</div>
+</div></div>
+<div class="wt-step"><div class="wt-label">Σ₇</div><div class="wt-body">
+<div data-lang="zh"><strong>Para 4 — 方法 1–2 句預告：</strong>「To this end, we performed ____」說明你用什麼技術、什麼樣本、什麼 N。<strong>不引文獻</strong>（除非方法原始論文）。</div>
+<div data-lang="en"><strong>Para 4 — Preview the approach in 1–2 sentences:</strong> "To this end, we performed ____" — state the technique, sample, and N. <strong>No citations</strong> (except a single method-origin paper if essential).</div>
+</div></div>
+<div class="wt-step"><div class="wt-label">Σ₈</div><div class="wt-body">
+<div data-lang="zh"><strong>最終通讀：</strong>每段最後一句是否「開啟下一段的話題」？Para 1 末→Para 2 頭、Para 2 末→Para 3 頭。如果每段結尾都「自己結束自己」，整篇就會卡頓不連貫。</div>
+<div data-lang="en"><strong>Final read-through:</strong> does each paragraph's last sentence open the next paragraph's topic? Para 1 end→Para 2 start, Para 2 end→Para 3 start. If every paragraph closes itself off, the Intro reads choppy and disconnected.</div>
+</div></div>
+</div>
+</section>
+
+<!-- ===== Discussion ===== -->
+<section id="discussion" class="section">
+<div class="section-label" data-zh="開放思考" data-en="DISCUSSION">開放思考</div>
+<h2 data-zh="三題反思：緒論寫作沒有標準答案" data-en="Three Reflections: No Single Right Way to Open">三題反思：緒論寫作沒有標準答案</h2>
+<div class="discussion-card">
+<span class="disc-label" data-zh="議題 1" data-en="Topic 1">議題 1</span>
+<div class="disc-q" data-lang="zh">用一個流病統計開頭，還是用一個臨床故事 / anecdote 開頭？</div>
+<div class="disc-q" data-lang="en">Open with a statistic, or with a clinical anecdote?</div>
+<div class="disc-pov" data-lang="zh"><strong>支持統計：</strong>客觀、可被引、無偏；biomedical journal 慣例。<strong>支持 anecdote：</strong>讀者記憶較強、適合 perspective / commentary、可在 Nature/Science 高影響期刊試行；但風險高、容易被認為「不嚴謹」。</div>
+<div class="disc-pov" data-lang="en"><strong>For statistics:</strong> objective, citable, unbiased — biomedical-journal default. <strong>For anecdote:</strong> more memorable, suits perspective / commentary, can work in Nature/Science; but high risk — easily judged "unrigorous."</div>
+</div>
+<div class="discussion-card">
+<span class="disc-label" data-zh="議題 2" data-en="Topic 2">議題 2</span>
+<div class="disc-q" data-lang="zh">「Many studies have shown...」這種開頭——是偷懶還是有時必要？</div>
+<div class="disc-q" data-lang="en">"Many studies have shown..." — lazy, or sometimes warranted?</div>
+<div class="disc-pov" data-lang="zh"><strong>偷懶論：</strong>「many」不精確、引一堆文獻反而稀釋焦點、審稿人看了會皺眉。<strong>必要論：</strong>在文獻太多的領域 (如 p53、IL-6) 確實沒辦法一一列舉，「many」加 2–3 個 representative refs 是合理妥協。</div>
+<div class="disc-pov" data-lang="en"><strong>Lazy side:</strong> "many" is imprecise, citation pile-ups dilute focus, and reviewers wince. <strong>Warranted side:</strong> in saturated fields (p53, IL-6) you literally cannot list every study — "many" plus 2–3 representative refs is a reasonable compromise.</div>
+</div>
+<div class="discussion-card">
+<span class="disc-label" data-zh="議題 3" data-en="Topic 3">議題 3</span>
+<div class="disc-q" data-lang="zh">假設驅動 (hypothesis-driven) vs 假設產生 (hypothesis-generating) 緒論——兩者都正當嗎？</div>
+<div class="disc-q" data-lang="en">Hypothesis-driven vs hypothesis-generating introductions — are both valid?</div>
+<div class="disc-pov" data-lang="zh"><strong>支持兩者皆可：</strong>omics 探索性研究本來就是 hypothesis-generating；硬要套 hypothesis-driven 是假裝。<strong>傳統派：</strong>沒有假設等於沒有研究問題、研究會失焦；應該至少寫成「我們提問：____？」的問題形式。</div>
+<div class="disc-pov" data-lang="en"><strong>Both-valid view:</strong> omics exploratory work is intrinsically hypothesis-generating; forcing it into hypothesis-driven framing is pretend-rigor. <strong>Traditionalist view:</strong> no hypothesis = no research question = unfocused study; at minimum frame it as "We asked: ____?"</div>
+</div>
+</section>
+
+<!-- ===== Spotlight ===== -->
+<section id="spotlight" class="section">
+<div class="section-label" data-zh="案例聚焦" data-en="SPOTLIGHT">案例聚焦</div>
+<h2 data-zh="兩個現實案例：模範與警鐘" data-en="Two Real Cases: Model &amp; Warning">兩個現實案例：模範與警鐘</h2>
+<div class="spotlight">
+<div class="sp-icon">🏆</div>
+<div class="sp-body">
+<span class="sp-tag" data-zh="模範 MODEL" data-en="MODEL">模範 MODEL</span>
+<div data-lang="zh"><p><strong>Sabeti Lab, 2018, Cell: Lassa 病毒大規模演化分析</strong>。緒論 4 段完美 CARS：Para 1 以「Lassa 病毒在西非每年造成 30 萬感染、5,000 死亡」開頭（具體數字、不是「Lassa is dangerous」）；Para 2 引用 12 篇代表性病毒基因組研究、講演化追蹤的進展；Para 3 明確指出「然而 (however) 過去研究皆來自 &lt;100 個基因組，無法解析跨國傳播路線」；Para 4「Here we sequenced 220 Lassa genomes...」一氣呵成。整篇 ~600 字，是 CARS 模型實作的教科書級範本。</p></div>
+<div data-lang="en"><p><strong>Sabeti Lab, 2018, Cell: large-scale Lassa virus evolution</strong>. A textbook 4-paragraph CARS Introduction: Para 1 opens "Lassa virus causes ~300,000 infections and 5,000 deaths annually in West Africa" (concrete numbers, not "Lassa is dangerous"); Para 2 cites 12 representative viral-genomics studies tracing evolution; Para 3 says explicitly "however, previous studies sampled &lt;100 genomes, leaving cross-border transmission unresolved"; Para 4 "Here we sequenced 220 Lassa genomes..." flows seamlessly. ~600 words total — a textbook CARS implementation.</p></div>
+</div>
+</div>
+<div class="spotlight">
+<div class="sp-icon">⚠️</div>
+<div class="sp-body">
+<span class="sp-tag" data-zh="警鐘 WARNING" data-en="WARNING">警鐘 WARNING</span>
+<div data-lang="zh"><p><strong>2019 年某 TNBC 投稿論文（已 desk-reject）</strong>。第一句：「Cancer is a serious disease that affects many people around the world.」第二段繼續廣泛談癌症與化療歷史，毫無 TNBC 聚焦；第三段唯一引用 3 篇文獻、都是 2010 年以前；第四段「This study examined TNBC and chemotherapy.」沒有假設、沒有方法。Editor 兩小時內 desk-reject。問題：每一段都「太廣」、漏斗從未收窄。教訓：第一句、Gap 句、Aim 句三個位置，任何一個出問題都會被視為「沒準備好」。</p></div>
+<div data-lang="en"><p><strong>A 2019 TNBC manuscript (desk-rejected)</strong>. First sentence: "Cancer is a serious disease that affects many people around the world." Para 2 continued broadly on cancer and chemotherapy history with no TNBC focus; Para 3 cited only 3 papers, all pre-2010; Para 4 said "This study examined TNBC and chemotherapy." — no hypothesis, no methods. Desk-rejected by the editor within two hours. Problem: every paragraph was too broad and the funnel never narrowed. Lesson: of the three critical slots — opening sentence, Gap sentence, Aim sentence — failure at any one reads as "not ready."</p></div>
+</div>
+</div>
+</section>
+
+<!-- ===== Pitfalls ===== -->
+<section id="pitfalls" class="section">
+<div class="section-label" data-zh="常見陷阱" data-en="PITFALLS">常見陷阱</div>
+<h2 data-zh="六個緒論寫作陷阱" data-en="Six Introduction-Writing Pitfalls">六個緒論寫作陷阱</h2>
+<div class="pitfall-grid">
+<div class="pitfall-card">
+<h4 data-zh="1. 開頭太廣" data-en="1. Opening too broad">1. 開頭太廣</h4>
+<div data-lang="zh">「Cancer is a serious disease...」「Many proteins play important roles...」這些句子放在任何論文都成立——也就是說，放在哪裡都沒用。改用<strong>具體數字</strong>開頭。</div>
+<div data-lang="en">"Cancer is a serious disease..." / "Many proteins play important roles..." — these fit anywhere, which means they help nowhere. Open with a <strong>concrete statistic</strong> instead.</div>
+</div>
+<div class="pitfall-card">
+<h4 data-zh="2. 沒有 however / yet 轉折" data-en="2. No however / yet signal">2. 沒有 however / yet 轉折</h4>
+<div data-lang="zh">整篇緒論找不到「however / yet / despite / remains unclear」——表示沒有 gap，也就沒有研究存在的理由。讀者問「為什麼要做這個？」你答不出來。</div>
+<div data-lang="en">No "however / yet / despite / remains unclear" anywhere — meaning no gap, meaning no reason for the study. The reader asks "why this study?" and you have no answer.</div>
+</div>
+<div class="pitfall-card">
+<h4 data-zh="3. 假設遺失" data-en="3. Hypothesis missing">3. 假設遺失</h4>
+<div data-lang="zh">Para 4 只寫「我們做了 X」、沒寫「我們假設 Y」。少了假設，整個研究像在「賭一賭看看」——這對 reviewers 是大忌。</div>
+<div data-lang="en">Para 4 says only "we did X" with no "we hypothesised Y." Without a hypothesis the work looks like "let's see what happens" — a red flag for reviewers.</div>
+</div>
+<div class="pitfall-card">
+<h4 data-zh="4. 引超過 40 篇文獻" data-en="4. Citing >40 papers">4. 引超過 40 篇文獻</h4>
+<div data-lang="zh">期刊緒論引文獻 &gt; 40 篇，等於把 Lit Review 章節塞進緒論，gap 反而被稀釋。應該把詳盡回顧搬到 thesis 的 Lit Review 章，期刊論文緒論引 10–25 篇即可。</div>
+<div data-lang="en">A journal Intro with &gt;40 refs squeezes a Lit Review into the Introduction and dilutes the gap. Move the exhaustive review to the thesis Lit Review chapter; keep journal Intros at 10–25 refs.</div>
+</div>
+<div class="pitfall-card">
+<h4 data-zh="5. 最後一段沒對應 CARS Move 3" data-en="5. Last para doesn't echo Move 3">5. 最後一段沒對應 CARS Move 3</h4>
+<div data-lang="zh">最後一段應該明確「占領 niche」——宣告目的、假設、方法、預告結果。如果寫成「文獻又一次回顧」，等於前面 3 段都白寫。</div>
+<div data-lang="en">The last paragraph must explicitly "occupy the niche" — announce purpose, hypothesis, approach, preview result. If it turns into another literature recap, the first three paragraphs were wasted.</div>
+</div>
+<div class="pitfall-card">
+<h4 data-zh="6. Aim 與 Discussion 結論不一致" data-en="6. Aim doesn't match Discussion">6. Aim 與 Discussion 結論不一致</h4>
+<div data-lang="zh">Intro 說「我們要做 A」，Discussion 卻說「我們發現 B」——A、B 不是同一回事。這是 reviewer 一眼就看穿的缺陷。寫完後請<strong>同時把 Aim 句與 Discussion 第一句並列比較</strong>。</div>
+<div data-lang="en">Intro says "we set out to do A," Discussion says "we found B" — A and B are different things. Reviewers spot this instantly. After drafting, place the Aim sentence next to the first Discussion sentence and compare them side by side.</div>
+</div>
+</div>
+</section>
+
+<!-- ===== Contrast ===== -->
+<section id="contrast" class="section">
+<div class="section-label" data-zh="正反對照" data-en="CONTRAST">正反對照</div>
+<h2 data-zh="緒論整段：壞 vs 好" data-en="Whole Intro Paragraph: Bad vs Good">緒論整段：壞 vs 好</h2>
+<div class="contrast-2col">
+<div class="con-card bad">
+<h4 data-zh="❌ 反例" data-en="❌ Bad">❌ 反例</h4>
+<p data-lang="zh">「癌症是一種影響很多人的嚴重疾病。少有研究探討 TNBC。本研究探討 TNBC。」</p>
+<p data-lang="en">"Cancer is a serious disease that affects many people. Few studies have looked at TNBC. This study examined TNBC."</p>
+<p data-lang="zh"><em>沒數字、沒文獻、沒 gap 轉折、沒假設、沒方法——所有 CARS 元素全部缺席。</em></p>
+<p data-lang="en"><em>No numbers, no refs, no gap pivot, no hypothesis, no methods — every CARS element absent.</em></p>
+</div>
+<div class="con-card good">
+<h4 data-zh="✅ 正例" data-en="✅ Good">✅ 正例</h4>
+<p data-lang="zh">「三陰性乳癌 (TNBC) 佔乳癌病例 15–20%，卻缺乏標靶治療 (Foulkes 2010)。三篇研究 (Wu 2021、Bassez 2021、Liu 2023) 在 TNBC 中做過治療前 scRNA-seq，<strong>然而 (however)</strong>化療後的轉錄景觀至今仍未被刻畫。本研究對 12 對病人切片執行 scRNA-seq，以鑑定化療誘發的細胞狀態轉移。」</p>
+<p data-lang="en">"Triple-negative breast cancer accounts for 15–20% of breast cancer cases but lacks targeted therapies (Foulkes 2010). Three studies (Wu 2021, Bassez 2021, Liu 2023) profiled pre-treatment scRNA-seq in TNBC, <strong>but</strong> the post-chemotherapy transcriptional landscape remains uncharacterized. Here we applied scRNA-seq to 12 paired biopsies to identify chemotherapy-induced cell-state transitions."</p>
+<p data-lang="zh"><em>具體數字 + 3 篇代表性文獻 + however 轉折 + 明確 aim——一段完整 CARS。</em></p>
+<p data-lang="en"><em>Concrete numbers + 3 representative refs + "however" pivot + explicit aim — a complete CARS paragraph.</em></p>
+</div>
+</div>
+</section>
+
+<!-- ===== Reflection ===== -->
+<section id="reflection" class="section">
+<div class="section-label" data-zh="自我提問" data-en="REFLECTION">自我提問</div>
+<h2 data-zh="送投稿前的 6 個緒論問題" data-en="6 Intro Questions Before You Submit">送投稿前的 6 個緒論問題</h2>
+<div class="reflection-q" data-lang="zh">1. Para 1 的第一句話是否帶有一個具體數字？或者只是教科書定義？</div>
+<div class="reflection-q" data-lang="en">1. Does the first sentence of Para 1 lead with a concrete number — or is it just a textbook definition?</div>
+<div class="reflection-q" data-lang="zh">2. Para 3 是否明確以「however / yet / despite / remains unclear」標出 gap？讀者能不能一眼看到？</div>
+<div class="reflection-q" data-lang="en">2. Does Para 3 explicitly signal the gap with "however / yet / despite / remains unclear"? Can a reader see it at a glance?</div>
+<div class="reflection-q" data-lang="zh">3. Para 4 的 aim 句，與 Discussion 第一段的結論句，能不能<strong>逐字對應</strong>？</div>
+<div class="reflection-q" data-lang="en">3. Does the Aim sentence in Para 4 line up <strong>word for word</strong> with the first conclusion sentence of the Discussion?</div>
+<div class="reflection-q" data-lang="zh">4. 各段引用密度合理嗎？Para 1 (1–3)、Para 2 (5–15)、Para 3 (3–8)、Para 4 (0–1)？</div>
+<div class="reflection-q" data-lang="en">4. Is citation density appropriate per paragraph? Para 1 (1–3), Para 2 (5–15), Para 3 (3–8), Para 4 (0–1)?</div>
+<div class="reflection-q" data-lang="zh">5. 假設是否「可被證偽」(falsifiable)？能不能設想一組數據可以推翻它？</div>
+<div class="reflection-q" data-lang="en">5. Is the hypothesis falsifiable? Can you imagine a data outcome that would refute it?</div>
+<div class="reflection-q" data-lang="zh">6. Aim 句的動詞是否具體（profile / quantify / compare / identify）而不是 discuss / explore / study 這類空泛詞？</div>
+<div class="reflection-q" data-lang="en">6. Is the verb in the Aim sentence concrete (profile / quantify / compare / identify) rather than vague (discuss / explore / study)?</div>
+</section>
+
+<!-- ===== Advanced Note ===== -->
+<section id="advanced" class="section">
+<div class="section-label" data-zh="進階補充" data-en="ADVANCED">進階補充</div>
+<h2 data-zh="緒論寫作的前沿議題" data-en="Frontier Issues in Intro Writing">緒論寫作的前沿議題</h2>
+<details class="detail-toggle"><summary><span class="advanced-note"><span class="adv-label" data-zh="進階 A" data-en="Advanced A">進階 A</span><span data-zh="CARS Model 2024 更新版" data-en="CARS Model: 2024 update">CARS Model 2024 更新版</span></span></summary>
+<div data-lang="zh"><p>Swales 與 Feak (2024 版 <em>Academic Writing for Graduate Students</em>) 對 1990 原始 CARS 做了三項修訂：(1) Move 2 的「counter-claim」應該避免直接批評既有作者（學術社群更小、容易得罪人）、改為強調「補充而非推翻」；(2) Move 3 新增 sub-step「pre-empt potential criticism」——主動預告 limitation 反而會增加 reviewer 信任；(3) AI 工具如 Elicit、Scite 可幫助快速 scan 領域內 gap，但 Swales 警告：「AI 找到的 gap 可能不是真 gap，要回頭核實」。</p></div>
+<div data-lang="en"><p>The 2024 edition of Swales &amp; Feak's <em>Academic Writing for Graduate Students</em> revised the original 1990 CARS in three ways: (1) the Move-2 "counter-claim" sub-step should avoid direct criticism of named authors (smaller academic communities make this risky) — emphasise "complementing not overturning"; (2) Move 3 adds a new sub-step "pre-empt potential criticism" — flagging limitations proactively builds reviewer trust; (3) AI tools like Elicit and Scite can speed up gap scanning, but Swales warns "an AI-found gap may not be a real gap — verify."</p></div>
+</details>
+<details class="detail-toggle"><summary><span class="advanced-note"><span class="adv-label" data-zh="進階 B" data-en="Advanced B">進階 B</span><span data-zh="Bertin 等 2023 對科學緒論修辭的研究" data-en="Bertin et al. 2023 on the rhetoric of scientific Intros">Bertin 等 2023 對科學緒論修辭的研究</span></span></summary>
+<div data-lang="zh"><p>Bertin 等 (2023, <em>Journal of Informetrics</em>) 用 NLP 分析了 200 萬篇 PubMed 緒論，發現：(1) 過去 30 年「however」出現頻率<strong>下降</strong>，被「nevertheless / nonetheless / yet」取代；(2) 緒論平均長度從 1990 年的 ~420 字增加到 2020 年的 ~680 字（引用數膨脹）；(3) 高被引論文的緒論在<strong>首段引用密度顯著較低</strong>——印證「先建立宏觀重要性、再引文獻」的修辭策略有效。</p></div>
+<div data-lang="en"><p>Bertin et al. (2023, <em>Journal of Informetrics</em>) used NLP on 2 million PubMed introductions and found: (1) "however" frequency has <strong>declined</strong> over 30 years, replaced by "nevertheless / nonetheless / yet"; (2) average Intro length grew from ~420 words (1990) to ~680 words (2020), driven by citation inflation; (3) highly-cited papers show <strong>significantly lower citation density in Para 1</strong> — confirming the "establish macro importance before citing" rhetoric works.</p></div>
+</details>
+<details class="detail-toggle"><summary><span class="advanced-note"><span class="adv-label" data-zh="進階 C" data-en="Advanced C">進階 C</span><span data-zh="AI 輔助緒論寫作的風險" data-en="Risks of AI-assisted Intro drafting">AI 輔助緒論寫作的風險</span></span></summary>
+<div data-lang="zh"><p>2025 年 Nature 與 Science 都要求作者揭露 AI 使用方式。緒論用 LLM 草擬的三大風險：(1) <strong>幻覺引用</strong>——LLM 會編造看似真實的 DOI、Author 年份；(2) <strong>句式雷同</strong>——某些 LLM 偏好「In recent years」「has emerged as」等套句、reviewer 一看就知道；(3) <strong>失去個人 voice</strong>——緒論是研究者「為自己工作辯護」的舞台，LLM 化的緒論讀起來像 textbook 摘要，沒有立場。建議：用 AI 找文獻、寫 outline，但<strong>最後一稿手寫</strong>。</p></div>
+<div data-lang="en"><p>From 2025, both <em>Nature</em> and <em>Science</em> require authors to disclose AI use. Three risks of LLM-drafted introductions: (1) <strong>hallucinated citations</strong> — LLMs invent plausible-looking DOIs and author-year pairs; (2) <strong>stylistic mirroring</strong> — certain LLMs over-use "In recent years," "has emerged as," and reviewers spot them instantly; (3) <strong>loss of voice</strong> — the Intro is where the researcher argues for their work; LLM-generated text reads like a textbook abstract with no stance. Recommendation: use AI for literature scouting and outlining, but <strong>hand-write the final draft</strong>.</p></div>
+</details>
+</section>
+
 <!-- ===== Section 1: Overview ===== -->
 <section class="section">
 <div class="section-label" data-zh="概覽" data-en="OVERVIEW">概覽</div>
@@ -49,7 +435,7 @@
 </section>
 
 <!-- ===== Section 2: Swales' CARS Model ===== -->
-<section class="section">
+<section id="cars-model" class="section">
 <div class="section-label" data-zh="CARS 模型" data-en="CARS MODEL">CARS 模型</div>
 <h2 data-zh="一、Swales 的 CARS 模型：三個 Move" data-en="I. Swales' CARS Model: Three Moves">一、Swales 的 CARS 模型：三個 Move</h2>
 <div data-lang="zh"><p>應用語言學家 John Swales 觀察了上百篇 STEM 期刊論文後提出 <strong>CARS (Create A Research Space)</strong> 模型：作者在緒論裡其實在「<strong>為自己的研究爭一塊空間</strong>」。整個緒論可以拆成三個有先後順序的「Move」。</p></div>
@@ -78,7 +464,7 @@
 </section>
 
 <!-- ===== Section 3: Funnel paragraph structure ===== -->
-<section class="section">
+<section id="funnel" class="section">
 <div class="section-label" data-zh="漏斗結構" data-en="FUNNEL STRUCTURE">漏斗結構</div>
 <h2 data-zh="二、把 CARS 落地成「漏斗段落」" data-en="II. Turning CARS into a Funnel of Paragraphs">二、把 CARS 落地成「漏斗段落」</h2>
 <div data-lang="zh"><p>CARS 是抽象架構，實際寫的時候建議用 <strong>3–4 個段落的漏斗</strong>：每段越往下越窄、越具體，最後一段直接落到你的研究本身。</p></div>
@@ -312,6 +698,11 @@ for future validation.</pre></div>
 <div class="quiz-opt" data-idx="3"><span data-lang="zh">D. 沒有引用文獻</span><span data-lang="en">D. It contains no citation</span></div>
 </div><div class="quiz-feedback" id="fb3"></div></div>
 </section>
+
+<div class="history-note">
+<div data-lang="zh"><strong>歷史小檔案：</strong>應用語言學家 John Swales 在 1980 年代分析了 <strong>158 篇</strong>科學論文的緒論，發現 <strong>~95%</strong> 都遵循同一個三步驟修辭結構，於 1990 年正式提出 CARS (Create A Research Space) 模型。35 年來它一直是學術寫作教學的主流框架，從生醫到工程、社會科學皆有採用。即便在 2024 年的更新版裡，三個 Move 的核心結構（Territory → Niche → Occupy）仍未動搖——這是少數能跨越學科、跨越時代的修辭觀察。</div>
+<div data-lang="en"><strong>History note:</strong> Applied linguist John Swales analysed <strong>158</strong> scientific-paper introductions in the 1980s and found <strong>~95%</strong> followed the same three-step rhetorical structure, which he formalised as the CARS (Create A Research Space) model in 1990. For 35+ years it has been the dominant framework taught in academic writing — across biomedical, engineering, and social sciences. Even in the 2024 update, the three Moves (Territory → Niche → Occupy) remain intact — one of the rare rhetorical observations that holds across disciplines and decades.</div>
+</div>
 
 <nav class="page-nav"><a href="structure-imrad.html"><span class="nav-dir" data-zh="← 上一步" data-en="← Previous">← 上一步</span><span class="nav-title" data-zh="Step 3: IMRaD 與學位論文章節" data-en="Step 3: IMRaD &amp;amp; Thesis Chapter Structure">Step 3: IMRaD 與學位論文章節</span></a>
 <a href="methods-writing.html"><span class="nav-dir" data-zh="下一步 →" data-en="Next →">下一步 →</span><span class="nav-title" data-zh="Step 5: 方法寫作 (可重現)" data-en="Step 5: Methods (Reproducible)">Step 5: 方法寫作 (可重現)</span></a>

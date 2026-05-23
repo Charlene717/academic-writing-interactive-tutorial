@@ -30,6 +30,356 @@
 </header>
 <main class="content-wrap">
 
+<!-- ===== Section TOC ===== -->
+<div class="section-toc">
+<strong data-zh="本章導覽（閱讀時間 ~22 分）" data-en="Chapter map (reading time ~22 min)">本章導覽（閱讀時間 ~22 分）</strong>
+<div class="pill-row">
+<span class="level-badge l-beg" data-zh="初學者" data-en="Beginner">初學者</span>
+<span class="level-badge l-mid" data-zh="中階" data-en="Intermediate">中階</span>
+<span class="level-badge l-adv" data-zh="進階" data-en="Advanced">進階</span>
+<span class="pill navy">Vancouver</span><span class="pill amber">APA</span><span class="pill violet">Zotero</span><span class="pill teal">BibTeX</span><span class="pill rose">CSL</span>
+</div>
+<ol>
+<li><a href="#story" data-zh="開場故事：手敲引用引到 retracted paper" data-en="Story: hand-typed citation hits retracted paper">開場故事：手敲引用引到 retracted paper</a></li>
+<li><a href="#glossary" data-zh="核心詞彙表（14 詞）" data-en="Glossary (14 terms)">核心詞彙表（14 詞）</a></li>
+<li><a href="#timeline" data-zh="從 1869 到 AI 引用工具" data-en="From 1869 to AI citation tools">從 1869 到 AI 引用工具</a></li>
+<li><a href="#kpi" data-zh="關鍵數字" data-en="Key numbers">關鍵數字</a></li>
+<li><a href="#walkthrough" data-zh="Σ 8 步驟：從 zero 到 publication-ready" data-en="Σ 8 steps: zero to publication-ready">Σ 8 步驟：從 zero 到 publication-ready</a></li>
+<li><a href="#discussion" data-zh="專家辯論" data-en="Expert debates">專家辯論</a></li>
+<li><a href="#pitfalls" data-zh="6 個典型陷阱" data-en="6 typical pitfalls">6 個典型陷阱</a></li>
+<li><a href="#advanced" data-zh="進階 2024-2026 SOTA" data-en="Advanced 2024-2026 SOTA">進階 2024-2026 SOTA</a></li>
+</ol>
+</div>
+
+<!-- ===== STORY ===== -->
+<section id="story" class="section">
+<div class="section-label" data-zh="故事開場" data-en="OPENING STORY">故事開場</div>
+<h2 data-zh="場景：博士後 Olivia 與一篇 retracted paper" data-en="Scene: Postdoc Olivia and a Retracted Paper">場景：博士後 Olivia 與一篇 retracted paper</h2>
+<div class="story-block">
+<span class="story-tag">SCENE · 2025 · Karolinska</span>
+<h3 data-zh="從「手敲 references」到「Zotero + Retraction Watch」" data-en="From "hand-typed refs" to "Zotero + Retraction Watch"">從「手敲 references」到「Zotero + Retraction Watch」</h3>
+<div data-lang="zh">
+<p>博士後 <strong>Olivia</strong> 在 Karolinska Institutet 寫一篇關於免疫檢查點抑制劑的綜述。她習慣「在 Google Scholar 找到 paper、把資訊複製到 Word reference list 裡手動敲格式」——畢竟「我只引 30 篇，自己排比較快」。</p>
+<p>論文投到 <em>Annals of Oncology</em>，三週後收到 reviewer #2 的回信，第一句話就是：<em>「Reference 17 是 2022 年已被 retract 的論文 (因 image manipulation)。請說明為何採用其結論。」</em> Olivia 嚇出冷汗——那篇是她從 Google Scholar 第一頁複製的，網頁上完全沒有 retraction 標籤。</p>
+<p>她連夜學 <strong>Zotero</strong>：裝瀏覽器 connector、設定 Better BibTeX、串接 Retraction Watch database (Zotero 自動以紅色標示已撤稿論文)、把 30 篇 references 全部用 DOI 重新匯入。一週後 resubmit；reviewer #2 第二輪回覆只有一句：<em>「Refs are now clean. Recommend accept.」</em></p>
+<p>她在實驗室 lab meeting 分享這個教訓，題目寫：<strong>「手敲 reference 的錯誤率是 100%——只是你還沒被抓到而已」</strong>。</p>
+</div>
+<div data-lang="en">
+<p>Postdoc <strong>Olivia</strong> at Karolinska Institutet is writing a review on immune checkpoint inhibitors. She habitually "finds papers on Google Scholar, copies fields into the Word reference list, hand-formats each entry" — after all, "for 30 refs, doing it myself is faster."</p>
+<p>The manuscript goes to <em>Annals of Oncology</em>. Three weeks later reviewer #2 opens with: <em>"Reference 17 was retracted in 2022 (image manipulation). Please justify reliance on its conclusions."</em> Olivia goes cold — she'd copied that paper from page one of Google Scholar; the web page showed no retraction tag.</p>
+<p>Overnight she learns <strong>Zotero</strong>: installs the browser connector, configures Better BibTeX, hooks up Retraction Watch integration (Zotero highlights retracted entries in red), and re-imports all 30 references by DOI. One week later she resubmits; reviewer #2's second-round reply is one line: <em>"Refs are now clean. Recommend accept."</em></p>
+<p>She presents the lesson at lab meeting under the title: <strong>"The error rate of hand-typed references is 100% — you just haven't been caught yet."</strong></p>
+</div>
+</section>
+
+<!-- ===== GLOSSARY ===== -->
+<section id="glossary" class="section">
+<div class="section-label" data-zh="核心詞彙" data-en="GLOSSARY">核心詞彙</div>
+<h2 data-zh="14 個關鍵術語（雙版本）" data-en="14 Key Terms (two versions)">14 個關鍵術語（雙版本）</h2>
+<p data-lang="zh"><em>每個詞兩個版本：🧒「給小孩看」用比喻、📐「給研究者看」給定義。</em></p>
+<p data-lang="en"><em>Each term has two versions: 🧒 "for kids" uses a metaphor; 📐 "for researchers" gives the formal definition.</em></p>
+<div class="glossary-grid">
+
+<div class="glossary-card">
+<div class="term-en">Citation</div><div class="term-zh">引用</div>
+<div class="term-kid" data-lang="zh">在文章裡指著另一本書說：「這個想法是他先講的」——就像考試寫名字。</div>
+<div class="term-kid" data-lang="en">A pointer in your text that says "this idea came from there" — like signing whose homework you borrowed.</div>
+<div class="term-tech" data-lang="zh">在 text 中以特定格式 (Vancouver [1] / APA (Smith 2024)) 引用另一作品；對應 reference list 中的完整條目。</div>
+<div class="term-tech" data-lang="en">A formatted in-text marker (Vancouver [1] / APA (Smith 2024)) pointing to a full entry in the reference list.</div>
+</div>
+
+<div class="glossary-card">
+<div class="term-en">Reference list</div><div class="term-zh">參考文獻列表</div>
+<div class="term-kid" data-lang="zh">論文最後一頁的「我引了哪些書」清單。</div>
+<div class="term-kid" data-lang="en">The "books I borrowed from" list at the end of the paper.</div>
+<div class="term-tech" data-lang="zh">論文末完整列出所有引用作品的條目；僅包含 in-text 引用過的；異於 bibliography (含未引用之延伸閱讀)。</div>
+<div class="term-tech" data-lang="en">The complete list of all cited works at the paper's end; contains only in-text citations; distinct from bibliography (which may include further reading).</div>
+</div>
+
+<div class="glossary-card">
+<div class="term-en">Vancouver style</div><div class="term-zh">Vancouver 格式</div>
+<div class="term-kid" data-lang="zh">把引用編號 [1][2][3]——像在排隊取號碼牌。</div>
+<div class="term-kid" data-lang="en">Numbers references [1][2][3] in order of appearance — like a queue ticket.</div>
+<div class="term-tech" data-lang="zh">ICMJE 1978 訂；按文中出現先後編號；NEJM、JAMA、Cell、Nature 系列等大部分生醫期刊使用 (~80%)。</div>
+<div class="term-tech" data-lang="en">ICMJE 1978; numbered by order of appearance; used by NEJM, JAMA, Cell, Nature, and ~80% of biomedical journals.</div>
+</div>
+
+<div class="glossary-card">
+<div class="term-en">APA style</div><div class="term-zh">APA 格式</div>
+<div class="term-kid" data-lang="zh">寫作者姓 + 年份 (Smith, 2024) ——一看就知道是誰、什麼時候講的。</div>
+<div class="term-kid" data-lang="en">Writes (Smith, 2024) — instantly tells you who and when.</div>
+<div class="term-tech" data-lang="zh">American Psychological Association；7th ed (2020)；社會/教育/心理常用；reference list 按字母排序、含 DOI。</div>
+<div class="term-tech" data-lang="en">American Psychological Association; 7th ed (2020); used in psych/education/social sciences; alphabetical reference list with DOI.</div>
+</div>
+
+<div class="glossary-card">
+<div class="term-en">Author-Year (Harvard)</div><div class="term-zh">作者-年份（Harvard 風格）</div>
+<div class="term-kid" data-lang="zh">和 APA 很像但細節不同——像兩家茶店都賣珍奶但配方略異。</div>
+<div class="term-kid" data-lang="en">Similar to APA but with different details — two boba shops, same drink, different recipes.</div>
+<div class="term-tech" data-lang="zh">非單一機構標準；各期刊版本不同 (Harvard Cite Them Right、CSE Name-Year)；生態學/地球科學常用。</div>
+<div class="term-tech" data-lang="en">No single authority; many variants (Harvard Cite Them Right, CSE Name-Year); common in ecology/earth sciences.</div>
+</div>
+
+<div class="glossary-card">
+<div class="term-en">BibTeX</div><div class="term-zh">BibTeX</div>
+<div class="term-kid" data-lang="zh">給 LaTeX 看的「引用資料庫檔」——文字檔，肉眼可讀。</div>
+<div class="term-kid" data-lang="en">A plain-text "reference database" file that LaTeX reads.</div>
+<div class="term-tech" data-lang="zh">Patashnik 1985；.bib 檔；entry types (@article、@book)；fields (author, title, journal, year, doi)；用於 LaTeX。</div>
+<div class="term-tech" data-lang="en">Patashnik 1985; .bib files; entry types (@article, @book); fields (author, title, journal, year, doi); used with LaTeX.</div>
+</div>
+
+<div class="glossary-card">
+<div class="term-en">BibLaTeX</div><div class="term-zh">BibLaTeX</div>
+<div class="term-kid" data-lang="zh">BibTeX 的「升級版」，2008 年出來，支援 Unicode、跨語言。</div>
+<div class="term-kid" data-lang="en">The "upgraded" BibTeX — released 2008, with Unicode and multi-language support.</div>
+<div class="term-tech" data-lang="zh">Lehman 2008；後端用 biber；支援 UTF-8、嵌套 entry、複雜風格；CJK 引用首選。</div>
+<div class="term-tech" data-lang="en">Lehman 2008; biber backend; UTF-8, nested entries, complex styles; preferred for CJK citations.</div>
+</div>
+
+<div class="glossary-card">
+<div class="term-en">CSL</div><div class="term-zh">引用樣式語言</div>
+<div class="term-kid" data-lang="zh">用 XML 寫的「格式食譜」——Zotero / Mendeley 用這個自動套各種期刊風格。</div>
+<div class="term-kid" data-lang="en">An XML "formatting recipe" — Zotero / Mendeley use it to auto-apply journal styles.</div>
+<div class="term-tech" data-lang="zh">Citation Style Language；XML-based；v1.0.2 (2021)；Zotero Style Repository 收錄 10,000+ 期刊樣式。</div>
+<div class="term-tech" data-lang="en">Citation Style Language; XML-based; v1.0.2 (2021); the Zotero Style Repository holds 10,000+ journal styles.</div>
+</div>
+
+<div class="glossary-card">
+<div class="term-en">DOI</div><div class="term-zh">數位物件識別碼</div>
+<div class="term-kid" data-lang="zh">論文的「身分證號」——全世界唯一、永久不變。</div>
+<div class="term-kid" data-lang="en">A paper's permanent ID number — globally unique, never changes.</div>
+<div class="term-tech" data-lang="zh">Digital Object Identifier；ISO 26324；Crossref 1.4B+ 已註冊；前綴/後綴 (10.1038/s41586-024-...)；URL: doi.org/...</div>
+<div class="term-tech" data-lang="en">Digital Object Identifier; ISO 26324; 1.4B+ registered via Crossref; prefix/suffix format (10.1038/s41586-024-...); URL doi.org/...</div>
+</div>
+
+<div class="glossary-card">
+<div class="term-en">PMID</div><div class="term-zh">PubMed 編號</div>
+<div class="term-kid" data-lang="zh">PubMed 給每篇生醫論文的「PubMed 內部編號」。</div>
+<div class="term-kid" data-lang="en">PubMed's internal ID for each biomedical paper.</div>
+<div class="term-tech" data-lang="zh">PubMed Identifier；純整數 (例：38234567)；NLM 維護；PMC ID 為全文版的 ID (PMC10234567)。</div>
+<div class="term-tech" data-lang="en">PubMed Identifier; integer (e.g., 38234567); maintained by NLM; PMC ID is the full-text version (PMC10234567).</div>
+</div>
+
+<div class="glossary-card">
+<div class="term-en">In-text citation</div><div class="term-zh">文中引用</div>
+<div class="term-kid" data-lang="zh">在句子裡指著一本書——「就在這句旁邊」。</div>
+<div class="term-kid" data-lang="en">Pointing at a source right next to a sentence.</div>
+<div class="term-tech" data-lang="zh">論文 body 中插入的引用 marker：[1]、(Smith 2024)、(Smith et al., 2024, p. 12)；對應 reference list 條目。</div>
+<div class="term-tech" data-lang="en">In-body citation marker: [1], (Smith 2024), (Smith et al., 2024, p. 12); resolves to a reference list entry.</div>
+</div>
+
+<div class="glossary-card">
+<div class="term-en">Citation manager</div><div class="term-zh">文獻管理軟體</div>
+<div class="term-kid" data-lang="zh">「論文圖書館 + 自動寫引用」的 App——再也不用手敲。</div>
+<div class="term-kid" data-lang="en">A "paper library + auto-citer" app — no more hand-typing.</div>
+<div class="term-tech" data-lang="zh">Zotero (open-source, free)、EndNote (商業)、Mendeley、Paperpile、JabRef；都支援 BibTeX 匯出與 CSL。</div>
+<div class="term-tech" data-lang="en">Zotero (open-source, free), EndNote (commercial), Mendeley, Paperpile, JabRef; all support BibTeX export and CSL.</div>
+</div>
+
+<div class="glossary-card">
+<div class="term-en">Citation coercion</div><div class="term-zh">引用強迫</div>
+<div class="term-kid" data-lang="zh">審查者偷偷說：「你要不要也引一下我的論文？」——學術界的灰色行為。</div>
+<div class="term-kid" data-lang="en">A reviewer hinting, "How about citing my paper too?" — an academic gray-zone behavior.</div>
+<div class="term-tech" data-lang="zh">Wilhite &amp; Fong 2012 Science；reviewer/editor 要求加引用以提升自己 IF；COPE 視為 misconduct；可向期刊申訴。</div>
+<div class="term-tech" data-lang="en">Wilhite &amp; Fong 2012 Science; reviewer/editor pressuring extra citations to boost their IF; COPE deems it misconduct; report to journal.</div>
+</div>
+
+<div class="glossary-card">
+<div class="term-en">Retraction</div><div class="term-zh">撤稿</div>
+<div class="term-kid" data-lang="zh">期刊把一篇論文「收回去」——通常因為造假或重大錯誤。</div>
+<div class="term-kid" data-lang="en">A journal "takes back" a paper — usually due to fraud or major error.</div>
+<div class="term-tech" data-lang="zh">論文因 misconduct / honest error 被期刊正式撤回；Retraction Watch DB &gt;50,000 條 (2025)；Zotero 可即時警示。</div>
+<div class="term-tech" data-lang="en">Formal withdrawal of a paper for misconduct / honest error; Retraction Watch DB has &gt;50,000 entries (2025); Zotero can alert you in real time.</div>
+</div>
+
+</div>
+</section>
+
+<!-- ===== HISTORY TIMELINE ===== -->
+<section id="timeline" class="section">
+<div class="section-label" data-zh="歷史" data-en="HISTORY">歷史</div>
+<h2 data-zh="從 1869 到 AI 引用工具" data-en="From 1869 to AI Citation Tools">引用的簡史：從 1869 到 AI 引用工具</h2>
+<div class="timeline">
+<div class="timeline-item"><span class="tl-year">1869</span><span class="tl-title" data-zh="首批科學引文索引出現" data-en="First scientific citation indexes appear">首批科學引文索引出現</span><span class="tl-desc" data-zh="Shepard's Citations 為法學索引；科學引文索引概念隨之萌芽。" data-en="Shepard's Citations for law established the concept; scientific indexing soon followed."></span></div>
+<div class="timeline-item"><span class="tl-year">1955</span><span class="tl-title" data-zh="Garfield 提出 Science Citation Index" data-en="Garfield proposes Science Citation Index">Garfield 提出 Science Citation Index</span><span class="tl-desc" data-zh="Eugene Garfield 在 Science 發表 "Citation Indexes for Science"；徹底改變學術評量方式。" data-en="Eugene Garfield's Science paper "Citation Indexes for Science" reshapes scholarly evaluation."></span></div>
+<div class="timeline-item"><span class="tl-year">1960</span><span class="tl-title" data-zh="ISI 創立" data-en="ISI founded">ISI 創立</span><span class="tl-desc" data-zh="Institute for Scientific Information；後成為 Thomson Reuters → Clarivate；Web of Science 與 JCR 母平台。" data-en="Institute for Scientific Information; later Thomson Reuters → Clarivate; parent of Web of Science and JCR."></span></div>
+<div class="timeline-item"><span class="tl-year">1995</span><span class="tl-title" data-zh="EndNote 上市" data-en="EndNote released">EndNote 上市</span><span class="tl-desc" data-zh="Thomson 旗下；第一個普及的商業文獻管理軟體。" data-en="Thomson-owned; first widely adopted commercial reference manager."></span></div>
+<div class="timeline-item"><span class="tl-year">2006</span><span class="tl-title" data-zh="Zotero 開源發布" data-en="Zotero released (open-source)">Zotero 開源發布</span><span class="tl-desc" data-zh="George Mason University 開發；免費、開源、跨平台；十年內成為學術界主流。" data-en="Developed at George Mason University; free, open-source, cross-platform; mainstream within a decade."></span></div>
+<div class="timeline-item"><span class="tl-year">2008</span><span class="tl-title" data-zh="BibLaTeX 釋出" data-en="BibLaTeX released">BibLaTeX 釋出</span><span class="tl-desc" data-zh="Philipp Lehman；biber 後端；BibTeX 的現代化升級，支援 UTF-8 與多語。" data-en="Philipp Lehman; biber backend; modern BibTeX upgrade with UTF-8 and multi-language support."></span></div>
+<div class="timeline-item"><span class="tl-year">2009</span><span class="tl-title" data-zh="Mendeley 上線（2013 被 Elsevier 收購）" data-en="Mendeley launched (Elsevier acquired 2013)">Mendeley 上線（2013 被 Elsevier 收購）</span><span class="tl-desc" data-zh="社群化文獻管理；2013 年 Elsevier 收購後爭議不斷。" data-en="Social-style reference management; Elsevier's 2013 acquisition triggered ongoing debate."></span></div>
+<div class="timeline-item"><span class="tl-year">2010</span><span class="tl-title" data-zh="CSL 1.0 標準化" data-en="CSL 1.0 standardized">CSL 1.0 標準化</span><span class="tl-desc" data-zh="Citation Style Language v1.0；XML-based；之後各家工具的共同樣式語言。" data-en="Citation Style Language v1.0; XML-based; the cross-tool styling lingua franca."></span></div>
+<div class="timeline-item"><span class="tl-year">2014</span><span class="tl-title" data-zh="ORCID 正式啟動" data-en="ORCID launched">ORCID 正式啟動</span><span class="tl-desc" data-zh="Open Researcher and Contributor ID；研究者的唯一身分編號；現已成投稿必填欄位。" data-en="Open Researcher and Contributor ID; researchers' unique persistent ID; now required at submission."></span></div>
+<div class="timeline-item"><span class="tl-year">2024-26</span><span class="tl-title" data-zh="AI 引用工具崛起" data-en="AI citation tools rise">AI 引用工具崛起</span><span class="tl-desc" data-zh="Elicit / Scite.ai / Consensus；提供 citation context、supports vs contrasts 分析；仍需人類審核。" data-en="Elicit / Scite.ai / Consensus; offer citation context, supports-vs-contrasts analysis; human verification still essential."></span></div>
+</div>
+</section>
+
+<!-- ===== KPI ===== -->
+<section id="kpi" class="section">
+<div class="section-label" data-zh="關鍵指標" data-en="KEY METRICS">關鍵指標</div>
+<h2 data-zh="引用的數字感" data-en="Numbers to Anchor Citations">引用的數字感</h2>
+<div class="kpi-grid">
+<div class="kpi-card"><span class="kpi-num">10,000+</span><span class="kpi-label" data-zh="CSL 期刊樣式" data-en="CSL journal styles">CSL 期刊樣式</span></div>
+<div class="kpi-card"><span class="kpi-num">1.4B+</span><span class="kpi-label" data-zh="Crossref 已註冊 DOI" data-en="DOIs registered (Crossref)">Crossref 已註冊 DOI</span></div>
+<div class="kpi-card"><span class="kpi-num">30M+</span><span class="kpi-label" data-zh="Zotero 使用者" data-en="Zotero users">Zotero 使用者</span></div>
+<div class="kpi-card"><span class="kpi-num">~80%</span><span class="kpi-label" data-zh="生醫期刊用 Vancouver" data-en="Biomedical journals using Vancouver">生醫期刊用 Vancouver</span></div>
+<div class="kpi-card"><span class="kpi-num">&lt;2 s</span><span class="kpi-label" data-zh="切換期刊格式" data-en="To switch journal style">切換期刊格式</span></div>
+<div class="kpi-card"><span class="kpi-num">100%</span><span class="kpi-label" data-zh="手敲引用錯誤率" data-en="Hand-typing error rate">手敲引用錯誤率</span></div>
+</div>
+<div class="tip-bar" data-lang="zh">如果你還在手動排 references，每多 10 篇就多 ~3 個錯字——而且 reviewer 一定找得到。</div>
+<div class="tip-bar" data-lang="en">If you still hand-format references, every 10 entries adds ~3 typos — and a reviewer will find them.</div>
+</section>
+
+<!-- ===== ANALOGY ===== -->
+<section class="section">
+<div class="analogy-box">
+<div data-lang="zh"><strong>類比：</strong>引用就像 GPS 座標——精確的（DOI）讓任何人都能找到那個地點；模糊的（「參見 Smith」）讓讀者在地圖上迷路。</div>
+<div data-lang="en"><strong>Analogy:</strong> Citations are GPS coordinates — precise ones (DOI) let anyone find the spot; vague ones ("see Smith") get readers lost.</div>
+</div>
+</section>
+
+<!-- ===== WALKTHROUGH ===== -->
+<section id="walkthrough" class="section">
+<div class="section-label" data-zh="Σ 步驟" data-en="WALKTHROUGH">Σ 步驟</div>
+<h2 data-zh="從 zero 到 publication-ready references（8 步驟）" data-en="From Zero to Publication-Ready References (8 steps)">從 zero 到 publication-ready references</h2>
+<div class="walkthrough">
+<div class="wk-step"><span class="wk-sigma">Σ₁</span><div><strong data-zh="挑文獻管理工具" data-en="Pick a citation manager">挑文獻管理工具</strong><div data-lang="zh">推薦 Zotero（免費 + 開源 + 跨平台 + 最大社群）。EndNote 適合機構付費用戶；Paperpile 適合 Google Docs 用戶。</div><div data-lang="en">Recommended: Zotero (free, open-source, cross-platform, largest community). EndNote suits institutional licenses; Paperpile fits Google Docs users.</div></div></div>
+<div class="wk-step"><span class="wk-sigma">Σ₂</span><div><strong data-zh="裝瀏覽器 connector 與 Word/Quarto plugin" data-en="Install browser connector + Word/Quarto plugin">裝瀏覽器 connector 與 Word/Quarto plugin</strong><div data-lang="zh">Zotero Connector (Chrome/Firefox/Safari) 一鍵抓 metadata；Word/LibreOffice/Quarto 各有對應 plugin。</div><div data-lang="en">Zotero Connector (Chrome/Firefox/Safari) grabs metadata in one click; Word / LibreOffice / Quarto each have a matching plugin.</div></div></div>
+<div class="wk-step"><span class="wk-sigma">Σ₃</span><div><strong data-zh="用 DOI 加 references（避免手動輸入）" data-en="Add references by DOI (avoid manual entry)">用 DOI 加 references（避免手動輸入）</strong><div data-lang="zh">Zotero 提供「以識別碼新增」(magic wand 圖示)；貼上 DOI / PMID / ISBN 即可自動抓全部欄位。</div><div data-lang="en">Use Zotero's "Add by Identifier" (magic wand icon); paste DOI / PMID / ISBN and all fields auto-populate.</div></div></div>
+<div class="wk-step"><span class="wk-sigma">Σ₄</span><div><strong data-zh="用 collections / tags 分類論文" data-en="Tag papers into collections">用 collections / tags 分類論文</strong><div data-lang="zh">每篇 paper 一個專案 collection；用 tags 標 method / model / disease；之後可用 saved search 自動歸納。</div><div data-lang="en">One project collection per paper; tag by method / model / disease; use saved searches to auto-aggregate later.</div></div></div>
+<div class="wk-step"><span class="wk-sigma">Σ₅</span><div><strong data-zh="設定 Better BibTeX（LaTeX）或 CSL（Word）" data-en="Set up Better BibTeX (LaTeX) or CSL style (Word)">設定 Better BibTeX 或 CSL 樣式</strong><div data-lang="zh">LaTeX 用：裝 Better BibTeX plugin → auto-export .bib 檔。Word 用：到 Zotero Style Repository 下載目標期刊 CSL。</div><div data-lang="en">For LaTeX: install Better BibTeX plugin → auto-export .bib. For Word: download the target journal's CSL from the Zotero Style Repository.</div></div></div>
+<div class="wk-step"><span class="wk-sigma">Σ₆</span><div><strong data-zh="邊寫邊引（Cite-as-you-write）" data-en="Cite as you write">邊寫邊引（Cite-as-you-write）</strong><div data-lang="zh">Zotero 的 Word/LibreOffice plugin 按 Cmd/Ctrl+Shift+A；輸入幾個關鍵字即可選擇 reference 插入。</div><div data-lang="en">In Zotero's Word/LibreOffice plugin press Cmd/Ctrl+Shift+A; type a few keywords to pick and insert a reference.</div></div></div>
+<div class="wk-step"><span class="wk-sigma">Σ₇</span><div><strong data-zh="啟用 Retraction Watch 警示" data-en="Enable Retraction Watch warnings">啟用 Retraction Watch 警示</strong><div data-lang="zh">Zotero 6+ 內建；library 中 retracted papers 以紅色顯示並彈出警示——避免引用到撤稿論文。</div><div data-lang="en">Built into Zotero 6+; retracted papers appear in red with a warning popup — preventing accidental citation of retracted works.</div></div></div>
+<div class="wk-step"><span class="wk-sigma">Σ₈</span><div><strong data-zh="產出目標期刊格式" data-en="Generate target-journal bibliography">產出目標期刊格式</strong><div data-lang="zh">換期刊只需切換 CSL：在 Word plugin 的 Document Preferences 選新樣式，&lt;2 秒重排全部 references。</div><div data-lang="en">Switching journals = switching CSL: in Word plugin's Document Preferences pick a new style — all references re-format in &lt;2 s.</div></div></div>
+</div>
+</section>
+
+<!-- ===== DISCUSSION ===== -->
+<section id="discussion" class="section">
+<div class="section-label" data-zh="專家辯論" data-en="EXPERT DEBATE">專家辯論</div>
+<h2 data-zh="3 個值得思考的議題" data-en="3 Questions Worth Debating">3 個值得思考的議題</h2>
+<div class="discussion-card">
+<div class="dc-q" data-zh="① Vancouver vs Author-Year：哪個對讀者更友善？" data-en="(1) Vancouver vs Author-Year: which serves readers better?">① Vancouver vs Author-Year：哪個對讀者更友善？</div>
+<div class="dc-a" data-lang="zh"><strong>Vancouver 派：</strong>編號簡潔、不打斷文流，適合 lab-style paper；<strong>Author-Year 派：</strong>讀者可立即從 (Smith 2024) 知道是誰何時的研究，不必跳到末頁查 [17]。<strong>共識：</strong>跟著 target journal——美學偏好不能凌駕格式要求。</div>
+<div class="dc-a" data-lang="en"><strong>Vancouver camp:</strong> compact, doesn't break the flow — best for lab-style papers; <strong>Author-Year camp:</strong> readers know from (Smith 2024) who and when, without flipping to "[17]". <strong>Consensus:</strong> follow the target journal — aesthetic preference can't override format requirements.</div>
+</div>
+<div class="discussion-card">
+<div class="dc-q" data-zh="② Reviewer 的「引用強迫」(citation coercion) 怎麼處理？" data-en="(2) How to handle reviewer "citation coercion"?">② Reviewer 的「引用強迫」怎麼處理？</div>
+<div class="dc-a" data-lang="zh"><strong>判準：</strong>如果是合理建議「請考慮加入 Smith 2023 因其與你 method 直接相關」→ 加；如果是「請引用以下 5 篇我的論文，否則拒收」→ COPE 視為 misconduct，可向 editor-in-chief 申訴並要求換 reviewer。</div>
+<div class="dc-a" data-lang="en"><strong>Rule:</strong> if "please consider Smith 2023, directly relevant to your method" — add it; if "cite the following 5 of my papers or I'll reject" — COPE considers this misconduct; appeal to editor-in-chief and request a new reviewer.</div>
+</div>
+<div class="discussion-card">
+<div class="dc-q" data-zh="③ AI 生成的論文要不要被引用？ICMJE 立場為何？" data-en="(3) Should AI-generated papers be cited? What is the ICMJE stance?">③ AI 生成的論文要不要被引用？ICMJE 立場為何？</div>
+<div class="dc-a" data-lang="zh"><strong>ICMJE 2023-2025：</strong>AI 工具（ChatGPT 等）<em>不可</em>列為作者（無法承擔責任）；但 AI-assisted papers 經人類同儕審查後仍可被引用。<strong>實務：</strong>引用時須能解釋作者 contribution 與 AI 使用範圍。</div>
+<div class="dc-a" data-lang="en"><strong>ICMJE 2023-2025:</strong> AI tools (ChatGPT etc.) <em>cannot</em> be listed as authors (cannot bear accountability); AI-assisted papers that pass peer review remain citable. <strong>Practical:</strong> when citing, be ready to explain author contribution and AI use scope.</div>
+</div>
+</section>
+
+<!-- ===== SPOTLIGHTS ===== -->
+<section class="section">
+<div class="section-label" data-zh="聚焦" data-en="SPOTLIGHT">聚焦</div>
+<div class="spotlight model">
+<div class="sp-tag" data-zh="楷模" data-en="MODEL">楷模</div>
+<h3 data-zh="Eugene Garfield 1955 Science：引文索引的起點" data-en="Eugene Garfield 1955 Science: the start of citation indexing">Eugene Garfield 1955 Science：引文索引的起點</h3>
+<div data-lang="zh">Garfield 在 <em>Science</em> 122:108-111 (1955) 發表 "Citation Indexes for Science"，提出「以引用關係為基礎建立文獻索引」的概念。此一想法直接孕育了 1960 年的 ISI、之後的 Web of Science、JCR、Impact Factor 全部生態。這是「引用本身值得研究」的起點，也是 bibliometrics 的奠基論文。</div>
+<div data-lang="en">Garfield's <em>Science</em> 122:108-111 (1955) paper "Citation Indexes for Science" proposed indexing literature by citation links. The idea directly seeded ISI (1960) and the later Web of Science / JCR / Impact Factor ecosystem — the foundation of bibliometrics, and the moment "citations themselves" became a research object.</div>
+</div>
+<div class="spotlight warn">
+<div class="sp-tag" data-zh="警示" data-en="WARNING">警示</div>
+<h3 data-zh="Citation cartels：互引炒作 IF 的陷阱" data-en="Citation cartels: the inter-citing-for-IF trap">Citation cartels：互引炒作 IF 的陷阱</h3>
+<div data-lang="zh">部分期刊（與其作者群）形成「互引集團」(citation cartel) ——彼此頻繁引用以人為拉高 IF。Clarivate 自 2012 年起每年公布 JCR 「Suppressed Journals」名單，將異常自引/互引的期刊暫停刊載 IF；2024 名單超過 50 本。投稿前 PI 應檢查目標期刊是否曾被 suppress。</div>
+<div data-lang="en">Some journals (and their author networks) form "citation cartels" — citing each other heavily to inflate IF. Since 2012 Clarivate publishes an annual JCR "Suppressed Journals" list pausing IF reporting for outliers in self/inter-citation; the 2024 list exceeds 50 journals. Check target journals' suppression history before submission.</div>
+</div>
+</section>
+
+<!-- ===== PITFALLS ===== -->
+<section id="pitfalls" class="section">
+<div class="section-label" data-zh="陷阱" data-en="PITFALLS">陷阱</div>
+<h2 data-zh="6 個典型陷阱" data-en="6 Typical Pitfalls">6 個典型陷阱</h2>
+<div class="pitfall-grid">
+<div class="pitfall-card"><div class="pf-num">1</div><div><strong data-zh="一句話引 10 篇 [1-10]" data-en=""[1-10]" bulk-cite of 10 papers">一句話引 10 篇 [1-10]</strong><div data-lang="zh">非具體；讀者無法分辨各篇貢獻。改為「Smith 2022 提出 X，Lin 2023 用單細胞驗證 Y」。</div><div data-lang="en">Not specific; readers can't tell each paper's contribution. Replace with "Smith 2022 proposed X; Lin 2023 validated Y with single-cell".</div></div></div>
+<div class="pitfall-card"><div class="pf-num">2</div><div><strong data-zh="手敲 BibTeX 條目有錯字" data-en="Hand-typed BibTeX entries with typos">手敲 BibTeX 條目有錯字</strong><div data-lang="zh">Author 名漏字、year 打錯、doi 缺一碼——LaTeX compile 不報錯但 reviewer 一抓就被打回。一律從 manager 匯出。</div><div data-lang="en">Missing letters in author name, wrong year, doi off by one digit — LaTeX won't complain, reviewers will. Always export from a manager.</div></div></div>
+<div class="pitfall-card"><div class="pf-num">3</div><div><strong data-zh="同一篇論文混用兩種風格" data-en="Two styles mixed in one paper">同一篇論文混用兩種風格</strong><div data-lang="zh">前半 Vancouver、後半 APA——通常因為換 supervisor 或合作者直接貼上自己的段落。檢查方法：grep "et al" 與 "[" 共存代表混格式。</div><div data-lang="en">First half Vancouver, second half APA — usually after a supervisor swap or a collaborator pasting their own section. Check by grep'ing both "et al" and "[" in the same file.</div></div></div>
+<div class="pitfall-card"><div class="pf-num">4</div><div><strong data-zh="只引自己 group 的論文" data-en="Citing only your own group">只引自己 group 的論文</strong><div data-lang="zh">引用 list 90% 同一 PI——reviewer 立刻察覺；顯得不夠了解 field。每章節至少 3 個外部 group。</div><div data-lang="en">90% of references share the same PI — reviewers spot it instantly; signals weak field awareness. At least 3 outside groups per section.</div></div></div>
+<div class="pitfall-card"><div class="pf-num">5</div><div><strong data-zh="引用 retracted papers 不自知" data-en="Citing retracted papers unknowingly">引用 retracted papers 不自知</strong><div data-lang="zh">Google Scholar 不顯示 retraction；PubMed 才會。Zotero 6+ 內建 Retraction Watch 警示——投稿前掃一遍。</div><div data-lang="en">Google Scholar doesn't flag retractions; PubMed does. Zotero 6+ has built-in Retraction Watch alerts — sweep before submission.</div></div></div>
+<div class="pitfall-card"><div class="pf-num">6</div><div><strong data-zh="從 Google Scholar 複製貼上 references 沒驗證" data-en="Pasting Google Scholar references without verification">從 Google Scholar 複製貼上 references 沒驗證</strong><div data-lang="zh">Scholar 的 cite 按鈕 metadata 常有錯（缺 issue、頁碼、DOI）。用 Zotero connector 抓原始 publisher 頁面才準確。</div><div data-lang="en">Scholar's cite button often has wrong metadata (missing issue, pages, DOI). Use Zotero connector to grab the publisher page instead.</div></div></div>
+</div>
+</section>
+
+<!-- ===== CONTRAST ===== -->
+<section class="section">
+<div class="section-label" data-zh="對比" data-en="CONTRAST">對比</div>
+<h2 data-zh="具體 vs 模糊引用" data-en="Specific vs Vague Citations">具體 vs 模糊引用</h2>
+<div class="contrast-2col">
+<div class="ct-bad">
+<div class="ct-tag" data-zh="不好的範例" data-en="Bad">不好</div>
+<div data-lang="zh">「許多研究顯示 scRNA-seq 在腫瘤學中很有用 [1-15]。」</div>
+<div data-lang="en">"Many studies have shown that scRNA-seq is useful [1-15]."</div>
+<div class="ct-why" data-lang="zh">15 篇糊在一起，無法分辨各篇貢獻；reviewer 會問「具體哪些 paper、哪些發現？」</div>
+<div class="ct-why" data-lang="en">15 papers lumped — reader can't tell each contribution; reviewer will ask "which papers, which findings?"</div>
+</div>
+<div class="ct-good">
+<div class="ct-tag" data-zh="好的範例" data-en="Good">好</div>
+<div data-lang="zh">「先驅性 scRNA-seq 在 TNBC 的圖譜研究 (Wu 等 2021；Bassez 等 2021) 描繪了腫瘤間異質性，但化療期間的縱向細胞態變化尚未被探索。」</div>
+<div data-lang="en">"Pioneering scRNA-seq atlases of TNBC (Wu et al. 2021; Bassez et al. 2021) characterized inter-tumoral heterogeneity, but the longitudinal cell-state changes during chemotherapy remain unexplored."</div>
+<div class="ct-why" data-lang="zh">2 篇關鍵 paper 點名 + 各篇貢獻 + 留下 gap → 自然連到自己的研究問題。</div>
+<div class="ct-why" data-lang="en">Two key papers named + each contribution + gap left → naturally leads into your research question.</div>
+</div>
+</div>
+</section>
+
+<!-- ===== REFLECTION ===== -->
+<section class="section">
+<div class="section-label" data-zh="自我反思" data-en="REFLECTION">自我反思</div>
+<h2 data-zh="6 個自我檢核問題" data-en="6 Reflection Questions">6 個自我檢核問題</h2>
+<div class="reflection-q">
+<ol>
+<li data-zh="你最近是否曾換過某篇論文的目標期刊？換 CSL 樣式花了多久？" data-en="Have you switched any journal styles recently? How long did switching CSL take?">你最近是否曾換過某篇論文的目標期刊？換 CSL 樣式花了多久？</li>
+<li data-zh="你引用論文時是「具體點名」還是「整段塞 [1-10]」？" data-en="Do you cite specifically or bulk-cite [1-10]?">你引用論文時是「具體點名」還是「整段塞 [1-10]」？</li>
+<li data-zh="你的 reference list 是否避免了 self-citation spam（同 PI &lt;30%）？" data-en="Does your reference list avoid self-citation spam (same-PI &lt;30%)?">你的 reference list 是否避免了 self-citation spam？</li>
+<li data-zh="你的 Zotero / EndNote 是否啟用 Retraction Watch 警示？" data-en="Have you enabled Retraction Watch warnings in Zotero / EndNote?">你的 Zotero / EndNote 是否啟用 Retraction Watch 警示？</li>
+<li data-zh="若 reviewer 暗示「請引用我的 5 篇 paper」，你會如何回應？" data-en="If a reviewer hints "please cite 5 of my papers", how do you respond?">若 reviewer 暗示「請引用我的 5 篇 paper」，你會如何回應？</li>
+<li data-zh="你的下一篇論文有沒有計畫加 ORCID 與 DOI 連結？" data-en="Will your next paper include ORCID and DOI links?">你的下一篇論文有沒有計畫加 ORCID 與 DOI 連結？</li>
+</ol>
+</div>
+</section>
+
+<!-- ===== ADVANCED ===== -->
+<section id="advanced" class="section">
+<div class="section-label" data-zh="進階" data-en="ADVANCED">進階</div>
+<h2 data-zh="2024-2026 SOTA 進階主題" data-en="2024-2026 SOTA Advanced Topics">2024-2026 SOTA 進階主題</h2>
+<div class="advanced-note">
+
+<details class="detail-toggle">
+<summary data-zh="(a) Citation Style Language (CSL) v1.0.2 schema 解析" data-en="(a) Citation Style Language (CSL) v1.0.2 schema">(a) Citation Style Language (CSL) v1.0.2 schema 解析</summary>
+<div data-lang="zh">CSL 1.0.2 (2021) 為 XML 標準，三大部分：<code>&lt;info&gt;</code>（樣式 metadata：作者、title、自我描述）、<code>&lt;macro&gt;</code>（可重用引用片段，如 author-short、year-suffix）、<code>&lt;citation&gt;</code> 與 <code>&lt;bibliography&gt;</code>（in-text 與末頁排版規則）。每個 <code>&lt;layout&gt;</code> 可用 <code>&lt;text&gt;</code>、<code>&lt;date&gt;</code>、<code>&lt;number&gt;</code>、<code>&lt;names&gt;</code> 組合。Zotero Style Repository 提供 10,000+ 樣式；可從 visual editor (citationstyles.org) 線上編輯。</div>
+<div data-lang="en">CSL 1.0.2 (2021) is an XML standard with three parts: <code>&lt;info&gt;</code> (style metadata: author, title, self-description), <code>&lt;macro&gt;</code> (reusable citation snippets like author-short, year-suffix), and <code>&lt;citation&gt;</code> + <code>&lt;bibliography&gt;</code> (in-text + end-of-paper layout rules). Each <code>&lt;layout&gt;</code> composes <code>&lt;text&gt;</code>, <code>&lt;date&gt;</code>, <code>&lt;number&gt;</code>, <code>&lt;names&gt;</code> elements. The Zotero Style Repository ships 10,000+ styles; edit via the visual editor at citationstyles.org.</div>
+</details>
+
+<details class="detail-toggle">
+<summary data-zh="(b) Better BibTeX for Zotero：LaTeX 寫作必裝" data-en="(b) Better BibTeX for Zotero: must-install for LaTeX writing">(b) Better BibTeX for Zotero：LaTeX 寫作必裝</summary>
+<div data-lang="zh">Emiliano Heyns 開發的 Zotero plugin：①「Pin citation key」確保 BibTeX key 跨機器穩定（如 <code>smith2024scrna</code>）；② Auto-export：library 變動時自動更新 .bib；③ Citation key formula 客製化（<code>auth.lower + year + shorttitle</code>）；④ 支援 BibLaTeX、biblatex-chicago。LaTeX + Overleaf 用戶幾乎必裝；2025 年下載 10M+。</div>
+<div data-lang="en">A Zotero plugin by Emiliano Heyns: (1) "Pin citation key" keeps BibTeX keys stable across machines (e.g., <code>smith2024scrna</code>); (2) auto-export refreshes .bib on library change; (3) customizable citation-key formula (<code>auth.lower + year + shorttitle</code>); (4) supports BibLaTeX and biblatex-chicago. Near-mandatory for LaTeX + Overleaf users; 10M+ downloads by 2025.</div>
+</details>
+
+<details class="detail-toggle">
+<summary data-zh="(c) Scite.ai：2025-26 的引用脈絡分析工具" data-en="(c) Scite.ai: 2025-26 citation-context analysis tool">(c) Scite.ai：2025-26 的引用脈絡分析工具</summary>
+<div data-lang="zh">Scite.ai 用 NLP 把每筆引用分類為 <em>supporting</em> / <em>contrasting</em> / <em>mentioning</em>。截至 2025 已分析 1.2B+ 引用 context。實務用法：①寫 review 時找出哪些 paper 真的支持你的論點而非僅 mention；② identifying "controversial" papers (高 contrasting 引用比例)；③ Zotero 整合可在 library 中即時顯示。限制：模型對非英文與 chemistry/math 領域精度仍待提升。</div>
+<div data-lang="en">Scite.ai uses NLP to classify each citation as <em>supporting</em> / <em>contrasting</em> / <em>mentioning</em>. As of 2025 it has classified 1.2B+ citation contexts. Use cases: (1) when writing a review, find papers truly supporting your claim vs just mentioning; (2) identify "controversial" papers (high contrasting ratio); (3) Zotero integration shows status inline. Caveats: accuracy still weaker for non-English and chemistry/math.</div>
+</details>
+
+</div>
+</section>
+
+<!-- ===== HISTORY-NOTE ===== -->
+<section class="section">
+<div class="section-label" data-zh="歷史小記" data-en="HISTORY NOTE">歷史小記</div>
+<div class="history-note">
+<h3 data-zh="Eugene Garfield：被 4 個期刊拒絕的奠基論文" data-en="Eugene Garfield: the foundational paper rejected by 4 journals">Eugene Garfield：被 4 個期刊拒絕的奠基論文</h3>
+<div data-lang="zh">1955 年 Eugene Garfield 在 <em>Science</em> 發表的 "Citation Indexes for Science" 之前，曾被 4 個期刊拒絕——審查者認為「引用本身不值得索引」。Garfield 不放棄；最終 <em>Science</em> 接受發表後，他在 1960 年於費城創立 <strong>Institute for Scientific Information (ISI)</strong>，推出 Science Citation Index (1964)、Journal Citation Reports、Impact Factor。ISI 後來經 Thomson Reuters 易手，2016 年成為今天的 <strong>Clarivate</strong>。一篇被連退 4 次的論文，最後改變了整個學術評量體系——這也是「審查意見不等於真理」最經典的歷史證據。</div>
+<div data-lang="en">Before Eugene Garfield's 1955 <em>Science</em> paper "Citation Indexes for Science" was accepted, it had been rejected by 4 other journals — reviewers thought "citations themselves are not worth indexing". Garfield persisted; once <em>Science</em> published it, he founded the <strong>Institute for Scientific Information (ISI)</strong> in Philadelphia (1960), launching the Science Citation Index (1964), Journal Citation Reports, and the Impact Factor. ISI later passed through Thomson Reuters and in 2016 became today's <strong>Clarivate</strong>. A paper rejected four times reshaped the entire academic-evaluation ecosystem — perhaps the most iconic historical proof that "reviewer opinion is not truth".</div>
+</div>
+</section>
+
 <section class="section">
 <div class="section-label" data-zh="概覽" data-en="OVERVIEW">概覽</div>
 <h2 data-zh="為什麼引用比想像中重要？" data-en="Why Citation Matters More Than You Think">為什麼引用比想像中重要</h2>

@@ -30,6 +30,432 @@
 </header>
 <main class="content-wrap">
 
+<!-- ===== Section TOC ===== -->
+<div class="section-toc">
+<strong data-zh="本章導覽（閱讀時間 ~22 分）" data-en="Chapter map (reading time ~22 min)">本章導覽（閱讀時間 ~22 分）</strong>
+<div class="pill-row">
+<span class="level-badge l-beg" data-zh="初學者" data-en="Beginner">初學者</span>
+<span class="level-badge l-mid" data-zh="中階" data-en="Intermediate">中階</span>
+<span class="level-badge l-adv" data-zh="進階" data-en="Advanced">進階</span>
+<span class="pill navy" data-zh="倒漏斗" data-en="Inverted funnel">倒漏斗</span><span class="pill amber">Hedging</span><span class="pill violet">Limitations</span><span class="pill teal">Implications</span><span class="pill rose" data-zh="未來方向" data-en="Future directions">未來方向</span>
+</div>
+<ol>
+<li><a href="#story" data-zh="開場故事：被退稿的「press release」" data-en="Story: the "press-release" desk reject">開場故事：被退稿的「press release」</a></li>
+<li><a href="#glossary" data-zh="核心詞彙表（雙版本）" data-en="Glossary (two versions)">核心詞彙表（雙版本）</a></li>
+<li><a href="#history" data-zh="從 Bacon 到 retraction-watch" data-en="From Bacon to retraction-watch">從 Bacon 到 retraction-watch</a></li>
+<li><a href="#kpi" data-zh="關鍵指標" data-en="Key numbers">關鍵指標</a></li>
+<li><a href="#walkthrough" data-zh="Σ-8 步寫完整 Discussion" data-en="Σ-walkthrough: 8 steps to a full Discussion">Σ-8 步寫完整 Discussion</a></li>
+<li><a href="#advanced" data-zh="進階：因果語言與 AI hedging" data-en="Advanced: causal language & AI hedging">進階：因果語言與 AI hedging</a></li>
+</ol>
+</div>
+
+<!-- ===== STORY ===== -->
+<section id="story" class="section">
+<div class="section-label" data-zh="故事開場" data-en="OPENING STORY">故事開場</div>
+<h2 data-zh="場景：被 PI 退回的第一稿 Discussion" data-en="Scene: The First Discussion Sent Back by the PI">場景：被 PI 退回的第一稿 Discussion</h2>
+<div class="story-block">
+<span class="story-tag">SCENE · 2025 · NTUH</span>
+<h3 data-zh="從「press release」到「被接受的 Discussion」" data-en="From "press release" to "accepted Discussion"">從「press release」到「被接受的 Discussion」</h3>
+<div data-lang="zh">
+<p>博士後 <strong>Hsuan</strong> 第一次獨立寫完一篇 Discussion，把 draft 交給 PI 隔天就收到回信，只有一行紅字：「<em>你寫的是 press release，不是 Discussion。</em>」她翻開自己的稿：第一段寫「<strong>本研究證實 Gene X 是 TNBC 化療抗性的關鍵驅動因子</strong>」——一個 24 例的觀察性 cohort，沒有 functional validation。整篇沒有一條 limitations。</p>
+<p>PI 把她叫進辦公室，講了 2010 年代的阿茲海默症 amyloid hypothesis：上百篇 papers 在 Discussion overclaim「amyloid 是因」，藥廠投入超過 400 億美元，臨床試驗一個接一個 fail。「<em>不是資料造假，是 Discussion 寫太滿。一句『may』、一句『however, observational design』，就能救一條科學路線。</em>」</p>
+<p>Hsuan 重寫：把「proves」改成「suggests」「may」「is associated with」；補上 3 條<strong>具體</strong>的 limitations（不是「樣本太少」這種廢話）；明確跟 Smith 2023、Chen 2024 的既有發現對話，標出哪裡一致、哪裡延伸。三週後，manuscript accept；reviewer 2 在 comments 裡寫了一句：「<em>Refreshingly calibrated discussion. Authors clearly know what their data can and cannot say.</em>」</p>
+</div>
+<div data-lang="en">
+<p>Postdoc <strong>Hsuan</strong> finishes her first solo-written Discussion and emails it to her PI. The next morning the reply contains one red line: "<em>You wrote a press release, not a Discussion.</em>" She reopens her draft: paragraph one declares "<strong>This study proves Gene X is the key driver of chemo-resistance in TNBC</strong>" — from a 24-sample observational cohort with no functional validation. Not a single limitation is listed.</p>
+<p>The PI sits her down and tells the story of the 2010s amyloid hypothesis in Alzheimer's: hundreds of papers overclaimed in their Discussions that amyloid was <em>causal</em>; pharma sank over US$40 billion into trials that failed one after another. "<em>It wasn't fraud. It was Discussions written too tightly. One 'may', one 'however, observational design' — that's all it takes to save a scientific direction.</em>"</p>
+<p>Hsuan rewrites. "Proves" becomes "suggests", "may", "is associated with". She adds three <em>specific</em> limitations (not the vague "small sample" cop-out). She explicitly converses with Smith 2023 and Chen 2024 — where her data agree, where they extend. Three weeks later: accepted. Reviewer 2 leaves one line in the comments: "<em>Refreshingly calibrated discussion. Authors clearly know what their data can and cannot say.</em>"</p>
+</div>
+</section>
+
+<!-- ===== GLOSSARY ===== -->
+<section id="glossary" class="section">
+<div class="section-label" data-zh="核心詞彙" data-en="GLOSSARY">核心詞彙</div>
+<h2 data-zh="14 個關鍵術語（雙版本）" data-en="14 Key Terms (two versions)">14 個關鍵術語（雙版本）</h2>
+<p data-lang="zh"><em>每個詞兩個版本：🧒「給小孩看」用比喻、📐「給研究者看」給定義。</em></p>
+<p data-lang="en"><em>Each term has two versions: 🧒 "for kids" uses a metaphor; 📐 "for researchers" gives the formal definition.</em></p>
+<div class="glossary-grid">
+
+<div class="glossary-card">
+<div class="term-en">Discussion section</div><div class="term-zh">討論章</div>
+<div class="term-kid" data-lang="zh">論文的最後一場辯論——你拿你的證據去跟整個領域對話。</div>
+<div class="term-kid" data-lang="en">The paper's final debate — where you take your evidence and converse with the whole field.</div>
+<div class="term-tech" data-lang="zh">IMRaD 結構的 D 段；任務 = 解釋意義、放入文獻脈絡、列出限制、提供未來方向；通常 5-7 段。</div>
+<div class="term-tech" data-lang="en">The D in IMRaD; tasks = interpret meaning, contextualize within literature, list limitations, propose future directions; usually 5-7 paragraphs.</div>
+</div>
+
+<div class="glossary-card">
+<div class="term-en">Inverted funnel</div><div class="term-zh">倒漏斗</div>
+<div class="term-kid" data-lang="zh">從一個小水滴開始，慢慢張開到整個海洋——Discussion 從具體結果出發、漸漸擴大到領域意義。</div>
+<div class="term-kid" data-lang="en">Start with a droplet, open out to the ocean — Discussion goes from specific finding to broad field implication.</div>
+<div class="term-tech" data-lang="zh">Discussion 的結構模式：第一段最窄（重述主結論），最後一段最廣（領域意義/未來方向）；與 Introduction 的「漏斗」(broad→narrow) 互為鏡像。</div>
+<div class="term-tech" data-lang="en">Discussion's structural mode: first paragraph narrowest (restate main finding), last paragraph broadest (field implications, future directions); mirrors Introduction's funnel (broad→narrow).</div>
+</div>
+
+<div class="glossary-card">
+<div class="term-en">Hedging</div><div class="term-zh">校準語氣</div>
+<div class="term-kid" data-lang="zh">不要說「絕對」，也不要說「完全不知道」——找剛剛好的「可能」「也許」。</div>
+<div class="term-kid" data-lang="en">Don't say "definitely", don't say "no idea" — find the right "maybe" / "likely" in between.</div>
+<div class="term-tech" data-lang="zh">校準的不確定性表達；動詞分四級 (demonstrates / indicates / suggests / may)；證據力越弱，hedging 越深。</div>
+<div class="term-tech" data-lang="en">Calibrated expression of uncertainty; verbs span 4 tiers (demonstrates / indicates / suggests / may); the weaker the evidence, the deeper the hedge.</div>
+</div>
+
+<div class="glossary-card">
+<div class="term-en">Limitation</div><div class="term-zh">研究限制</div>
+<div class="term-kid" data-lang="zh">老實說你的實驗有哪裡不夠好——不是缺點，是邊界。</div>
+<div class="term-kid" data-lang="en">Honestly admit where your experiment falls short — not a flaw, a boundary.</div>
+<div class="term-tech" data-lang="zh">三層 honest 寫法：① 內部 (內部 validity)、② 外部 (generalizability)、③ 方法學 (technique)。每條須有 mitigation + future fix。</div>
+<div class="term-tech" data-lang="en">3-layer honest format: ① internal (internal validity), ② external (generalizability), ③ methodological (technique). Each needs mitigation + future fix.</div>
+</div>
+
+<div class="glossary-card">
+<div class="term-en">Confounding</div><div class="term-zh">干擾因子</div>
+<div class="term-kid" data-lang="zh">兩件事看起來有關，其實是第三件事在背後操控——像冰淇淋銷量和溺水率（夏天才是真兇）。</div>
+<div class="term-kid" data-lang="en">Two things look linked but a third hidden factor is pulling the strings — like ice-cream sales and drowning rates (summer is the real culprit).</div>
+<div class="term-tech" data-lang="zh">同時影響 exposure 與 outcome 的第三變項；觀察性研究的核心威脅；解方 = stratification、matching、regression adjustment、DAG (Pearl 2009)。</div>
+<div class="term-tech" data-lang="en">A third variable affecting both exposure and outcome; the core threat of observational studies; solutions = stratification, matching, regression adjustment, DAGs (Pearl 2009).</div>
+</div>
+
+<div class="glossary-card">
+<div class="term-en">Generalizability</div><div class="term-zh">外推性</div>
+<div class="term-kid" data-lang="zh">你在台北市的小學發現的事，能不能套到屏東漁村？這就是 generalizability。</div>
+<div class="term-kid" data-lang="en">What you found in a Taipei elementary school — does it apply to a Pingtung fishing village? That's generalizability.</div>
+<div class="term-tech" data-lang="zh">= External validity；研究結論可推廣到其他人群/設定/時代的程度。Single-center cohort 通常 generalizability 較弱。</div>
+<div class="term-tech" data-lang="en">= External validity; extent to which findings extend to other populations / settings / eras. Single-center cohorts typically have weaker generalizability.</div>
+</div>
+
+<div class="glossary-card">
+<div class="term-en">Overclaim</div><div class="term-zh">過度宣稱</div>
+<div class="term-kid" data-lang="zh">你的證據只能說「可能」，你卻寫「絕對」——這就是 overclaim。</div>
+<div class="term-kid" data-lang="en">Your evidence can only say "maybe" but you wrote "definitely" — that's overclaim.</div>
+<div class="term-tech" data-lang="zh">超出證據能支持的強度的陳述；常見：correlation 寫成 causation、cohort n=20 寫成「will revolutionize」、in silico 寫成「demonstrates clinically」。</div>
+<div class="term-tech" data-lang="en">Claims stronger than evidence supports; common forms: correlation written as causation, n=20 cohort written as "will revolutionize", in-silico written as "demonstrates clinically".</div>
+</div>
+
+<div class="glossary-card">
+<div class="term-en">Calibrated language</div><div class="term-zh">校準語言</div>
+<div class="term-kid" data-lang="zh">你的詞要剛好搭配你手上的證據——不多一分、不少一分。</div>
+<div class="term-kid" data-lang="en">Your words must match your evidence — no more, no less.</div>
+<div class="term-tech" data-lang="zh">動詞、副詞與證據強度對齊：RCT → "demonstrates"；observational → "associated"；in silico → "may"。Reviewer 第一個檢查的就是這個一致性。</div>
+<div class="term-tech" data-lang="en">Verbs/adverbs aligned to evidence strength: RCT → "demonstrates"; observational → "associated"; in silico → "may". This alignment is the first thing reviewers check.</div>
+</div>
+
+<div class="glossary-card">
+<div class="term-en">Causal vs association language</div><div class="term-zh">因果 vs 關聯語言</div>
+<div class="term-kid" data-lang="zh">「A 跟 B 一起出現」≠「A 造成 B」——這兩種說法絕對不能混用。</div>
+<div class="term-kid" data-lang="en">"A and B appear together" ≠ "A causes B" — never mix these two.</div>
+<div class="term-tech" data-lang="zh">關聯：correlated / associated / linked；因果：causes / drives / induces。只有 RCT、Mendelian randomization、或 functional perturbation 才允許因果語言。Bradford Hill 1965 為經典判準。</div>
+<div class="term-tech" data-lang="en">Association: correlated / associated / linked; Causal: causes / drives / induces. Only RCTs, Mendelian randomization, or functional perturbation permit causal language. Bradford Hill 1965 remains the classic framework.</div>
+</div>
+
+<div class="glossary-card">
+<div class="term-en">Negative result</div><div class="term-zh">陰性結果</div>
+<div class="term-kid" data-lang="zh">你猜會發生的事沒發生——這也是有用的資訊，不是失敗。</div>
+<div class="term-kid" data-lang="en">What you predicted didn't happen — that's still useful information, not a failure.</div>
+<div class="term-tech" data-lang="zh">未達顯著的結果；不等於「不存在效應」(absence of evidence ≠ evidence of absence)。Discussion 須說明 power、effect size、可能 type II 等。Registered Reports 鼓勵發表。</div>
+<div class="term-tech" data-lang="en">A non-significant result; ≠ "no effect" (absence of evidence ≠ evidence of absence). Discussion must address power, effect size, possible type II. Registered Reports encourage publishing them.</div>
+</div>
+
+<div class="glossary-card">
+<div class="term-en">Internal validity</div><div class="term-zh">內部效度</div>
+<div class="term-kid" data-lang="zh">「在這個實驗裡，A 真的造成 B 嗎？」——只看研究裡面有沒有 bug。</div>
+<div class="term-kid" data-lang="en">"Within this experiment, did A truly cause B?" — about whether the study has bugs inside.</div>
+<div class="term-tech" data-lang="zh">設計上排除替代解釋（confounding、selection bias、measurement error）的程度；RCT + blinding + randomization 內部效度最強。</div>
+<div class="term-tech" data-lang="en">Extent to which alternative explanations (confounding, selection bias, measurement error) are ruled out by design; RCT + blinding + randomization yields strongest internal validity.</div>
+</div>
+
+<div class="glossary-card">
+<div class="term-en">External validity</div><div class="term-zh">外部效度</div>
+<div class="term-kid" data-lang="zh">「這個結果到外面真實世界還能用嗎？」——別人能不能套用你的結論。</div>
+<div class="term-kid" data-lang="en">"Will this result still work in the real world outside?" — whether others can apply your conclusion.</div>
+<div class="term-tech" data-lang="zh">= Generalizability；推廣到不同人群、設定、時代的能力。內部與外部效度常成反比 (efficacy vs effectiveness)。</div>
+<div class="term-tech" data-lang="en">= Generalizability; ability to extend to other populations, settings, eras. Internal and external validity often trade off (efficacy vs effectiveness).</div>
+</div>
+
+<div class="glossary-card">
+<div class="term-en">Mechanism speculation</div><div class="term-zh">機制推測</div>
+<div class="term-kid" data-lang="zh">你猜為什麼會這樣——但要明確說這只是「猜」，不是「證明」。</div>
+<div class="term-kid" data-lang="en">You guess <em>why</em> it happens — but explicitly mark it as a guess, not proof.</div>
+<div class="term-tech" data-lang="zh">Discussion 中提出 plausible mechanism 時須明確標 speculative；可引用既知 pathway / 細胞類型佐證，但不可呈現為已證實。</div>
+<div class="term-tech" data-lang="en">When proposing plausible mechanism in Discussion, flag it as speculative explicitly; can cite known pathways / cell types as support but never present as proven.</div>
+</div>
+
+<div class="glossary-card">
+<div class="term-en">Future direction</div><div class="term-zh">未來方向</div>
+<div class="term-kid" data-lang="zh">下一步要做什麼具體實驗——不是「需要更多研究」這種廢話。</div>
+<div class="term-kid" data-lang="en">What specific experiment is next — not the lame "more research is needed".</div>
+<div class="term-tech" data-lang="zh">2-3 個 actionable next steps；具體到「在 PDX models 中做 Gene X knockdown 驗證」這種程度；避免 boilerplate「需要更多研究」。</div>
+<div class="term-tech" data-lang="en">2-3 actionable next steps; specific to the level of "validate Gene X knockdown in PDX models"; avoid boilerplate "more research is needed".</div>
+</div>
+
+</div>
+</section>
+
+<!-- ===== HISTORY TIMELINE ===== -->
+<section id="history" class="section">
+<div class="section-label" data-zh="歷史" data-en="HISTORY">歷史</div>
+<h2 data-zh="從 Bacon 到 retraction-watch" data-en="From Bacon to retraction-watch">Discussion 與 limitations 的簡史</h2>
+<div class="timeline">
+<div class="timeline-item"><span class="tl-year">1620</span><span class="tl-title" data-zh="Bacon：Novum Organum 與正確推論" data-en="Bacon: Novum Organum & proper inference">Bacon：Novum Organum</span><span class="tl-desc" data-zh="Francis Bacon 提出歸納法與「Idols of the Mind」——警告人類認知偏誤，是 limitations 思維的祖先。" data-en="Bacon proposed induction and the "Idols of the Mind" — warning against cognitive biases, the ancestor of limitations thinking."></span></div>
+<div class="timeline-item"><span class="tl-year">1660-1700</span><span class="tl-title" data-zh="Royal Society：Nullius in verba" data-en="Royal Society: Nullius in verba">Royal Society 格言</span><span class="tl-desc" data-zh="「Take no one's word for it」——倫敦皇家學會將懷疑與校準語氣寫進科學文化的 DNA。" data-en=""Take no one's word for it" — the Royal Society wrote skepticism and calibrated language into scientific culture's DNA."></span></div>
+<div class="timeline-item"><span class="tl-year">1843</span><span class="tl-title" data-zh="J.S. Mill：歸納五法" data-en="J.S. Mill: methods of induction">Mill：歸納五法</span><span class="tl-desc" data-zh="A System of Logic；Method of Difference / Agreement / Concomitant Variation 為現代因果推論奠基。" data-en="A System of Logic; Method of Difference / Agreement / Concomitant Variation laid groundwork for modern causal inference."></span></div>
+<div class="timeline-item"><span class="tl-year">1947</span><span class="tl-title" data-zh="Hill：Causation or Association?" data-en="Hill: Causation or Association?">Hill：因果還是相關？</span><span class="tl-desc" data-zh="Austin Bradford Hill 首次系統提出「相關 ≠ 因果」於 BMJ；後續演變為 1965 Bradford Hill 9 條準則。" data-en="Bradford Hill first systematized "correlation ≠ causation" in BMJ; later evolved into the 1965 Bradford Hill criteria."></span></div>
+<div class="timeline-item"><span class="tl-year">1965</span><span class="tl-title" data-zh="Bradford Hill 9 條因果準則" data-en="Bradford Hill 9 causal criteria">Bradford Hill criteria</span><span class="tl-desc" data-zh="Proc R Soc Med；strength, consistency, specificity, temporality, biological gradient, plausibility, coherence, experiment, analogy——至今仍是因果語言金標。" data-en="Proc R Soc Med; strength, consistency, specificity, temporality, biological gradient, plausibility, coherence, experiment, analogy — still the gold standard for causal language."></span></div>
+<div class="timeline-item"><span class="tl-year">1976</span><span class="tl-title" data-zh="Mosteller-Tukey：data analysis 的精神" data-en="Mosteller-Tukey: the spirit of data analysis">Mosteller-Tukey 數據分析</span><span class="tl-desc" data-zh="Data Analysis and Regression；強調限制、不確定性、結果情境——是現代 Discussion 寫作教學的根。" data-en="Data Analysis and Regression; emphasizing limits, uncertainty, context of results — root of modern Discussion teaching."></span></div>
+<div class="timeline-item"><span class="tl-year">2005</span><span class="tl-title" data-zh="Ioannidis：大多數發現是錯的" data-en="Ioannidis: Most findings are false">Ioannidis 2005</span><span class="tl-desc" data-zh="PLoS Med；震撼整個醫學界，逼迫期刊強制要求 limitations 段落。" data-en="PLoS Med; shook the entire medical community, forced journals to mandate limitations sections."></span></div>
+<div class="timeline-item"><span class="tl-year">2007</span><span class="tl-title" data-zh="Ioannidis：limitations 被低報" data-en="Ioannidis: limitations under-acknowledged">Limitations 被低估</span><span class="tl-desc" data-zh="JAMA；系統性審查發現大多數臨床論文 limitations 段落是樣板，未真正討論威脅。" data-en="JAMA; systematic review found most clinical papers' limitations were boilerplate, not real threat-discussion."></span></div>
+<div class="timeline-item"><span class="tl-year">2016</span><span class="tl-title" data-zh="ASA：p 值聲明" data-en="ASA: statement on p-values">ASA 聲明</span><span class="tl-desc" data-zh="American Statistician；p<0.05 ≠ truth，重塑統計語言；Discussion 從「significant」轉向「practically meaningful」。" data-en="American Statistician; p<0.05 ≠ truth, reshaping statistical language; Discussion shifted from "significant" to "practically meaningful"."></span></div>
+<div class="timeline-item"><span class="tl-year">2024-26</span><span class="tl-title" data-zh="Retraction-watch 時代" data-en="The retraction-watch era">Retraction-watch 時代</span><span class="tl-desc" data-zh="2024 年全球撤稿 >10,000 篇；overclaim 與 AI-fabrication 並列為主因；Discussion calibration 成為 reviewer 第一檢查項。" data-en="2024 saw >10,000 retractions globally; overclaim and AI-fabrication ranked top causes; Discussion calibration is now reviewers' first check."></span></div>
+</div>
+</section>
+
+<!-- ===== KPI ===== -->
+<section id="kpi" class="section">
+<div class="section-label" data-zh="關鍵指標" data-en="KEY METRICS">關鍵指標</div>
+<h2 data-zh="Discussion 的數字感" data-en="Numbers to Anchor the Topic">Discussion 的數字感</h2>
+<div class="kpi-grid">
+<div class="kpi-card"><span class="kpi-num">6</span><span class="kpi-label" data-zh="標準 Discussion 段數" data-en="Paragraphs in standard Discussion">標準 Discussion 段數</span></div>
+<div class="kpi-card"><span class="kpi-num">3-5</span><span class="kpi-label" data-zh="具體 limitations 條數" data-en="Specific limitations">具體 limitations 條數</span></div>
+<div class="kpi-card"><span class="kpi-num">&lt;3</span><span class="kpi-label" data-zh="主結論摘要句數" data-en="Sentences for main-finding summary">主結論摘要句數</span></div>
+<div class="kpi-card"><span class="kpi-num">1:1</span><span class="kpi-label" data-zh="結論與 Intro aim 呼應" data-en="Echo of Introduction's aim">結論與 Intro 呼應</span></div>
+<div class="kpi-card"><span class="kpi-num">~70%</span><span class="kpi-label" data-zh="送審論文 overclaim 比率" data-en="Submitted papers overclaiming">送審論文 overclaim 比率</span></div>
+<div class="kpi-card"><span class="kpi-num">0</span><span class="kpi-label" data-zh="觀察性研究使用 prove" data-en="'Proves' in observational studies">觀察性研究使用 prove</span></div>
+</div>
+<div class="tip-bar" data-lang="zh">編輯部問卷顯示約 70% 的初稿都有 overclaim 問題——Discussion 是 reviewer 最仔細看的部分。</div>
+<div class="tip-bar" data-lang="en">Editor surveys show ~70% of submitted papers overclaim — Discussion is the section reviewers scrutinize most.</div>
+</section>
+
+<!-- ===== ANALOGY ===== -->
+<section class="section">
+<div class="section-label" data-zh="比喻" data-en="ANALOGY">比喻</div>
+<div class="analogy-box">
+<div data-lang="zh"><strong>Discussion 就像審判庭上的結辯：</strong>你不是再背一遍證據（那是 Results 的事），你是把證據織成一個陪審團能夠捍衛的判決。每一句話都要禁得起 reviewer（對方律師）的交叉詰問。</div>
+<div data-lang="en"><strong>Discussion is the closing argument of a trial:</strong> you don't restate the evidence (that's Results' job), you weave it into a verdict the jury can defend. Every sentence must survive the reviewer's (opposing counsel's) cross-examination.</div>
+</div>
+</section>
+
+<!-- ===== WALKTHROUGH ===== -->
+<section id="walkthrough" class="section">
+<div class="section-label" data-zh="Σ-走查" data-en="Σ-WALKTHROUGH">Σ-走查</div>
+<h2 data-zh="Σ-8 步：從寫第一句到送 reviewer 的 Discussion" data-en="Σ-8 steps: From first sentence to reviewer-ready Discussion">Σ-8 步寫完整 Discussion</h2>
+<div class="walkthrough">
+
+<div class="wt-step"><span class="wt-label">Σ₁</span><div class="wt-body">
+<h4 data-zh="蒸餾主結論為 1-3 句" data-en="Distill main finding to 1-3 sentences">蒸餾主結論為 1-3 句</h4>
+<p data-lang="zh">第一段不要重貼 Results 的數字，直接寫「<em>本研究在 X 樣本中發現 Y，並建立 Z 的新觀察</em>」三句以內。如果寫不出來，回去再讀 Results。</p>
+<p data-lang="en">Paragraph 1 doesn't repaste Results numbers — write "<em>We found Y in X samples and established the new observation Z</em>" in ≤3 sentences. If you can't, go reread Results.</p>
+</div></div>
+
+<div class="wt-step"><span class="wt-label">Σ₂</span><div class="wt-body">
+<h4 data-zh="與既有文獻對話 (一致 / 矛盾 / 延伸)" data-en="Compare to prior literature (consistent / contradicts / extends)">與既有文獻對話</h4>
+<p data-lang="zh">明確標出與哪幾篇 paper 的關係：「<em>與 Smith 2023 一致</em>」「<em>延伸 Chen 2024 的 cell-line 觀察至 in vivo</em>」「<em>顛覆 Zhang 2022 的結論——可能因 cohort 差異</em>」。引用具體文獻，不要籠統 "many studies"。</p>
+<p data-lang="en">Specify the relationship paper by paper: "<em>consistent with Smith 2023</em>"; "<em>extends Chen 2024's cell-line observation to in vivo</em>"; "<em>contradicts Zhang 2022 — possibly cohort-driven</em>". Cite specifically; avoid vague "many studies".</p>
+</div></div>
+
+<div class="wt-step"><span class="wt-label">Σ₃</span><div class="wt-body">
+<h4 data-zh="提出機制 (標示 speculative)" data-en="Propose mechanism (flag as speculative)">提出機制 (標示 speculative)</h4>
+<p data-lang="zh">可引用已知 pathway / cell type / 蛋白互動，但每一句都要有 hedge：「<em>One plausible mechanism is…</em>」「<em>This may reflect…</em>」。不要把推測呈現為已證實。</p>
+<p data-lang="en">Cite known pathways / cell types / protein interactions but every sentence must hedge: "<em>One plausible mechanism is…</em>", "<em>This may reflect…</em>". Don't present speculation as proven.</p>
+</div></div>
+
+<div class="wt-step"><span class="wt-label">Σ₄</span><div class="wt-body">
+<h4 data-zh="校準動詞與證據強度" data-en="Calibrate verbs to evidence strength">校準動詞與證據強度</h4>
+<p data-lang="zh">觀察性 → "associated"；介入性單中心 → "indicates"；多中心 RCT → "demonstrates"；in silico → "may"。Reviewer 第一件事就是檢查動詞 vs design 的一致性。</p>
+<p data-lang="en">Observational → "associated"; single-center interventional → "indicates"; multicenter RCT → "demonstrates"; in silico → "may". Verb-design consistency is the first thing reviewers check.</p>
+</div></div>
+
+<div class="wt-step"><span class="wt-label">Σ₅</span><div class="wt-body">
+<h4 data-zh="寫臨床 / 生物意義" data-en="Write clinical / biological implications">寫臨床 / 生物意義</h4>
+<p data-lang="zh">對醫師、病患、政策、後續研究有什麼意義？避免 overclaim：「these findings <em>may</em> inform」「<em>warrant further investigation</em>」比「will revolutionize」好得多。</p>
+<p data-lang="en">Implications for clinicians, patients, policy, follow-up research. Avoid overclaim: "these findings <em>may</em> inform" or "<em>warrant further investigation</em>" beats "will revolutionize".</p>
+</div></div>
+
+<div class="wt-step"><span class="wt-label">Σ₆</span><div class="wt-body">
+<h4 data-zh="寫 3-5 條誠實 limitations + mitigation" data-en="Write 3-5 honest limitations w/ mitigation">寫 3-5 條誠實 limitations</h4>
+<p data-lang="zh">三層 honest：① 內部 (sample size、selection bias)、② 外部 (generalizability)、③ 方法學 (技術限制)。每條格式：「<em>限制 + 為何重要 + 我們做了什麼緩解 + 未來該怎麼補</em>」。</p>
+<p data-lang="en">Three layers: ① internal (sample size, selection bias), ② external (generalizability), ③ methodological (technique). Each: "<em>limitation + why it matters + mitigation we did + future fix</em>".</p>
+</div></div>
+
+<div class="wt-step"><span class="wt-label">Σ₇</span><div class="wt-body">
+<h4 data-zh="未來方向 = 2-3 個 actionable 下一步" data-en="Future directions = 2-3 concrete actionable next steps">未來方向 = 2-3 個具體下一步</h4>
+<p data-lang="zh">不要寫「需要更多研究確認」（廢話），要寫「<em>在 PDX models 進行 Gene X knockdown 驗證</em>」、「<em>擴展至 TCGA-BRCA 多中心 cohort 驗證</em>」這種具體 actionable 句。</p>
+<p data-lang="en">Don't write "more research is needed" (worthless), write "<em>validate via Gene X knockdown in PDX models</em>", "<em>extend validation to multicenter TCGA-BRCA cohort</em>" — concrete actionable items.</p>
+</div></div>
+
+<div class="wt-step"><span class="wt-label">Σ₈</span><div class="wt-body">
+<h4 data-zh="結論呼應 Introduction 的 aim" data-en="Conclusion echoes Intro aim">結論呼應 Intro aim</h4>
+<p data-lang="zh">2-3 句結論，必須能與 Introduction 的 aim/hypothesis 1:1 呼應。如果 Intro 問「Gene X 是否與化療抗性相關？」，結論就要回「Yes/No，並且…」。錯位 = reviewer 立刻發現結構問題。</p>
+<p data-lang="en">2-3-sentence conclusion that must 1:1 echo the Introduction's aim/hypothesis. If Intro asked "Is Gene X linked to chemoresistance?", the conclusion answers "Yes/No, and…". Mismatch = reviewer immediately spots structural issue.</p>
+</div></div>
+
+</div>
+</section>
+
+<!-- ===== DISCUSSION CARDS ===== -->
+<section class="section">
+<div class="section-label" data-zh="專家辯論" data-en="EXPERT DEBATE">專家辯論</div>
+<h2 data-zh="Discussion 寫作的三個爭議" data-en="Three Debates in Discussion Writing">Discussion 寫作的三個爭議</h2>
+
+<div class="discussion-card">
+<h4 data-zh="① Limitations 寫的是「誠實」還是「表演」？" data-en="① Are limitations 'honest' or 'performative'?">① Limitations 寫的是「誠實」還是「表演」？</h4>
+<p data-lang="zh">Ioannidis 2007 JAMA 系統性審查發現，大部分 limitations 段落是 boilerplate 樣板（「樣本小、未來會做更多」）。是真誠實還是儀式性表演？立場一：誠實寫 = 削弱論文競爭力；立場二：表演式 limitations 反而傷信任。<strong>共識：</strong>3-5 條<em>具體</em> + mitigation + future fix，不寫廢話。</p>
+<p data-lang="en">Ioannidis 2007 JAMA's systematic review found most limitations sections are boilerplate ("small sample, will do more"). Genuine honesty or ritual performance? Position 1: honest writing weakens competitiveness; Position 2: performative limitations damage trust more. <strong>Consensus:</strong> 3-5 <em>specific</em> + mitigation + future fix, no boilerplate.</p>
+</div>
+
+<div class="discussion-card">
+<h4 data-zh="② Revision 時要不要引用 reviewer 自己的論文？" data-en="② Should you cite reviewer's own work in revisions?">② Revision 時要不要引用 reviewer 自己的論文？</h4>
+<p data-lang="zh">「Citation coercion」爭議：reviewer 暗示 / 明示作者引用其論文。COPE 2020 指引明確禁止 coercive citation。但作者經常猜「revision 引用 reviewer 一下會不會比較順」。<strong>共識：</strong>只有當該文獻 <em>本來就應該</em> 被引用時才補；若不相關，禮貌拒絕並向 editor 反映。</p>
+<p data-lang="en">"Citation coercion" debate: reviewers hint / openly ask authors to cite their papers. COPE 2020 guidelines explicitly forbid coercive citation. But authors often wonder "would citing reviewer help my revision?". <strong>Consensus:</strong> add the citation only if the paper <em>genuinely belongs</em> there; if irrelevant, politely decline and flag the editor.</p>
+</div>
+
+<div class="discussion-card">
+<h4 data-zh="③ Future directions = 灌水還是真有價值？" data-en="③ 'Future directions' — padding or value?">③ Future directions = 灌水還是真有價值？</h4>
+<p data-lang="zh">部分編輯認為 future-directions 段是 paper 的「結尾儀式」，並不該佔太多篇幅。但好的 future directions 段可以替後來研究者鋪路、被高度引用。<strong>共識：</strong>2-3 個 <em>具體 actionable</em> 下一步，不要寫「needs more research」這種 cliché。</p>
+<p data-lang="en">Some editors view future-directions as a closing ritual, not deserving much space. But strong future-directions paragraphs can pave the road for follow-up researchers and become highly cited. <strong>Consensus:</strong> 2-3 <em>specific actionable</em> next steps; never write "needs more research" — that's a cliché.</p>
+</div>
+
+</section>
+
+<!-- ===== SPOTLIGHTS ===== -->
+<section class="section">
+<div class="section-label" data-zh="案例聚焦" data-en="SPOTLIGHTS">案例聚焦</div>
+<h2 data-zh="兩個對照案例" data-en="Two Contrasting Cases">兩個對照案例</h2>
+
+<div class="spotlight">
+<h4 data-zh="🚨 WARNING：2020 Surgisphere 撤稿事件" data-en="🚨 WARNING: 2020 Surgisphere retraction">🚨 WARNING：2020 Surgisphere 撤稿事件</h4>
+<p data-lang="zh">Mehra 等 2020 在 Lancet 發表的 COVID-19 hydroxychloroquine 觀察性研究 Discussion 寫「<em>provides decisive evidence against hydroxychloroquine</em>」——一個觀察性 cohort + 來源可疑的資料庫。WHO 因此暫停全球 trial。13 天後 Lancet 撤稿。教訓：Discussion 的 overclaim 可以引發政策層級災難。動詞校準不是文字遊戲，是公衛責任。</p>
+<p data-lang="en">Mehra et al. 2020 published a COVID-19 hydroxychloroquine observational study in Lancet whose Discussion stated "<em>provides decisive evidence against hydroxychloroquine</em>" — from an observational cohort using a database of dubious origin. WHO paused trials globally. 13 days later Lancet retracted it. Lesson: Discussion overclaim can trigger policy-level disasters. Verb calibration is not a word game; it's a public-health responsibility.</p>
+</div>
+
+<div class="spotlight">
+<h4 data-zh="✨ MODEL：Sabeti Lab 2018 Lassa 病毒 Nature 論文" data-en="✨ MODEL: Sabeti Lab 2018 Lassa virus Nature paper">✨ MODEL：Sabeti Lab 2018 Lassa 論文</h4>
+<p data-lang="zh">Siddle 等 2018 Nature；Discussion 明確區分 ecological 觀察（齧齒類為 reservoir 的證據強）與 human transmission 觀察（樣本有限、需更多 cohort）。每一段限制都標明 mitigation 與 future direction。被多本教科書引用為「Discussion 寫作教學範本」。語氣校準 + 三層 limitations + 與 prior literature 對話皆到位。</p>
+<p data-lang="en">Siddle et al. 2018 Nature; the Discussion explicitly separates ecological observations (strong evidence for rodent reservoirs) from human-transmission observations (limited samples, needs more cohorts). Every limitation is paired with mitigation and future direction. Cited in multiple textbooks as a teaching exemplar of Discussion writing. Calibrated language + three-layer limitations + literature dialogue all done right.</p>
+</div>
+
+</section>
+
+<!-- ===== PITFALLS ===== -->
+<section class="section">
+<div class="section-label" data-zh="常見陷阱" data-en="PITFALLS">常見陷阱</div>
+<h2 data-zh="6 個 Discussion 典型錯誤" data-en="6 Typical Discussion Pitfalls">6 個 Discussion 典型錯誤</h2>
+<div class="pitfall-grid">
+
+<div class="pitfall-card">
+<h4 data-zh="① 重述所有 Results" data-en="① Restating all Results">① 重述所有 Results</h4>
+<p data-lang="zh">把 Results 的數字、表格、p 值再貼一遍——這不是 Discussion，是 Results 2.0。Discussion 只在第一段濃縮 1-3 句主結論，後續是「對話」。</p>
+<p data-lang="en">Re-pasting Results' numbers, tables, p-values — this isn't Discussion, it's Results 2.0. Discussion distills to 1-3 sentences in paragraph 1; the rest is "dialogue".</p>
+</div>
+
+<div class="pitfall-card">
+<h4 data-zh="② 觀察性研究寫「proves」「demonstrates」" data-en="② 'Proves' / 'demonstrates' in observational studies">② 觀察性研究寫「proves」/「demonstrates」</h4>
+<p data-lang="zh">Reviewer 第一個畫紅的地方。觀察性 cohort 只能說 "associated with" / "suggests"；用 "proves" 表示作者不懂 study design 的證據力等級。</p>
+<p data-lang="en">First red-line a reviewer makes. Observational cohorts only permit "associated with" / "suggests"; using "proves" signals the authors don't grasp evidence-tier hierarchy.</p>
+</div>
+
+<div class="pitfall-card">
+<h4 data-zh="③ 模糊 limitations（「樣本太少」）" data-en="③ Vague limitations ('sample is small')">③ 模糊 limitations</h4>
+<p data-lang="zh">「樣本太少」「未來會做更多」——廢話。Reviewer 一秒看穿。要寫：n=18 對某分析夠用、對 subgroup 不夠；我們用 bootstrap 估計 stability；未來擴展到 n≥100。</p>
+<p data-lang="en">"Small sample", "will do more later" — boilerplate. Reviewers spot it in a second. Write instead: n=18 adequate for X analysis, underpowered for subgroup; we used bootstrap for stability; future cohort to n≥100.</p>
+</div>
+
+<div class="pitfall-card">
+<h4 data-zh="④ 只引用自己 group 的論文" data-en="④ Citing only your own group">④ 只引用自己 group 的論文</h4>
+<p data-lang="zh">Discussion 引用 12 篇 paper，其中 8 篇來自同一個 PI——reviewer 立刻起疑（self-citation 偏見 / 缺乏領域對話）。應該引用各方主要 group 的代表作。</p>
+<p data-lang="en">Discussion cites 12 papers, 8 from the same PI — reviewers immediately suspect self-citation bias / lack of field dialogue. Should cite key papers from various groups.</p>
+</div>
+
+<div class="pitfall-card">
+<h4 data-zh="⑤ 沒提出任何機制" data-en="⑤ No mechanism proposed">⑤ 沒提出任何機制</h4>
+<p data-lang="zh">Discussion 全部在描述「什麼」(what)，沒有討論「為什麼」(why) 與「怎麼會這樣」(how)。即使是 speculative 機制也應提，並明確標示 speculative。</p>
+<p data-lang="en">Discussion only describes "what" — no "why" or "how". Even speculative mechanisms should be proposed, explicitly flagged as speculative.</p>
+</div>
+
+<div class="pitfall-card">
+<h4 data-zh="⑥ 結論與 Introduction 矛盾" data-en="⑥ Conclusion contradicts Intro's aim">⑥ 結論與 Intro 矛盾</h4>
+<p data-lang="zh">Intro aim：「探討 Gene X 與化療抗性的關係」，Conclusion 卻寫：「Gene X 可作為 prognostic biomarker」——結構錯位。結論必須 1:1 呼應 aim。</p>
+<p data-lang="en">Intro aim: "investigate the relationship between Gene X and chemoresistance"; Conclusion: "Gene X can serve as a prognostic biomarker" — structural mismatch. Conclusion must 1:1 echo the aim.</p>
+</div>
+
+</div>
+</section>
+
+<!-- ===== CONTRAST ===== -->
+<section class="section">
+<div class="section-label" data-zh="對照範例" data-en="CONTRAST EXAMPLE">對照範例</div>
+<h2 data-zh="Discussion 句子：壞 vs 好" data-en="Discussion Sentence: Bad vs Good">Discussion 句子對照</h2>
+<div class="contrast-2col">
+<div class="con-card bad">
+<h4 data-zh="❌ Overclaim（壞示範）" data-en="❌ Overclaim (bad)">❌ Overclaim</h4>
+<p data-lang="zh">「Our results <em>prove</em> Gene X <em>causes</em> resistance and <em>will revolutionize</em> TNBC therapy.」</p>
+<p data-lang="en">"Our results <em>prove</em> Gene X <em>causes</em> resistance and <em>will revolutionize</em> TNBC therapy."</p>
+<p data-lang="zh"><em>問題：(1) prove + causes = 因果語言但只是觀察性 cohort；(2) will revolutionize = 過度宣稱；(3) 沒有 limitations；(4) 沒有 mitigation。</em></p>
+<p data-lang="en"><em>Problems: (1) prove + causes = causal language from an observational cohort; (2) "will revolutionize" = overclaim; (3) no limitations; (4) no mitigation.</em></p>
+</div>
+<div class="con-card good">
+<h4 data-zh="✅ Calibrated（好示範）" data-en="✅ Calibrated (good)">✅ Calibrated</h4>
+<p data-lang="zh">「Our data <em>show</em> Gene X expression is significantly <em>associated</em> with chemoresistance (HR 1.8, 95% CI 1.2–2.7), <em>consistent with</em> Smith et al. 2023. However, observational design cannot establish causality; functional validation in PDX models <em>remains necessary</em>.」</p>
+<p data-lang="en">"Our data <em>show</em> Gene X expression is significantly <em>associated</em> with chemoresistance (HR 1.8, 95% CI 1.2–2.7), <em>consistent with</em> Smith et al. 2023. However, observational design cannot establish causality; functional validation in PDX models <em>remains necessary</em>."</p>
+<p data-lang="zh"><em>優點：(1) "associated" 符合觀察性設計；(2) 引用具體文獻 (Smith 2023)；(3) 明確指出 limitation (observational design)；(4) 列出 future fix (PDX validation)。</em></p>
+<p data-lang="en"><em>Strengths: (1) "associated" matches observational design; (2) cites specific paper (Smith 2023); (3) names a limitation explicitly (observational design); (4) lists a future fix (PDX validation).</em></p>
+</div>
+</div>
+</section>
+
+<!-- ===== REFLECTION ===== -->
+<section class="section">
+<div class="section-label" data-zh="反思題" data-en="REFLECTION">反思題</div>
+<h2 data-zh="送審前的 6 個自我提問" data-en="6 Self-Questions Before Submission">送審前的 6 個自我提問</h2>
+<div class="reflection-q">
+<ol>
+<li><span data-lang="zh">你的動詞跟你的 study design 對齊嗎？（觀察性別寫 proves！）</span><span data-lang="en">Does your verb match your study design? (Observational ≠ "proves"!)</span></li>
+<li><span data-lang="zh">你寫了 3 條具體 limitations（不是樣板）嗎？每條都有 mitigation 與 future fix？</span><span data-lang="en">Have you written 3 specific limitations (not boilerplate)? Each with mitigation and future fix?</span></li>
+<li><span data-lang="zh">結論與 Introduction 的 aim 是 1:1 呼應嗎？拿出 Intro 比一下。</span><span data-lang="en">Is the conclusion 1:1 echo of your Intro's aim? Pull up the Intro and compare.</span></li>
+<li><span data-lang="zh">機制段落是否明確標示 "speculative" / "may" / "plausible"？</span><span data-lang="en">Does the mechanism paragraph clearly flag "speculative" / "may" / "plausible"?</span></li>
+<li><span data-lang="zh">引用了至少 5 篇不同 group 的相關文獻，並標出 agreement / disagreement？</span><span data-lang="en">Cited ≥5 papers from different groups, marked as agreement / disagreement?</span></li>
+<li><span data-lang="zh">Future directions 是 2-3 個 actionable 句，不是「needs more research」？</span><span data-lang="en">Are future directions 2-3 actionable sentences, not "needs more research"?</span></li>
+</ol>
+</div>
+</section>
+
+<!-- ===== ADVANCED NOTE ===== -->
+<section id="advanced" class="section">
+<div class="section-label" data-zh="進階" data-en="ADVANCED">進階</div>
+<h2 data-zh="進階補充：因果語言、Registered Reports、AI hedging" data-en="Advanced: causal language, Registered Reports, AI hedging">進階補充</h2>
+
+<details class="detail-toggle"><summary><span class="adv-label" data-zh="(a) Bradford Hill criteria 至今仍是因果語言金標" data-en="(a) Bradford Hill criteria still gold standard for causal language">(a) Bradford Hill 因果準則 (1965 → 2025)</span></summary>
+<div class="advanced-note">
+<p data-lang="zh">Hill 1965 Proc R Soc Med 9 條準則：strength、consistency、specificity、temporality、biological gradient (dose-response)、plausibility、coherence、experiment、analogy。<strong>使用 "causes" / "drives" 動詞前的 Discussion 內部檢查表</strong>：你的 cohort 滿足幾條？臨床流行病學論文應在 Discussion 段顯式逐條呈現（Fedak 2015 Emerg Themes Epidemiol 提出 Hill criteria 在現代資料的擴充版）。</p>
+<p data-lang="en">Hill 1965 Proc R Soc Med 9 criteria: strength, consistency, specificity, temporality, biological gradient (dose-response), plausibility, coherence, experiment, analogy. <strong>Internal checklist before using "causes" / "drives" in Discussion</strong>: how many does your cohort satisfy? Clinical-epidemiology papers should walk through each in their Discussion (Fedak 2015 Emerg Themes Epidemiol expanded the framework for modern data).</p>
+</div>
+</details>
+
+<details class="detail-toggle"><summary><span class="adv-label" data-zh="(b) 陰性結果與 Registered Reports" data-en="(b) Equivocal results & Registered Reports">(b) 陰性結果與 Registered Reports</span></summary>
+<div class="advanced-note">
+<p data-lang="zh">傳統期刊偏好「正向結果」，導致 publication bias 與 file-drawer 問題。Registered Reports 機制：作者投稿研究計畫，期刊在<em>實驗開始前</em>承諾接受（無論結果正負）。Cortex (2013 啟動)、Royal Society Open Science、PLOS Biology、Nature Human Behaviour 等已有 RR 軌道。Discussion 中寫陰性結果應強調 power 計算、effect size 估計、預先 hypothesis (避免 HARKing 嫌疑)。</p>
+<p data-lang="en">Traditional journals favor positive results, causing publication bias and file-drawer problems. Registered Reports: authors submit study plans, journal commits to publish <em>before data collection</em> regardless of outcome. Cortex (launched 2013), Royal Society Open Science, PLOS Biology, Nature Human Behaviour have RR tracks. For negative results, Discussion should emphasize power calculation, effect-size estimation, pre-specified hypothesis (avoiding HARKing suspicion).</p>
+</div>
+</details>
+
+<details class="detail-toggle"><summary><span class="adv-label" data-zh="(c) AI 輔助 hedging 2024-2026" data-en="(c) AI-assisted hedging 2024-2026">(c) AI-輔助 hedging 2024-2026</span></summary>
+<div class="advanced-note">
+<p data-lang="zh">2024-26 時代 Claude Sonnet 4.6 / GPT-5 / Gemini 2.5 等 LLM 可協助：① 校準動詞（"prove" → "suggest"）；② 平衡 hedging 與信心；③ 對照證據強度給建議。<strong>但無法取代</strong>研究者對 study design 證據力的判斷——AI 不知道你的 cohort 是觀察性還是 RCT、是否有 confounding。<strong>實務做法</strong>：寫完 draft → AI flag 過強動詞 → 研究者最終決定。NEJM 2024 政策：AI 不能列為作者；使用 LLM 須在 Methods 揭露。</p>
+<p data-lang="en">In the 2024-26 era Claude Sonnet 4.6 / GPT-5 / Gemini 2.5 can assist with: ① verb calibration ("prove" → "suggest"); ② balancing hedging with confidence; ③ suggestions matched to evidence strength. <strong>But cannot replace</strong> researcher judgment about study-design evidence tier — AI doesn't know whether your cohort is observational or RCT, whether confounding is present. <strong>Practical workflow</strong>: write draft → AI flags overclaim verbs → researcher makes final call. NEJM 2024 policy: AI cannot be listed as author; LLM use must be disclosed in Methods.</p>
+</div>
+</details>
+
+</section>
+
+<!-- ===== HISTORY NOTE ===== -->
+<section class="section">
+<div class="section-label" data-zh="歷史小註" data-en="HISTORY NOTE">歷史小註</div>
+<div class="history-note">
+<h4 data-zh="Newton 與「Hypotheses non fingo」" data-en="Newton and "Hypotheses non fingo"">Newton 與「Hypotheses non fingo」</h4>
+<p data-lang="zh">Isaac Newton 1687 出版 Philosophiae Naturalis Principia Mathematica（《自然哲學的數學原理》），在每一段論證的結尾常加上「<em>Hypotheses non fingo</em>」——「我不臆造假設」。在 17 世紀，這是 Newton 對哲學圈批評他「沒解釋重力為什麼存在」的回應：他坦承他的數學定律無法解釋「機制」，只能描述「現象」。這是科學史上最早的 limitations 段落雛形——在 limitations 段這個寫作慣例還不存在的時代，Newton 已經主動為自己的理論畫出邊界。三百多年後，現代 Discussion 段裡的「<em>this study cannot establish causality</em>」其實是這句話的回聲。</p>
+<p data-lang="en">Isaac Newton's 1687 Philosophiae Naturalis Principia Mathematica often ended an argument with "<em>Hypotheses non fingo</em>" — "I feign no hypotheses". In the 17th century this was Newton's reply to philosophers attacking him for "not explaining why gravity exists": he openly admitted his mathematical laws could describe phenomena but not mechanism. This is the earliest proto-limitations statement in scientific history — drawing a boundary around his own theory in an era before there was even such a writing convention. Over 300 years later, every "<em>this study cannot establish causality</em>" in a modern Discussion is an echo of that Latin phrase.</p>
+</div>
+</section>
+
 <section class="section">
 <div class="section-label" data-zh="概覽" data-en="OVERVIEW">概覽</div>
 <h2 data-zh="Discussion 是「對話」不是「重述」" data-en="Discussion is a Dialogue, Not a Recap">Discussion 是「對話」，不是「重述」</h2>

@@ -30,6 +30,486 @@
 </header>
 <main class="content-wrap">
 
+<!-- ===== Section TOC ===== -->
+<div class="section-toc">
+<strong data-zh="本章導覽（閱讀時間 ~22 分）" data-en="Chapter map (reading time ~22 min)">本章導覽（閱讀時間 ~22 分）</strong>
+<div class="pill-row">
+<span class="level-badge l-beg" data-zh="初學者" data-en="Beginner">初學者</span>
+<span class="level-badge l-mid" data-zh="中階" data-en="Intermediate">中階</span>
+<span class="level-badge l-adv" data-zh="進階" data-en="Advanced">進階</span>
+<span class="pill navy">PRISMA</span><span class="pill amber">PubMed/MeSH</span><span class="pill violet">Connected Papers</span><span class="pill teal">Scopus</span>
+</div>
+<ol>
+<li><a href="#story" data-zh="開場故事：從 50,000 篇到 30 篇的 3 週" data-en="Story: 50,000 → 30 papers in 3 weeks">開場故事：從 50,000 篇到 30 篇</a></li>
+<li><a href="#glossary" data-zh="核心詞彙表（雙版本）" data-en="Glossary (two versions)">核心詞彙表（雙版本）</a></li>
+<li><a href="#history" data-zh="從 1665 期刊到 2024 AI 篩選" data-en="From 1665 journals to 2024 AI screening">從 1665 期刊到 2024 AI 篩選</a></li>
+<li><a href="#kpi" data-zh="關鍵指標" data-en="Key numbers">關鍵指標</a></li>
+<li><a href="#pubmed-strategy" data-zh="PubMed / MeSH 檢索與 PRISMA" data-en="PubMed / MeSH search & PRISMA">PubMed / MeSH 檢索與 PRISMA</a></li>
+<li><a href="#discussion" data-zh="專家辯論：AI 自動篩選能取代人？" data-en="Expert debate: should AI auto-screen?">專家辯論：AI 能否取代人類篩選？</a></li>
+<li><a href="#pitfalls" data-zh="6 個典型陷阱" data-en="6 typical pitfalls">6 個典型陷阱</a></li>
+<li><a href="#advanced" data-zh="進階 2024-2026 SOTA" data-en="Advanced 2024-2026 SOTA">進階 2024-2026 SOTA</a></li>
+</ol>
+</div>
+
+<!-- ===== STORY ===== -->
+<section id="story" class="section">
+<div class="section-label" data-zh="故事開場" data-en="OPENING STORY">故事開場</div>
+<h2 data-zh="場景：從 50,000 篇到 30 篇——Alex 的 3 週覺悟" data-en="Scene: From 50,000 to 30 Papers — Alex's 3-Week Awakening">場景：從 50,000 篇到 30 篇——Alex 的 3 週覺悟</h2>
+<div class="story-block">
+<span class="story-tag">SCENE · 2024</span>
+<h3 data-zh="當搜尋框打出「TNBC immunotherapy」，跳出 50,000 筆" data-en="When "TNBC immunotherapy" returns 50,000 hits">當搜尋框打出「TNBC immunotherapy」，跳出 50,000 筆</h3>
+<div data-lang="zh">
+<p>研究生 <strong>Alex</strong> 接到第一個任務：為實驗室寫一篇關於三陰性乳癌 (TNBC) 免疫治療的 systematic review。她興奮地打開 PubMed，輸入 <code>TNBC immunotherapy</code>，按下 Enter——<strong>50,247 筆結果</strong>。她楞住了。</p>
+<p>第一週，她下載前 200 篇 PDF 開始讀。第二週發現自己讀的論文大多是<em>無關的</em>——有的是 review、有的是 case report、有的是動物實驗、有的是 2005 年的舊綜述。她寄信給 PI <strong>陳教授</strong>：「我快被淹沒了。」回信只有兩個字：「<em>策略？</em>」</p>
+<p>第三週，Alex 終於打開《Cochrane Handbook》，學會兩件事：<strong>(1) MeSH terms ≠ 自由文字</strong>，要兩者並用；<strong>(2) 一個 systematic review 必須有<em>事先註冊的</em>篩選準則</strong>。她重寫查詢：<code>("Triple Negative Breast Neoplasms"[Mesh] OR "TNBC"[tiab]) AND ("Immunotherapy"[Mesh] OR pembrolizumab[tiab] OR atezolizumab[tiab]) AND "Randomized Controlled Trial"[ptyp] AND 2018:2024[dp]</code>。返回 <strong>387 篇</strong>。</p>
+<p>她接著用 <em>Connected Papers</em> 上傳 3 篇 anchor papers，視覺化共引網路；再用 <em>Research Rabbit</em> 自動推薦延伸文獻。一天之內，她鎖定了真正關鍵的 <strong>30 篇 seminal papers</strong>——其中 5 篇是原始 PubMed 字串<em>漏掉</em>的，因為作者用了「checkpoint inhibitor」而非「immunotherapy」。陳教授看完她的 PRISMA flow diagram，只回了一句：「<em>下週可以開始寫了。</em>」</p>
+</div>
+<div data-lang="en">
+<p>Graduate student <strong>Alex</strong> gets her first big assignment: write a systematic review on triple-negative breast cancer (TNBC) immunotherapy. She excitedly opens PubMed, types <code>TNBC immunotherapy</code>, hits Enter — <strong>50,247 results</strong>. She freezes.</p>
+<p>Week one she downloads the first 200 PDFs and starts reading. Week two she realises most of them are <em>irrelevant</em> — some are reviews, some case reports, some animal studies, some 2005 commentary. She emails her PI <strong>Prof. Chen</strong>: "I'm drowning." The reply is one word: "<em>Strategy?</em>"</p>
+<p>Week three, Alex finally opens the <em>Cochrane Handbook</em> and learns two things: <strong>(1) MeSH terms ≠ free text — use both</strong>; <strong>(2) a systematic review needs <em>pre-registered</em> inclusion criteria</strong>. She rewrites her query: <code>("Triple Negative Breast Neoplasms"[Mesh] OR "TNBC"[tiab]) AND ("Immunotherapy"[Mesh] OR pembrolizumab[tiab] OR atezolizumab[tiab]) AND "Randomized Controlled Trial"[ptyp] AND 2018:2024[dp]</code>. Returns <strong>387 hits</strong>.</p>
+<p>Then she uploads 3 anchor papers to <em>Connected Papers</em> to visualise the co-citation graph, and uses <em>Research Rabbit</em> to auto-recommend related work. Within a single day she identifies the <strong>30 truly seminal papers</strong> — 5 of which her original PubMed string had <em>missed</em>, because the authors used "checkpoint inhibitor" instead of "immunotherapy." Prof. Chen reads her PRISMA flow diagram and replies: "<em>You can start writing next week.</em>"</p>
+</div>
+</section>
+
+<!-- ===== GLOSSARY ===== -->
+<section id="glossary" class="section">
+<div class="section-label" data-zh="核心詞彙" data-en="GLOSSARY">核心詞彙</div>
+<h2 data-zh="12 個關鍵術語（雙版本）" data-en="12 Key Terms (two versions)">12 個關鍵術語（雙版本）</h2>
+<p data-lang="zh"><em>每個詞有兩個版本：🧒「給小孩看」用比喻、📐「給研究者看」給定義。</em></p>
+<p data-lang="en"><em>Each term has two versions: 🧒 "for kids" uses a metaphor; 📐 "for researchers" gives the formal definition.</em></p>
+<div class="glossary-grid">
+
+<div class="glossary-card">
+<div class="term-en">PRISMA 2020</div><div class="term-zh">PRISMA 2020 規範</div>
+<div class="term-kid" data-lang="zh">寫 systematic review 的「食譜」——每一步都要寫清楚，別人才能照做出同樣的菜。</div>
+<div class="term-kid" data-lang="en">A "recipe" for systematic reviews — write every step clearly so others can reproduce it.</div>
+<div class="term-tech" data-lang="zh">Preferred Reporting Items for Systematic Reviews and Meta-Analyses 2020 update (Page et al. 2021 BMJ)。27 項 checklist + 流程圖；取代 2009 版；要求報告自動化工具、registration ID、報告偏誤。</div>
+<div class="term-tech" data-lang="en">Preferred Reporting Items for Systematic Reviews and Meta-Analyses 2020 update (Page et al. 2021 BMJ). 27-item checklist + flow diagram; replaces 2009; requires reporting automation tools, registration ID, reporting bias.</div>
+</div>
+
+<div class="glossary-card">
+<div class="term-en">Systematic Review</div><div class="term-zh">系統性回顧</div>
+<div class="term-kid" data-lang="zh">用「全世界都認可的步驟」把某個問題的所有相關研究找齊、評斷、整合——不能漏、不能偏心。</div>
+<div class="term-kid" data-lang="en">Find every relevant study on a question using globally accepted steps — no gaps, no favouritism.</div>
+<div class="term-tech" data-lang="zh">回答 effectiveness 問題的窮盡式合成；遵循 PRISMA + 預先註冊 (PROSPERO)；至少 3 個資料庫 + 兩人獨立篩選 + 品質評估 (RoB 2 / ROBINS-I)。</div>
+<div class="term-tech" data-lang="en">Exhaustive synthesis answering effectiveness questions; follows PRISMA + pre-registration (PROSPERO); ≥3 databases + dual independent screening + quality appraisal (RoB 2 / ROBINS-I).</div>
+</div>
+
+<div class="glossary-card">
+<div class="term-en">Scoping Review</div><div class="term-zh">範疇式回顧</div>
+<div class="term-kid" data-lang="zh">畫一張「這個領域目前有什麼」的地圖——不是評誰最好，而是先搞清楚地形。</div>
+<div class="term-kid" data-lang="en">Draw a map of "what already exists" in a field — not judging quality, just charting the terrain.</div>
+<div class="term-tech" data-lang="zh">JBI / Arksey-O'Malley 2005 方法學；回答 landscape 問題；不評品質、不做 meta-analysis；報告規範採 PRISMA-ScR (Tricco 2018 Ann Intern Med)。</div>
+<div class="term-tech" data-lang="en">JBI / Arksey-O'Malley 2005 methodology; answers landscape questions; no quality appraisal, no meta-analysis; reported per PRISMA-ScR (Tricco 2018 Ann Intern Med).</div>
+</div>
+
+<div class="glossary-card">
+<div class="term-en">Narrative Review</div><div class="term-zh">敘事型回顧</div>
+<div class="term-kid" data-lang="zh">領域專家「講故事」的綜述——觀點豐富但較容易偏心，因為沒固定流程。</div>
+<div class="term-kid" data-lang="en">A "storytelling" review by a domain expert — rich perspective but more prone to bias since there's no fixed process.</div>
+<div class="term-tech" data-lang="zh">傳統綜述；無預先註冊、無窮盡檢索；選擇偏誤高、不可複製；常用於 thesis Chapter 2、commentary、textbook。</div>
+<div class="term-tech" data-lang="en">Traditional review; no pre-registration, no exhaustive search; high selection bias, not replicable; common in thesis Ch. 2, commentaries, textbooks.</div>
+</div>
+
+<div class="glossary-card">
+<div class="term-en">MeSH term</div><div class="term-zh">MeSH 醫學主題詞</div>
+<div class="term-kid" data-lang="zh">圖書館員幫每篇論文貼的「主題標籤」——你用標籤搜尋，不會被作者用不同字眼害你漏掉。</div>
+<div class="term-kid" data-lang="en">"Topic stickers" librarians attach to every paper — search by sticker, never miss a synonym.</div>
+<div class="term-tech" data-lang="zh">Medical Subject Headings；NLM 自 1960 年起維護的受控詞彙樹；29,000+ terms；每年更新；PubMed indexer 為每篇加 10–15 個 MeSH；查詢用 <code>"Term"[Mesh]</code>。</div>
+<div class="term-tech" data-lang="en">Medical Subject Headings; NLM-maintained controlled vocabulary tree since 1960; 29,000+ terms; updated yearly; PubMed indexers tag 10–15 MeSH per article; query with <code>"Term"[Mesh]</code>.</div>
+</div>
+
+<div class="glossary-card">
+<div class="term-en">Boolean operator</div><div class="term-zh">布林運算子</div>
+<div class="term-kid" data-lang="zh">三個搜尋魔法字：AND（兩個都要）、OR（任一即可）、NOT（不要這個）。</div>
+<div class="term-kid" data-lang="en">Three search spells: AND (need both), OR (either works), NOT (exclude this).</div>
+<div class="term-tech" data-lang="zh">由 George Boole 1854 提出；AND = 交集 (縮小)、OR = 聯集 (擴大)、NOT = 差集 (慎用，易漏文獻)。括號控制優先序：<code>(A OR B) AND C</code>。</div>
+<div class="term-tech" data-lang="en">From George Boole 1854; AND = intersection (narrow), OR = union (broaden), NOT = difference (use cautiously, drops papers). Parentheses control precedence: <code>(A OR B) AND C</code>.</div>
+</div>
+
+<div class="glossary-card">
+<div class="term-en">PROSPERO</div><div class="term-zh">PROSPERO 註冊庫</div>
+<div class="term-kid" data-lang="zh">在做 review 之前，先把「我要做什麼」公開貼出來——之後不能偷偷改。</div>
+<div class="term-kid" data-lang="en">Before starting a review, publicly post "what I'll do" — you can't quietly change it later.</div>
+<div class="term-tech" data-lang="zh">International Prospective Register of Systematic Reviews；University of York CRD 2011 上線；免費；PRISMA 2020 要求填註冊 ID 或解釋未註冊原因；2024 累計 >250,000 註冊。</div>
+<div class="term-tech" data-lang="en">International Prospective Register of Systematic Reviews; launched 2011 by University of York CRD; free; PRISMA 2020 requires registration ID or explanation; >250,000 registrations by 2024.</div>
+</div>
+
+<div class="glossary-card">
+<div class="term-en">Cochrane</div><div class="term-zh">Cochrane 協作組織</div>
+<div class="term-kid" data-lang="zh">全球 systematic review 的「最高標準學校」——它的 review 被當成醫學決策的金本位。</div>
+<div class="term-kid" data-lang="en">The "gold-standard school" of systematic reviews — its outputs are treated as the bar for medical decisions.</div>
+<div class="term-tech" data-lang="zh">Cochrane Collaboration (1993 創立)；50+ Cochrane Review Groups；發行 Cochrane Library；維護 Cochrane Handbook (current v6.5, 2024) 與 RoB 2 工具；對 LLM 篩選有 2025 官方 guidance。</div>
+<div class="term-tech" data-lang="en">Cochrane Collaboration (founded 1993); 50+ Review Groups; publishes Cochrane Library; maintains Cochrane Handbook (v6.5, 2024) and RoB 2 tool; issued 2025 LLM-screening guidance.</div>
+</div>
+
+<div class="glossary-card">
+<div class="term-en">Connected Papers</div><div class="term-zh">Connected Papers 共引網路圖</div>
+<div class="term-kid" data-lang="zh">輸入 1 篇種子論文，它幫你畫出「跟這篇最相關的 50 篇」星圖——很快找到該領域中心。</div>
+<div class="term-kid" data-lang="en">Input 1 seed paper, it draws a star map of "the 50 most related papers" — fast way to find a field's centre.</div>
+<div class="term-tech" data-lang="zh">Eitan & Tarnavsky 2020 上線；基於 co-citation + bibliographic coupling；不是時序而是<em>主題</em>相似度；PRISMA 中只能列為 supplementary search。Litmaps、Inciteful、Research Rabbit 為同類工具。</div>
+<div class="term-tech" data-lang="en">Launched 2020 by Eitan &amp; Tarnavsky; based on co-citation + bibliographic coupling; clusters by <em>topic</em>, not time; in PRISMA counts only as supplementary search. Sister tools: Litmaps, Inciteful, Research Rabbit.</div>
+</div>
+
+<div class="glossary-card">
+<div class="term-en">Forward citation</div><div class="term-zh">前向引用追蹤</div>
+<div class="term-kid" data-lang="zh">找出「<em>引用</em>了這篇論文的所有後續研究」——順著時間往前走，找最新進展。</div>
+<div class="term-kid" data-lang="en">Find every later study that <em>cites</em> this paper — walk forward in time to catch the latest extensions.</div>
+<div class="term-tech" data-lang="zh">backward = 讀 reference list；forward = 看 Web of Science / Scopus / Google Scholar 的「Cited by」。PRISMA-S (Rethlefsen 2021) 要求 SR 必須報告 forward citation chasing 是否執行。</div>
+<div class="term-tech" data-lang="en">Backward = read reference list; forward = use "Cited by" on Web of Science / Scopus / Google Scholar. PRISMA-S (Rethlefsen 2021) requires SRs to report whether forward citation chasing was done.</div>
+</div>
+
+<div class="glossary-card">
+<div class="term-en">Cochrane RoB 2</div><div class="term-zh">Cochrane 偏誤風險 2 工具</div>
+<div class="term-kid" data-lang="zh">5 個面向的「研究品質檢查表」——告訴你每篇 RCT 的結果有多可信。</div>
+<div class="term-kid" data-lang="en">A 5-domain "study-quality checklist" — tells you how much to trust each RCT's findings.</div>
+<div class="term-tech" data-lang="zh">Sterne et al. 2019 BMJ；RCT 專用；5 domains: randomisation / deviations from intended interventions / missing outcome data / measurement / selection of reported result；each = Low / Some concerns / High。觀察性研究改用 ROBINS-I。</div>
+<div class="term-tech" data-lang="en">Sterne et al. 2019 BMJ; RCT-specific; 5 domains: randomisation / deviations / missing outcome data / measurement / selection of reported result; each rated Low / Some concerns / High. Observational studies use ROBINS-I.</div>
+</div>
+
+<div class="glossary-card">
+<div class="term-en">GRADE</div><div class="term-zh">GRADE 證據確定性分級</div>
+<div class="term-kid" data-lang="zh">把整個 systematic review 的證據強度評成 ⭐⭐⭐⭐「高 / 中 / 低 / 極低」——讓臨床醫師知道能多放心。</div>
+<div class="term-kid" data-lang="en">Rate the overall evidence strength of a systematic review as ⭐⭐⭐⭐ "High / Moderate / Low / Very Low" — so clinicians know how confident to be.</div>
+<div class="term-tech" data-lang="zh">Grading of Recommendations Assessment, Development and Evaluation；Guyatt 2008 BMJ；五個降級 (risk of bias, inconsistency, indirectness, imprecision, publication bias) + 三個升級 (large effect, dose-response, plausible confounders)；PRISMA 2020 建議使用。</div>
+<div class="term-tech" data-lang="en">Grading of Recommendations Assessment, Development and Evaluation; Guyatt 2008 BMJ; 5 downgrading factors (risk of bias, inconsistency, indirectness, imprecision, publication bias) + 3 upgrading (large effect, dose-response, plausible confounders); recommended by PRISMA 2020.</div>
+</div>
+
+</div>
+</section>
+
+<!-- ===== HISTORY TIMELINE ===== -->
+<section id="history" class="section">
+<div class="section-label" data-zh="歷史" data-en="HISTORY">歷史</div>
+<h2 data-zh="從 1665 期刊到 2024 AI 篩選" data-en="From 1665 Journals to 2024 AI Screening">文獻檢索的簡史：從 1665 期刊到 2024 AI 篩選</h2>
+<div class="timeline">
+<div class="timeline-item"><span class="tl-year">1665</span><span class="tl-title" data-zh="《Philosophical Transactions》：首份學術期刊" data-en="Philosophical Transactions: first journal">《Philosophical Transactions》：首份學術期刊</span><span class="tl-desc" data-zh="Royal Society 創刊；確立 peer review 與引用文獻的傳統。" data-en="Founded by the Royal Society; established peer review and citation tradition."></span></div>
+<div class="timeline-item"><span class="tl-year">1879</span><span class="tl-title" data-zh="Index Medicus 創立" data-en="Index Medicus founded">Index Medicus 創立 (Billings)</span><span class="tl-desc" data-zh="John Shaw Billings 在 US Surgeon General 圖書館創辦；首個系統性醫學文獻索引，奠定 PubMed 前身。" data-en="John Shaw Billings at the US Surgeon General's Library; first systematic medical-literature index, ancestor of PubMed."></span></div>
+<div class="timeline-item"><span class="tl-year">1971</span><span class="tl-title" data-zh="MEDLINE 上線" data-en="MEDLINE online">MEDLINE 上線</span><span class="tl-desc" data-zh="NLM 推出第一個電子文獻檢索系統；MeSH 受控詞彙正式進入工作流程。" data-en="NLM's first electronic literature search system; MeSH controlled vocabulary enters the workflow."></span></div>
+<div class="timeline-item"><span class="tl-year">1992</span><span class="tl-title" data-zh="Cochrane Collaboration 成立" data-en="Cochrane Collaboration founded">Cochrane Collaboration 成立</span><span class="tl-desc" data-zh="Iain Chalmers 受 Archie Cochrane 啟發建立；systematic review 的方法學中心。" data-en="Founded by Iain Chalmers, inspired by Archie Cochrane; methodological hub for systematic reviews."></span></div>
+<div class="timeline-item"><span class="tl-year">1996</span><span class="tl-title" data-zh="PubMed 上線" data-en="PubMed launches">PubMed 上線</span><span class="tl-desc" data-zh="NLM 釋出免費網頁介面；MEDLINE 從付費走向全球公共財。" data-en="NLM releases the free web interface; MEDLINE goes from paywalled to global public good."></span></div>
+<div class="timeline-item"><span class="tl-year">1999</span><span class="tl-title" data-zh="QUOROM：PRISMA 的前身" data-en="QUOROM: PRISMA precursor">QUOROM：PRISMA 的前身</span><span class="tl-desc" data-zh="Moher 等 Lancet；首套 meta-analysis 報告規範，後演化為 PRISMA。" data-en="Moher et al. in Lancet; first meta-analysis reporting standard, later evolved into PRISMA."></span></div>
+<div class="timeline-item"><span class="tl-year">2009</span><span class="tl-title" data-zh="PRISMA 1.0 發布" data-en="PRISMA 1.0 released">PRISMA 1.0 發布</span><span class="tl-desc" data-zh="Moher 等 BMJ / PLOS Med；27 項 checklist + 四階段流程圖；很快被 600+ 期刊採用。" data-en="Moher et al. BMJ / PLOS Med; 27-item checklist + 4-stage flow; rapidly adopted by 600+ journals."></span></div>
+<div class="timeline-item"><span class="tl-year">2011</span><span class="tl-title" data-zh="PROSPERO 上線" data-en="PROSPERO launches">PROSPERO 上線</span><span class="tl-desc" data-zh="University of York CRD；首個 systematic review 預先註冊全球平台。" data-en="University of York CRD; first global registry for systematic-review pre-registration."></span></div>
+<div class="timeline-item"><span class="tl-year">2020</span><span class="tl-title" data-zh="PRISMA 2020 更新" data-en="PRISMA 2020 update">PRISMA 2020 更新</span><span class="tl-desc" data-zh="Page 等 BMJ；加入自動化工具、registration、報告偏誤、雙來源流程圖。" data-en="Page et al. BMJ; adds automation tools, registration, reporting bias, dual-source flow diagram."></span></div>
+<div class="timeline-item"><span class="tl-year">2024</span><span class="tl-title" data-zh="AI 輔助篩選工具主流化" data-en="AI-assisted screening tools mainstream">AI 輔助篩選工具主流化</span><span class="tl-desc" data-zh="Rayyan AI、Elicit、Research Rabbit 大規模採用；Cochrane 2025 guidance 規範人類驗證義務。" data-en="Rayyan AI, Elicit, Research Rabbit see mass adoption; Cochrane 2025 guidance codifies human-verification duty."></span></div>
+</div>
+</section>
+
+<!-- ===== KPI ===== -->
+<section id="kpi" class="section">
+<div class="section-label" data-zh="關鍵指標" data-en="KEY METRICS">關鍵指標</div>
+<h2 data-zh="文獻回顧的數字感" data-en="Numbers to Anchor the Topic">文獻回顧的數字感</h2>
+<div class="kpi-grid">
+<div class="kpi-card"><span class="kpi-num">37M+</span><span class="kpi-label" data-zh="PubMed 文章總數" data-en="Articles in PubMed">PubMed 文章總數</span></div>
+<div class="kpi-card"><span class="kpi-num">500+</span><span class="kpi-label" data-zh="EQUATOR 報告規範" data-en="Guidelines in EQUATOR">EQUATOR 報告規範</span></div>
+<div class="kpi-card"><span class="kpi-num">27</span><span class="kpi-label" data-zh="PRISMA 2020 檢核項" data-en="PRISMA 2020 items">PRISMA 2020 檢核項</span></div>
+<div class="kpi-card"><span class="kpi-num">3 週</span><span class="kpi-label" data-zh="首輪篩選時程" data-en="First-pass screening time">首輪篩選典型時程</span></div>
+<div class="kpi-card"><span class="kpi-num">~1%</span><span class="kpi-label" data-zh="最終納入比率" data-en="Final retention rate">最終納入比率</span></div>
+<div class="kpi-card"><span class="kpi-num">$0</span><span class="kpi-label" data-zh="PubMed 使用費用" data-en="PubMed access cost">PubMed 使用費用</span></div>
+<div class="kpi-card"><span class="kpi-num">29,000+</span><span class="kpi-label" data-zh="MeSH 受控詞彙" data-en="MeSH terms in the tree">MeSH 受控詞彙</span></div>
+<div class="kpi-card"><span class="kpi-num">≥3</span><span class="kpi-label" data-zh="SR 最低資料庫數" data-en="Min databases for SR">SR 最低資料庫數</span></div>
+</div>
+<div class="tip-bar" data-lang="zh">手工篩選 5,000 篇摘要單人約需 25 小時；但兩人並用 Rayyan AI 平均只要 5 小時，且重複性更高。</div>
+<div class="tip-bar" data-lang="en">Screening 5,000 abstracts takes ~25 hours solo — but only ~5 hours with two reviewers using Rayyan AI, and inter-rater agreement is higher.</div>
+</section>
+
+<!-- ===== Analogy ===== -->
+<section class="section">
+<div class="section-label" data-zh="一個比喻" data-en="ONE ANALOGY">一個比喻</div>
+<div class="analogy-box">
+<span class="ana-icon">🏗️</span>
+<div class="ana-body">
+<span class="ana-tag" data-zh="比喻 · 建築工地" data-en="Analogy · Construction Site">比喻 · 建築工地</span>
+<p data-lang="zh">Literature review 像<strong>建築工地</strong>：你站在哪個鋼樑上，決定能蓋多高。每一篇被你引用的文獻就是一根鋼樑——歪了、鏽了、或根本不是承重結構，你的論文就在風中搖晃。Narrative review 像隨手堆磚塊；systematic review 像 ISO 認證的鋼骨工法；scoping review 像 site survey 報告，告訴你「這塊地能蓋什麼」。PRISMA 2020 是 building code，PROSPERO 是建照申請。沒有 footing 的高樓終究會塌。</p>
+<p data-lang="en">A literature review is a <strong>construction site</strong>: which steel beam you stand on decides how high you can build. Every citation is a beam — bent, rusted, or non-load-bearing, and your paper sways in the wind. A narrative review is a casual brick pile; a systematic review is ISO-certified steel framework; a scoping review is a site-survey report telling you "what can be built here." PRISMA 2020 is the building code; PROSPERO is the permit application. Towers without footings collapse — eventually.</p>
+</div>
+</div>
+</section>
+
+<!-- ===== Walkthrough ===== -->
+<section id="walkthrough" class="section">
+<div class="section-label" data-zh="逐步推導" data-en="STEP-BY-STEP">Σ 推導</div>
+<h2 data-zh="從 keyword 到 PRISMA flow diagram 的 8 步" data-en="From Keyword to PRISMA Flow Diagram in 8 Steps">從 keyword 到 PRISMA flow diagram 的 8 步</h2>
+<div class="walkthrough">
+<div class="walkthrough-header">
+<span class="wt-num">Σ</span>
+<span class="wt-tag" data-zh="檢索流程" data-en="Search-to-screen pipeline">Search-to-Screen Pipeline</span>
+</div>
+<div class="wt-step"><span class="wt-label">Σ₁</span><div class="wt-body">
+<p data-lang="zh"><strong>定義 PICO inclusion / exclusion。</strong>把研究問題拆解成可被執行的篩選條件：人群 / 介入 / 對照 / 結果 / 研究設計 / 年代範圍。寫成 protocol 文件而非僅在腦袋裡。</p>
+<p data-lang="en"><strong>Define PICO inclusion/exclusion.</strong> Decompose the research question into executable screening criteria: population / intervention / comparator / outcome / design / year range. Put it in a protocol document, not just in your head.</p>
+</div></div>
+<div class="wt-step"><span class="wt-label">Σ₂</span><div class="wt-body">
+<p data-lang="zh"><strong>到 PROSPERO 註冊 protocol。</strong>Systematic review 在 2024–26 期刊投稿幾乎強制；註冊時間戳就是抗 HARKing 的盾牌。</p>
+<p data-lang="en"><strong>Register at PROSPERO.</strong> For SRs in 2024–26 this is virtually mandatory at submission. The timestamp is your HARKing shield.</p>
+</div></div>
+<div class="wt-step"><span class="wt-label">Σ₃</span><div class="wt-body">
+<p data-lang="zh"><strong>建立 PubMed query：MeSH + Boolean。</strong>用「MeSH 受控詞彙 + 自由文字 [tiab]」配合 AND / OR / NOT 串接；高敏感性 (sensitivity) > 高特異性 (specificity) 為原則。</p>
+<p data-lang="en"><strong>Build the PubMed query: MeSH + Boolean.</strong> Combine MeSH controlled vocabulary with free-text [tiab] using AND / OR / NOT; prioritize sensitivity over specificity.</p>
+</div></div>
+<div class="wt-step"><span class="wt-label">Σ₄</span><div class="wt-body">
+<p data-lang="zh"><strong>橫跨 PubMed / Embase / Web of Science / Scopus / Cochrane 執行檢索。</strong>SR 至少 3 個資料庫；同一個 query 在各庫的語法要客製化 (Emtree vs MeSH)。記錄每庫的日期與結果數。</p>
+<p data-lang="en"><strong>Run across PubMed / Embase / Web of Science / Scopus / Cochrane.</strong> SRs need ≥3 databases; the query must be customized per database (Emtree vs MeSH). Log search date and hit count per source.</p>
+</div></div>
+<div class="wt-step"><span class="wt-label">Σ₅</span><div class="wt-body">
+<p data-lang="zh"><strong>用 Zotero 去重 (dedup)。</strong>把五個來源的 RIS / BibTeX 匯入 Zotero（或 EndNote / Mendeley），重複文獻會自動標記。典型可去掉 25–40% 重複。</p>
+<p data-lang="en"><strong>Dedup in Zotero.</strong> Import RIS / BibTeX from all five sources into Zotero (or EndNote / Mendeley) — duplicates are auto-flagged. Typically removes 25–40%.</p>
+</div></div>
+<div class="wt-step"><span class="wt-label">Σ₆</span><div class="wt-body">
+<p data-lang="zh"><strong>Title / abstract screening (Rayyan 雙人盲審)。</strong>兩位審稿人獨立標記 include / exclude / maybe；Cohen's κ ≥0.6 才能往下走。Rayyan AI 可以加速但人類雙盲仍是金標準。</p>
+<p data-lang="en"><strong>Title/abstract screening (Rayyan, dual-blind).</strong> Two reviewers independently tag include / exclude / maybe; require Cohen's κ ≥0.6 before proceeding. Rayyan AI accelerates, but dual-blind human review remains the gold standard.</p>
+</div></div>
+<div class="wt-step"><span class="wt-label">Σ₇</span><div class="wt-body">
+<p data-lang="zh"><strong>Full-text screening。</strong>把 maybe + include 的全文找來，再次雙人盲審；無法取得的全文也要記錄。每篇排除都需在 PRISMA 圖標註原因。</p>
+<p data-lang="en"><strong>Full-text screening.</strong> Retrieve full text for include + maybe, run a second dual-blind round; log unretrievable papers. Every exclusion needs a documented reason in the PRISMA diagram.</p>
+</div></div>
+<div class="wt-step"><span class="wt-label">Σ₈</span><div class="wt-body">
+<p data-lang="zh"><strong>產出 PRISMA 2020 flow diagram。</strong>Identification → Screening → Eligibility → Included 四階段，每階段標 N 與排除原因。flow diagram = 你的 audit trail。</p>
+<p data-lang="en"><strong>Generate the PRISMA 2020 flow diagram.</strong> Four stages — Identification → Screening → Eligibility → Included — each with N and exclusion reasons. The diagram is your audit trail.</p>
+</div></div>
+</div>
+</section>
+
+<!-- ===== Discussion ===== -->
+<section id="discussion" class="section">
+<div class="section-label" data-zh="思辨" data-en="DISCUSSION">思辨</div>
+<h2 data-zh="三個值得吵的問題" data-en="Three Worth-Arguing Questions">三個值得吵的問題</h2>
+
+<div class="discussion-card">
+<span class="disc-label" data-zh="爭點 1" data-en="Debate 1">爭點 1</span>
+<h3 data-zh="Systematic review 在 AI 時代還需要嗎?" data-en="Are Systematic Reviews Still Needed in the AI Era?">Systematic review 在 AI 時代還需要嗎?</h3>
+<p class="disc-q" data-zh="當 Elicit / Scite / Consensus 能在 30 秒內合成 100 篇文章——還需要 6 個月做 PRISMA SR 嗎？" data-en="When Elicit / Scite / Consensus can synthesize 100 papers in 30 s, are 6-month PRISMA SRs still needed?"></p>
+<div class="disc-pov" data-lang="zh"><strong>傳統派：</strong>AI 工具沒有 protocol、沒有 inter-rater check、沒有 risk-of-bias assessment——它做的是「綜述」不是「systematic review」。</div>
+<div class="disc-pov" data-lang="en"><strong>Traditionalists:</strong> AI tools have no protocol, no inter-rater check, no risk-of-bias appraisal — they produce "summaries", not "systematic reviews".</div>
+<div class="disc-pov" data-lang="zh"><strong>加速派：</strong>2025 Cochrane 已正式允許 LLM 協助 abstract screening；reviewer 角色從「掃讀者」變「驗證者」，總時程可從 18 個月壓縮到 6。</div>
+<div class="disc-pov" data-lang="en"><strong>Accelerationists:</strong> Cochrane 2025 officially permits LLM-assisted abstract screening; reviewers shift from "skimmers" to "verifiers", compressing 18 months down to 6.</div>
+<div class="disc-pov" data-lang="zh"><strong>政策視角：</strong>NICE、WHO、FDA 仍只接受 PRISMA-compliant SR 作為 guideline evidence；AI 摘要尚未獲 regulatory acceptance。</div>
+<div class="disc-pov" data-lang="en"><strong>Policy view:</strong> NICE, WHO, FDA still accept only PRISMA-compliant SRs as guideline-grade evidence; AI summaries lack regulatory acceptance.</div>
+</div>
+
+<div class="discussion-card">
+<span class="disc-label" data-zh="爭點 2" data-en="Debate 2">爭點 2</span>
+<h3 data-zh="Living review 是否成主流?" data-en="Will Living Reviews Become Mainstream?">Living review 是否成主流?</h3>
+<p class="disc-q" data-zh="Cochrane Living Systematic Reviews 在 COVID-19 期間爆紅；2026 年它會成為臨床指南更新的標配嗎？" data-en="Cochrane Living SRs exploded during COVID-19; will they become the default for guideline updates in 2026?"></p>
+<div class="disc-pov" data-lang="zh"><strong>支持派：</strong>新證據出現 6 個月內必須更新，否則 guideline 永遠落後 18–36 個月。Living review + LLM auto-screening 是必然趨勢。</div>
+<div class="disc-pov" data-lang="en"><strong>Supporters:</strong> Guidelines must update within 6 months of new evidence or fall 18–36 months behind. Living reviews + LLM screening are inevitable.</div>
+<div class="disc-pov" data-lang="zh"><strong>謹慎派：</strong>Living = 永遠 in-flight；版本管理、citation 穩定性、reviewer fatigue 都是未解問題。</div>
+<div class="disc-pov" data-lang="en"><strong>Skeptics:</strong> "Living" means perpetually in-flight; version control, citation stability, reviewer fatigue remain unsolved.</div>
+<div class="disc-pov" data-lang="zh"><strong>資金視角：</strong>Living review 經費模式從「一次性 grant」變「subscription」——這是學術出版的結構性轉變。</div>
+<div class="disc-pov" data-lang="en"><strong>Funding view:</strong> Living reviews shift funding from "one-shot grants" to "subscriptions" — a structural transformation of scholarly publishing.</div>
+</div>
+
+<div class="discussion-card">
+<span class="disc-label" data-zh="爭點 3" data-en="Debate 3">爭點 3</span>
+<h3 data-zh="Citation chasing vs structured search — 哪個重要?" data-en="Citation Chasing vs Structured Search — Which Matters More?">Citation chasing vs structured search — 哪個重要?</h3>
+<p class="disc-q" data-zh="Greenhalgh 2005 BMJ 指出：snowballing (citation chasing) 找到的關鍵文獻往往是 PubMed 結構化檢索漏掉的——你還只用 PubMed 嗎？" data-en="Greenhalgh (BMJ 2005) showed: snowballing often surfaces key papers that PubMed structured search misses — do you still rely only on PubMed?"></p>
+<div class="disc-pov" data-lang="zh"><strong>結構化派：</strong>PRISMA / Cochrane 強調可複製性；snowballing 是黑盒子，無法在 method section 寫清楚。</div>
+<div class="disc-pov" data-lang="en"><strong>Structuralists:</strong> PRISMA / Cochrane prize reproducibility; snowballing is a black box that can't be cleanly written into Methods.</div>
+<div class="disc-pov" data-lang="zh"><strong>實務派：</strong>關鍵 grey literature（preprints、政策文件、conference proceedings）只靠 structured query 抓不到；citation chasing 是必要的補洞工具。</div>
+<div class="disc-pov" data-lang="en"><strong>Practitioners:</strong> Crucial grey literature (preprints, policy reports, conference proceedings) escapes structured queries; citation chasing fills the gaps.</div>
+<div class="disc-pov" data-lang="zh"><strong>2024–26 折衷：</strong>Research Rabbit / Connected Papers / Litmaps 把 citation network 視覺化——把 snowballing 變得可複製、可記錄。</div>
+<div class="disc-pov" data-lang="en"><strong>2024–26 middle ground:</strong> Research Rabbit / Connected Papers / Litmaps visualize the citation network, making snowballing reproducible and loggable.</div>
+</div>
+</section>
+
+<!-- ===== Spotlight ===== -->
+<section id="spotlight" class="section">
+<div class="section-label" data-zh="個案聚焦" data-en="SPOTLIGHT">個案聚焦</div>
+<h2 data-zh="一個典範、一個警訊" data-en="One Model, One Warning">一個典範、一個警訊</h2>
+
+<div class="spotlight">
+<span class="sp-icon">🏆</span>
+<div class="sp-body">
+<span class="sp-tag" data-zh="典範 · Cochrane 抗生素抗藥性回顧" data-en="Model · Cochrane Antibiotic Resistance Review">典範 · Cochrane 抗生素抗藥性回顧</span>
+<p data-lang="zh"><strong>Cochrane Library 在「短期抗生素療程是否導致抗藥性」的 systematic review</strong> 是典範實踐：PROSPERO pre-registered、跨 6 個資料庫、雙人盲審、Cohen's κ ≥0.78、ROBINS-I + RoB 2.0 雙工具評估 bias、GRADE certainty rating、PRISMA 2020 flow diagram 完整、forest plot + heterogeneity I² 全數報告。這篇被 WHO 列入 antimicrobial stewardship guideline。教訓：systematic review 不是「我看了很多論文」而是「我做了一個 audit-able 的證據合成」。</p>
+<p data-lang="en"><strong>Cochrane Library's SR on "short antibiotic courses and resistance"</strong> is exemplary: PROSPERO pre-registration, 6-database search, dual-blind screening, Cohen's κ ≥0.78, dual-tool bias assessment (ROBINS-I + RoB 2.0), GRADE certainty rating, full PRISMA 2020 flow diagram, forest plots with I² heterogeneity throughout. WHO adopted it into antimicrobial stewardship guidance. Lesson: a systematic review isn't "I read many papers" — it's "I performed an auditable evidence synthesis".</p>
+</div>
+</div>
+
+<div class="spotlight">
+<span class="sp-icon">⚠️</span>
+<div class="sp-body">
+<span class="sp-tag" data-zh="警訊 · Wakefield 1998 Lancet" data-en="Warning · Wakefield 1998 Lancet">警訊 · Wakefield 1998 Lancet</span>
+<p data-lang="zh"><strong>1998 Andrew Wakefield 在 Lancet 發表的 MMR 疫苗—自閉症 case series</strong>，名義上是 case series 但被當成 narrative literature review 引用，<strong>引發全球反疫苗運動延燒 20 年</strong>。後續查證：N=12、無對照、利益衝突未揭露、資料造假。2010 Lancet 正式撤稿；Wakefield 醫師資格被吊銷。教訓：(1) Narrative review 缺乏 protocol，極易被個人偏好或利益污染；(2) 期刊撤稿後的災難式 citation chain 在 retracted-watch 時代仍會繼續傳播——所以引文清單必須定期回查 Retraction Watch。</p>
+<p data-lang="en"><strong>Andrew Wakefield's 1998 MMR vaccine–autism case series in the Lancet</strong> — nominally a case series but cited as if it were a narrative literature review — <strong>fueled a global anti-vaccine movement for 20 years</strong>. Subsequent investigation: N=12, no controls, undisclosed conflict of interest, data fabrication. Retracted by the Lancet in 2010; Wakefield was struck off the medical register. Lessons: (1) narrative reviews without protocol are easily contaminated by preference or interest; (2) retracted-citation chains keep spreading even in the Retraction-Watch era — every citation list must be re-audited.</p>
+</div>
+</div>
+</section>
+
+<!-- ===== Pitfalls ===== -->
+<section id="pitfalls" class="section">
+<div class="section-label" data-zh="常見陷阱" data-en="COMMON PITFALLS">常見陷阱</div>
+<h2 data-zh="六個會毀掉文獻回顧的錯誤" data-en="Six Mistakes That Wreck a Literature Review">六個會毀掉文獻回顧的錯誤</h2>
+<div class="pitfall-grid">
+<div class="pitfall-card">
+<h4 data-zh="① 只搜尋 PubMed" data-en="① Searching only PubMed">① 只搜尋 PubMed</h4>
+<p data-lang="zh">PubMed 是必要不是充分。SR 需要 ≥3 個資料庫；只用 PubMed 會漏 Embase 獨有的歐洲藥物文獻、漏 WoS / Scopus 的跨領域引用、漏 Cochrane 的臨床試驗。</p>
+<p data-lang="en">PubMed is necessary but not sufficient. SRs need ≥3 databases. Relying on PubMed alone misses Embase's European drug literature, WoS / Scopus cross-disciplinary citations, and Cochrane's trial registry.</p>
+</div>
+<div class="pitfall-card">
+<h4 data-zh="② 跳過 PROSPERO 註冊" data-en="② Skipping PROSPERO registration">② 跳過 PROSPERO 註冊</h4>
+<p data-lang="zh">2024–26 高影響期刊要求 SR 在資料蒐集前 PROSPERO 註冊；事後註冊或不註冊 = HARKing 嫌疑，審稿人會直接 desk-reject。</p>
+<p data-lang="en">High-impact journals in 2024–26 require pre-data-collection PROSPERO registration. Post-hoc or no registration = HARKing suspicion → desk-reject.</p>
+</div>
+<div class="pitfall-card">
+<h4 data-zh="③ 沒有 inter-rater check" data-en="③ No inter-rater check">③ 沒有 inter-rater check</h4>
+<p data-lang="zh">單人篩選 → 無法保證 reproducibility；雙人盲審 + Cohen's κ ≥0.6 是 SR 基本門檻。κ 沒寫就是缺項。</p>
+<p data-lang="en">Single-reviewer screening → no reproducibility guarantee. Dual-blind + Cohen's κ ≥0.6 is the SR floor. No κ reported = a missing item.</p>
+</div>
+<div class="pitfall-card">
+<h4 data-zh="④ 只引用自家 group" data-en="④ Citing only your own group">④ 只引用自家 group</h4>
+<p data-lang="zh">論文 ref 80% 都是 corresponding author 的舊作 → reviewer 立刻警覺 narcissistic citation。應主動找 critique 你立場的論文並引用。</p>
+<p data-lang="en">If 80% of refs are the corresponding author's prior work → reviewers flag narcissistic citation. Actively cite papers that critique your stance.</p>
+</div>
+<div class="pitfall-card">
+<h4 data-zh="⑤ 混用 narrative + systematic protocols" data-en="⑤ Mixing narrative + systematic protocols">⑤ 混用 narrative + systematic protocols</h4>
+<p data-lang="zh">標題寫「systematic review」但方法寫「我們選了相關論文」——這是<strong>方法學上的災難</strong>。要嘛全 PRISMA，要嘛誠實寫 narrative。</p>
+<p data-lang="en">Title says "systematic review" but Methods says "we selected relevant papers" — a <strong>methodological disaster</strong>. Either fully PRISMA, or honestly write "narrative".</p>
+</div>
+<div class="pitfall-card">
+<h4 data-zh="⑥ 忘了 Cochrane 資料萃取表" data-en="⑥ Forgetting Cochrane's extraction template">⑥ 忘了 Cochrane 資料萃取表</h4>
+<p data-lang="zh">SR 的 data extraction 應使用<strong>標準化表格</strong>（Cochrane 模板或 EPHPP）：自由文字 = 不可複製。雙人萃取後互相核對。</p>
+<p data-lang="en">SR data extraction must use a <strong>standardized form</strong> (Cochrane template or EPHPP): free text = irreproducible. Dual extraction with cross-check.</p>
+</div>
+</div>
+</section>
+
+<!-- ===== Contrast ===== -->
+<section id="contrast" class="section">
+<div class="section-label" data-zh="壞例 vs 好例" data-en="BAD VS GOOD">壞例 vs 好例</div>
+<h2 data-zh="同一段文獻回顧，兩種寫法" data-en="Same Paragraph, Two Phrasings">同一段文獻回顧，兩種寫法</h2>
+<div class="contrast-2col">
+<div class="con-card bad">
+<h4>❌ <span data-zh="壞範例" data-en="Bad example">壞範例</span></h4>
+<p data-lang="zh"><em>「許多研究指出許多現象 [1–15]。」</em></p>
+<p data-lang="en"><em>"Several studies have shown many things [1–15]."</em></p>
+<ul>
+<li data-lang="zh">塊狀引用 (block citation) 15 篇——無法判斷你讀了哪幾篇</li>
+<li data-lang="en">A 15-paper block citation — no way to tell which you actually read</li>
+<li data-lang="zh">「許多」「現象」皆無具體內容</li>
+<li data-lang="en">"Several" and "things" carry zero specific content</li>
+<li data-lang="zh">無方法、無 gap、無批判</li>
+<li data-lang="en">No methodology, no gap, no critique</li>
+<li data-lang="zh">看不出研究問題如何接續既有文獻</li>
+<li data-lang="en">No logical link to your research question</li>
+<li data-lang="zh">審稿人 30 秒判定「沒讀文獻」</li>
+<li data-lang="en">Reviewer concludes "didn't read the literature" in 30 s</li>
+</ul>
+</div>
+<div class="con-card good">
+<h4>✅ <span data-zh="好範例" data-en="Good example">好範例</span></h4>
+<p data-lang="zh"><em>「三個 TNBC scRNA-seq atlases (Wu et al. 2021 Nat Genet；Bassez et al. 2021 Nat Med；Liu et al. 2023 Cell) 已系統性刻劃 inter-tumoral heterogeneity，但 post-chemotherapy 的 longitudinal cell-state shift 尚未被刻劃。本研究透過 paired pre/post pembrolizumab 的時序 scRNA-seq 填補此 gap。」</em></p>
+<p data-lang="en"><em>"Three scRNA-seq atlases of TNBC (Wu et al. 2021 Nat Genet; Bassez et al. 2021 Nat Med; Liu et al. 2023 Cell) have systematically characterized inter-tumoral heterogeneity, yet longitudinal post-chemotherapy cell-state dynamics remain uncharacterized. This study fills this gap via paired pre/post pembrolizumab scRNA-seq."</em></p>
+<ul>
+<li data-lang="zh">具體 author + year + journal，每篇可被檢核</li>
+<li data-lang="en">Specific author + year + journal — each citation verifiable</li>
+<li data-lang="zh">區分「已被回答」與「尚未被回答」</li>
+<li data-lang="en">Separates "answered" from "unanswered"</li>
+<li data-lang="zh">明確 gap：post-chemo longitudinal cell-state</li>
+<li data-lang="en">Explicit gap: post-chemo longitudinal cell-state</li>
+<li data-lang="zh">告訴 reviewer 你的研究如何填補 gap</li>
+<li data-lang="en">Tells the reviewer exactly how your study fills it</li>
+<li data-lang="zh">3 篇精選 &gt; 15 篇 block citation</li>
+<li data-lang="en">3 curated citations &gt; a 15-paper block</li>
+</ul>
+</div>
+</div>
+</section>
+
+<!-- ===== Reflection ===== -->
+<section id="reflection" class="section">
+<div class="section-label" data-zh="自我檢核" data-en="SELF-CHECK">自我檢核</div>
+<h2 data-zh="六道反思題" data-en="Six Reflection Questions">六道反思題</h2>
+<div class="reflection-q" data-lang="zh"><strong>Q1.</strong> 你的 SR 是否已在 PROSPERO（或 OSF / Cochrane）pre-registered？註冊號是否寫進 Methods？</div>
+<div class="reflection-q" data-lang="en"><strong>Q1.</strong> Is your SR pre-registered (PROSPERO / OSF / Cochrane)? Is the registration ID written into Methods?</div>
+<div class="reflection-q" data-lang="zh"><strong>Q2.</strong> Query 是否同時用 MeSH + Boolean？是否有資深 librarian 幫你看過 syntax？</div>
+<div class="reflection-q" data-lang="en"><strong>Q2.</strong> Does your query combine MeSH + Boolean? Has a research librarian reviewed the syntax?</div>
+<div class="reflection-q" data-lang="zh"><strong>Q3.</strong> 是否跨 ≥3 個資料庫檢索？每個資料庫的執行日期、結果數有沒有記錄？</div>
+<div class="reflection-q" data-lang="en"><strong>Q3.</strong> Searched ≥3 databases? Date and hit count logged per database?</div>
+<div class="reflection-q" data-lang="zh"><strong>Q4.</strong> 是否做雙人盲審？Cohen's κ 是否報告 ≥0.6？分歧是怎麼解決的（第三 reviewer / consensus discussion）？</div>
+<div class="reflection-q" data-lang="en"><strong>Q4.</strong> Was screening dual-blind? Is Cohen's κ reported ≥0.6? How were disagreements resolved (third reviewer / consensus)?</div>
+<div class="reflection-q" data-lang="zh"><strong>Q5.</strong> PRISMA 2020 flow diagram 是否完整？四階段、N、排除原因都齊全？</div>
+<div class="reflection-q" data-lang="en"><strong>Q5.</strong> Is the PRISMA 2020 flow diagram complete? All four stages, N, and exclusion reasons present?</div>
+<div class="reflection-q" data-lang="zh"><strong>Q6.</strong> 有沒有 living-review 的更新計畫？6 個月後若有新證據出現，你怎麼納入？</div>
+<div class="reflection-q" data-lang="en"><strong>Q6.</strong> Is there a living-review update plan? How will you incorporate new evidence emerging in 6 months?</div>
+</section>
+
+<!-- ===== Advanced ===== -->
+<section id="advanced" class="section">
+<div class="section-label" data-zh="2024–2026 進階" data-en="2024–2026 ADVANCED">2024–2026 進階</div>
+<h2 data-zh="前沿議題（可摺疊）" data-en="Frontier Topics (collapsible)">前沿議題（可摺疊）</h2>
+<div class="advanced-note">
+<span class="adv-label" data-zh="SOTA" data-en="SOTA">SOTA</span>
+
+<details class="detail-toggle">
+<summary data-zh="(a) Rayyan + Covidence 自動化 2025" data-en="(a) Rayyan + Covidence Automation 2025">(a) Rayyan + Covidence 自動化 2025</summary>
+<div data-lang="zh">
+<p><strong>Rayyan AI (2024 update)</strong> 加入 LLM-assisted abstract prediction：上傳 ~100 篇人類標記訓練集，工具會自動為剩餘數千篇預測 include / exclude 機率，reviewer 從「掃 5000 篇」變「驗證 top-confidence 600 篇」。Covidence 2025 整合 risk-of-bias 自動評分（GRADE）+ 引文連結 + PRISMA flow auto-render。實務經驗：</p>
+<ul>
+<li>仍需<strong>人類雙盲</strong>對 high-confidence 預測做 spot-check（建議抽 20%）。</li>
+<li>LLM 對非英文摘要 (CJK / 阿拉伯文) 預測準確率仍偏低 (~70%)。</li>
+<li>Cochrane 2025 LLM-assisted SR guidance：必須在 Methods 揭露 model name + version + prompt + accuracy 評估。</li>
+</ul>
+</div>
+<div data-lang="en">
+<p><strong>Rayyan AI (2024 update)</strong> added LLM-assisted abstract prediction: upload ~100 human-labelled examples and the tool predicts include/exclude probabilities for thousands more — reviewers shift from "skim 5000" to "verify the top-confidence 600". Covidence 2025 integrates auto risk-of-bias scoring (GRADE), citation linking, and PRISMA-flow auto-rendering. Practical notes:</p>
+<ul>
+<li><strong>Dual-blind human spot-checks</strong> are still required on high-confidence predictions (recommend 20%).</li>
+<li>LLM accuracy on non-English abstracts (CJK / Arabic) remains modest (~70%).</li>
+<li>Cochrane 2025 LLM-assisted SR guidance: Methods must disclose model name + version + prompt + accuracy assessment.</li>
+</ul>
+</div>
+</details>
+
+<details class="detail-toggle">
+<summary data-zh="(b) Living systematic reviews" data-en="(b) Living Systematic Reviews">(b) Living systematic reviews</summary>
+<div data-lang="zh">
+<p>Living SR 的核心是<strong>「持續更新而非一次出版」</strong>：用自動 query agents (PubMed RSS / NCBI eutils webhook) 監測新文獻，當納入標準觸發時自動加入並重跑 meta-analysis。代表案例：</p>
+<ul>
+<li><strong>COVID-NMA (Boutron et al., Cochrane)</strong>：COVID-19 治療 living network meta-analysis，每週更新。</li>
+<li><strong>Living Evidence for Diabetes Consortium</strong>：糖尿病臨床指引 living review。</li>
+<li><strong>Annals of Internal Medicine</strong> 2024 起設立 "Living Reviews" 專欄。</li>
+</ul>
+<p>挑戰：版本管理 (DOI 是否需要 minor-version？)、reviewer fatigue、citation 穩定性。NLM 2025 開始為 living review 提供 versioned DOI。</p>
+</div>
+<div data-lang="en">
+<p>The core of a living SR is <strong>"continuous update rather than one-shot publication"</strong>: automated query agents (PubMed RSS / NCBI eutils webhook) monitor new literature and auto-incorporate it on trigger, re-running the meta-analysis. Flagship examples:</p>
+<ul>
+<li><strong>COVID-NMA (Boutron et al., Cochrane)</strong>: weekly-updated living network meta-analysis of COVID-19 therapies.</li>
+<li><strong>Living Evidence for Diabetes Consortium</strong>: living review of diabetes clinical guidance.</li>
+<li><strong>Annals of Internal Medicine</strong> launched a "Living Reviews" section in 2024.</li>
+</ul>
+<p>Challenges: versioning (does each minor revision need a new DOI?), reviewer fatigue, citation stability. NLM 2025 began issuing versioned DOIs for living reviews.</p>
+</div>
+</details>
+
+<details class="detail-toggle">
+<summary data-zh="(c) AI 文獻搜尋工具 — Elicit / Scite / Consensus 2024–26" data-en="(c) AI Literature-Search Tools — Elicit / Scite / Consensus 2024–26">(c) AI 文獻搜尋工具 — Elicit / Scite / Consensus 2024–26</summary>
+<div data-lang="zh">
+<p>三大新興工具的角色定位：</p>
+<ul>
+<li><strong>Elicit (2024+)</strong>：自然語言問題 → 自動結構化抽取 (PICO / sample size / effect size) 的「結構化合成」。適合 scoping review 第一輪。</li>
+<li><strong>Scite</strong>：把每個 citation 分類為 supporting / contrasting / mentioning，協助找出真正被質疑的論文。在 risk-of-bias 評估上特別有用。</li>
+<li><strong>Consensus.app</strong>：基於 Semantic Scholar 200M+ 論文資料庫，自動產生 "yes / no / mixed" 投票式 summary。風險：oversimplification + hallucination。</li>
+</ul>
+<p>三者皆<strong>不取代 PRISMA SR</strong>，但都是 narrative review、scoping review、grant writing 的加速器。Cochrane 2025 立場：可作 supplementary tool，主流程仍須人類雙盲。</p>
+</div>
+<div data-lang="en">
+<p>Roles of the three emerging tools:</p>
+<ul>
+<li><strong>Elicit (2024+)</strong>: natural-language question → auto-extracted structured fields (PICO / sample size / effect size) = "structured synthesis". Suits the first pass of a scoping review.</li>
+<li><strong>Scite</strong>: classifies each citation as supporting / contrasting / mentioning — helps surface contested papers. Particularly useful for risk-of-bias.</li>
+<li><strong>Consensus.app</strong>: built on Semantic Scholar's 200M+ corpus; produces "yes / no / mixed" vote-style summaries. Risk: oversimplification + hallucination.</li>
+</ul>
+<p>None <strong>replaces PRISMA SR</strong>, but all accelerate narrative reviews, scoping reviews, and grant writing. Cochrane 2025 stance: acceptable as supplementary tools, but the main pipeline still requires dual-blind human review.</p>
+</div>
+</details>
+
+</div>
+</section>
+
 <!-- ===== Section 1: Overview ===== -->
 <section class="section">
 <div class="section-label" data-zh="概覽" data-en="OVERVIEW">概覽</div>
@@ -307,9 +787,14 @@ AND (<span class="str">"randomized"</span> OR <span class="str">"RCT"</span>) -<
 </div><div class="quiz-feedback" id="fb3"></div></div>
 </section>
 
+<div class="history-note">
+<p data-lang="zh"><strong>歷史軼事 · Archie Cochrane 與 systematic review 革命 (1972 → 1993)。</strong>蘇格蘭流行病學家 Archie Cochrane 於 1972 年出版《Effectiveness and Efficiency: Random Reflections on Health Services》，對當時臨床醫學提出震撼性批評：「沒有任何方法可以系統性地把所有 RCT 證據整合給醫師使用——醫學在用 anecdote 治病。」這段話被視為 evidence-based medicine 的奠基宣言。20 年後，<strong>1993 年 Cochrane Collaboration 在牛津正式成立</strong>，目標就是按系統化方法回答 Cochrane 的批評。如今 Cochrane Library 收錄 9,000+ 篇 SR，每年被 WHO / NICE / NIH 引用作為 guideline evidence。教訓：一段 1972 年的牢騷，最終改變了全球臨床醫學的證據標準——但耗時 21 年才從 manifesto 變成 institution。</p>
+<p data-lang="en"><strong>Historical anecdote · Archie Cochrane and the systematic-review revolution (1972 → 1993).</strong> Scottish epidemiologist Archie Cochrane published <em>Effectiveness and Efficiency: Random Reflections on Health Services</em> in 1972, with a thunderclap critique of clinical medicine: "there is no systematic way to bring all RCT evidence to clinicians — medicine is practiced by anecdote." This passage is widely regarded as the founding manifesto of evidence-based medicine. Twenty-one years later, <strong>the Cochrane Collaboration was formally founded in Oxford in 1993</strong>, dedicated to answering that critique systematically. Today the Cochrane Library houses 9,000+ SRs, cited annually by WHO / NICE / NIH as guideline-grade evidence. Lesson: a single 1972 complaint reshaped global clinical evidence standards — but it took 21 years to go from manifesto to institution.</p>
+</div>
+
 <nav class="page-nav">
 <a href="research-question.html"><span class="nav-dir" data-zh="← 上一步" data-en="← Previous">← 上一步</span><span class="nav-title" data-zh="Step 1: 研究問題與假設" data-en="Step 1: Research Question &amp;amp; Hypothesis">Step 1: 研究問題與假設</span></a>
-<a href="structure-imrad.html"><span class="nav-dir" data-zh="下一步 →" data-en="Next →">下一步 →</span><span class="nav-title" data-zh="Step 3: IMRaD 與學位論文章節" data-en="Step 3: IMRaD &amp;amp; Thesis Chapter Structure">Step 3: IMRaD 與學位論文章節</span></a>
+<a href="structure-imrad.html"><span class="nav-dir" data-zh="下一步 →" data-en="Next →">下一步 →</span><span class="nav-title" data-zh="Step 3: IMRaD 與學位論文章節" data-en="Step 3: IMRaD &amp;amp; Thesis Chapter Structure">Step 3: IMRaD &amp;amp; Thesis Chapter Structure</span></a>
 </nav>
 </main>
 <footer class="site-footer">© Charlene — Advanced Academic Writing Interactive Tutorial</footer>

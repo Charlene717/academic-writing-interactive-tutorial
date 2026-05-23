@@ -30,6 +30,357 @@
 </header>
 <main class="content-wrap">
 
+<!-- ===== Section TOC ===== -->
+<div class="section-toc">
+<strong data-zh="本章導覽（閱讀時間 ~24 分）" data-en="Chapter map (reading time ~24 min)">本章導覽（閱讀時間 ~24 分）</strong>
+<div class="pill-row">
+<span class="level-badge l-beg" data-zh="初學者" data-en="Beginner">初學者</span>
+<span class="level-badge l-mid" data-zh="中階" data-en="Intermediate">中階</span>
+<span class="level-badge l-adv" data-zh="進階" data-en="Advanced">進階</span>
+<span class="pill navy">Major revision</span><span class="pill amber">Point-by-point</span><span class="pill violet">Cover letter</span><span class="pill teal">Reviewer ethics</span><span class="pill rose">Response letter</span>
+</div>
+<ol>
+<li><a href="#story" data-zh="開場故事：Aiko 與 24 小時冷靜法則" data-en="Story: Aiko and the 24-hr cool-down rule">開場故事：Aiko 與 24 小時冷靜法則</a></li>
+<li><a href="#glossary" data-zh="14 個核心詞彙（雙版本）" data-en="14 Glossary terms (two versions)">14 個核心詞彙（雙版本）</a></li>
+<li><a href="#history" data-zh="從 1665 Royal Society 到 AI 審稿" data-en="From 1665 Royal Society to AI review">從 1665 Royal Society 到 AI 審稿</a></li>
+<li><a href="#kpi" data-zh="關鍵指標" data-en="Key numbers">關鍵指標</a></li>
+<li><a href="#walkthrough" data-zh="Σ-walkthrough：8 步回覆審稿" data-en="Σ-walkthrough: 8-step response">Σ-walkthrough：8 步回覆審稿</a></li>
+<li><a href="#discussion" data-zh="專家辯論：3 個爭議" data-en="Expert debate: 3 controversies">專家辯論：3 個爭議</a></li>
+<li><a href="#spotlight" data-zh="模範與警訊 spotlight" data-en="Model & Warning spotlights">模範與警訊 spotlight</a></li>
+<li><a href="#pitfalls" data-zh="6 個典型陷阱" data-en="6 typical pitfalls">6 個典型陷阱</a></li>
+<li><a href="#advanced" data-zh="進階 2024-2026 SOTA" data-en="Advanced 2024-2026 SOTA">進階 2024-2026 SOTA</a></li>
+</ol>
+</div>
+
+<!-- ===== STORY ===== -->
+<section id="story" class="section">
+<div class="section-label" data-zh="故事開場" data-en="OPENING STORY">故事開場</div>
+<h2 data-zh="場景：Major Revision 第一天的怒氣" data-en="Scene: First-Day Anger After Major Revision">場景：Major Revision 第一天的怒氣</h2>
+<div class="story-block">
+<span class="story-tag">SCENE · 2025 · Riken Lab</span>
+<h3 data-zh="從生氣到分類：Aiko 的 6 週重生" data-en="From rage to triage: Aiko's 6-week rebirth">從生氣到分類：Aiko 的 6 週重生</h3>
+<div data-lang="zh">
+<p>博士生 <strong>Aiko</strong> 在投稿三個月後收到 decision letter——<strong>Major Revision</strong>。第一次讀 reviewer 2 的 comments，她又氣又委屈：「他根本沒看懂我的 Figure 3！」、「他要求的實驗根本超出範圍！」她當場想寫回信反駁。</p>
+<p>PI 看到她在敲鍵盤，輕輕說：「<em>等 24 小時。明天再看一次。</em>」</p>
+<p>第二天 Aiko 再讀一次，發現大部分意見其實合理：reviewer 1 點出 cluster 解析度沒做敏感度分析、reviewer 2 提出的對照組確實她們從一開始就該設、reviewer 3 要求的統計檢定 5 分鐘就能補上。她把每條意見分成 <em>(a) 容易改</em>、<em>(b) 需新分析/實驗</em>、<em>(c) 可以解釋的不同意</em>、<em>(d) 無法修改</em>。</p>
+<p>6 週後，Aiko 完成 4 個新分析 + 1 個新對照組實驗 + 1 份 18 頁的 point-by-point response letter。論文被接受了。她後來說：「最重要的不是回信技巧，是那 24 小時。」</p>
+</div>
+<div data-lang="en">
+<p>PhD student <strong>Aiko</strong> receives her decision letter three months after submission — <strong>Major Revision</strong>. Reading Reviewer 2's comments for the first time, she is furious and hurt: "He didn't even understand my Figure 3!" "His requested experiment is way out of scope!" She opens a reply window to push back.</p>
+<p>Her PI sees her typing and gently says: "<em>Wait 24 hours. Read it again tomorrow.</em>"</p>
+<p>The next day Aiko re-reads. Most criticisms are reasonable: Reviewer 1 rightly asks for a cluster-resolution sensitivity analysis; Reviewer 2's requested control should have been there from day one; Reviewer 3's stat test takes 5 minutes. She buckets every comment into <em>(a) easy fix</em>, <em>(b) needs new analysis/experiment</em>, <em>(c) explainable disagreement</em>, <em>(d) cannot be done</em>.</p>
+<p>Six weeks later: 4 new analyses, 1 new control experiment, an 18-page point-by-point response letter. The paper is accepted. Aiko later says: "The biggest skill wasn't writing — it was those 24 hours."</p>
+</div>
+</section>
+
+<!-- ===== GLOSSARY ===== -->
+<section id="glossary" class="section">
+<div class="section-label" data-zh="核心詞彙" data-en="GLOSSARY">核心詞彙</div>
+<h2 data-zh="14 個關鍵術語（雙版本）" data-en="14 Key Terms (two versions)">14 個關鍵術語（雙版本）</h2>
+<p data-lang="zh"><em>每個詞有兩個版本：🧒「給小孩看」用比喻、📐「給研究者看」給定義。</em></p>
+<p data-lang="en"><em>Each term has two versions: 🧒 "for kids" uses a metaphor; 📐 "for researchers" gives the formal definition.</em></p>
+<div class="glossary-grid">
+
+<div class="glossary-card">
+<div class="term-en">Peer review</div><div class="term-zh">同儕審查</div>
+<div class="term-kid" data-lang="zh">把作業給其他同行批改——他們挑出錯誤，你再改一次。</div>
+<div class="term-kid" data-lang="en">Letting other classmates grade your homework — they find errors, you fix them.</div>
+<div class="term-tech" data-lang="zh">由獨立同領域專家評估稿件之科學嚴謹度、原創性與重要性的程序；現代學術出版的核心品質把關機制。</div>
+<div class="term-tech" data-lang="en">Independent assessment of manuscript rigor, novelty, and significance by experts in the field; the core quality-control mechanism of modern scholarly publishing.</div>
+</div>
+
+<div class="glossary-card">
+<div class="term-en">Single-blind</div><div class="term-zh">單盲審查</div>
+<div class="term-kid" data-lang="zh">審稿人知道你是誰，你不知道審稿人是誰。</div>
+<div class="term-kid" data-lang="en">Reviewers know who you are; you don't know who they are.</div>
+<div class="term-tech" data-lang="zh">最常見模式 (60-70% 期刊)；reviewers 看得到作者資訊，作者看不到 reviewer 身份。可能引入 prestige bias。</div>
+<div class="term-tech" data-lang="en">Most common (60-70% of journals); reviewers see authors, not vice versa. Risk: prestige bias.</div>
+</div>
+
+<div class="glossary-card">
+<div class="term-en">Double-blind</div><div class="term-zh">雙盲審查</div>
+<div class="term-kid" data-lang="zh">兩邊都看不到對方是誰——像匿名投票。</div>
+<div class="term-kid" data-lang="en">Neither side sees the other — like anonymous voting.</div>
+<div class="term-tech" data-lang="zh">作者與 reviewer 互相匿名；可減少 gender、institution、country bias，但 self-citation 仍可能暴露身份。</div>
+<div class="term-tech" data-lang="en">Authors and reviewers mutually anonymous; reduces gender/institution/country bias, though self-citation can leak identity.</div>
+</div>
+
+<div class="glossary-card">
+<div class="term-en">Open peer review</div><div class="term-zh">公開審查</div>
+<div class="term-kid" data-lang="zh">所有人都看得到審稿評論——而且通常會署名。</div>
+<div class="term-kid" data-lang="en">Everyone can read the review — and reviewers often sign their names.</div>
+<div class="term-tech" data-lang="zh">eLife、F1000Research、BMJ 採用；reviewer 簽名、評論公開、提升透明度但可能讓 reviewer 不敢嚴格批評。</div>
+<div class="term-tech" data-lang="en">Used by eLife, F1000Research, BMJ; reviewers sign, reviews are public — boosts transparency but may soften criticism.</div>
+</div>
+
+<div class="glossary-card">
+<div class="term-en">Reviewer</div><div class="term-zh">審稿人</div>
+<div class="term-kid" data-lang="zh">幫期刊把關的同行專家——通常 2-4 位、義務性、不領薪。</div>
+<div class="term-kid" data-lang="en">Volunteer experts who screen papers for the journal — usually 2-4, unpaid.</div>
+<div class="term-tech" data-lang="zh">由 editor 邀請、領域內具相關發表的研究者；提交 confidential 評論 + 給 editor 的建議 (accept/revise/reject)。</div>
+<div class="term-tech" data-lang="en">Invited by editor; field-relevant published researchers; submit confidential comments + recommendation to editor.</div>
+</div>
+
+<div class="glossary-card">
+<div class="term-en">Editor</div><div class="term-zh">主編／責任編輯</div>
+<div class="term-kid" data-lang="zh">期刊的「裁判」——綜合審稿人意見後做最終決定。</div>
+<div class="term-kid" data-lang="en">The journal's "referee" — makes the final call after weighing reviews.</div>
+<div class="term-tech" data-lang="zh">分為 Editor-in-Chief、Handling Editor、Associate Editor；可不採納 reviewer 建議；在 COI、citation coercion 案件中扮演仲裁角色。</div>
+<div class="term-tech" data-lang="en">Roles: Editor-in-Chief / Handling / Associate; may override reviewer recommendations; arbiter on COI and citation-coercion disputes.</div>
+</div>
+
+<div class="glossary-card">
+<div class="term-en">Decision letter</div><div class="term-zh">決定信</div>
+<div class="term-kid" data-lang="zh">期刊寫給你「我們要不要刊登」的官方回信。</div>
+<div class="term-kid" data-lang="en">The journal's official letter saying "we will / won't / maybe publish".</div>
+<div class="term-tech" data-lang="zh">5 種典型決定：Accept、Minor Revision、Major Revision、Reject & Resubmit、Reject；附 reviewer comments + editor 摘要。</div>
+<div class="term-tech" data-lang="en">Five typical decisions: Accept / Minor / Major / Reject-Resubmit / Reject; includes reviewer comments + editor summary.</div>
+</div>
+
+<div class="glossary-card">
+<div class="term-en">Major revision</div><div class="term-zh">大修</div>
+<div class="term-kid" data-lang="zh">「有機會、但要做不少額外工作」——通常 2-3 個月內回稿。</div>
+<div class="term-kid" data-lang="en">"Real chance, but significant work" — usually 2-3 months to resubmit.</div>
+<div class="term-tech" data-lang="zh">需新實驗、新分析或大幅改寫；典型 ~50-70% 最終接受率；務必同時提交 clean + tracked-changes 兩版。</div>
+<div class="term-tech" data-lang="en">Requires new experiments, analyses, or major rewriting; typical ~50-70% final acceptance; submit both clean + tracked-changes versions.</div>
+</div>
+
+<div class="glossary-card">
+<div class="term-en">Minor revision</div><div class="term-zh">小修</div>
+<div class="term-kid" data-lang="zh">「基本接受了，只是要修小毛病」——2 週內搞定。</div>
+<div class="term-kid" data-lang="en">"Basically accepted — just clean up details" — finish within 2 weeks.</div>
+<div class="term-tech" data-lang="zh">文字 / 圖表 / 統計 細節調整；95%+ 最終接受率；仍須完整 point-by-point response。</div>
+<div class="term-tech" data-lang="en">Wording, figure, or statistics tweaks; 95%+ final acceptance; still requires a full point-by-point response.</div>
+</div>
+
+<div class="glossary-card">
+<div class="term-en">Point-by-point response</div><div class="term-zh">逐點回覆</div>
+<div class="term-kid" data-lang="zh">把審稿人每一句意見「一條一條」回——不能跳過任何一條。</div>
+<div class="term-kid" data-lang="en">Reply to every comment one by one — skipping any is forbidden.</div>
+<div class="term-tech" data-lang="zh">標準 4 元素：引用 reviewer 原話 → 回應 → 文中改了哪裡 (頁/行) → 必要時附新數據。</div>
+<div class="term-tech" data-lang="en">Standard 4 elements: quote reviewer verbatim → response → where changed (page/line) → new data if needed.</div>
+</div>
+
+<div class="glossary-card">
+<div class="term-en">Cover letter</div><div class="term-zh">投稿信／回覆封面信</div>
+<div class="term-kid" data-lang="zh">寄回稿子時夾在前面的一封短信——「我們做了哪些大改」。</div>
+<div class="term-kid" data-lang="en">A short letter on top of the resubmission — "here's the big stuff we changed".</div>
+<div class="term-tech" data-lang="zh">寫給 editor，1 頁；列出 reviewer 主要關注、總結 revision 方向；不要重複 point-by-point 細節。</div>
+<div class="term-tech" data-lang="en">Addressed to editor, 1 page; summarizes main reviewer concerns and revision strategy; don't duplicate point-by-point details.</div>
+</div>
+
+<div class="glossary-card">
+<div class="term-en">Reviewer comment</div><div class="term-zh">審稿意見</div>
+<div class="term-kid" data-lang="zh">審稿人寫的「我覺得這篇怎樣」的具體建議或質疑。</div>
+<div class="term-kid" data-lang="en">A reviewer's specific critique or suggestion about the paper.</div>
+<div class="term-tech" data-lang="zh">分 Major / Minor / Confidential to editor 三類；必須全部回覆，confidential 部分 editor 通常會摘給作者。</div>
+<div class="term-tech" data-lang="en">Three categories: Major / Minor / Confidential to editor; respond to all visible ones; editor usually summarizes confidential parts.</div>
+</div>
+
+<div class="glossary-card">
+<div class="term-en">Response letter</div><div class="term-zh">回覆信</div>
+<div class="term-kid" data-lang="zh">回稿時附上的「我們怎麼回每一條」總文件——通常 10-30 頁。</div>
+<div class="term-kid" data-lang="en">The master document of "how we addressed each comment" — usually 10-30 pages.</div>
+<div class="term-tech" data-lang="zh">= Cover letter + Point-by-point response 合集；reviewer 與 editor 都會仔細閱讀，是說服力關鍵。</div>
+<div class="term-tech" data-lang="en">= Cover letter + Point-by-point response combined; both reviewers and editor read carefully — the key persuasion document.</div>
+</div>
+
+<div class="glossary-card">
+<div class="term-en">Citation coercion</div><div class="term-zh">引用脅迫</div>
+<div class="term-kid" data-lang="zh">審稿人逼你「引用我的論文」——學術倫理紅線。</div>
+<div class="term-kid" data-lang="en">A reviewer pressuring you to "cite my own papers" — a clear ethics red line.</div>
+<div class="term-tech" data-lang="zh">Wilhite & Fong 2012 Science 揭露；COPE 規範禁止；若 reviewer 強制要求引用其論文且與內容無關，可向 editor 申訴。</div>
+<div class="term-tech" data-lang="en">Exposed by Wilhite & Fong 2012 Science; banned by COPE; report to editor if a reviewer demands unrelated self-citations.</div>
+</div>
+
+</div>
+</section>
+
+<!-- ===== HISTORY TIMELINE ===== -->
+<section id="history" class="section">
+<div class="section-label" data-zh="歷史" data-en="HISTORY">歷史</div>
+<h2 data-zh="從 1665 Royal Society 到 AI 審稿" data-en="From 1665 Royal Society to AI Review">同儕審查的簡史：從 1665 Royal Society 到 AI 審稿</h2>
+<div class="timeline">
+<div class="timeline-item"><span class="tl-year">1665</span><span class="tl-title" data-zh="Royal Society：首見同儕審查" data-en="Royal Society: first peer review">Royal Society：首見同儕審查</span><span class="tl-desc" data-zh="Philosophical Transactions 創刊；最早的審稿是學者之間寄信討論，非系統化制度。" data-en="Philosophical Transactions launched; earliest peer review was informal letters between scholars, not a formal system."></span></div>
+<div class="timeline-item"><span class="tl-year">1731</span><span class="tl-title" data-zh="Edinburgh Medical Society：正式 review" data-en="Edinburgh Medical Society: formal review">Edinburgh Medical Society：正式 review</span><span class="tl-desc" data-zh="Medical Essays and Observations 採用 committee review；現代制度雛形。" data-en="Medical Essays and Observations adopts committee review — proto modern system."></span></div>
+<div class="timeline-item"><span class="tl-year">1830-50s</span><span class="tl-title" data-zh="Royal Society：系統化審稿" data-en="Royal Society: systematic review">Royal Society：系統化審稿</span><span class="tl-desc" data-zh="Philosophical Transactions 開始制度化分派 referee；建立正式 referee 報告流程。" data-en="Philosophical Transactions formalizes referee assignment and report flow."></span></div>
+<div class="timeline-item"><span class="tl-year">1937</span><span class="tl-title" data-zh="JAMA：editor-only 制度結束" data-en="JAMA: editor-only era ends">JAMA：editor-only 制度結束</span><span class="tl-desc" data-zh="此前許多醫學期刊由 editor 一人決定刊登與否；JAMA 改採外部 reviewer。" data-en="Many medical journals had editor-only decisions; JAMA shifts to external reviewers."></span></div>
+<div class="timeline-item"><span class="tl-year">1973</span><span class="tl-title" data-zh="BMJ：peer review 正式化" data-en="BMJ formalizes peer review">BMJ：peer review 正式化</span><span class="tl-desc" data-zh="Stephen Lock 任 BMJ 主編；建立明確的 reviewer 邀請、評估、回覆流程。" data-en="Stephen Lock as BMJ editor establishes explicit invitation, assessment, and response workflow."></span></div>
+<div class="timeline-item"><span class="tl-year">1996</span><span class="tl-title" data-zh="PLoS 提倡 open peer review" data-en="PLoS proposes open peer review">PLoS 提倡 open peer review</span><span class="tl-desc" data-zh="開放取用與公開審稿運動興起；後續 BMC、eLife、F1000 響應。" data-en="Open-access and open-review movement begins; BMC, eLife, F1000 follow."></span></div>
+<div class="timeline-item"><span class="tl-year">2005</span><span class="tl-title" data-zh="Ioannidis：審稿失靈" data-en="Ioannidis: peer-review failure">Ioannidis：審稿失靈</span><span class="tl-desc" data-zh="PLoS Medicine「為何多數研究結果是錯的」引爆 reproducibility crisis 與 peer review 改革論戰。" data-en="PLoS Medicine "Why most published research findings are false" ignites reproducibility crisis and peer-review reform debate."></span></div>
+<div class="timeline-item"><span class="tl-year">2014</span><span class="tl-title" data-zh="Publons 上線" data-en="Publons launched">Publons 上線</span><span class="tl-desc" data-zh="後改名為 Web of Science Reviewer Academy；reviewer 可累積審稿紀錄與 ORCID 整合。" data-en="Later rebranded Web of Science Reviewer Academy; reviewers can log records and link to ORCID."></span></div>
+<div class="timeline-item"><span class="tl-year">2018</span><span class="tl-title" data-zh="ASAPbio Reviewer Trainee" data-en="ASAPbio Reviewer Trainee">ASAPbio Reviewer Trainee</span><span class="tl-desc" data-zh="ASAPbio 推動博士生與博後參與 reviewer 訓練；2024-26 擴展至 preprint 公開審稿。" data-en="ASAPbio drives PhD/postdoc reviewer training; 2024-26 expands to preprint public review."></span></div>
+<div class="timeline-item"><span class="tl-year">2024-26</span><span class="tl-title" data-zh="AI 輔助審稿論戰" data-en="AI-assisted review debate">AI 輔助審稿論戰</span><span class="tl-desc" data-zh="Cell、NEJM、Nature 明文禁止把稿件丟給 LLM；Cabells、Frontiers 嘗試 AI screening；ICML 2024 政策爭議。" data-en="Cell, NEJM, Nature explicitly ban uploading manuscripts to LLMs; Cabells & Frontiers trial AI screening; ICML 2024 policy controversy."></span></div>
+</div>
+</section>
+
+<!-- ===== KPI ===== -->
+<section id="kpi" class="section">
+<div class="section-label" data-zh="關鍵指標" data-en="KEY METRICS">關鍵指標</div>
+<h2 data-zh="同儕審查的數字感" data-en="Numbers to Anchor Peer Review">同儕審查的數字感</h2>
+<div class="kpi-grid">
+<div class="kpi-card"><span class="kpi-num">60-80%</span><span class="kpi-label" data-zh="CNS 期刊拒稿率" data-en="CNS rejection rate">CNS 期刊拒稿率</span></div>
+<div class="kpi-card"><span class="kpi-num">50-70%</span><span class="kpi-label" data-zh="Major 後接受率" data-en="Acceptance after Major">Major 後接受率</span></div>
+<div class="kpi-card"><span class="kpi-num">4-12 wk</span><span class="kpi-label" data-zh="單次審稿中位時間" data-en="Median per review">單次審稿中位時間</span></div>
+<div class="kpi-card"><span class="kpi-num">5</span><span class="kpi-label" data-zh="種 editor 決定信" data-en="Decision types">種 editor 決定信</span></div>
+<div class="kpi-card"><span class="kpi-num">24 hr</span><span class="kpi-label" data-zh="冷靜法則" data-en="Cool-down rule">冷靜法則</span></div>
+<div class="kpi-card"><span class="kpi-num">100%</span><span class="kpi-label" data-zh="COI 揭露率" data-en="COI disclosure">COI 揭露率</span></div>
+</div>
+<div class="tip-bar" data-lang="zh">收到 reviewer comments 的第一個動作不是回信、不是反駁、不是哭——是<strong>關掉電腦 24 小時</strong>。</div>
+<div class="tip-bar" data-lang="en">First action after receiving reviewer comments isn't reply, isn't pushback, isn't crying — it's <strong>closing the laptop for 24 hours</strong>.</div>
+<div class="analogy-box">
+<span data-lang="zh"><strong>🛬 比喻：</strong>Reviewer comments 就像航空公司的飛行前檢查——每一條 finding 可能是致命缺陷、可能是雞毛蒜皮，但飛機要起飛<strong>每一條都必須被簽結</strong>。沒回的 comment 就像沒鎖的艙門，editor 一眼就會看到。</span>
+<span data-lang="en"><strong>🛬 Analogy:</strong> Reviewer comments are like a pre-flight inspection — each finding could be a fatal flaw or trivial, but <strong>ALL must be signed off</strong> before takeoff. An unanswered comment is an unlocked hatch — the editor spots it immediately.</span>
+</div>
+</section>
+
+<!-- ===== WALKTHROUGH ===== -->
+<section id="walkthrough" class="section">
+<div class="section-label" data-zh="逐步流程" data-en="WALKTHROUGH">Σ-逐步流程</div>
+<h2 data-zh="從收到 reviewer comments 到送回的 8 步" data-en="From Receiving Comments to Resubmission: 8 Σ-Steps">從收到 reviewer comments 到送回的 8 步</h2>
+<div class="walkthrough">
+<div class="wt-step"><span class="wt-sigma">Σ₁</span><div><strong data-zh="等 24 小時" data-en="Wait 24 hours">等 24 小時</strong><br><span data-lang="zh">關掉信箱、做別的事。第一次讀 comments 的情緒反應通常 90% 是錯的判斷。</span><span data-lang="en">Close the inbox, do something else. 90% of first-read emotional reactions are wrong judgments.</span></div></div>
+<div class="wt-step"><span class="wt-sigma">Σ₂</span><div><strong data-zh="建立 spreadsheet：每條 comment 分類" data-en="Spreadsheet every comment, classify">建立 spreadsheet：每條 comment 分類</strong><br><span data-lang="zh">欄位：reviewer #、comment 編號、原話、分類 (a/b/c/d)、估計時間、誰負責。</span><span data-lang="en">Columns: reviewer #, comment #, verbatim text, bucket (a/b/c/d), time estimate, owner.</span></div></div>
+<div class="wt-step"><span class="wt-sigma">Σ₃</span><div><strong data-zh="30 分鐘 co-author 策略會議" data-en="30-min strategy meeting with co-authors">30 分鐘 co-author 策略會議</strong><br><span data-lang="zh">確認哪些 (b) 真要做、哪些 (c) 怎麼回；得到 PI 與資深作者的書面同意。</span><span data-lang="en">Decide which (b) to actually do, how to handle (c); get written sign-off from PI and senior authors.</span></div></div>
+<div class="wt-step"><span class="wt-sigma">Σ₄</span><div><strong data-zh="排時程：(a) 1 週、(b) 4-8 週" data-en="Plan timeline: (a) 1 wk, (b) 4-8 wk">排時程：(a) 1 週、(b) 4-8 週</strong><br><span data-lang="zh">標出 deadline 倒推；新實驗預留 buffer (試劑、儀器排程)。</span><span data-lang="en">Reverse from deadline; leave buffer for new experiments (reagents, instrument booking).</span></div></div>
+<div class="wt-step"><span class="wt-sigma">Σ₅</span><div><strong data-zh="先把 (a)+(b) 做完，再開始寫" data-en="Do (a)+(b) BEFORE writing response">先把 (a)+(b) 做完，再開始寫</strong><br><span data-lang="zh">不要邊做邊寫——新數據可能改變你對 (c) 的判斷與整體 narrative。</span><span data-lang="en">Don't write while running — new data may shift your judgment on (c) and the overall narrative.</span></div></div>
+<div class="wt-step"><span class="wt-sigma">Σ₆</span><div><strong data-zh="寫 point-by-point response：4 元素結構" data-en="Write point-by-point with 4-element structure">寫 point-by-point response：4 元素結構</strong><br><span data-lang="zh">引用 reviewer 原話 → 我們的回應 → 文中改了哪裡 (頁碼/行號) → 必要時附新 Figure/Table。</span><span data-lang="en">Quote reviewer verbatim → our response → location of change (page/line) → new Figure/Table if needed.</span></div></div>
+<div class="wt-step"><span class="wt-sigma">Σ₇</span><div><strong data-zh="Co-author 校稿 clean + tracked-changes 兩版" data-en="Co-author proofreads clean + tracked-changes">Co-author 校稿 clean + tracked-changes 兩版</strong><br><span data-lang="zh">兩版都要送：clean 版供印刷、tracked-changes 版供 reviewer 比對。</span><span data-lang="en">Submit both: clean version for typesetting, tracked-changes version for reviewer comparison.</span></div></div>
+<div class="wt-step"><span class="wt-sigma">Σ₈</span><div><strong data-zh="提早 3-5 天送回" data-en="Submit 3-5 days before deadline">提早 3-5 天送回</strong><br><span data-lang="zh">系統可能塞車、PDF 編譯出錯、ORCID 連結失效——預留緩衝。</span><span data-lang="en">Systems lag, PDFs fail to compile, ORCID links break — leave buffer.</span></div></div>
+</div>
+</section>
+
+<!-- ===== DISCUSSION ===== -->
+<section id="discussion" class="section">
+<div class="section-label" data-zh="專家辯論" data-en="EXPERT DEBATE">專家辯論</div>
+<h2 data-zh="3 個 reviewer 倫理爭議" data-en="3 Reviewer-Ethics Controversies">3 個 reviewer 倫理爭議</h2>
+<div class="discussion-card">
+<div class="dc-q" data-zh="(a) Reviewer 要求過多新實驗——該推回嗎？" data-en="(a) Reviewer demands excessive new experiments — push back?">(a) Reviewer 要求過多新實驗——該推回嗎？</div>
+<div data-lang="zh"><p><strong>挺推回派：</strong>COPE 2017 指引明訂「reviewer 不應要求超出論文 scope 的新工作」。若 reviewer 要求重做整篇分析、補 N=100 動物實驗、新增 6 個 cohort，可在 cover letter 中禮貌請 editor 仲裁。</p><p><strong>反推回派：</strong>多數情況新實驗會「真的」讓論文變強。30% 的「過多要求」事後看來是合理的——只是當下感覺工程量大。先估算時間：若 ≤8 週、做完更有說服力，就做。</p><p><strong>共識：</strong>列「做了哪些 / 為何其他不做」由 editor 判斷；不要單方面拒絕也不要全盤接受。</p></div>
+<div data-lang="en"><p><strong>Push-back camp:</strong> COPE 2017 guidelines state reviewers shouldn't request work beyond paper scope. If a reviewer asks to redo all analyses, add N=100 animal experiments, or 6 new cohorts, politely ask the editor to arbitrate in the cover letter.</p><p><strong>Do-the-work camp:</strong> Most "excessive" requests genuinely strengthen the paper. ~30% of "too much" requests look reasonable in hindsight — they just feel daunting now. Estimate time: if ≤8 weeks and improves persuasiveness, do it.</p><p><strong>Consensus:</strong> List "what we did / why we didn't do the rest" and let editor judge; don't unilaterally reject, don't blindly accept everything.</p></div>
+</div>
+<div class="discussion-card">
+<div class="dc-q" data-zh="(b) Citation coercion——reviewer 要求引用他自己的論文" data-en="(b) Citation coercion — reviewer demands citing their own papers">(b) Citation coercion——reviewer 要求引用他自己的論文</div>
+<div data-lang="zh"><p>Wilhite & Fong 2012 Science 調查：~14% reviewer 曾要求過自我引用。COPE 規範：若被引論文確實與內容相關，加上是合理的；若與內容無關只是「請引用 (Smith 2019, 2021, 2023)」，這是 citation coercion。</p><p><strong>應對：</strong>在 response letter 中分項評估每篇被要求的論文——相關者加、不相關者禮貌說明為何不加。若 reviewer 不死心，直接向 handling editor 申訴。Frontiers 2023 已建置 anti-coercion algorithm 自動偵測。</p></div>
+<div data-lang="en"><p>Wilhite & Fong 2012 Science: ~14% of reviewers had pressured self-citation. COPE rules: relevant suggested cites are fine; "please cite (Smith 2019, 2021, 2023)" with no relevance is citation coercion.</p><p><strong>What to do:</strong> evaluate each suggested paper in response letter — cite the relevant, politely explain why not for the others. If reviewer keeps pushing, appeal to handling editor. Frontiers 2023 deploys an anti-coercion algorithm to flag this.</p></div>
+</div>
+<div class="discussion-card">
+<div class="dc-q" data-zh="(c) AI 審稿——Cell/NEJM 禁止，但如何執行？" data-en="(c) AI reviewing — Cell/NEJM ban it, but how to enforce?">(c) AI 審稿——Cell/NEJM 禁止，但如何執行？</div>
+<div data-lang="zh"><p>2023 後多家頂刊 (Cell、Nature、NEJM、Science) 明文禁止把 unpublished manuscript 上傳 ChatGPT/Claude 等 LLM——違反 confidentiality。但實際上：reviewer 在家用個人 ChatGPT account 把 PDF 內容貼上去，期刊如何偵測？</p><p><strong>執行困境：</strong>多數依賴 reviewer 簽署 confidentiality agreement + 自律；少數期刊 (Cabells、ICML 2024) 嘗試 detection tools 反向偵測 AI 文體。</p><p><strong>實務建議：</strong>作者方可請 editor 透露 reviewer 是否簽署 no-AI 條款；reviewer 方應「只用 AI 校對自己已寫的評論文字」，絕不把作者原稿上傳。</p></div>
+<div data-lang="en"><p>Post-2023, top journals (Cell, Nature, NEJM, Science) explicitly ban uploading unpublished manuscripts to ChatGPT/Claude — violates confidentiality. In practice: a reviewer pastes the PDF into a personal ChatGPT at home — how does the journal know?</p><p><strong>Enforcement gap:</strong> mostly self-policed via reviewer confidentiality agreements; a few journals (Cabells, ICML 2024) deploy detection tools that flag AI writing patterns.</p><p><strong>Practical guide:</strong> authors can ask editor whether reviewers signed a no-AI clause; reviewers should "use AI only to polish their own already-written comments" — never upload author manuscript content.</p></div>
+</div>
+</section>
+
+<!-- ===== SPOTLIGHT ===== -->
+<section id="spotlight" class="section">
+<div class="section-label" data-zh="模範與警訊" data-en="MODEL & WARNING">模範與警訊</div>
+<h2 data-zh="2 個 spotlight：一個模範、一個警訊" data-en="2 Spotlights: One Model, One Warning">2 個 spotlight</h2>
+<div class="spotlight">
+<div class="sp-tag sp-model">MODEL · 2022-</div>
+<strong data-zh="eLife / Sciety 公開審查平台" data-en="eLife / Sciety public review platform">eLife / Sciety 公開審查平台</strong>
+<div data-lang="zh"><p>eLife 從 2023 改採「publish, then review」模式：作者投稿後若 editor 認為有意義，立即以 preprint 形式發表 + 公開的 reviewer 評估。所有評論都可在 sciety.org 上閱覽，並接受社群進一步討論。</p><p><strong>影響：</strong>reviewer 評論變成「可被後人查核」的學術產出，類似真正的 scholarly output；reviewer 也可在自己 CV 中放公開 review 連結。Nature 2024 報導：eLife 模式正在被 BMJ Open Science、F1000 等期刊評估採用。</p></div>
+<div data-lang="en"><p>Since 2023 eLife adopts a "publish, then review" model: once editor judges meaningful, papers go up as preprints with public reviewer assessments. All reviews are visible on sciety.org and open to community discussion.</p><p><strong>Impact:</strong> reviewer comments become "auditable" scholarly outputs — reviewers can cite public reviews on their own CV. Nature 2024 reports: BMJ Open Science, F1000 evaluating similar models.</p></div>
+</div>
+<div class="spotlight">
+<div class="sp-tag sp-warning">WARNING · 2014</div>
+<strong data-zh="JVC SAGE peer-review ring 案件" data-en="JVC SAGE peer-review ring scandal">peer-review ring 醜聞</strong>
+<div data-lang="zh"><p>2014 年 SAGE Publishing 的《Journal of Vibration and Control》撤稿 60 篇論文——調查發現一群研究者建立 fake reviewer email 帳號、互相審查彼此論文，形成「審稿環」 (peer-review ring)。為期數年、影響數十篇論文，最終總編 Ali Nayfeh 辭職。</p><p><strong>教訓：</strong>單盲 + 作者可建議 reviewer 的制度可被濫用。現代防範：editor 須核對 reviewer 的真實 institutional email、跨期刊 reviewer database (Publons / WoS Reviewer Academy)、相同 IP 警示。</p></div>
+<div data-lang="en"><p>In 2014 SAGE Publishing's J. Vibration and Control retracted 60 papers — investigation found a group of researchers set up fake reviewer email accounts, reviewing each other's papers in a "peer-review ring." Lasted years, affected dozens of papers; editor-in-chief Ali Nayfeh resigned.</p><p><strong>Lesson:</strong> single-blind + author-suggested-reviewer system is exploitable. Modern safeguards: editors verify reviewer institutional emails, cross-journal reviewer databases (Publons / WoS Reviewer Academy), and same-IP flagging.</p></div>
+</div>
+</section>
+
+<!-- ===== PITFALLS ===== -->
+<section id="pitfalls" class="section">
+<div class="section-label" data-zh="陷阱清單" data-en="PITFALLS">陷阱清單</div>
+<h2 data-zh="6 個回覆審稿時的典型陷阱" data-en="6 Typical Pitfalls When Replying">6 個典型陷阱</h2>
+<div class="pitfall-grid">
+<div class="pitfall-card"><strong>1. <span data-zh="情緒化反駁" data-en="Emotional reply">情緒化反駁</span></strong><br><span data-lang="zh">「Reviewer 根本沒看懂」、「這要求太離譜」——任何帶情緒的字眼都會讓 editor 站到 reviewer 那邊。</span><span data-lang="en">"Reviewer doesn't understand", "This is absurd" — any emotional word pushes editor onto the reviewer's side.</span></div>
+<div class="pitfall-card"><strong>2. <span data-zh="跳過 comments" data-en="Skipping comments">跳過 comments</span></strong><br><span data-lang="zh">即使是「明顯不重要」的 minor comment 也要回——跳過任何一條都是 reviewer 給 editor 的紅燈訊號。</span><span data-lang="en">Even "obviously trivial" minor comments must get replies — skipping any is a red flag the reviewer flashes to the editor.</span></div>
+<div class="pitfall-card"><strong>3. <span data-zh="「Done」沒細節" data-en="'Done' with no detail">「Done」沒細節</span></strong><br><span data-lang="zh">只寫「已修改」、「謝謝建議」沒指出頁碼/行號——reviewer 找不到改在哪。</span><span data-lang="en">Just writing "Done" or "Thanks for the suggestion" without page/line — reviewer can't locate the change.</span></div>
+<div class="pitfall-card"><strong>4. <span data-zh="沒附 tracked-changes" data-en="No tracked-changes version">沒附 tracked-changes</span></strong><br><span data-lang="zh">只送 clean version——reviewer 必須逐行重讀整篇對比，幾乎一定不爽。</span><span data-lang="en">Submitting only clean version — reviewer must re-read line by line and compare; almost certainly annoyed.</span></div>
+<div class="pitfall-card"><strong>5. <span data-zh="response 缺頁/行 ref" data-en="Missing page/line refs">response 缺頁/行 ref</span></strong><br><span data-lang="zh">「我們已在 Discussion 補強」——是哪一段？哪一行？reviewer 不應自行找。</span><span data-lang="en">"We strengthened the Discussion" — which paragraph? line? Reviewer shouldn't have to hunt.</span></div>
+<div class="pitfall-card"><strong>6. <span data-zh="撤稿而非修改" data-en="Withdrawing instead of revising">撤稿而非修改</span></strong><br><span data-lang="zh">收到 Major Revision 就撤稿改投他家——浪費了 3 位 reviewer 的免費高質意見，下一家還要從頭審。</span><span data-lang="en">Withdrawing after Major Revision and submitting elsewhere — wastes 3 reviewers' free high-quality feedback; next journal must start from scratch.</span></div>
+</div>
+</section>
+
+<!-- ===== CONTRAST 2-COL ===== -->
+<section class="section">
+<div class="section-label" data-zh="正反對照" data-en="GOOD vs BAD">正反對照</div>
+<h2 data-zh="同一條 comment：壞回覆 vs 好回覆" data-en="Same Comment: Bad Reply vs Good Reply">同一條 comment：壞回覆 vs 好回覆</h2>
+<p data-lang="zh"><em>情境：reviewer 質疑「為何選 cluster resolution 0.6？沒做敏感度分析」。</em></p>
+<p data-lang="en"><em>Scenario: reviewer asks "why resolution 0.6? No sensitivity analysis."</em></p>
+<div class="contrast-2col">
+<div class="contrast-bad">
+<strong data-zh="❌ 壞回覆" data-en="❌ Bad reply">❌ 壞回覆</strong>
+<p data-lang="zh">"Reviewer doesn't understand. We've done extensive analysis already and the resolution choice was based on standard practice in the field."</p>
+<p data-lang="en">"Reviewer doesn't understand. We've done extensive analysis already and the resolution choice was based on standard practice in the field."</p>
+<ul data-lang="zh"><li>用「不懂」直接攻擊 reviewer</li><li>沒有引用 reviewer 原話</li><li>沒附新數據</li><li>沒指出文中哪裡改</li></ul>
+<ul data-lang="en"><li>Attacks reviewer with "doesn't understand"</li><li>Doesn't quote reviewer verbatim</li><li>No new data</li><li>No page/line reference</li></ul>
+</div>
+<div class="contrast-good">
+<strong data-zh="✅ 好回覆" data-en="✅ Good reply">✅ 好回覆</strong>
+<p data-lang="zh"><em>"Reviewer comment: '為何選 cluster resolution 0.6？沒做敏感度分析。'"</em></p>
+<p data-lang="zh">"We thank the reviewer for this important point. We systematically tested resolutions 0.2–1.2 in increments of 0.1 (new Supplementary Figure S4a). Cluster stability measured by Adjusted Rand Index (ARI = 0.91) plateaued at resolution ≥0.6, supporting our original choice. We added the rationale on page 7, lines 12–18, and reference Supp Fig S4."</p>
+<p data-lang="en"><em>"Reviewer comment: 'Why resolution 0.6? No sensitivity analysis.'"</em></p>
+<p data-lang="en">"We thank the reviewer for this important point. We systematically tested resolutions 0.2–1.2 in increments of 0.1 (new Supplementary Figure S4a). Cluster stability (ARI = 0.91) plateaued at resolution ≥0.6, supporting our original choice. We added the rationale on page 7, lines 12–18, and reference Supp Fig S4."</p>
+<ul data-lang="zh"><li>逐字引用 reviewer 原話</li><li>感謝 + 具體新分析 (resolution sweep)</li><li>量化指標 (ARI = 0.91)</li><li>明確頁碼/行號 + 新 Supp Figure</li></ul>
+<ul data-lang="en"><li>Quotes reviewer verbatim</li><li>Thanks + concrete new analysis (resolution sweep)</li><li>Quantified metric (ARI = 0.91)</li><li>Explicit page/line + new Supp Figure</li></ul>
+</div>
+</div>
+</section>
+
+<!-- ===== REFLECTION ===== -->
+<section class="section">
+<div class="section-label" data-zh="自我檢查" data-en="REFLECTION">自我檢查</div>
+<h2 data-zh="6 個自問問題" data-en="6 Reflection Questions">6 個回覆審稿前的自問</h2>
+<div class="reflection-q">
+<ol>
+<li data-lang="zh">你有先等 24 小時、讓自己冷靜下來再開始寫回信嗎？</li>
+<li data-lang="en">Did you wait 24 hours and cool down before starting to write?</li>
+<li data-lang="zh">你有把所有 comments 分成 (a) 容易改 / (b) 需新分析 / (c) 可解釋的不同意 / (d) 無法做 四類嗎？</li>
+<li data-lang="en">Have you classified all comments into 4 buckets: (a) easy fix / (b) needs new analysis / (c) explainable disagreement / (d) can't do?</li>
+<li data-lang="zh">每條回覆都包含 4 元素（引用原話 / 回應 / 文中位置 / 新數據）嗎？</li>
+<li data-lang="en">Does each reply contain the 4 elements (quote / response / location / new data)?</li>
+<li data-lang="zh">你有同時準備 clean + tracked-changes 兩個版本嗎？</li>
+<li data-lang="en">Have you prepared both clean and tracked-changes versions?</li>
+<li data-lang="zh">所有 co-author 都看過 response letter 並書面同意了嗎？</li>
+<li data-lang="en">Have all co-authors reviewed and signed off on the response letter?</li>
+<li data-lang="zh">你保留了至少 3-5 天的提交緩衝時間嗎？</li>
+<li data-lang="en">Have you left at least 3-5 days of submission buffer before the deadline?</li>
+</ol>
+</div>
+</section>
+
+<!-- ===== ADVANCED NOTE ===== -->
+<section id="advanced" class="section">
+<div class="section-label" data-zh="進階補充" data-en="ADVANCED">進階 2024-2026 SOTA</div>
+<h2 data-zh="進階：reviewer 訓練與 AI 審稿前沿" data-en="Advanced: Reviewer Training & AI Review Frontier">進階：reviewer 訓練與 AI 審稿前沿</h2>
+<div class="advanced-note">
+<details class="detail-toggle"><summary data-zh="(a) Web of Science Reviewer Academy（前身 Publons）免費認證" data-en="(a) Web of Science Reviewer Academy (formerly Publons) free certification">(a) Web of Science Reviewer Academy（前身 Publons）免費認證</summary>
+<div data-lang="zh"><p>Clarivate 於 2022 將 Publons 整併入 Web of Science Reviewer Academy。提供免費的 reviewer 訓練模組（共 5 部分，~10 小時）涵蓋如何寫建設性意見、避免偏見、識別 citation coercion。完成後獲得「Certified Reviewer」徽章可連到 ORCID。截至 2025，全球已有 ~120 萬位認證 reviewer。</p></div>
+<div data-lang="en"><p>Clarivate folded Publons into the Web of Science Reviewer Academy in 2022. Free reviewer-training modules (5 parts, ~10 hours) cover writing constructive comments, avoiding bias, and recognizing citation coercion. Completion yields a "Certified Reviewer" badge linkable to ORCID. As of 2025, ~1.2 million certified reviewers globally.</p></div>
+</details>
+<details class="detail-toggle"><summary data-zh="(b) ASAPbio open peer-review trainee programme 2024-26" data-en="(b) ASAPbio open peer-review trainee programme 2024-26">(b) ASAPbio open peer-review trainee programme 2024-26</summary>
+<div data-lang="zh"><p>ASAPbio 與 eLife、PLOS、Review Commons 合作推動博士生 / 博後參與「公開審稿」訓練計畫——挑選 bioRxiv preprint、撰寫公開審稿、由資深 reviewer 一對一指導。2024-26 已超過 500 位 trainee 完訓，所有公開審稿都附 ORCID 並可作為求職 / fellowship 申請的學術產出。</p></div>
+<div data-lang="en"><p>ASAPbio partners with eLife, PLOS, Review Commons to train PhD / postdoc trainees in public reviewing — pick a bioRxiv preprint, write a public review, get one-on-one mentoring from senior reviewers. Over 500 trainees completed 2024-26; reviews are ORCID-linked and usable as scholarly outputs for job / fellowship applications.</p></div>
+</details>
+<details class="detail-toggle"><summary data-zh="(c) AI-augmented review 爭議：Nature/Cell 禁止 vs Cabells 採用" data-en="(c) AI-augmented review controversy: Nature/Cell ban vs Cabells adoption">(c) AI-augmented review 爭議：Nature/Cell 禁止 vs Cabells 採用</summary>
+<div data-lang="zh"><p>2023-26 兩派分歧加劇：Nature、Cell、NEJM、Science、JAMA 明文禁止把 unpublished manuscript 上傳 LLM；Cabells、Frontiers、MDPI 部分期刊嘗試以 AI 進行初步篩選 (plagiarism、statistics check、scope match)。ICML 2024 爆發爭議——有 reviewer 公開承認使用 GPT-4 輔助但未揭露，引發政策大改。共識浮現：「AI 可協助 reviewer 校對自己已寫的評論，但不可接觸原稿」。</p></div>
+<div data-lang="en"><p>2023-26: divide intensifies. Nature, Cell, NEJM, Science, JAMA explicitly ban uploading unpublished manuscripts to LLMs; Cabells, Frontiers, some MDPI journals trial AI screening (plagiarism, stats check, scope match). ICML 2024 controversy: reviewer publicly admitted using GPT-4 without disclosure, triggering major policy revisions. Consensus emerging: "AI may help reviewers polish their own already-written comments, but must never touch the manuscript itself."</p></div>
+</details>
+</div>
+</section>
+
+<!-- ===== HISTORY NOTE ===== -->
+<section class="section">
+<div class="section-label" data-zh="歷史小註" data-en="HISTORY NOTE">歷史小註</div>
+<h2 data-zh="同儕審查比大學年輕" data-en="Peer Review is Younger Than Most Universities">同儕審查比大學年輕</h2>
+<div class="history-note">
+<div data-lang="zh"><p>很多人以為「同儕審查」與科學一樣古老，事實上完全不是。1665 年 Royal Society 創刊《Philosophical Transactions》時，所謂的「審查」只是學者之間私下寄信討論——沒有制度、沒有匿名、沒有正式 referee 報告。</p><p>真正的「匿名雙盲」現代制度直到 1930 年代才在物理、醫學領域逐步成形——比哈佛大學 (1636)、牛津大學 (1096) 都晚了好幾百年。換句話說：<strong>peer review 比大多數大學還年輕</strong>。當你在思考「是否該質疑這個 reviewer 的要求」時，記得：這套制度本身也還在演化中。</p></div>
+<div data-lang="en"><p>Many people assume peer review is as ancient as science itself. Not at all. When the Royal Society launched <em>Philosophical Transactions</em> in 1665, "review" was casual letters exchanged between scholars — no formal system, no anonymity, no referee reports.</p><p>The modern "anonymous double-blind" system only crystallized in the 1930s in physics and medicine — centuries after Harvard (1636) and Oxford (1096). In other words: <strong>peer review is younger than most universities</strong>. When you wonder whether to push back on a reviewer demand, remember: the system itself is still evolving.</p></div>
+</div>
+</section>
+
 <section class="section">
 <div class="section-label" data-zh="概覽" data-en="OVERVIEW">概覽</div>
 <h2 data-zh="收到 reviewer comments 的第一件事" data-en="First Things to Do After Receiving Comments">收到 comments 的第一件事</h2>

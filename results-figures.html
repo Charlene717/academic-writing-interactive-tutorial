@@ -30,6 +30,359 @@
 </header>
 <main class="content-wrap">
 
+<!-- ===== Section TOC ===== -->
+<div class="section-toc">
+<strong data-zh="本章導覽（閱讀時間 ~22 分）" data-en="Chapter map (reading time ~22 min)">本章導覽（閱讀時間 ~22 分）</strong>
+<div class="pill-row">
+<span class="level-badge l-beg" data-zh="初學者" data-en="Beginner">初學者</span>
+<span class="level-badge l-mid" data-zh="中階" data-en="Intermediate">中階</span>
+<span class="level-badge l-adv" data-zh="進階" data-en="Advanced">進階</span>
+<span class="pill navy">Table 1</span><span class="pill amber">Effect Size</span><span class="pill violet">CI</span><span class="pill teal">ggplot2</span><span class="pill rose">Tufte</span>
+</div>
+<ol>
+<li><a href="#story" data-zh="開場故事：Yuki 與她的 bar chart" data-en="Story: Yuki and her bar charts">開場故事：Yuki 與她的 bar chart</a></li>
+<li><a href="#glossary" data-zh="核心詞彙表（雙版本 14 詞）" data-en="Glossary (14 terms)">核心詞彙表（雙版本 14 詞）</a></li>
+<li><a href="#history" data-zh="從 Playfair 到 Quarto" data-en="From Playfair to Quarto">從 Playfair 到 Quarto</a></li>
+<li><a href="#kpi" data-zh="關鍵指標" data-en="Key numbers">關鍵指標</a></li>
+<li><a href="#walkthrough" data-zh="Σ 步驟：從原始數據到出版級圖" data-en="Σ-walkthrough: raw data → publication figure">Σ 步驟：從原始數據到出版級圖</a></li>
+<li><a href="#discussion" data-zh="專家辯論：p、color-blind、分布" data-en="Expert debate: p, color, distribution">專家辯論：p、color-blind、分布</a></li>
+<li><a href="#pitfalls" data-zh="6 個典型陷阱" data-en="6 typical pitfalls">6 個典型陷阱</a></li>
+<li><a href="#advanced" data-zh="進階 2024-2026 SOTA" data-en="Advanced 2024-2026 SOTA">進階 2024-2026 SOTA</a></li>
+</ol>
+</div>
+
+<!-- ===== STORY ===== -->
+<section id="story" class="section">
+<div class="section-label" data-zh="故事開場" data-en="OPENING STORY">故事開場</div>
+<h2 data-zh="場景：Yuki 與她的第一篇 paper figures" data-en="Scene: Yuki and Her First Paper Figures">場景：Yuki 與她的第一篇 paper figures</h2>
+<div class="story-block">
+<span class="story-tag">SCENE · 2025 · Kyoto Univ.</span>
+<h3 data-zh="從「bar + SEM」到「boxplot + jitter」的覺醒" data-en="From "bar + SEM" to "boxplot + jitter" — the awakening">從「bar + SEM」到「boxplot + jitter」的覺醒</h3>
+<div data-lang="zh">
+<p>博士生 <strong>Yuki</strong> 第一次準備自己的 paper figures，做了 12 張漂亮的 bar chart 加 SEM 誤差棒，每張都閃著鮮豔的紅綠對比色。她把 PDF 交給指導教授 <strong>佐藤老師</strong>，內心滿是期待。隔天會議室裡，老師只說一句：「<em>不要用 bar + SEM。換成 boxplot + jitter，原始點都畫出來。</em>」</p>
+<p>Yuki 一開始很不服氣——bar + SEM 不就是大家都在用的嗎？老師沒多解釋，丟給她一篇 Weissgerber 2015 PLOS Biology 的論文「<em>Beyond Bar and Line Graphs: Time for a New Data Presentation Paradigm</em>」。Yuki 讀到第三頁時整個人愣住：作者用同一組 mean ± SEM 構造出五種截然不同的 underlying distribution——常態、雙峰、嚴重偏態、有離群值、樣本量極小——而 bar chart 全部看起來「一模一樣」。</p>
+<p>那晚 Yuki 用 ggplot2 把 12 張圖重畫成 boxplot + jitter，赫然發現自己的「顯著差異」其實有一組是被兩個離群值撐起來的。她調整統計檢定、補上 Welch's t-test 與 Cohen's d，再加 color-blind safe palette。三週後 paper 被 Cell Reports 接受，reviewer 特別讚許「figure transparency」。Yuki 後來把那篇 Weissgerber 論文釘在電腦旁。</p>
+</div>
+<div data-lang="en">
+<p>PhD student <strong>Yuki</strong> prepares her first paper figures: twelve gorgeous bar charts with SEM error bars, bright red-vs-green contrasts everywhere. She hands the PDF to her PI <strong>Prof. Sato</strong>, brimming with pride. The next day in the meeting room, he says only: "<em>No bar charts with SEM. Switch to boxplot + jitter — show every raw point.</em>"</p>
+<p>Yuki bristles — isn't bar + SEM what everyone uses? Sato doesn't explain; he just hands her Weissgerber et al. 2015 in PLOS Biology, "<em>Beyond Bar and Line Graphs: Time for a New Data Presentation Paradigm</em>." By page three Yuki is stunned: the authors construct <em>five</em> radically different distributions — normal, bimodal, heavily skewed, with outliers, tiny n — that all produce <em>identical-looking</em> bar charts with identical mean ± SEM.</p>
+<p>That night Yuki redraws all twelve figures as boxplot + jitter in ggplot2 and discovers her "significant difference" in panel 4 is driven by two outliers. She switches to Welch's t-test, adds Cohen's d with 95% CI, and applies a color-blind-safe viridis palette. Three weeks later the paper is accepted at Cell Reports; reviewers specifically praise "figure transparency." Yuki pins the Weissgerber paper next to her monitor.</p>
+</div>
+</section>
+
+<!-- ===== GLOSSARY ===== -->
+<section id="glossary" class="section">
+<div class="section-label" data-zh="核心詞彙" data-en="GLOSSARY">核心詞彙</div>
+<h2 data-zh="14 個關鍵術語（雙版本）" data-en="14 Key Terms (two versions)">14 個關鍵術語（雙版本）</h2>
+<p data-lang="zh"><em>每個詞有兩個版本：🧒「給小孩看」用比喻、📐「給研究者看」給定義。</em></p>
+<p data-lang="en"><em>Each term has two versions: 🧒 "for kids" uses a metaphor; 📐 "for researchers" gives the formal definition.</em></p>
+<div class="glossary-grid">
+
+<div class="glossary-card">
+<div class="term-en">Results section</div><div class="term-zh">結果章節</div>
+<div class="term-kid" data-lang="zh">只說「我看到什麼」——不要說「這代表什麼」。像新聞主播報事實。</div>
+<div class="term-kid" data-lang="en">Just "what I saw" — never "what it means." Like a news anchor reporting facts.</div>
+<div class="term-tech" data-lang="zh">IMRaD 結構的第三段；報告觀察到的數據、統計檢定結果、效應量、CI；不含解讀（解讀屬 Discussion）。</div>
+<div class="term-tech" data-lang="en">Third section of IMRaD; reports observed data, statistical tests, effect sizes, CIs; no interpretation (that belongs in Discussion).</div>
+</div>
+
+<div class="glossary-card">
+<div class="term-en">Table 1</div><div class="term-zh">基線特徵表</div>
+<div class="term-kid" data-lang="zh">研究的「演員名單」：每組的人數、年齡、男女比、基本健康指標。</div>
+<div class="term-kid" data-lang="en">The study's "cast list": each group's n, age, sex ratio, baseline health metrics.</div>
+<div class="term-tech" data-lang="zh">列出 cohort 基線特徵（年齡、性別、共病、實驗室值）；只放 baseline，不放 outcome；propensity-matched 須附 SMD。</div>
+<div class="term-tech" data-lang="en">Lists baseline cohort characteristics (age, sex, comorbidities, labs); baseline only, not outcomes; propensity-matched cohorts need SMD.</div>
+</div>
+
+<div class="glossary-card">
+<div class="term-en">p-value</div><div class="term-zh">p 值</div>
+<div class="term-kid" data-lang="zh">「如果其實沒差，看到這種結果的機率有多小？」——只回答「有沒有差」，不說「差多少」。</div>
+<div class="term-kid" data-lang="en">"If there's really no difference, how unlikely is this result?" — answers "is there a difference" only, not "how much."</div>
+<div class="term-tech" data-lang="zh">在 H₀ 為真假設下觀察到目前或更極端結果的條件機率（Fisher 1925）。ASA 2016 明確：p 不能單獨判斷重要性。</div>
+<div class="term-tech" data-lang="en">Conditional probability of observing current or more extreme data under H₀ (Fisher 1925). ASA 2016: p alone cannot judge importance.</div>
+</div>
+
+<div class="glossary-card">
+<div class="term-en">95% CI</div><div class="term-zh">95% 信賴區間</div>
+<div class="term-kid" data-lang="zh">「真值大概在這個範圍裡」——範圍越窄越精準。</div>
+<div class="term-kid" data-lang="en">"The true value is probably somewhere in this range" — narrower = more precise.</div>
+<div class="term-tech" data-lang="zh">若重複抽樣無限次、其中 95% 區間會覆蓋母體真值。Neyman 1937；報告效應量必附 CI。</div>
+<div class="term-tech" data-lang="en">If we resampled infinitely, 95% of computed CIs would cover the true parameter (Neyman 1937). Always report CI with effect size.</div>
+</div>
+
+<div class="glossary-card">
+<div class="term-en">Effect size</div><div class="term-zh">效應量</div>
+<div class="term-kid" data-lang="zh">「差多少」——p 告訴你「有差」、effect size 告訴你「差到底有多大」。</div>
+<div class="term-kid" data-lang="en">"How big is the difference" — p says "yes/no," effect size says "how much."</div>
+<div class="term-tech" data-lang="zh">標準化或原始的差異強度量；包含 Cohen's d、Hedges' g、OR、HR、r²、log2FC、AUC 等；ASA 2016 強烈建議與 p 配對。</div>
+<div class="term-tech" data-lang="en">Standardized or raw magnitude of difference: Cohen's d, Hedges' g, OR, HR, r², log2FC, AUC. ASA 2016 strongly urges pairing with p.</div>
+</div>
+
+<div class="glossary-card">
+<div class="term-en">Cohen's d</div><div class="term-zh">Cohen's d</div>
+<div class="term-kid" data-lang="zh">「兩堆數據離得多遠？」用合併標準差當尺。</div>
+<div class="term-kid" data-lang="en">"How far apart are two data piles?" — measured in pooled-SD units.</div>
+<div class="term-tech" data-lang="zh">(M₁−M₂)/SD_pooled；Cohen 1988 提出 small=0.2 / medium=0.5 / large=0.8。小樣本應改用 Hedges' g。</div>
+<div class="term-tech" data-lang="en">(M₁−M₂)/SD_pooled; Cohen 1988 thresholds small=0.2 / medium=0.5 / large=0.8. Use Hedges' g for small n.</div>
+</div>
+
+<div class="glossary-card">
+<div class="term-en">Odds Ratio (OR)</div><div class="term-zh">勝算比</div>
+<div class="term-kid" data-lang="zh">「A 組得病的『賠率』是 B 組的幾倍？」OR=1 沒差；OR&gt;1 風險高。</div>
+<div class="term-kid" data-lang="en">"A's odds of disease are how many times B's?" OR=1 no diff; OR&gt;1 elevated risk.</div>
+<div class="term-tech" data-lang="zh">case-control 與 logistic regression 標準效應量；OR = (a/b)/(c/d)。稀有事件下近似 RR；常見事件下會誇大。</div>
+<div class="term-tech" data-lang="en">Standard effect size in case-control and logistic regression; OR = (a/b)/(c/d). Approximates RR when events are rare; overstates it when common.</div>
+</div>
+
+<div class="glossary-card">
+<div class="term-en">Hazard Ratio (HR)</div><div class="term-zh">風險比</div>
+<div class="term-kid" data-lang="zh">「在每個時間點上，A 組『出事』的速度是 B 組的幾倍？」</div>
+<div class="term-kid" data-lang="en">"At any time point, A's instantaneous event rate is how many times B's?"</div>
+<div class="term-tech" data-lang="zh">Cox proportional hazards model 的效應量（Cox 1972）；前提：hazards 在時間上成比例（用 Schoenfeld 殘差檢驗）。</div>
+<div class="term-tech" data-lang="en">Effect size from Cox proportional hazards regression (Cox 1972); requires proportionality of hazards (test via Schoenfeld residuals).</div>
+</div>
+
+<div class="glossary-card">
+<div class="term-en">FDR (BH)</div><div class="term-zh">錯誤發現率</div>
+<div class="term-kid" data-lang="zh">做 1 萬次比較時，「我說是的之中、有多少其實是錯的？」</div>
+<div class="term-kid" data-lang="en">When making 10,000 comparisons, "of those I called positive, how many are actually wrong?"</div>
+<div class="term-tech" data-lang="zh">Benjamini-Hochberg 1995 JRSS-B；控制 expected FDR ≤ α。Omics 分析標配；比 Bonferroni 對 power 更友善。</div>
+<div class="term-tech" data-lang="en">Benjamini-Hochberg 1995 JRSS-B; controls expected FDR ≤ α. Standard in omics; less power-costly than Bonferroni.</div>
+</div>
+
+<div class="glossary-card">
+<div class="term-en">Volcano plot</div><div class="term-zh">火山圖</div>
+<div class="term-kid" data-lang="zh">差異基因的「火山」：X 軸是差距、Y 軸是信心；爆炸的點在山頂兩側。</div>
+<div class="term-kid" data-lang="en">The DEG "volcano": X = magnitude of difference, Y = confidence; explosive hits sit at the top corners.</div>
+<div class="term-tech" data-lang="zh">log2 fold-change（x）vs −log10(adjusted p)（y）的散點圖；標出 FDR &lt; 閾值且 |log2FC| 大的基因。Cui &amp; Churchill 2003 推廣。</div>
+<div class="term-tech" data-lang="en">Scatter of log2FC (x) vs −log10(adjusted p) (y); highlight genes passing FDR threshold with large |log2FC|. Popularized by Cui &amp; Churchill 2003.</div>
+</div>
+
+<div class="glossary-card">
+<div class="term-en">Heatmap</div><div class="term-zh">熱圖</div>
+<div class="term-kid" data-lang="zh">用顏色畫的表格：紅熱、藍冷；行列可重新排序找模式。</div>
+<div class="term-kid" data-lang="en">A color-painted table: red hot, blue cold; rows/cols re-ordered to expose patterns.</div>
+<div class="term-tech" data-lang="zh">Eisen 1998 PNAS hierarchical clustering heatmap。注意 row scaling (z-score) vs raw、dendrogram、color scale (避免 jet)。</div>
+<div class="term-tech" data-lang="en">Eisen 1998 PNAS hierarchical clustering heatmap. Mind row scaling (z-score) vs raw, dendrograms, color scale (avoid jet).</div>
+</div>
+
+<div class="glossary-card">
+<div class="term-en">Kaplan-Meier</div><div class="term-zh">存活曲線</div>
+<div class="term-kid" data-lang="zh">「每一刻還活著的比例」隨時間下階梯。兩組曲線差距越大越顯著。</div>
+<div class="term-kid" data-lang="en">A step-down curve of "fraction still alive at each moment." Bigger gap between curves = bigger effect.</div>
+<div class="term-tech" data-lang="zh">Kaplan-Meier 1958 JASA；考量 censoring；log-rank 檢定 + Cox HR + at-risk table 為標配。</div>
+<div class="term-tech" data-lang="en">Kaplan-Meier 1958 JASA; accounts for censoring; standard reporting = log-rank + Cox HR + at-risk table.</div>
+</div>
+
+<div class="glossary-card">
+<div class="term-en">Viridis colormap</div><div class="term-zh">Viridis 色階</div>
+<div class="term-kid" data-lang="zh">紫→綠→黃的色帶：印成黑白也看得出深淺，色盲也分得清。</div>
+<div class="term-kid" data-lang="en">A purple→green→yellow ramp: works in grayscale, robust to color blindness.</div>
+<div class="term-tech" data-lang="zh">Smith &amp; van der Walt 2015 Matplotlib 預設；perceptually uniform、color-blind safe；同家族 magma / inferno / plasma / cividis。</div>
+<div class="term-tech" data-lang="en">Smith &amp; van der Walt 2015 (matplotlib default); perceptually uniform, color-blind safe. Family: magma / inferno / plasma / cividis.</div>
+</div>
+
+<div class="glossary-card">
+<div class="term-en">Data-ink ratio</div><div class="term-zh">資料-墨水比</div>
+<div class="term-kid" data-lang="zh">「圖上的墨水，有多少在畫真正的數據？」越高越好。</div>
+<div class="term-kid" data-lang="en">"Of all the ink on a chart, how much is actually data?" Higher = better.</div>
+<div class="term-tech" data-lang="zh">Tufte 1983：data-ink / total-ink。「擦掉所有不傳達資料的墨水」——3D、漸層、重複網格都該砍。</div>
+<div class="term-tech" data-lang="en">Tufte 1983: data-ink / total-ink. "Erase non-data ink" — drop 3D, gradients, redundant grids.</div>
+</div>
+
+</div>
+</section>
+
+<!-- ===== HISTORY TIMELINE ===== -->
+<section id="history" class="section">
+<div class="section-label" data-zh="歷史" data-en="HISTORY">歷史</div>
+<h2 data-zh="從 Playfair 到 Quarto" data-en="From Playfair to Quarto">資料視覺化簡史：從 Playfair 到 Quarto</h2>
+<div class="timeline">
+<div class="timeline-item"><span class="tl-year">1796</span><span class="tl-title" data-zh="Playfair 發明 bar chart" data-en="Playfair invents the bar chart">Playfair 發明 bar chart</span><span class="tl-desc" data-zh="蘇格蘭工程師 William Playfair 在 Commercial and Political Atlas 中首次出版 bar chart 與 line chart。" data-en="Scottish engineer William Playfair publishes the first bar and line charts in his Commercial and Political Atlas."></span></div>
+<div class="timeline-item"><span class="tl-year">1858</span><span class="tl-title" data-zh="Nightingale 玫瑰圖" data-en="Nightingale's rose diagram">Nightingale 玫瑰圖</span><span class="tl-desc" data-zh="Florence Nightingale 用 polar area diagram 說服英國國會改革克里米亞戰爭軍醫院衛生制度。" data-en="Florence Nightingale uses the polar area diagram to persuade Parliament to reform Crimean War military-hospital sanitation."></span></div>
+<div class="timeline-item"><span class="tl-year">1916</span><span class="tl-title" data-zh="Pearson 卡方檢定" data-en="Pearson's chi-squared">Pearson 卡方檢定</span><span class="tl-desc" data-zh="Karl Pearson 提出 chi-squared goodness-of-fit；類別資料假說檢定的起點。" data-en="Karl Pearson formalizes the chi-squared goodness-of-fit — the origin of categorical hypothesis testing."></span></div>
+<div class="timeline-item"><span class="tl-year">1925</span><span class="tl-title" data-zh="Fisher：p 值正式入場" data-en="Fisher introduces p-value">Fisher：p 值正式入場</span><span class="tl-desc" data-zh="R. A. Fisher Statistical Methods for Research Workers；p = 0.05 成為慣例（雖然 Fisher 本人從未定義為硬閾值）。" data-en="R. A. Fisher's Statistical Methods for Research Workers; p = 0.05 becomes a convention (though Fisher never set it as a hard cutoff)."></span></div>
+<div class="timeline-item"><span class="tl-year">1937</span><span class="tl-title" data-zh="Hollerith 表格機" data-en="Hollerith tabulator era">Hollerith 表格機</span><span class="tl-desc" data-zh="IBM 前身 Hollerith 機器將大量表格化資料引入科學分析；表格 = 結果報告的雛形。" data-en="IBM's precursor — Hollerith tabulators — brings large tabular datasets into science; tables become the proto results report."></span></div>
+<div class="timeline-item"><span class="tl-year">1983</span><span class="tl-title" data-zh="Tufte：The Visual Display" data-en="Tufte: The Visual Display">Tufte：The Visual Display</span><span class="tl-desc" data-zh="Edward Tufte「The Visual Display of Quantitative Information」奠定 data-ink ratio、chartjunk、small multiples 的設計法則。" data-en="Edward Tufte's "The Visual Display of Quantitative Information" establishes data-ink ratio, chartjunk, and small multiples."></span></div>
+<div class="timeline-item"><span class="tl-year">2007</span><span class="tl-title" data-zh="ggplot2 (Wickham)" data-en="ggplot2 by Wickham">ggplot2 (Wickham)</span><span class="tl-desc" data-zh="Hadley Wickham 將 Wilkinson Grammar of Graphics 實作為 R 套件；layered plotting 成為主流。" data-en="Hadley Wickham implements Wilkinson's Grammar of Graphics as an R package; layered plotting becomes mainstream."></span></div>
+<div class="timeline-item"><span class="tl-year">2015</span><span class="tl-title" data-zh="Weissgerber：Beyond Bar Graphs" data-en="Weissgerber: Beyond Bar Graphs">Weissgerber：Beyond Bar Graphs</span><span class="tl-desc" data-zh="PLOS Biology；示範同樣 mean ± SEM 對應 5 種不同 distribution，呼籲取代 bar + SEM。" data-en="PLOS Biology; shows that identical mean ± SEM bars can hide five very different distributions — call to retire bar + SEM."></span></div>
+<div class="timeline-item"><span class="tl-year">2016</span><span class="tl-title" data-zh="ASA p 值聲明" data-en="ASA Statement on p-values">ASA p 值聲明</span><span class="tl-desc" data-zh="American Statistical Association 罕見發表政策聲明：p 不能單獨判斷重要性；必須配 effect size 與 CI。" data-en="American Statistical Association issues a rare policy statement: p alone cannot judge importance; pair with effect size and CI."></span></div>
+<div class="timeline-item"><span class="tl-year">2025-26</span><span class="tl-title" data-zh="Quarto + 互動圖時代" data-en="Quarto + interactive figures era">Quarto + 互動圖時代</span><span class="tl-desc" data-zh="Quarto-revealjs / Plotly / Observable 進入主流期刊 supplementary；互動 + 可重現報告成為新常態。" data-en="Quarto-revealjs / Plotly / Observable enter mainstream journal supplementaries; interactive + reproducible reports become the new norm."></span></div>
+</div>
+</section>
+
+<!-- ===== KPI ===== -->
+<section id="kpi" class="section">
+<div class="section-label" data-zh="關鍵指標" data-en="KEY METRICS">關鍵指標</div>
+<h2 data-zh="圖表設計的數字感" data-en="Numbers to Anchor Figure Design">圖表設計的數字感</h2>
+<div class="kpi-grid">
+<div class="kpi-card"><span class="kpi-num">3</span><span class="kpi-label" data-zh="每結果 3 個數字：點估計 + CI + p" data-en="3 numbers per result: point, CI, p">3 個數字 / 結果</span></div>
+<div class="kpi-card"><span class="kpi-num">8%</span><span class="kpi-label" data-zh="男性紅綠色盲比例" data-en="Males with red-green color blindness">男性色盲比例</span></div>
+<div class="kpi-card"><span class="kpi-num">300</span><span class="kpi-label" data-zh="dpi 出版標準" data-en="dpi publication standard">dpi 出版標準</span></div>
+<div class="kpi-card"><span class="kpi-num">~50%</span><span class="kpi-label" data-zh="Nature 用 bar+SEM 的論文 (Weissgerber 2015)" data-en="Nature papers using bar+SEM (Weissgerber 2015)">bar+SEM 比率</span></div>
+<div class="kpi-card"><span class="kpi-num">5</span><span class="kpi-label" data-zh="viridis 家族色階" data-en="viridis-family palettes">viridis 家族</span></div>
+<div class="kpi-card"><span class="kpi-num">0</span><span class="kpi-label" data-zh="Table 1 不放 outcome" data-en="Outcomes in Table 1 (baseline only)">Outcome in Table 1</span></div>
+</div>
+<div class="analogy-box" data-lang="zh">一張圖就像 30 秒廣告：必須在「一眼之內」說服讀者。</div>
+<div class="analogy-box" data-lang="en">A figure is a 30-second commercial: it must convince in one glance.</div>
+</section>
+
+<!-- ===== WALKTHROUGH ===== -->
+<section id="walkthrough" class="section">
+<div class="section-label" data-zh="完整流程" data-en="WALKTHROUGH">完整流程</div>
+<h2 data-zh="Σ 步驟：從原始數據到出版級圖" data-en="Σ-walkthrough: Raw Data → Publication Figure">Σ 步驟：從原始數據到出版級圖</h2>
+<div class="walkthrough">
+<div class="wt-step"><span class="wt-label">Σ₁</span><div class="wt-body"><strong data-zh="決定故事" data-en="Decide the story">決定故事</strong><span data-lang="zh">先寫下這張圖要回答哪 1 個問題——只 1 個。如果想塞 2 個，請拆成 2 panel 或 2 張圖。</span><span data-lang="en">Write down the single question this figure answers — only one. If you want two, split into two panels or two figures.</span></div></div>
+<div class="wt-step"><span class="wt-label">Σ₂</span><div class="wt-body"><strong data-zh="選圖型 (decision tree)" data-en="Pick plot type (decision tree)">選圖型 (decision tree)</strong><span data-lang="zh">兩組比較 → boxplot+jitter；連續 vs 連續 → scatter+regression；存活 → Kaplan-Meier；高維 omics → volcano / heatmap / UMAP。</span><span data-lang="en">Two-group → boxplot+jitter; continuous vs continuous → scatter+regression; survival → Kaplan-Meier; high-dim omics → volcano / heatmap / UMAP.</span></div></div>
+<div class="wt-step"><span class="wt-label">Σ₃</span><div class="wt-body"><strong data-zh="色盲安全色盤" data-en="Color-blind safe palette">色盲安全色盤</strong><span data-lang="zh">連續：viridis / magma / cividis；類別：ColorBrewer Set1/Set2 或 Okabe-Ito。永遠不要用 jet / rainbow。</span><span data-lang="en">Continuous: viridis / magma / cividis. Categorical: ColorBrewer Set1/Set2 or Okabe-Ito. Never jet/rainbow.</span></div></div>
+<div class="wt-step"><span class="wt-label">Σ₄</span><div class="wt-body"><strong data-zh="寫 caption" data-en="Write the caption">寫 caption</strong><span data-lang="zh">必含 n、所用統計檢定、誤差條代表 (SD / SEM / 95% CI)、校正方法。Caption 要能讓讀者不看正文也讀懂。</span><span data-lang="en">Must include n, statistical test, what error bars represent (SD / SEM / 95% CI), correction method. Caption must stand alone.</span></div></div>
+<div class="wt-step"><span class="wt-label">Σ₅</span><div class="wt-body"><strong data-zh="算 effect size + 95% CI" data-en="Compute effect size + 95% CI">算 effect size + 95% CI</strong><span data-lang="zh">兩組均值用 Cohen's d 或 mean diff；類別 OR / RR；生存 HR；相關 r。永遠和 p 一起報告。</span><span data-lang="en">Means → Cohen's d or mean diff; categorical → OR / RR; survival → HR; correlation → r. Always paired with p.</span></div></div>
+<div class="wt-step"><span class="wt-label">Σ₆</span><div class="wt-body"><strong data-zh="多重檢定加 FDR (BH)" data-en="Add FDR (BH) for multiple testing">多重檢定加 FDR (BH)</strong><span data-lang="zh">omics 或 ≥10 次比較需校正；用 Benjamini-Hochberg；report adjusted p 並標明方法。</span><span data-lang="en">Omics or ≥10 comparisons require correction; use Benjamini-Hochberg; report adjusted p and state the method.</span></div></div>
+<div class="wt-step"><span class="wt-label">Σ₇</span><div class="wt-body"><strong data-zh="輸出 300 dpi PDF" data-en="Export 300 dpi PDF">輸出 300 dpi PDF</strong><span data-lang="zh">向量圖優先（PDF / SVG）；字體 ≥7 pt at print size；line width 0.5-1 pt；嵌字以避免遺失。</span><span data-lang="en">Vector preferred (PDF / SVG); font ≥7 pt at print size; line width 0.5-1 pt; embed fonts to avoid loss.</span></div></div>
+<div class="wt-step"><span class="wt-label">Σ₈</span><div class="wt-body"><strong data-zh="交叉檢查 Methods" data-en="Cross-check Methods">交叉檢查 Methods</strong><span data-lang="zh">每張 figure 對應的 cohort / 統計檢定 / 校正方法都要在 Methods 找得到；不要圖上寫了 Methods 沒寫。</span><span data-lang="en">Every figure's cohort / test / correction must be findable in Methods; never let a figure use a method that isn't described.</span></div></div>
+</div>
+</section>
+
+<!-- ===== DISCUSSION ===== -->
+<section id="discussion" class="section">
+<div class="section-label" data-zh="專家辯論" data-en="EXPERT DEBATE">專家辯論</div>
+<h2 data-zh="三個爭論點：p、color、distribution" data-en="Three Live Debates: p, color, distribution">三個爭論點：p、color、distribution</h2>
+<div class="discussion-card">
+<div class="disc-label" data-zh="辯論 1" data-en="DEBATE 1">辯論 1</div>
+<div class="disc-q" data-zh="2026 年我們還需要 p 值嗎？" data-en="Do we still need p-values in 2026?">2026 年我們還需要 p 值嗎？</div>
+<div class="disc-pov" data-lang="zh"><strong>支持留下：</strong>p 值仍是「無差異假設下事件機率」的標準語言，FDA / EMA 監管仍以 p&lt;0.05 為主軸。<strong>主張取消：</strong>Wasserstein 2019 TAS「Moving to a world beyond p&lt;0.05」呼籲改報 effect size + CI；ASA 2016 明確 p 不能單獨判斷。<strong>實務折衷：</strong>p、effect size、CI 三者並陳——這也是本章主張。</div>
+<div class="disc-pov" data-lang="en"><strong>Keep:</strong> p remains the standard language of "probability under no-difference"; FDA/EMA still anchor decisions on p&lt;0.05. <strong>Abolish:</strong> Wasserstein 2019 TAS "Moving to a world beyond p&lt;0.05" urges reporting effect size + CI instead; ASA 2016 says p alone is insufficient. <strong>Pragmatic middle:</strong> always report p, effect size, and CI together — the position this chapter takes.</div>
+</div>
+<div class="discussion-card">
+<div class="disc-label" data-zh="辯論 2" data-en="DEBATE 2">辯論 2</div>
+<div class="disc-q" data-zh="color-blind safe 在 2026 是不是過度了？" data-en="Is color-blind safe excessive in 2026?">color-blind safe 在 2026 是不是過度了？</div>
+<div class="disc-pov" data-lang="zh"><strong>支持：</strong>8% 男性紅綠色盲 + 期刊印刷常黑白 → viridis 永遠更安全。<strong>質疑：</strong>類別 ≥6 時 viridis 區辨不夠，Okabe-Ito 反而更清楚；過度執著 viridis 也是 chartjunk。<strong>實務建議：</strong>連續變項預設 viridis；類別 &gt;6 改 Okabe-Ito 或自訂安全色盤。</div>
+<div class="disc-pov" data-lang="en"><strong>Pro:</strong> 8% of men are red-green color blind; journals still print in grayscale — viridis is always safer. <strong>Con:</strong> With ≥6 categories viridis bands blur; Okabe-Ito is clearer; obsessing over viridis becomes chartjunk too. <strong>Practical:</strong> default viridis for continuous; switch to Okabe-Ito or custom safe palettes for &gt;6 categories.</div>
+</div>
+<div class="discussion-card">
+<div class="disc-label" data-zh="辯論 3" data-en="DEBATE 3">辯論 3</div>
+<div class="disc-q" data-zh="期刊是否該強制要求顯示分布（禁用 bar + SEM）？" data-en="Should journals mandate showing distribution (ban bar + SEM)?">期刊是否該強制要求顯示分布（禁用 bar + SEM）？</div>
+<div class="disc-pov" data-lang="zh"><strong>支持強制：</strong>Weissgerber 2015 示範 bar + SEM 隱藏巨大分布差異；eLife、PLOS、Cell Reports 已在投稿指南推薦 boxplot+jitter。<strong>反對強制：</strong>n=3-5 小樣本反而 boxplot 不適合，bar 也能配合 individual dot；硬性禁止會誤傷正常用法。<strong>實務：</strong>n≥10 強制顯示分布；n&lt;10 用 dot plot + 個體點。</div>
+<div class="disc-pov" data-lang="en"><strong>Pro mandate:</strong> Weissgerber 2015 shows bar + SEM hides huge distribution differences; eLife, PLOS, Cell Reports already recommend boxplot+jitter. <strong>Against mandate:</strong> n=3-5 makes boxplot unfit; bar + individual dots can also work; a blanket ban harms valid use cases. <strong>Practical:</strong> n≥10 → mandatory distribution; n&lt;10 → dot plot with individual points.</div>
+</div>
+</section>
+
+<!-- ===== SPOTLIGHTS ===== -->
+<section class="section">
+<div class="section-label" data-zh="案例聚焦" data-en="SPOTLIGHTS">案例聚焦</div>
+<h2 data-zh="兩個案例：說服與誤導" data-en="Two Cases: Persuasion and Misdirection">兩個案例：說服與誤導</h2>
+<div class="spotlight"><span class="sp-icon">🌹</span><div class="sp-body">
+<span class="sp-tag" data-zh="成功" data-en="SUCCESS">SUCCESS</span>
+<strong data-zh="Nightingale 1858：玫瑰圖改革軍醫院" data-en="Nightingale 1858: rose diagram reforms military hospitals">Nightingale 1858：玫瑰圖改革軍醫院</strong>
+<p data-lang="zh">克里米亞戰爭中，Florence Nightingale 發現英軍士兵死於戰場以外（傷口感染、霍亂）的人數遠高於戰死。她用 polar area diagram 把每月死因比例「染色」呈現給維多利亞女王與英國國會：藍 = 可預防的疾病、紅 = 戰場傷、黑 = 其他。對比強烈、一眼即懂——國會通過軍醫院衛生改革法案，死亡率在兩年內從 42% 降到 2%。一張圖 = 兩年改革 = 十萬條人命。</p>
+<p data-lang="en">During the Crimean War, Florence Nightingale found British soldiers dying off the battlefield (wound infection, cholera) at far higher rates than in combat. Her polar area diagram painted monthly causes of death for Queen Victoria and Parliament: blue = preventable disease, red = battle wounds, black = other. The contrast was instant — Parliament passed sanitation-reform legislation; mortality fell from 42% to 2% in two years. One figure → two years of reform → ~100,000 lives.</p>
+</div></div>
+<div class="spotlight"><span class="sp-icon">⚠️</span><div class="sp-body">
+<span class="sp-tag" data-zh="警示" data-en="WARNING">WARNING</span>
+<strong data-zh="IBM Watson Oncology 2018：華麗 AI 圖表掩蓋不安全建議" data-en="IBM Watson Oncology 2018: flashy AI charts hid unsafe recommendations">IBM Watson Oncology 2018：華麗 AI 圖表掩蓋不安全建議</strong>
+<p data-lang="zh">2018 年 STAT News 揭露 MD Anderson 內部文件：IBM Watson for Oncology 在 demo 上以鮮豔的「90%+ 準確率」與「比對 NCCN 指南」圖表向醫院推銷，但實際對某些病例會建議「對活動性出血的病人使用嚴重出血副作用的藥物」。出色的 figure 設計（光滑漸層、漂亮 confidence bar）讓決策者錯把「demo 視覺說服力」當成「臨床安全性」。教訓：圖表越華麗，越要追問「underlying data 是什麼？n 多少？n 是『病人』還是『demo 案例』？」</p>
+<p data-lang="en">In 2018 STAT News uncovered MD Anderson internal docs: IBM Watson for Oncology demos used glossy "90%+ accuracy" charts and "matches NCCN guidelines" bars to win hospitals, while actually recommending — in certain cases — drugs with severe bleeding side effects for patients with active bleeding. Polished figure design (smooth gradients, beautiful confidence bars) led decision-makers to mistake demo polish for clinical safety. Lesson: the slicker the figure, the harder you must ask "what's the underlying data? what's n? is n 'patients' or 'demo cases'?"</p>
+</div></div>
+</section>
+
+<!-- ===== PITFALLS ===== -->
+<section id="pitfalls" class="section">
+<div class="section-label" data-zh="陷阱" data-en="PITFALLS">陷阱</div>
+<h2 data-zh="6 個典型陷阱（避開即贏）" data-en="6 Typical Pitfalls (avoid to win)">6 個典型陷阱（避開即贏）</h2>
+<div class="pitfall-grid">
+<div class="pitfall-card"><strong data-zh="① bar chart + SEM" data-en="① Bar chart + SEM">① bar chart + SEM</strong>
+<p data-lang="zh">隱藏分布、樣本量、離群值。同樣 mean ± SEM 可以對應 5 種完全不同的 distribution（Weissgerber 2015）。改用 boxplot + jitter 或 violin + dot。</p>
+<p data-lang="en">Hides distribution, n, outliers. Identical mean ± SEM can match five very different distributions (Weissgerber 2015). Use boxplot + jitter or violin + dot.</p></div>
+<div class="pitfall-card"><strong data-zh="② 只有 p、沒有 effect size" data-en="② p only, no effect size">② 只有 p、沒有 effect size</strong>
+<p data-lang="zh">「p&lt;0.05」不告訴你差多少。ASA 2016 強烈反對單獨報 p。每個 p 必須伴隨 mean diff / OR / HR / d 與 95% CI。</p>
+<p data-lang="en">"p&lt;0.05" never says how much. ASA 2016 strongly opposes p-alone reporting. Every p must come with mean diff / OR / HR / d and 95% CI.</p></div>
+<div class="pitfall-card"><strong data-zh="③ rainbow / jet 色階" data-en="③ Rainbow / jet colormap">③ rainbow / jet 色階</strong>
+<p data-lang="zh">非 perceptually uniform、色盲不友善、印成灰階全毀。連續用 viridis 家族；類別用 ColorBrewer / Okabe-Ito。</p>
+<p data-lang="en">Not perceptually uniform, color-blind hostile, ruined in grayscale. Continuous → viridis family; categorical → ColorBrewer / Okabe-Ito.</p></div>
+<div class="pitfall-card"><strong data-zh="④ 故意切 y 軸" data-en="④ Cherry-picked y-axis">④ 故意切 y 軸</strong>
+<p data-lang="zh">把 y 軸從 80% 切到 100% 讓 0.5% 差異看起來很大。Tufte 稱為「lie factor」。除非另有合理理由，連續 y 軸應從 0 開始。</p>
+<p data-lang="en">Truncating y from 80–100% makes a 0.5% difference look huge — Tufte's "lie factor." Unless justified, continuous y should start at 0.</p></div>
+<div class="pitfall-card"><strong data-zh="⑤ 3D pie chart" data-en="⑤ 3D pie chart">⑤ 3D pie chart</strong>
+<p data-lang="zh">3D 透視扭曲面積、難比較類別。Few 2010「Save the Pies for Dessert」——pie chart 在 ≥4 類已不可讀，3D 更糟。改用 bar chart 或 stacked-bar。</p>
+<p data-lang="en">3D perspective distorts area, makes categories hard to compare. Few 2010 "Save the Pies for Dessert" — pies fail at ≥4 categories; 3D is worse. Use bar or stacked-bar.</p></div>
+<div class="pitfall-card"><strong data-zh="⑥ caption 沒 n" data-en="⑥ Caption omits n">⑥ caption 沒 n</strong>
+<p data-lang="zh">沒寫 n=? 讀者不知道誤差條意義；biological vs technical replicates 不分。Caption 必含 n、所用 test、誤差條代表、校正方法。</p>
+<p data-lang="en">Without n, readers can't interpret error bars; biological vs technical replicates blur. Captions must list n, test, error-bar meaning, correction method.</p></div>
+</div>
+</section>
+
+<!-- ===== CONTRAST 2COL ===== -->
+<section class="section">
+<div class="section-label" data-zh="範例對照" data-en="CONTRAST">範例對照</div>
+<h2 data-zh="一句結果：壞 vs 好" data-en="One Result Sentence: Bad vs Good">一句結果：壞 vs 好</h2>
+<div class="contrast-2col">
+<div class="con-card bad">
+<strong data-zh="✗ 不完整" data-en="✗ Incomplete">✗ 不完整</strong>
+<p data-lang="zh">「Group A 顯著高於 Group B (p&lt;0.05)。」</p>
+<p data-lang="en">"Group A is significantly higher than Group B (p&lt;0.05)."</p>
+<p data-lang="zh"><em>缺：差多少、CI、effect size、n、所用 test、是否校正。</em></p>
+<p data-lang="en"><em>Missing: magnitude, CI, effect size, n, test used, correction.</em></p>
+</div>
+<div class="con-card good">
+<strong data-zh="✓ 完整" data-en="✓ Complete">✓ 完整</strong>
+<p data-lang="zh">「Group A 比 Group B 高 3.2 mmHg（95% CI 1.4–5.0；Cohen's d=0.42；p&lt;0.001；n=120 / 組；Welch's t-test；BH 校正後 q=0.003）。」</p>
+<p data-lang="en">"Group A is 3.2 mmHg (95% CI 1.4–5.0; Cohen's d=0.42; p&lt;0.001) higher than Group B (n=120 each, Welch's t-test, BH-adjusted q=0.003)."</p>
+</div>
+</div>
+</section>
+
+<!-- ===== REFLECTION ===== -->
+<section class="section">
+<div class="section-label" data-zh="自我檢視" data-en="REFLECTION">自我檢視</div>
+<h2 data-zh="6 個反思題" data-en="6 Reflection Questions">6 個反思題</h2>
+<div class="reflection-q" data-lang="zh">① 為什麼 bar + SEM 會誤導？同一組 mean ± SEM 能掩蓋哪些分布形態？</div>
+<div class="reflection-q" data-lang="en">① Why is bar + SEM misleading? What distribution shapes can the same mean ± SEM hide?</div>
+<div class="reflection-q" data-lang="zh">② 何時用 median (IQR)、何時用 mean (SD)？資料偏態與離群值怎麼判斷？</div>
+<div class="reflection-q" data-lang="en">② When to use median (IQR) vs mean (SD)? How do you judge skewness and outliers?</div>
+<div class="reflection-q" data-lang="zh">③ 用你自己的話解釋什麼是 95% CI？它不是什麼？（小心常見誤解）</div>
+<div class="reflection-q" data-lang="en">③ Explain 95% CI in your own words. What is it NOT? (Beware common misconceptions.)</div>
+<div class="reflection-q" data-lang="zh">④ 為什麼 omics 必須做 FDR 校正？只用 Bonferroni 有何代價？</div>
+<div class="reflection-q" data-lang="en">④ Why must omics use FDR correction? What's the cost of using Bonferroni instead?</div>
+<div class="reflection-q" data-lang="zh">⑤ 你的圖能否在黑白列印與紅綠色盲眼中皆清楚？拿這兩個鏡頭檢查最近一張圖。</div>
+<div class="reflection-q" data-lang="en">⑤ Is your figure readable in grayscale AND for red-green color blindness? Test your most recent figure with both lenses.</div>
+<div class="reflection-q" data-lang="zh">⑥ 你 caption 寫了 n、所用 test、誤差條代表、校正方法嗎？少哪一項？</div>
+<div class="reflection-q" data-lang="en">⑥ Does your caption state n, statistical test, error-bar meaning, correction method? Which is missing?</div>
+</section>
+
+<!-- ===== ADVANCED NOTE ===== -->
+<section id="advanced" class="section">
+<div class="section-label" data-zh="進階" data-en="ADVANCED">進階</div>
+<h2 data-zh="2024-2026 SOTA：SuperPlots、UpSet、互動圖" data-en="2024-2026 SOTA: SuperPlots, UpSet, Interactive Figures">2024-2026 SOTA</h2>
+<div class="advanced-note">
+<span class="adv-label" data-zh="進階 a" data-en="ADV a">進階 a</span>
+<details class="detail-toggle"><summary data-zh="SuperPlots：實驗 n vs 細胞 n 的區分 (Lord 2020 JCB)" data-en="SuperPlots: experiment-n vs cell-n (Lord 2020 JCB)">SuperPlots：實驗 n vs 細胞 n 的區分 (Lord 2020 JCB)</summary>
+<p data-lang="zh">Lord et al. 2020 J Cell Biol（doi:10.1083/jcb.202001064）提出 SuperPlots：在 boxplot/violin 之上疊加「實驗平均點」與「細胞個體點」，雙層 jitter 讓讀者一眼分辨 biological replicate (n=實驗) vs technical replicate (n=細胞)。避免將「每張影像 200 個細胞」當成「n=200」的常見誤用。</p>
+<p data-lang="en">Lord et al. 2020 J Cell Biol (doi:10.1083/jcb.202001064) propose SuperPlots: overlay "experiment-mean points" and "individual cell points" on boxplot/violin with dual jitter, making biological-n (experiments) vs technical-n (cells) immediately visible. Prevents the classic abuse of treating "200 cells per image" as "n=200."</p>
+</details>
+</div>
+<div class="advanced-note">
+<span class="adv-label" data-zh="進階 b" data-en="ADV b">進階 b</span>
+<details class="detail-toggle"><summary data-zh="UpSet plot 取代 Venn (Lex 2014 IEEE TVCG)" data-en="UpSet plot replaces Venn (Lex 2014 IEEE TVCG)">UpSet plot 取代 Venn (Lex 2014 IEEE TVCG)</summary>
+<p data-lang="zh">Lex et al. 2014 IEEE TVCG（doi:10.1109/TVCG.2014.2346248）UpSet plot：當集合數 ≥4 時 Venn 已不可讀，UpSet 用矩陣（行=集合、列=交集組合）+ 長條（交集大小）視覺化任意數集合的交集結構。R 套件 UpSetR / ComplexHeatmap、Python upsetplot 皆可用。</p>
+<p data-lang="en">Lex et al. 2014 IEEE TVCG (doi:10.1109/TVCG.2014.2346248) UpSet plot: Venn diagrams break down at ≥4 sets. UpSet visualizes arbitrary-size set intersections with a matrix (rows=sets, columns=intersection combinations) + bar chart (intersection sizes). R: UpSetR / ComplexHeatmap; Python: upsetplot.</p>
+</details>
+</div>
+<div class="advanced-note">
+<span class="adv-label" data-zh="進階 c" data-en="ADV c">進階 c</span>
+<details class="detail-toggle"><summary data-zh="2024-2026 互動圖時代：Plotly / Observable / Quarto" data-en="2024-2026 interactive figures: Plotly / Observable / Quarto">2024-2026 互動圖時代：Plotly / Observable / Quarto</summary>
+<p data-lang="zh">主流期刊 supplementary 接受互動圖：Plotly（hover tooltip、zoom）、Observable Plot（D3 grammar、流暢動態）、Quarto-revealjs（reveal.js + 程式碼 chunk + 互動圖一體成形）。Cell / Nature 2024-2025 已多篇 supplementary 為 interactive HTML；reviewer 也開始要求「請提供互動版本驗證 cluster 邊界」。但主圖仍須有 publication-quality static PDF 作為紀錄版本。</p>
+<p data-lang="en">Mainstream journal supplementaries now accept interactive figures: Plotly (hover, zoom), Observable Plot (D3 grammar, smooth motion), Quarto-revealjs (reveal.js + code chunks + interactive figures in one document). Cell / Nature 2024-25 supplementaries are increasingly interactive HTML; reviewers ask for "interactive version to verify cluster boundaries." Main figures still need a publication-quality static PDF as the canonical version.</p>
+</details>
+</div>
+</section>
+
+<!-- ===== HISTORY NOTE ===== -->
+<div class="history-note">
+<strong data-zh="軼事：Tufte 自費出版的傳奇" data-en="Anecdote: Tufte's self-publishing legend">軼事：Tufte 自費出版的傳奇</strong>
+<p data-lang="zh">Edward Tufte 1983 年寫完《The Visual Display of Quantitative Information》後，被每一家主流出版社拒絕——「資料視覺化是小眾領域」。Tufte 不死心：他抵押自己的房子、自學排版印刷、創立 Graphics Press 自費出版。書一出版立刻成為現象級暢銷書，至今銷量超過 150 萬冊，被翻譯成多國語言。他現在每本書仍由 Graphics Press 親自出版，掌控每一頁的版式與紙質。一句話：把資料視覺化當成藝術的人，最後改變了科學界整個資料呈現的標準。</p>
+<p data-lang="en">When Edward Tufte finished "The Visual Display of Quantitative Information" in 1983, every mainstream publisher rejected it — "data visualization is too niche." Tufte refused to give up: he mortgaged his house, taught himself typography and printing, founded Graphics Press, and self-published. The book became an instant phenomenon — over 1.5 million copies sold, translated into many languages. He still publishes every book through Graphics Press, controlling every page layout and paper choice. One line: the person who treated data visualization as art ended up changing how all of science reports its data.</p>
+</div>
+
 <section class="section">
 <div class="section-label" data-zh="概覽" data-en="OVERVIEW">概覽</div>
 <h2 data-zh="Results 的黃金鐵則" data-en="The Golden Rules of Results">Results 的黃金鐵則</h2>

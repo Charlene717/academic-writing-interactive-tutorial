@@ -30,6 +30,328 @@
 </header>
 <main class="content-wrap">
 
+<!-- ===== Section TOC ===== -->
+<div class="section-toc">
+<strong data-zh="本章導覽（閱讀時間 ~25 分）" data-en="Chapter map (reading time ~25 min)">本章導覽（閱讀時間 ~25 分）</strong>
+<div class="pill-row">
+<span class="level-badge l-beg" data-zh="初學者" data-en="Beginner">初學者</span>
+<span class="level-badge l-mid" data-zh="中階" data-en="Intermediate">中階</span>
+<span class="level-badge l-adv" data-zh="進階" data-en="Advanced">進階</span>
+<span class="pill navy" data-zh="AI 政策 2026" data-en="AI policy 2026">AI 政策 2026</span><span class="pill amber">preprint</span><span class="pill violet">Quarto</span><span class="pill teal">FAIR</span><span class="pill rose">Docker</span>
+</div>
+<ol>
+<li><a href="#story-enrich" data-zh="開場故事：Yui 的揭露兩難" data-en="Story: Yui's disclosure dilemma">開場故事：Yui 的揭露兩難</a></li>
+<li><a href="#glossary-enrich" data-zh="核心詞彙表（雙版本）" data-en="Glossary (two versions)">核心詞彙表（雙版本）</a></li>
+<li><a href="#history-enrich" data-zh="從 arXiv 到 ChatGPT" data-en="From arXiv to ChatGPT">從 arXiv 到 ChatGPT</a></li>
+<li><a href="#kpi-enrich" data-zh="關鍵指標" data-en="Key numbers">關鍵指標</a></li>
+<li><a href="#walkthrough-enrich" data-zh="現代可重現投稿 8 步" data-en="Modern reproducible submission in 8 steps">現代可重現投稿 8 步</a></li>
+<li><a href="#discussion-enrich" data-zh="專家辯論" data-en="Expert debates">專家辯論</a></li>
+<li><a href="#spotlight-enrich" data-zh="兩個聚光燈" data-en="Two spotlights">兩個聚光燈</a></li>
+<li><a href="#pitfalls-enrich" data-zh="6 個典型陷阱" data-en="6 typical pitfalls">6 個典型陷阱</a></li>
+<li><a href="#advanced" data-zh="進階 2024-2026 SOTA" data-en="Advanced 2024-2026 SOTA">進階 2024-2026 SOTA</a></li>
+</ol>
+</div>
+
+<!-- ===== STORY ===== -->
+<section id="story-enrich" class="section">
+<div class="section-label" data-zh="故事開場" data-en="OPENING STORY">故事開場</div>
+<h2 data-zh="場景：Yui 的揭露兩難" data-en="Scene: Yui's Disclosure Dilemma">場景：Yui 的揭露兩難</h2>
+<div class="story-block">
+<span class="story-tag">SCENE · 2026 · Kyoto Univ.</span>
+<h3 data-zh="三種 AI、三種揭露規則" data-en="Three AI tools, three disclosure rules">三種 AI、三種揭露規則</h3>
+<div data-lang="zh">
+<p>博士後 <strong>Yui</strong> 正在準備她的第一篇 corresponding author 論文，研究單細胞圖譜。她用了三個 AI 工具：<strong>ChatGPT-5</strong> 幫她在 Discussion 段落修語法、潤飾英文表達；<strong>Claude Sonnet 4.6</strong> 幫她重構分析 pipeline 的 Python code (寫 wrapper、加 docstring)；以及 <strong>DALL-E</strong> 生成一張漂亮的 graphical abstract——藍色細胞群、發光的標記基因，看起來像 Cell 封面。</p>
+<p>投稿前一週她問 PI <strong>Sato 教授</strong>：「我要不要全部揭露？」Sato 教授翻出三個期刊政策頁：「<em>三種工具、三種規則。</em>(1) ChatGPT 純粹潤飾語法——Elsevier 政策說這類使用「鼓勵但非強制揭露」，你可以選擇寫一句聲明；(2) Claude 寫了實質的 code——這必須在 Methods 揭露，並在 Code Availability 註明 AI 協助；(3) DALL-E 生成的 graphical abstract——Cell Press 明文禁止 generative AI 生成科學圖像，conceptual abstract 是灰色地帶但必須揭露。建議你直接換成手繪或 BioRender。」</p>
+<p>Yui 重寫 disclosure section、把 graphical abstract 換成 BioRender，然後同步上傳到 <strong>bioRxiv</strong>——24 小時內拿到 DOI。三個月後論文被接受，reviewer 還特別讚許「disclosure transparency exemplary」。Yui 學到了：<em>AI 是工具，揭露是責任，每個工具的政策都不一樣，必須一一查清楚。</em></p>
+</div>
+<div data-lang="en">
+<p>Postdoc <strong>Yui</strong> is preparing her first corresponding-author paper, a single-cell atlas study. She used three AI tools: <strong>ChatGPT-5</strong> to polish English grammar in her Discussion, <strong>Claude Sonnet 4.6</strong> to refactor her Python analysis pipeline (wrappers, docstrings), and <strong>DALL-E</strong> to generate a stunning graphical abstract — blue cell clusters, glowing marker genes, Cell-cover quality.</p>
+<p>A week before submission she asks her PI <strong>Prof. Sato</strong>: "Do I disclose all of it?" Sato pulls up three policy pages: "<em>Three tools, three rules.</em> (1) ChatGPT for pure grammar polish — Elsevier's policy calls disclosure 'encouraged but optional' for this use; you can include a statement if you want. (2) Claude wrote substantive code — this MUST be disclosed in Methods and noted in Code Availability. (3) DALL-E graphical abstract — Cell Press explicitly bans generative AI for scientific images; conceptual abstracts are grey but require disclosure. Better: redraw it in BioRender."</p>
+<p>Yui rewrites the disclosure section, replaces the graphical abstract with BioRender, and submits to <strong>bioRxiv</strong> simultaneously with the journal — DOI assigned within 24 hours. Three months later the paper is accepted; one reviewer commends the "exemplary disclosure transparency." Yui learned: <em>AI is a tool, disclosure is responsibility, every tool has different rules — check every one.</em></p>
+</div>
+</div>
+</section>
+
+<!-- ===== GLOSSARY ===== -->
+<section id="glossary-enrich" class="section">
+<div class="section-label" data-zh="核心詞彙" data-en="GLOSSARY">核心詞彙</div>
+<h2 data-zh="14 個關鍵術語（雙版本）" data-en="14 Key Terms (two versions)">14 個關鍵術語（雙版本）</h2>
+<p data-lang="zh"><em>每個詞兩個版本：🧒「給小孩看」用比喻、📐「給研究者看」給定義。</em></p>
+<p data-lang="en"><em>Each term has two versions: 🧒 "for kids" uses a metaphor; 📐 "for researchers" gives the formal definition.</em></p>
+<div class="glossary-grid">
+
+<div class="glossary-card">
+<div class="term-en">Generative AI (LLM)</div><div class="term-zh">生成式 AI（大型語言模型）</div>
+<div class="term-kid" data-lang="zh">像超會背書的鸚鵡——讀過全世界文字後可以模仿說話，但不一定真的懂。</div>
+<div class="term-kid" data-lang="en">A super-memorizing parrot — having read the world's text, it can mimic talking but doesn't necessarily understand.</div>
+<div class="term-tech" data-lang="zh">Large Language Model；基於 Transformer (Vaswani 2017) 在大量 corpus 預訓練後生成文字。代表：GPT-5, Claude 4.6, Gemini 2.5。</div>
+<div class="term-tech" data-lang="en">Large Language Model; Transformer-based (Vaswani 2017) trained on massive corpora to generate text. Examples: GPT-5, Claude 4.6, Gemini 2.5.</div>
+</div>
+
+<div class="glossary-card">
+<div class="term-en">ChatGPT / Claude / Gemini</div><div class="term-zh">ChatGPT / Claude / Gemini</div>
+<div class="term-kid" data-lang="zh">三家最有名的 AI 對話機器人——OpenAI、Anthropic、Google 各做一個。</div>
+<div class="term-kid" data-lang="en">The three most famous AI chatbots — one each from OpenAI, Anthropic, Google.</div>
+<div class="term-tech" data-lang="zh">ChatGPT (OpenAI, 2022/11 上線)、Claude (Anthropic, 2023/03)、Gemini (Google, 2023/12，前身 Bard)。三者均提供 API 與 web 介面。</div>
+<div class="term-tech" data-lang="en">ChatGPT (OpenAI, launched 2022/11), Claude (Anthropic, 2023/03), Gemini (Google, 2023/12, formerly Bard). All offer API + web UI.</div>
+</div>
+
+<div class="glossary-card">
+<div class="term-en">AI disclosure</div><div class="term-zh">AI 使用揭露</div>
+<div class="term-kid" data-lang="zh">告訴讀者「我有用 AI 幫忙」——像作業要寫「我請哥哥幫忙過」一樣誠實。</div>
+<div class="term-kid" data-lang="en">Telling readers "I used AI help" — honest like writing "my big brother helped" on homework.</div>
+<div class="term-tech" data-lang="zh">在 Methods 或 Acknowledgements 揭露：工具名稱 + 版本 + 用途 + 段落。2023 起 ICMJE 與多數主流期刊強制。</div>
+<div class="term-tech" data-lang="en">Disclose in Methods or Acknowledgements: tool name + version + purpose + section used. Mandatory since 2023 per ICMJE and most major publishers.</div>
+</div>
+
+<div class="glossary-card">
+<div class="term-en">AI authorship</div><div class="term-zh">AI 作者身份</div>
+<div class="term-kid" data-lang="zh">能不能把 ChatGPT 寫上 author 欄？答案是：不行。</div>
+<div class="term-kid" data-lang="en">Can ChatGPT be listed as an author? Answer: no.</div>
+<div class="term-tech" data-lang="zh">2023 起 ICMJE、Nature、Science、Cell、Elsevier 全面禁止 AI 列為作者；理由為 AI 無法承擔 accountability。</div>
+<div class="term-tech" data-lang="en">Since 2023 ICMJE, Nature, Science, Cell, Elsevier all prohibit AI as author; AI cannot bear accountability.</div>
+</div>
+
+<div class="glossary-card">
+<div class="term-en">Preprint</div><div class="term-zh">預印本</div>
+<div class="term-kid" data-lang="zh">論文還沒過 peer review 就先公開的版本——像「樣品書」先發給大家看。</div>
+<div class="term-kid" data-lang="en">A paper made public before peer review — like releasing the "advance copy" first.</div>
+<div class="term-tech" data-lang="zh">未經 peer review 的科學手稿公開版本；提供 DOI 引用、優先權保護、加速傳播。</div>
+<div class="term-tech" data-lang="en">A scientific manuscript made public before peer review; provides citable DOI, priority protection, and faster dissemination.</div>
+</div>
+
+<div class="glossary-card">
+<div class="term-en">bioRxiv</div><div class="term-zh">bioRxiv</div>
+<div class="term-kid" data-lang="zh">生物學家的「先公開」網站，2013 年由 CSHL 創立。</div>
+<div class="term-kid" data-lang="en">The biology "pre-release" site, founded by CSHL in 2013.</div>
+<div class="term-tech" data-lang="zh">Cold Spring Harbor Laboratory 2013 上線；2026 已超過 30 萬篇 preprint；24 小時內分配 DOI；支援與主流期刊同步投稿。</div>
+<div class="term-tech" data-lang="en">Launched by Cold Spring Harbor Laboratory 2013; 300k+ preprints by 2026; DOI assigned within 24 h; supports simultaneous journal submission.</div>
+</div>
+
+<div class="glossary-card">
+<div class="term-en">medRxiv</div><div class="term-zh">medRxiv</div>
+<div class="term-kid" data-lang="zh">bioRxiv 的姊妹站，專收醫學 / 臨床研究。</div>
+<div class="term-kid" data-lang="en">bioRxiv's sister site, for medical / clinical research.</div>
+<div class="term-tech" data-lang="zh">2019 上線 (CSHL + Yale + BMJ)；專收 health science / 臨床試驗；2020 COVID-19 期間爆紅。</div>
+<div class="term-tech" data-lang="en">Launched 2019 (CSHL + Yale + BMJ); for health science / clinical trials; surged during COVID-19 in 2020.</div>
+</div>
+
+<div class="glossary-card">
+<div class="term-en">arXiv</div><div class="term-zh">arXiv</div>
+<div class="term-kid" data-lang="zh">最古老的 preprint 平台——1991 年物理學家先發明的。</div>
+<div class="term-kid" data-lang="en">The oldest preprint server — physicists invented it in 1991.</div>
+<div class="term-tech" data-lang="zh">Paul Ginsparg 1991 在 LANL 上線；現由康乃爾大學維運；2026 累積 240 萬+ preprint；涵蓋物理、數學、CS、quant-bio。</div>
+<div class="term-tech" data-lang="en">Launched by Paul Ginsparg at LANL 1991; now run by Cornell; 2.4M+ preprints by 2026; covers physics, math, CS, quant-bio.</div>
+</div>
+
+<div class="glossary-card">
+<div class="term-en">Reproducible research</div><div class="term-zh">可重現研究</div>
+<div class="term-kid" data-lang="zh">別人照你的食譜也能做出一樣的蛋糕——code、data、環境都公開。</div>
+<div class="term-kid" data-lang="en">Anyone following your recipe makes the same cake — code, data, and environment all public.</div>
+<div class="term-tech" data-lang="zh">Donoho 2003 形式化定義：給定相同 input，他人能跑出相同 output。需要 code + data + env + workflow 全部公開。</div>
+<div class="term-tech" data-lang="en">Formalized by Donoho 2003: given the same inputs, others can produce the same outputs. Requires code + data + env + workflow all public.</div>
+</div>
+
+<div class="glossary-card">
+<div class="term-en">Quarto</div><div class="term-zh">Quarto</div>
+<div class="term-kid" data-lang="zh">把寫作、code、圖表合在一個檔案裡——按一個鍵就生出 PDF / HTML / Word。</div>
+<div class="term-kid" data-lang="en">Writing + code + figures in one file — press a button to get PDF / HTML / Word.</div>
+<div class="term-tech" data-lang="zh">Posit 2022 推出，作為 R Markdown 接班人；支援 Python / R / Julia / Observable；.qmd 副檔名；單一 source → 多格式輸出。</div>
+<div class="term-tech" data-lang="en">Posit, launched 2022, successor to R Markdown; supports Python / R / Julia / Observable; .qmd extension; single source → multiple formats.</div>
+</div>
+
+<div class="glossary-card">
+<div class="term-en">R Markdown</div><div class="term-zh">R Markdown</div>
+<div class="term-kid" data-lang="zh">Quarto 的前輩——R 社群最早的「文字+code+圖表」一體化工具。</div>
+<div class="term-kid" data-lang="en">Quarto's predecessor — the R community's original "text + code + figures" combo.</div>
+<div class="term-tech" data-lang="zh">Yihui Xie / RStudio 2014；.Rmd 副檔名；knitr 引擎；2022 後逐步被 Quarto 取代但仍廣泛使用。</div>
+<div class="term-tech" data-lang="en">Yihui Xie / RStudio 2014; .Rmd extension; knitr engine; gradually replaced by Quarto post-2022 but still widely used.</div>
+</div>
+
+<div class="glossary-card">
+<div class="term-en">Snakemake</div><div class="term-zh">Snakemake</div>
+<div class="term-kid" data-lang="zh">把分析步驟連成「食譜」的工具——告訴它要什麼結果，它自動幫你跑完所有步驟。</div>
+<div class="term-kid" data-lang="en">A tool that chains analysis steps into a "recipe" — tell it what you want, it runs everything in order.</div>
+<div class="term-tech" data-lang="zh">Köster 2012；Python-based DAG workflow engine；rules + wildcards + conda integration；2025 已釋出 v8+。</div>
+<div class="term-tech" data-lang="en">Köster 2012; Python-based DAG workflow engine; rules + wildcards + conda integration; v8+ released 2025.</div>
+</div>
+
+<div class="glossary-card">
+<div class="term-en">Docker / Apptainer</div><div class="term-zh">Docker / Apptainer</div>
+<div class="term-kid" data-lang="zh">把你的整個分析環境裝箱——別人解開盒子就能跑，不用裝任何套件。</div>
+<div class="term-kid" data-lang="en">Pack your entire analysis environment in a box — others just open it and run, no setup needed.</div>
+<div class="term-tech" data-lang="zh">Docker (2013, v1.0 在 2014) container；Apptainer (前 Singularity, HPC 友好不需 root)。BioContainers 提供 bioinfo 預建映像。</div>
+<div class="term-tech" data-lang="en">Docker (2013, v1.0 in 2014) containers; Apptainer (formerly Singularity, HPC-friendly, no root needed). BioContainers offers prebuilt bioinfo images.</div>
+</div>
+
+<div class="glossary-card">
+<div class="term-en">FAIR principles</div><div class="term-zh">FAIR 原則</div>
+<div class="term-kid" data-lang="zh">資料公開的四條黃金規則：找得到、拿得到、可以串、可以重用。</div>
+<div class="term-kid" data-lang="en">Four golden rules for open data: Findable, Accessible, Interoperable, Reusable.</div>
+<div class="term-tech" data-lang="zh">Wilkinson 等 2016 Sci Data；F=Findable, A=Accessible, I=Interoperable, R=Reusable；NIH 2023 DMS Policy 強制要求。</div>
+<div class="term-tech" data-lang="en">Wilkinson et al. 2016 Sci Data; F=Findable, A=Accessible, I=Interoperable, R=Reusable; required by NIH 2023 DMS Policy.</div>
+</div>
+
+</div>
+</section>
+
+<!-- ===== HISTORY TIMELINE ===== -->
+<section id="history-enrich" class="section">
+<div class="section-label" data-zh="歷史" data-en="HISTORY">歷史</div>
+<h2 data-zh="從 arXiv 到 ChatGPT" data-en="From arXiv to ChatGPT">可重現與 AI 工具的簡史：從 arXiv 到 ChatGPT</h2>
+<div class="timeline">
+<div class="timeline-item"><span class="tl-year">1991</span><span class="tl-title" data-zh="arXiv 上線（Ginsparg）" data-en="arXiv launched (Ginsparg)">arXiv 上線（Ginsparg）</span><span class="tl-desc" data-zh="Paul Ginsparg 在 Los Alamos 為約 10 位物理學家架設的第一個 preprint server；2026 已累積 240 萬+ 篇。" data-en="Paul Ginsparg's first preprint server at Los Alamos for ~10 physicists; 2.4M+ papers by 2026."></span></div>
+<div class="timeline-item"><span class="tl-year">2003</span><span class="tl-title" data-zh="Donoho 提出「可重現研究」" data-en="Donoho coins "reproducible research"">Donoho 提出「可重現研究」</span><span class="tl-desc" data-zh="David Donoho 在統計界形式化定義 reproducible research——code + data + environment 全公開的標準。" data-en="David Donoho formalized reproducible research in statistics — the code + data + environment standard."></span></div>
+<div class="timeline-item"><span class="tl-year">2013</span><span class="tl-title" data-zh="bioRxiv 上線（CSHL）" data-en="bioRxiv launched (CSHL)">bioRxiv 上線（CSHL）</span><span class="tl-desc" data-zh="Cold Spring Harbor Laboratory 推出生命科學專屬 preprint server；徹底改變生物研究發表流程。" data-en="Cold Spring Harbor Laboratory launches a life-science-dedicated preprint server; transforms publishing in biology."></span></div>
+<div class="timeline-item"><span class="tl-year">2014</span><span class="tl-title" data-zh="Docker v1.0" data-en="Docker reaches v1.0">Docker v1.0</span><span class="tl-desc" data-zh="Docker container 技術抵達 1.0；可重現計算環境從理想變成標準工具。" data-en="Docker container tech hits 1.0; reproducible compute envs become standard tooling."></span></div>
+<div class="timeline-item"><span class="tl-year">2016</span><span class="tl-title" data-zh="FAIR 原則發表" data-en="FAIR principles published">FAIR 原則發表</span><span class="tl-desc" data-zh="Wilkinson 等 Sci Data；Findable / Accessible / Interoperable / Reusable 成為全球資料開放黃金準則。" data-en="Wilkinson et al. Sci Data; Findable / Accessible / Interoperable / Reusable becomes the global open-data gold standard."></span></div>
+<div class="timeline-item"><span class="tl-year">2019</span><span class="tl-title" data-zh="medRxiv 上線" data-en="medRxiv launched">medRxiv 上線</span><span class="tl-desc" data-zh="CSHL + Yale + BMJ 三方合作；醫學 / 臨床研究專屬 preprint 平台。" data-en="CSHL + Yale + BMJ collaboration; preprint platform for medical / clinical research."></span></div>
+<div class="timeline-item"><span class="tl-year">2022</span><span class="tl-title" data-zh="Quarto 取代 R Markdown" data-en="Quarto succeeds R Markdown">Quarto 取代 R Markdown</span><span class="tl-desc" data-zh="Posit (前 RStudio) 推出 Quarto；多語言 (Python/R/Julia)、單一 source → 多格式輸出。" data-en="Posit (formerly RStudio) launches Quarto; multi-language (Python/R/Julia), single source → multi-format output."></span></div>
+<div class="timeline-item"><span class="tl-year">2022/11</span><span class="tl-title" data-zh="ChatGPT 上線" data-en="ChatGPT launched">ChatGPT 上線</span><span class="tl-desc" data-zh="OpenAI 2022/11/30 釋出 ChatGPT；5 日內超過 100 萬使用者；學術寫作生態瞬間改寫。" data-en="OpenAI releases ChatGPT on 2022/11/30; 1M+ users within 5 days; academic writing ecosystem changes overnight."></span></div>
+<div class="timeline-item"><span class="tl-year">2023</span><span class="tl-title" data-zh="ICMJE 禁止 AI 作者" data-en="ICMJE bans AI as author">ICMJE 禁止 AI 作者</span><span class="tl-desc" data-zh="ICMJE 2023 更新指南：AI 無法承擔 accountability，禁止列為 author；Nature, Science, Cell 跟進。" data-en="ICMJE 2023 update: AI cannot bear accountability, prohibited as author; Nature, Science, Cell follow suit."></span></div>
+<div class="timeline-item"><span class="tl-year">2025-26</span><span class="tl-title" data-zh="多家出版商 AI 政策收斂" data-en="Multi-publisher AI policies converge">多家出版商 AI 政策收斂</span><span class="tl-desc" data-zh="Elsevier、Springer Nature、Wiley、Cell Press、T&amp;F、APA 五大主題政策收斂：不可作者、須揭露、文法例外、圖片禁、reviewer 禁。" data-en="Elsevier, Springer Nature, Wiley, Cell Press, T&amp;F, APA — five-theme policy convergence: no AI author, must disclose, grammar exempt, images banned, reviewers banned."></span></div>
+</div>
+</section>
+
+<!-- ===== KPI ===== -->
+<section id="kpi-enrich" class="section">
+<div class="section-label" data-zh="關鍵指標" data-en="KEY METRICS">關鍵指標</div>
+<h2 data-zh="AI 與 reproducibility 的數字感" data-en="Numbers to Anchor AI &amp; Reproducibility">AI 與可重現的數字感</h2>
+<div class="kpi-grid">
+<div class="kpi-card"><span class="kpi-num">300k+</span><span class="kpi-label" data-zh="2026 bioRxiv 累積篇數" data-en="bioRxiv papers (2026)">2026 bioRxiv 累積篇數</span></div>
+<div class="kpi-card"><span class="kpi-num">1</span><span class="kpi-label" data-zh="鍵完成 bioRxiv 投稿" data-en="click bioRxiv submission">鍵完成 bioRxiv 投稿</span></div>
+<div class="kpi-card"><span class="kpi-num">5</span><span class="kpi-label" data-zh="主流 AI 政策主題" data-en="major AI policy themes">主流 AI 政策主題</span></div>
+<div class="kpi-card"><span class="kpi-num">0</span><span class="kpi-label" data-zh="家期刊允許 AI 為 author" data-en="publishers allow AI as author">家期刊允許 AI 為 author</span></div>
+<div class="kpi-card"><span class="kpi-num">24h</span><span class="kpi-label" data-zh="內 bioRxiv 分配 DOI" data-en="DOI assignment on bioRxiv">內 bioRxiv 分配 DOI</span></div>
+<div class="kpi-card"><span class="kpi-num">4</span><span class="kpi-label" data-zh="FAIR 字母 (F/A/I/R)" data-en="FAIR = Find/Access/Interop/Reuse">FAIR 字母</span></div>
+</div>
+<div class="tip-bar" data-lang="zh">2026 主流期刊已對 AI / preprint / data deposit 形成穩定共識——不再是「要不要做」，而是「怎麼做才合規」。</div>
+<div class="tip-bar" data-lang="en">By 2026, mainstream journals have stable consensus on AI / preprints / data deposits — no longer "if" but "how to comply."</div>
+<div class="analogy-box">
+<div data-lang="zh"><strong>類比：</strong>AI 工具就像汽車的動力方向盤——它幫你轉得更快、更省力，但你仍是駕駛。放開雙手，車就會撞。</div>
+<div data-lang="en"><strong>Analogy:</strong> AI tools are like power steering — they help you turn the wheel faster, but you're still the driver. Take your hands off, and you crash.</div>
+</div>
+</section>
+
+<!-- ===== WALKTHROUGH ===== -->
+<section id="walkthrough-enrich" class="section">
+<div class="section-label" data-zh="逐步推導" data-en="WALKTHROUGH">逐步推導</div>
+<h2 data-zh="現代可重現投稿 8 步" data-en="Modern Reproducible Submission in 8 Steps">現代可重現投稿 8 步</h2>
+<div class="walkthrough">
+<ol>
+<li><strong>Σ₁</strong> — <span data-lang="zh">Day 1 建立 Git repo + uv (Python) / renv (R) lockfile：環境鎖死，後人可重建。</span><span data-lang="en">Day 1 set up Git repo + uv (Python) / renv (R) lockfile: lock the environment so others can rebuild it.</span></li>
+<li><strong>Σ₂</strong> — <span data-lang="zh">用 Snakemake / Nextflow 建立 pipeline：每一步輸入 / 輸出明確、可重跑、可平行。</span><span data-lang="en">Build the pipeline in Snakemake / Nextflow: explicit inputs/outputs per step, rerunnable, parallelizable.</span></li>
+<li><strong>Σ₃</strong> — <span data-lang="zh">寫作過程同步記錄 AI 使用：日記式記下「哪段用了哪個工具、哪個版本、做了什麼」。</span><span data-lang="en">Document AI usage as you go: keep a journal — "which section, which tool, which version, doing what."</span></li>
+<li><strong>Σ₄</strong> — <span data-lang="zh">用 Quarto (.qmd) 寫稿：文字 + code + 圖表整合，所有 figures 由 code 直接產生。</span><span data-lang="en">Write in Quarto (.qmd): text + code + figures integrated; all figures generated directly from code.</span></li>
+<li><strong>Σ₅</strong> — <span data-lang="zh">用 Docker 容器化分析環境：Dockerfile 公開、image push 到 Docker Hub / GitHub Registry。</span><span data-lang="en">Docker-containerize the analysis env: Dockerfile public, image pushed to Docker Hub / GitHub Registry.</span></li>
+<li><strong>Σ₆</strong> — <span data-lang="zh">投稿日同步上傳 bioRxiv：24 小時內取得 DOI，搶優先權、加速傳播。</span><span data-lang="en">On submission day, post to bioRxiv simultaneously: DOI within 24 h, secures priority, speeds dissemination.</span></li>
+<li><strong>Σ₇</strong> — <span data-lang="zh">在 Methods 或 Acknowledgements 加 AI disclosure statement：工具 + 版本 + 用途 + 段落。</span><span data-lang="en">Add an AI disclosure statement in Methods / Acknowledgements: tool + version + purpose + section.</span></li>
+<li><strong>Σ₈</strong> — <span data-lang="zh">論文接受後在 GitHub 打 release tag 並串接 Zenodo 取得永久 DOI——code 從此可被引用且不消失。</span><span data-lang="en">After acceptance, tag a GitHub release and link to Zenodo for a permanent DOI — code becomes citable and never disappears.</span></li>
+</ol>
+</div>
+</section>
+
+<!-- ===== DISCUSSION ===== -->
+<section id="discussion-enrich" class="section">
+<div class="section-label" data-zh="專家辯論" data-en="EXPERT DEBATES">專家辯論</div>
+<h2 data-zh="三個尚未有共識的問題" data-en="Three Open Debates">三個尚未有共識的問題</h2>
+<div class="discussion-card">
+<h3 data-zh="(a) AI 生成的科學會取代人類研究嗎？" data-en="(a) Will AI-generated science replace human research?">(a) AI 生成的科學會取代人類研究嗎？</h3>
+<p data-lang="zh"><strong>支持：</strong>AlphaFold 等 AI 已能完成過去博士論文等級的任務；2025 起 "AI scientist" papers 出現。<strong>反對：</strong>AI 缺少 falsifiability 直覺與物理實驗能力；目前仍是 amplifier，非 replacer。</p>
+<p data-lang="en"><strong>Pro:</strong> Systems like AlphaFold now complete what used to be PhD-level tasks; "AI scientist" papers emerged from 2025. <strong>Con:</strong> AI lacks falsifiability intuition and wet-lab capability; remains an amplifier, not a replacer.</p>
+</div>
+<div class="discussion-card">
+<h3 data-zh="(b) 期刊該不該主動驗證 AI 揭露？" data-en="(b) Should publishers verify AI disclosures?">(b) 期刊該不該主動驗證 AI 揭露？</h3>
+<p data-lang="zh"><strong>支持：</strong>目前是 honor system，違規無法稽核；驗證可提升 transparency。<strong>反對：</strong>AI 偵測工具誤判率高 (Liang 2023)；可能誤殺非英語母語作者。</p>
+<p data-lang="en"><strong>Pro:</strong> Current honor system has no audit; verification would boost transparency. <strong>Con:</strong> AI-detection tools have high false-positive rates (Liang 2023) and may unfairly flag non-native English speakers.</p>
+</div>
+<div class="discussion-card">
+<h3 data-zh="(c) Preprint 會取代 peer review 嗎？" data-en="(c) Will preprints kill peer review?">(c) Preprint 會取代 peer review 嗎？</h3>
+<p data-lang="zh"><strong>支持：</strong>2020 COVID-19 期間 bioRxiv preprint 影響力超越期刊論文；社群審閱模式興起 (eLife 2023)。<strong>反對：</strong>正式 peer review 仍是科學 gatekeeping 的核心；preprint 並非品質保證。</p>
+<p data-lang="en"><strong>Pro:</strong> During COVID-19 in 2020, bioRxiv preprints had more impact than journal papers; community-review models rose (eLife 2023). <strong>Con:</strong> Formal peer review remains core to scientific gatekeeping; preprints are not quality-assured.</p>
+</div>
+</section>
+
+<!-- ===== SPOTLIGHTS ===== -->
+<section id="spotlight-enrich" class="section">
+<div class="section-label" data-zh="聚光燈" data-en="SPOTLIGHTS">聚光燈</div>
+<h2 data-zh="一個典範、一個警鐘" data-en="One Model, One Warning">一個典範、一個警鐘</h2>
+<div class="spotlight">
+<h3 data-zh="MODEL：2020 SARS-CoV-2 與 bioRxiv 全球響應" data-en="MODEL: 2020 SARS-CoV-2 and global bioRxiv response">MODEL：2020 SARS-CoV-2 與 bioRxiv 全球響應</h3>
+<p data-lang="zh">2020 年 COVID-19 爆發初期，從病毒序列、結構、流病到疫苗候選，幾乎所有關鍵論文都先以 bioRxiv / medRxiv preprint 公開——以致全球研究者可以在「peer review 仍進行中」時就基於最新資料展開後續工作。沒有 preprint，COVID-19 的科學響應速度至少會慢 6-12 個月。這是 preprint 文化的最佳示範。</p>
+<p data-lang="en">In early 2020, nearly every key COVID-19 paper — viral sequence, structure, epidemiology, vaccine candidates — first appeared on bioRxiv / medRxiv as preprints, letting global researchers build on the latest data while peer review was still in progress. Without preprints, the scientific COVID-19 response would have been at least 6-12 months slower. The best demonstration of preprint culture.</p>
+</div>
+<div class="spotlight">
+<h3 data-zh="WARNING：2023 ChatGPT 被列為 author 的論文事件" data-en="WARNING: 2023 ChatGPT-as-author paper incident">WARNING：2023 ChatGPT 被列為 author 的論文事件</h3>
+<p data-lang="zh">2023 年若干早期 preprint 與少數期刊論文將 ChatGPT 列為 co-author——被讀者與其他研究者迅速指認，期刊收回 / 退稿並要求撤銷 author 身份。事件直接催生 ICMJE 2023 更新與 Nature、Science、Cell 全面禁令——任何主流期刊 2026 都不再容許 AI 為 author。</p>
+<p data-lang="en">In 2023 several early preprints and a handful of journal papers listed ChatGPT as a co-author — quickly identified by readers and other researchers; journals retracted / rejected and demanded author removal. The incident directly triggered the ICMJE 2023 update and universal bans by Nature, Science, Cell — by 2026 no mainstream journal allows AI as author.</p>
+</div>
+</section>
+
+<!-- ===== PITFALLS ===== -->
+<section id="pitfalls-enrich" class="section">
+<div class="section-label" data-zh="陷阱" data-en="PITFALLS">陷阱</div>
+<h2 data-zh="6 個典型陷阱" data-en="6 Typical Pitfalls">6 個典型陷阱</h2>
+<div class="pitfall-grid">
+<div class="pitfall-card"><h4 data-zh="① 把 ChatGPT / Claude 列為 co-author" data-en="① Listing ChatGPT / Claude as co-author">① 把 ChatGPT / Claude 列為 co-author</h4><p data-lang="zh">2026 所有主流期刊明文禁止；違反 = 直接退稿或撤稿。AI 無法承擔 ICMJE 第 ④ 條 accountability。</p><p data-lang="en">All 2026 mainstream publishers explicitly prohibit this; violation = desk reject or retraction. AI cannot bear ICMJE criterion ④ accountability.</p></div>
+<div class="pitfall-card"><h4 data-zh="② 同步投 bioRxiv 給禁止 preprint 的期刊" data-en="② Posting to bioRxiv when a journal bans preprints">② 同步投 bioRxiv 給禁止 preprint 的期刊</h4><p data-lang="zh">2026 已罕見但仍存在（部分 NEJM 子題、少數臨床期刊）。投稿前查 SHERPA/RoMEO 與 journal preprint policy。</p><p data-lang="en">Rare by 2026 but still exists (some NEJM subtypes, a few clinical journals). Check SHERPA/RoMEO and the journal's preprint policy before submitting.</p></div>
+<div class="pitfall-card"><h4 data-zh="③ 該揭露的 AI 使用卻沒揭露" data-en="③ Failing to disclose required AI use">③ 該揭露的 AI 使用卻沒揭露</h4><p data-lang="zh">用 AI 寫實質段落 / 寫 code 不揭露 = 違反期刊政策。揭露不會被退稿，不揭露被抓會。</p><p data-lang="en">Using AI for substantive content / code without disclosure = policy violation. Disclosure doesn't get you rejected; failure to disclose, if caught, does.</p></div>
+<div class="pitfall-card"><h4 data-zh="④ 忘了串 Zenodo 給 code DOI" data-en="④ Forgetting Zenodo DOI for code">④ 忘了串 Zenodo 給 code DOI</h4><p data-lang="zh">GitHub repo 隨時可能被刪除；論文裡只貼 GitHub link 等於 5 年後 broken link。串 Zenodo = 永久 DOI。</p><p data-lang="en">GitHub repos can be deleted any time; a paper that only cites a GitHub link is a broken link in 5 years. Link to Zenodo for a permanent DOI.</p></div>
+<div class="pitfall-card"><h4 data-zh="⑤「Data available on request」" data-en="⑤ "Data available on request"">⑤「Data available on request」</h4><p data-lang="zh">2026 多數主流期刊已不接受此描述；要求實際 deposit (GEO, ENA, dbGaP, Zenodo) 並提供 accession。</p><p data-lang="en">Most major 2026 publishers no longer accept this phrasing; require actual deposit (GEO, ENA, dbGaP, Zenodo) with accession.</p></div>
+<div class="pitfall-card"><h4 data-zh="⑥ Reviewer 把 manuscript 上傳公開 AI" data-en="⑥ Reviewer uploading manuscript to public AI">⑥ Reviewer 把 manuscript 上傳公開 AI</h4><p data-lang="zh">Confidentiality breach；違反 peer review 倫理。Cell, NEJM, JAMA, NIH 明令禁止。違反者可能被 ban 未來審稿。</p><p data-lang="en">Confidentiality breach; violates peer-review ethics. Cell, NEJM, JAMA, NIH explicitly prohibit. Violators may be banned from future reviewing.</p></div>
+</div>
+<div class="contrast-2col">
+<div>
+<h4 data-zh="❌ 不好的揭露" data-en="❌ Bad disclosure">❌ 不好的揭露</h4>
+<p>"We used AI in this study."</p>
+<p data-lang="zh">沒說工具、沒說版本、沒說用途、沒說段落——等於沒揭露。</p>
+<p data-lang="en">No tool, no version, no purpose, no section — equivalent to no disclosure.</p>
+</div>
+<div>
+<h4 data-zh="✅ 好的揭露" data-en="✅ Good disclosure">✅ 好的揭露</h4>
+<p>"During the preparation of this manuscript, we used ChatGPT-5 (OpenAI, Jan 2026) to improve language and check grammar in the Discussion section. Authors reviewed and edited the content and take full responsibility."</p>
+<p data-lang="zh">工具 ✓ 版本 ✓ 用途 ✓ 段落 ✓ 負責聲明 ✓——範本級揭露。</p>
+<p data-lang="en">Tool ✓ version ✓ purpose ✓ section ✓ accountability ✓ — template-level disclosure.</p>
+</div>
+</div>
+<div class="reflection-q">
+<h4 data-zh="自我反思 6 問" data-en="6 self-reflection questions">自我反思 6 問</h4>
+<ol>
+<li data-zh="你每一個 AI 使用都揭露了嗎？" data-en="Did you disclose every AI use?">你每一個 AI 使用都揭露了嗎？</li>
+<li data-zh="你的 code 是否同時放上 GitHub + Zenodo？" data-en="Is your code deposited on both GitHub and Zenodo?">你的 code 是否同時放上 GitHub + Zenodo？</li>
+<li data-zh="陌生人能不能在 1 個月內重現你的 figures？" data-en="Could a stranger reproduce your figures within one month?">陌生人能不能在 1 個月內重現你的 figures？</li>
+<li data-zh="你的 raw data 已 deposit 到適當 repository 並有 accession？" data-en="Have you deposited raw data to an appropriate repository with an accession?">你的 raw data 已 deposit 到適當 repository 並有 accession？</li>
+<li data-zh="你的 disclosure 包含工具 / 版本 / 用途 / 段落 / 負責聲明？" data-en="Does your disclosure include tool / version / purpose / section / accountability?">你的 disclosure 包含工具 / 版本 / 用途 / 段落 / 負責聲明？</li>
+<li data-zh="你的 pipeline 是否已 container 化 (Docker / Apptainer)？" data-en="Is your pipeline containerized (Docker / Apptainer)?">你的 pipeline 是否已 container 化 (Docker / Apptainer)？</li>
+</ol>
+</div>
+</section>
+
+<!-- ===== ADVANCED ===== -->
+<section id="advanced" class="section">
+<div class="section-label" data-zh="進階" data-en="ADVANCED">進階</div>
+<h2 data-zh="2024-2026 SOTA：政策、工具與工作流" data-en="2024-2026 SOTA: Policies, Tools, Workflows">2024-2026 SOTA：政策、工具與工作流</h2>
+<div class="advanced-note">
+<details class="detail-toggle"><summary data-zh="(a) 2026 主流出版商 AI 政策比較" data-en="(a) 2026 publisher AI policy comparison">(a) 2026 主流出版商 AI 政策比較</summary>
+<div data-lang="zh"><p><strong>Elsevier：</strong>AI 工具不可為 author；用於草擬實質內容必揭露；純文法 / 翻譯例外。<strong>Springer Nature：</strong>類似 Elsevier，但對 AI 生成 figure 採取「個案審查」。<strong>Cell Press：</strong>最嚴格，generative AI 不可生成 / 修改科學圖；conceptual graphical abstract 灰色地帶且需揭露。<strong>APA：</strong>建議所有 AI 使用揭露（含文法），社會科學取向。<strong>Taylor &amp; Francis：</strong>跟隨 ICMJE；要求 author 對所有 AI 生成內容負完全責任。</p></div>
+<div data-lang="en"><p><strong>Elsevier:</strong> AI tools cannot be authors; substantive use must be disclosed; pure grammar / translation exempt. <strong>Springer Nature:</strong> Similar to Elsevier, but AI-generated figures undergo "case-by-case review." <strong>Cell Press:</strong> Strictest; generative AI cannot create / alter scientific images; conceptual graphical abstracts are grey and require disclosure. <strong>APA:</strong> Recommends disclosing all AI use (including grammar), social-science-leaning. <strong>Taylor &amp; Francis:</strong> Follows ICMJE; authors fully accountable for all AI-generated content.</p></div>
+</details>
+<details class="detail-toggle"><summary data-zh="(b) Quarto 2024-26 的互動式發表" data-en="(b) Quarto's interactive publishing 2024-26">(b) Quarto 2024-26 的互動式發表</summary>
+<div data-lang="zh"><p>Quarto v1.4+ (2024) 支援 Observable JS、Shinylive、Pyodide 直接 in-browser 執行 Python / R；單一 .qmd 可同時輸出靜態 PDF / HTML、互動 dashboard、書、簡報。2026 已成為計算科學社群的事實標準，逐步取代 R Markdown + bookdown + xaringan 等獨立工具。</p></div>
+<div data-lang="en"><p>Quarto v1.4+ (2024) supports Observable JS, Shinylive, Pyodide for in-browser Python / R execution; a single .qmd can output static PDF / HTML, interactive dashboards, books, and slides. By 2026 it is the de facto standard in computational science, gradually replacing R Markdown + bookdown + xaringan.</p></div>
+</details>
+<details class="detail-toggle"><summary data-zh="(c) Snakemake 8+ vs Nextflow 24+" data-en="(c) Snakemake 8+ vs Nextflow 24+">(c) Snakemake 8+ vs Nextflow 24+</summary>
+<div data-lang="zh"><p><strong>Snakemake 8 (2025)：</strong>Python-based、rules + wildcards、conda / container 整合、學術社群偏好；新版執行器 plugin 化、支援 Kubernetes / SLURM 雲端跑。<strong>Nextflow 24 (2024)：</strong>Groovy DSL2、nf-core 社群超強大 (2026 已有 100+ 標準 pipeline)、企業 / 臨床傾向、tower.nf 商業支援。選擇取決於團隊背景與 pipeline 性質——學術小群偏 Snakemake，跨機構 / 臨床傾 Nextflow。</p></div>
+<div data-lang="en"><p><strong>Snakemake 8 (2025):</strong> Python-based, rules + wildcards, conda / container integration, academic-community preferred; new pluggable executors support Kubernetes / SLURM / cloud. <strong>Nextflow 24 (2024):</strong> Groovy DSL2, nf-core community very strong (100+ standard pipelines by 2026), enterprise / clinical-leaning, tower.nf commercial support. Choice depends on team and pipeline nature — small academic groups lean Snakemake; cross-institution / clinical lean Nextflow.</p></div>
+</details>
+</div>
+<div class="history-note">
+<h4 data-zh="歷史小故事：arXiv 從 10 位物理學家開始" data-en="History anecdote: arXiv started with 10 physicists">歷史小故事：arXiv 從 10 位物理學家開始</h4>
+<p data-lang="zh">1991 年，Paul Ginsparg 在 Los Alamos National Laboratory 為大約 10 位高能物理同行架了一個私人 preprint email server，目的是讓大家不用等期刊就能交換最新研究草稿。他完全沒想到這會改變整個科學。35 年後的 2026，arXiv 累積超過 240 萬篇 preprint，並衍生出 bioRxiv (2013, CSHL)、medRxiv (2019, CSHL+Yale+BMJ)、chemRxiv、SocArXiv 等姊妹站。從 10 位物理學家到全球科學的標準工作流——一個人的小工具，改寫了整個科學發表生態。</p>
+<p data-lang="en">In 1991, Paul Ginsparg set up a private preprint email server at Los Alamos National Laboratory for about 10 high-energy physics colleagues so they could exchange research drafts without waiting for journals. He had no idea it would change all of science. 35 years later, in 2026, arXiv has accumulated over 2.4M preprints and spawned bioRxiv (2013, CSHL), medRxiv (2019, CSHL+Yale+BMJ), chemRxiv, SocArXiv, and more. From 10 physicists to a global scientific standard — one person's small tool rewrote the entire publishing ecosystem.</p>
+</div>
+</section>
+
 <section class="section">
 <div class="section-label" data-zh="概覽" data-en="OVERVIEW">概覽</div>
 <h2 data-zh="2026 的論文寫作生態" data-en="The 2026 Manuscript Ecosystem">2026 的寫作生態</h2>

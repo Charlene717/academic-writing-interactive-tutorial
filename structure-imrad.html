@@ -31,6 +31,393 @@
 </header>
 <main class="content-wrap">
 
+<!-- ===== Section TOC ===== -->
+<div class="section-toc">
+<strong data-zh="本章導覽（閱讀時間 ~20 分）" data-en="Chapter map (reading time ~20 min)">本章導覽（閱讀時間 ~20 分）</strong>
+<div class="pill-row">
+<span class="level-badge l-beg" data-zh="初學者" data-en="Beginner">初學者</span>
+<span class="level-badge l-mid" data-zh="中階" data-en="Intermediate">中階</span>
+<span class="level-badge l-adv" data-zh="進階" data-en="Advanced">進階</span>
+<span class="pill navy">IMRaD</span><span class="pill amber">Thesis</span><span class="pill violet">Hourglass</span><span class="pill teal">Sandwich</span>
+</div>
+<ol>
+<li><a href="#story" data-zh="開場故事：Daniel 與三明治論文" data-en="Story: Daniel and the sandwich thesis">開場故事：Daniel 與三明治論文</a></li>
+<li><a href="#glossary" data-zh="核心詞彙表（雙版本）" data-en="Glossary (two versions)">核心詞彙表（雙版本）</a></li>
+<li><a href="#history" data-zh="從 1665 Philosophical Transactions 到 LLM 時代" data-en="From 1665 Philosophical Transactions to the LLM era">從 1665 Philosophical Transactions 到 LLM 時代</a></li>
+<li><a href="#kpi" data-zh="關鍵指標" data-en="Key numbers">關鍵指標</a></li>
+<li><a href="#imrad-sections" data-zh="IMRaD 四節各自回答什麼" data-en="What each IMRaD section answers">IMRaD 四節各自回答什麼</a></li>
+<li><a href="#thesis-variants" data-zh="學位論文三種主要架構" data-en="Three main thesis structures">學位論文三種主要架構</a></li>
+<li><a href="#discussion" data-zh="專家辯論：傳統 vs paper-based" data-en="Expert debate: traditional vs paper-based">專家辯論：傳統 vs paper-based</a></li>
+<li><a href="#advanced" data-zh="進階 2024-2026 SOTA" data-en="Advanced 2024-2026 SOTA">進階 2024-2026 SOTA</a></li>
+</ol>
+</div>
+
+<!-- ===== STORY ===== -->
+<section id="story" class="section">
+<div class="section-label" data-zh="故事開場" data-en="OPENING STORY">故事開場</div>
+<h2 data-zh="場景：Daniel 與三明治論文的兩難" data-en="Scene: Daniel and the Sandwich-Thesis Dilemma">場景：Daniel 與三明治論文的兩難</h2>
+<div class="story-block">
+<span class="story-tag">SCENE · TAIPEI 2025</span>
+<h3 data-zh="從「我該寫傳統 5 章嗎？」到「我的三篇論文各回答不同子問題」" data-en="From "Should I write 5 chapters?" to "My three papers each answer a different sub-question"">從「我該寫傳統 5 章嗎？」到「我的三篇論文各回答不同子問題」</h3>
+<div data-lang="zh">
+<p>博士第四年的 <strong>Daniel</strong> 正在規劃他的論文。三年來他發了三篇 first-author paper：第一篇在 <em>Bioinformatics</em>（單細胞批次效應校正方法）、第二篇在 <em>Nature Communications</em>（用該方法分析肝癌單細胞圖譜）、第三篇剛被 <em>Cell Reports Methods</em> minor revision 接受（把方法擴展到空間轉錄體）。</p>
+<p>他卡在一個問題：要寫成傳統 5 章論文（Ch1 緒論、Ch2 文獻、Ch3 方法、Ch4 結果、Ch5 討論），還是把三篇 paper 當成 Ch2–Ch4，再加 General Intro / General Discussion 的三明治論文？傳統格式對台灣口委比較熟悉，但他得把三篇 paper「拆開重組」成單一敘事——光想到就頭痛。</p>
+<p>他敲開指導教授 <strong>陳老師</strong>的門。陳老師沒回答對錯，只說：「<em>選擇能讓你的讀者在 30 分鐘內理解你貢獻的結構。</em>口委要寫推薦信、未來學弟妹要拿來當文獻——他們不會逐字讀完 200 頁，他們會跳著讀。問自己：哪種架構讓他們最快找到你的貢獻？」</p>
+<p>Daniel 回房間想了一晚。他發現三篇 paper 其實各自回答一個子問題：(1) 如何校正批次效應？(2) 校正後肝癌異質性長什麼樣？(3) 方法能否從單細胞推廣到空間？這三個子問題彼此關聯但獨立——硬塞進傳統 5 章會讓 Results 變成三個沒交集的小山。隔天他告訴陳老師：「我選 paper-based。General Intro 串接邏輯、General Discussion 寫整體貢獻、每個 paper 當一章。」陳老師點頭：「<em>對。現在去查系上規定、找近 3 屆畢業生的 paper-based 論文，把目次抄下來當模板。</em>」</p>
+</div>
+<div data-lang="en">
+<p>Fourth-year PhD student <strong>Daniel</strong> is planning his thesis. Over three years he's published three first-author papers: one in <em>Bioinformatics</em> (a single-cell batch-correction method), one in <em>Nature Communications</em> (applying the method to a liver-cancer atlas), and one just received minor revision at <em>Cell Reports Methods</em> (extending the method to spatial transcriptomics).</p>
+<p>He's stuck on a question: write a traditional 5-chapter thesis (Ch1 Intro, Ch2 LitRev, Ch3 Methods, Ch4 Results, Ch5 Discussion), or use the three papers as Ch2–Ch4 wrapped by a General Introduction and General Discussion — the "sandwich" thesis? Traditional format is familiar to Taiwanese committees, but he'd have to dismantle and reassemble all three papers into a single linear story. Just thinking about it gives him a headache.</p>
+<p>He knocks on his advisor <strong>Prof. Chen</strong>'s door. Chen doesn't answer right/wrong. He just says: "<em>Pick the structure that lets your readers understand your contribution in 30 minutes.</em> Your committee writes recommendation letters, future students will mine your thesis as background — none of them will read all 200 pages word-by-word. They will skim. Ask yourself: which structure lets them locate your contribution fastest?"</p>
+<p>Daniel thinks all night. He realizes his three papers each answer a distinct sub-question: (1) How do we correct batch effects? (2) What does liver-cancer heterogeneity look like after correction? (3) Can the method extend from single-cell to spatial? The three sub-questions are related but independent — forcing them into a traditional 5-chapter mold would turn Results into three disjoint islands. The next morning he tells Chen: "Paper-based. General Intro stitches the logic, General Discussion synthesizes the overall contribution, each paper becomes a chapter." Chen nods: "<em>Right. Now go check the department's rules and copy the TOCs from the last 3 paper-based theses in our group as your template.</em>"</p>
+</div>
+</div>
+</section>
+
+<!-- ===== GLOSSARY ===== -->
+<section id="glossary" class="section">
+<div class="section-label" data-zh="核心詞彙" data-en="GLOSSARY">核心詞彙</div>
+<h2 data-zh="12 個關鍵術語（雙版本）" data-en="12 Key Terms (two versions)">12 個關鍵術語（雙版本）</h2>
+<p data-lang="zh"><em>每個詞有兩個版本：🧒「給小孩看」用比喻、📐「給研究者看」給定義。</em></p>
+<p data-lang="en"><em>Each term has two versions: 🧒 "for kids" uses a metaphor; 📐 "for researchers" gives the formal definition.</em></p>
+<div class="glossary-grid">
+
+<div class="glossary-card">
+<div class="term-en">IMRaD</div><div class="term-zh">IMRaD 結構</div>
+<div class="term-kid" data-lang="zh">把論文拆成 4 段：為什麼做？怎麼做？發現了什麼？這代表什麼？——像漢堡有四層。</div>
+<div class="term-kid" data-lang="en">Split a paper into 4 sections: Why? How? What? So-what? — like a hamburger with four layers.</div>
+<div class="term-tech" data-lang="zh">Introduction-Methods-Results-and-Discussion；Sollaci &amp; Pereira 2004 J Med Libr Assoc 統計 >95% 生醫期刊採用；起源於 19 世紀末實驗報告體例。</div>
+<div class="term-tech" data-lang="en">Introduction-Methods-Results-and-Discussion. Sollaci &amp; Pereira 2004 (J Med Libr Assoc) found &gt;95% of biomedical journals use it; rooted in late-19th-century experimental-report conventions.</div>
+</div>
+
+<div class="glossary-card">
+<div class="term-en">Hourglass structure</div><div class="term-zh">沙漏結構</div>
+<div class="term-kid" data-lang="zh">論文上下寬、中間窄——緒論從大背景慢慢縮小到你的問題，討論再從你的結果擴回大世界。</div>
+<div class="term-kid" data-lang="en">A paper is wide-narrow-wide — Intro funnels from big background to your question; Discussion fans back out to the big world.</div>
+<div class="term-tech" data-lang="zh">議題寬度 (topical width) 隨章節變化：Intro 寬→窄、Methods/Results 窄、Discussion 窄→寬。Hill 1965、Swales 1990 CARS model 形式化。</div>
+<div class="term-tech" data-lang="en">Topical width across sections: Intro wide→narrow, Methods/Results narrow, Discussion narrow→wide. Formalized by Hill 1965 and Swales 1990 (CARS model).</div>
+</div>
+
+<div class="glossary-card">
+<div class="term-en">Sandwich thesis</div><div class="term-zh">三明治論文</div>
+<div class="term-kid" data-lang="zh">論文像三明治：上下兩片麵包 (General Intro + General Discussion)，中間夾你發表過的 paper 當餡。</div>
+<div class="term-kid" data-lang="en">A thesis like a sandwich: General Intro and General Discussion are the bread, your published papers are the filling.</div>
+<div class="term-tech" data-lang="zh">Paper-based thesis 的別稱；以 published / submitted manuscripts 構成中段章節，外加綜合性 General Intro 與 General Discussion 串接。</div>
+<div class="term-tech" data-lang="en">Synonym for paper-based thesis; middle chapters are published / submitted manuscripts, framed by a synthesizing General Intro and General Discussion.</div>
+</div>
+
+<div class="glossary-card">
+<div class="term-en">Paper-based thesis</div><div class="term-zh">論文集式學位論文</div>
+<div class="term-kid" data-lang="zh">把已發表的論文當成章節組合成的學位論文。</div>
+<div class="term-kid" data-lang="en">A thesis assembled from already-published papers as its chapters.</div>
+<div class="term-tech" data-lang="zh">Cumulative / article-based / publication-based thesis；含 3-5 篇 first-author paper + General Intro/Discussion；歐盟 PhD 主流，台灣部分理工博班接受。</div>
+<div class="term-tech" data-lang="en">Cumulative / article-based / publication-based thesis; typically 3-5 first-author papers + General Intro/Discussion. EU PhD mainstream; accepted by some Taiwanese STEM PhD programs.</div>
+</div>
+
+<div class="glossary-card">
+<div class="term-en">Traditional 5-chapter</div><div class="term-zh">傳統 5 章式</div>
+<div class="term-kid" data-lang="zh">最常見的學位論文寫法：緒論、文獻、方法、結果、討論——一個故事從頭講到尾。</div>
+<div class="term-kid" data-lang="en">The most common thesis layout: Intro, LitRev, Methods, Results, Discussion — one story start to finish.</div>
+<div class="term-tech" data-lang="zh">Ch1 Introduction、Ch2 Literature Review、Ch3 Methods、Ch4 Results、Ch5 Discussion (incl. Conclusion)。亞洲生醫碩士主流。</div>
+<div class="term-tech" data-lang="en">Ch1 Introduction, Ch2 Literature Review, Ch3 Methods, Ch4 Results, Ch5 Discussion (incl. Conclusion). Mainstream for Asian biomedical master's degrees.</div>
+</div>
+
+<div class="glossary-card">
+<div class="term-en">Monograph thesis</div><div class="term-zh">專論式學位論文</div>
+<div class="term-kid" data-lang="zh">一本「書」式的論文：一個大主題、一條主軸、從頭寫到尾。</div>
+<div class="term-kid" data-lang="en">A "book"-style thesis: one big theme, one through-line, written from start to finish.</div>
+<div class="term-tech" data-lang="zh">傳統 5/6 章式的廣義稱呼；單一敘事、由作者本人完整撰寫；對比 cumulative thesis。人文社科 PhD 多採此形式。</div>
+<div class="term-tech" data-lang="en">Umbrella term for traditional 5/6-chapter format; single narrative authored entirely by the candidate; contrasts with cumulative thesis. Standard in humanities/social-science PhDs.</div>
+</div>
+
+<div class="glossary-card">
+<div class="term-en">Cumulative thesis</div><div class="term-zh">累積式學位論文</div>
+<div class="term-kid" data-lang="zh">paper-based 的德語區用語——「累積」就是把幾篇 paper 累起來變一本書。</div>
+<div class="term-kid" data-lang="en">German-language term for paper-based — "cumulative" means stacking several papers into one volume.</div>
+<div class="term-tech" data-lang="zh">Kumulative Dissertation；德、奧、瑞、北歐 PhD 慣用語；通常要求 3 篇以上 peer-reviewed publication 或 submitted manuscript。</div>
+<div class="term-tech" data-lang="en">Kumulative Dissertation; used in Germany, Austria, Switzerland, Nordic countries; typically requires 3+ peer-reviewed or submitted manuscripts.</div>
+</div>
+
+<div class="glossary-card">
+<div class="term-en">Doctoral vs Master's thesis</div><div class="term-zh">博士 vs 碩士論文</div>
+<div class="term-kid" data-lang="zh">碩士：證明你「會做研究」；博士：證明你「對領域有原創、實質貢獻」。後者厚 3-5 倍。</div>
+<div class="term-kid" data-lang="en">Master's: prove you "can do research." PhD: prove "substantial original contribution to the field." PhDs are 3-5× thicker.</div>
+<div class="term-tech" data-lang="zh">碩士 30-50k 字 / 60-120 頁；博士 80-200k 字 / 150-300 頁。博士須通過 viva/defense；碩士部分國家僅口試。</div>
+<div class="term-tech" data-lang="en">Master's: 30-50k words / 60-120 pages; PhD: 80-200k words / 150-300 pages. PhD requires viva/defense; master's varies by country.</div>
+</div>
+
+<div class="glossary-card">
+<div class="term-en">Defense (viva)</div><div class="term-zh">口試 / 答辯</div>
+<div class="term-kid" data-lang="zh">把論文成果在 3-5 位口委面前報告 + 接受質詢——通過才算畢業。</div>
+<div class="term-kid" data-lang="en">Present your thesis to 3-5 committee members + answer questions — passing means graduation.</div>
+<div class="term-tech" data-lang="zh">Oral defense / viva voce；通常 60-180 分鐘；委員可要求 minor / major revision；英制 UK viva 較嚴格，可能要求 resubmission。</div>
+<div class="term-tech" data-lang="en">Oral defense / viva voce; usually 60-180 minutes; committee may require minor / major revisions; UK viva is notably stricter, possibly requiring resubmission.</div>
+</div>
+
+<div class="glossary-card">
+<div class="term-en">Front matter</div><div class="term-zh">前頁件</div>
+<div class="term-kid" data-lang="zh">論文正文前的所有頁面：封面、目次、致謝、摘要——讀者翻開的第一印象。</div>
+<div class="term-kid" data-lang="en">Everything before Ch1: title page, TOC, acknowledgements, abstract — your reader's first impression.</div>
+<div class="term-tech" data-lang="zh">Title page、Declaration of originality、Abstract (zh+en)、Acknowledgements、Table of Contents、List of Figures/Tables、Abbreviations、Glossary。</div>
+<div class="term-tech" data-lang="en">Title page, Declaration of originality, Abstract (zh+en), Acknowledgements, Table of Contents, List of Figures/Tables, Abbreviations, Glossary.</div>
+</div>
+
+<div class="glossary-card">
+<div class="term-en">Back matter</div><div class="term-zh">後頁件</div>
+<div class="term-kid" data-lang="zh">論文最後的補充材料：附錄、參考文獻、補充資料——通常最厚但讀者最少看。</div>
+<div class="term-kid" data-lang="en">Supporting material at the end: appendices, references, supplements — usually the thickest part but least read.</div>
+<div class="term-tech" data-lang="zh">References、Appendices (full protocols, raw data tables)、Supplementary Materials、Author publications list、Curriculum Vitae (部分學校要求)。</div>
+<div class="term-tech" data-lang="en">References, Appendices (full protocols, raw data tables), Supplementary Materials, Author publications list, Curriculum Vitae (required by some institutions).</div>
+</div>
+
+<div class="glossary-card">
+<div class="term-en">Abstract conventions</div><div class="term-zh">摘要規範</div>
+<div class="term-kid" data-lang="zh">摘要有兩種：結構化（分 Background/Methods/Results/Conclusions 標題）與非結構化（一段連續文字）。</div>
+<div class="term-kid" data-lang="en">Two abstract styles: structured (labeled Background/Methods/Results/Conclusions) and unstructured (single paragraph).</div>
+<div class="term-tech" data-lang="zh">Structured abstract 由 Ad Hoc Working Group 1987 Ann Intern Med 提出，現為臨床期刊主流；unstructured 仍多見於基礎科學期刊；通常 150-300 字。</div>
+<div class="term-tech" data-lang="en">Structured abstract proposed by Ad Hoc Working Group 1987 (Ann Intern Med); now mainstream in clinical journals; unstructured still common in basic-science journals; usually 150-300 words.</div>
+</div>
+
+</div>
+</section>
+
+<!-- ===== HISTORY TIMELINE ===== -->
+<section id="history" class="section">
+<div class="section-label" data-zh="歷史" data-en="HISTORY">歷史</div>
+<h2 data-zh="從 1665 Philosophical Transactions 到 LLM 時代" data-en="From 1665 Philosophical Transactions to the LLM Era">論文結構簡史：從 1665 到 LLM 時代</h2>
+<div class="timeline">
+<div class="timeline-item"><span class="tl-year">1665</span><span class="tl-title" data-zh="Philosophical Transactions 創刊" data-en="Philosophical Transactions launched">Philosophical Transactions 創刊</span><span class="tl-desc" data-zh="世上第一本科學期刊；Henry Oldenburg 編；建立「敘事 + 觀察結果」的早期文章格式，是 IMRaD 的遠祖。" data-en="The world's first scientific journal, edited by Henry Oldenburg; established the early "narrative + observations" format — IMRaD's distant ancestor."></span></div>
+<div class="timeline-item"><span class="tl-year">1845</span><span class="tl-title" data-zh="Liebig 學派首批化學 PhD" data-en="Liebig's first chemistry PhDs">Liebig 學派首批化學 PhD</span><span class="tl-desc" data-zh="Justus von Liebig 在 Giessen 大學量產實驗化學博士；論文體例固定為「實驗描述 + 結果 + 解釋」，影響德語區百年。" data-en="Justus von Liebig industrialized experimental chemistry PhDs at Giessen; standardized "experiment + results + interpretation" thesis format that shaped German-speaking academia for a century."></span></div>
+<div class="timeline-item"><span class="tl-year">1903</span><span class="tl-title" data-zh="Marie Curie：放射性物質研究" data-en="Marie Curie's radioactivity thesis">Marie Curie：放射性物質研究</span><span class="tl-desc" data-zh="《Recherches sur les substances radioactives》——首位獲諾貝爾獎的女性的博士論文；展示「實驗 + 數據 + 機制解釋」三段式範本。" data-en=""Recherches sur les substances radioactives" — thesis of the first female Nobel laureate; exemplified the "experiment + data + mechanism" three-part template."></span></div>
+<div class="timeline-item"><span class="tl-year">1972</span><span class="tl-title" data-zh="Sollaci 首次 IMRAD 普查" data-en="Sollaci's first IMRAD survey">Sollaci 首次 IMRAD 普查</span><span class="tl-desc" data-zh="生醫期刊調查首次正式記載「IMRAD 已成為主流體例」；之前 1950s-60s 仍混用敘事式與分段式。" data-en="First survey of biomedical journals formally documented "IMRAD has become the dominant format"; before this (1950s-60s), narrative and sectioned styles coexisted."></span></div>
+<div class="timeline-item"><span class="tl-year">1985</span><span class="tl-title" data-zh="Watson《雙螺旋》的敘事影響" data-en="Watson's "Double Helix" narrative effect">Watson《雙螺旋》的敘事影響</span><span class="tl-desc" data-zh="James Watson 暢銷書讓「故事化的科學寫作」進入生物學主流；後續 Nature/Cell 編輯開始要求 Introduction 有更強敘事張力。" data-en="James Watson's bestseller brought "story-driven scientific writing" into biology's mainstream; Nature/Cell editors began demanding stronger narrative tension in Introductions."></span></div>
+<div class="timeline-item"><span class="tl-year">1990</span><span class="tl-title" data-zh="Swales：Genre Analysis 與 CARS model" data-en="Swales: Genre Analysis and the CARS model">Swales：Genre Analysis 與 CARS model</span><span class="tl-desc" data-zh="John Swales《Genre Analysis》正式描述 Introduction 的 3 步驟「Create A Research Space」(CARS)：建立領土→指出 gap→佔據空白。" data-en="John Swales' Genre Analysis formally described the 3-move "Create A Research Space" (CARS) model for Introductions: establish territory → indicate gap → occupy niche."></span></div>
+<div class="timeline-item"><span class="tl-year">2004</span><span class="tl-title" data-zh="Sollaci-Pereira 50 年普查" data-en="Sollaci-Pereira 50-year survey">Sollaci-Pereira 50 年普查</span><span class="tl-desc" data-zh="J Med Libr Assoc；統計 4 大期刊 1935-1985 體例變化，發現 >95% 生醫論文已採 IMRaD；正式宣告 IMRaD 成為全球標準。" data-en="J Med Libr Assoc; surveyed 4 major journals 1935-1985 and found &gt;95% of biomedical papers used IMRaD — formal declaration of IMRaD as the global standard."></span></div>
+<div class="timeline-item"><span class="tl-year">2014</span><span class="tl-title" data-zh="Sandwich thesis 成歐盟 PhD 常態" data-en="Sandwich thesis becomes EU PhD norm">Sandwich thesis 成歐盟 PhD 常態</span><span class="tl-desc" data-zh="Bologna 改革後，歐盟多數理工 PhD 採 cumulative / paper-based 論文；要求 3 篇 first-author paper 才能口試。" data-en="Following Bologna reforms, most EU STEM PhDs adopted cumulative / paper-based theses; typically requiring 3 first-author papers before viva."></span></div>
+<div class="timeline-item"><span class="tl-year">2020</span><span class="tl-title" data-zh="FORCE11 Open Theses 運動" data-en="FORCE11 Open Theses movement">FORCE11 Open Theses 運動</span><span class="tl-desc" data-zh="開放學位論文倡議：論文應與 Zenodo / institutional repository 永久連結 DOI、附 FAIR 資料、code 與 supplementary 可重現。" data-en="Open Theses initiative: theses should have permanent DOI in Zenodo / institutional repositories, with FAIR data, code, and reproducible supplements."></span></div>
+<div class="timeline-item"><span class="tl-year">2025</span><span class="tl-title" data-zh="LLM-assisted thesis 政策" data-en="LLM-assisted thesis policies">LLM-assisted thesis 政策</span><span class="tl-desc" data-zh="ChatGPT-5 / Claude Sonnet 4.6 大量輔助論文撰寫；Stanford、ETH、UToronto 等校 2025 出新政策：允許編輯輔助、要求 preface 揭露使用範圍。" data-en="ChatGPT-5 / Claude Sonnet 4.6 increasingly assist thesis drafting; Stanford, ETH, UToronto issued 2025 policies permitting editing assistance while requiring disclosure in the preface."></span></div>
+</div>
+</section>
+
+<!-- ===== KPI ===== -->
+<section id="kpi" class="section">
+<div class="section-label" data-zh="關鍵指標" data-en="KEY METRICS">關鍵指標</div>
+<h2 data-zh="論文結構的數字感" data-en="Numbers to Anchor the Structure">論文結構的數字感</h2>
+<div class="kpi-grid">
+<div class="kpi-card"><span class="kpi-num">4</span><span class="kpi-label" data-zh="IMRaD 節數" data-en="IMRaD sections">IMRaD 節數</span></div>
+<div class="kpi-card"><span class="kpi-num">3–5</span><span class="kpi-label" data-zh="Paper-based 章數" data-en="Paper-based chapters">Paper-based 章數</span></div>
+<div class="kpi-card"><span class="kpi-num">30k–50k</span><span class="kpi-label" data-zh="碩士論文字數" data-en="MSc thesis words">碩士論文字數</span></div>
+<div class="kpi-card"><span class="kpi-num">80k–200k</span><span class="kpi-label" data-zh="博士論文字數" data-en="PhD thesis words">博士論文字數</span></div>
+<div class="kpi-card"><span class="kpi-num">15/25/30/25/5%</span><span class="kpi-label" data-zh="Intro/Meth/Res/Disc/其他" data-en="Intro/Meth/Res/Disc/Other">Intro/Meth/Res/Disc/其他</span></div>
+<div class="kpi-card"><span class="kpi-num">30 min</span><span class="kpi-label" data-zh="陌生人理解測試" data-en="Stranger-test reading time">陌生人理解測試</span></div>
+<div class="kpi-card"><span class="kpi-num">&gt;95%</span><span class="kpi-label" data-zh="生醫期刊用 IMRaD" data-en="Biomed journals using IMRaD">生醫期刊用 IMRaD</span></div>
+<div class="kpi-card"><span class="kpi-num">~70%</span><span class="kpi-label" data-zh="歐盟生科 PhD 用 paper-based" data-en="EU bioscience PhDs paper-based">歐盟生科 PhD 用 paper-based</span></div>
+</div>
+<div class="tip-bar" data-lang="zh">論文結構應該配合「讀者（口委、學弟妹）需要怎麼學」——不是「你當初怎麼寫」。讀者想跳著讀、想 30 分鐘抓到貢獻，你的結構就要讓他們跳得到。</div>
+<div class="tip-bar" data-lang="en">Your thesis structure should match how your readers (committee, future students) need to learn from it — not how you wrote it. Readers want to skim and grasp your contribution in 30 minutes; your structure must enable that.</div>
+</section>
+
+<!-- ===== Analogy ===== -->
+<section class="section">
+<div class="analogy-box">
+<div class="ana-icon">🍳</div>
+<div class="ana-body">
+<span class="ana-tag" data-zh="生活化比喻" data-en="ANALOGY">生活化比喻</span>
+<div data-lang="zh"><p><strong>IMRaD 像料理 5 步驟：</strong>Introduction 是<strong>菜單</strong> (why — 告訴客人為何點這道菜)、Methods 是<strong>食譜</strong> (how — 別人能照做)、Results 是<strong>上菜</strong> (what — 端出實際成品)、Discussion 是<strong>評論家評論</strong> (so what — 這道菜在整個料理界的意義)。少一個環節，整桌都垮。</p></div>
+<div data-lang="en"><p><strong>IMRaD is like a five-step meal:</strong> Introduction is the <strong>menu</strong> (why — telling diners why to order this dish), Methods is the <strong>recipe</strong> (how — reproducible by others), Results is the <strong>serving</strong> (what — the actual plated dish), and Discussion is the <strong>critic's review</strong> (so what — meaning in the wider culinary world). Drop any one and the whole table collapses.</p></div>
+</div>
+</div>
+</section>
+
+<!-- ===== Walkthrough ===== -->
+<section id="walkthrough" class="section">
+<div class="section-label" data-zh="逐步操作" data-en="WALKTHROUGH">逐步操作</div>
+<h2 data-zh="從零開始建論文骨架的 8 步" data-en="Building a Thesis Skeleton from Zero in 8 Steps">從零開始建論文骨架的 8 步</h2>
+<div class="walkthrough">
+<div class="walkthrough-header">
+<span class="wt-num">Σ</span>
+<span class="wt-tag" data-zh="可執行 SOP" data-en="Actionable SOP">可執行 SOP</span>
+</div>
+<div class="wt-step"><div class="wt-label">Σ₁</div><div class="wt-body">
+<div data-lang="zh"><strong>選定架構：</strong>5 章傳統式 vs 6 章延伸式 vs paper-based 三明治。看你有沒有第一作者論文、學校規定、研究是否單一主題。</div>
+<div data-lang="en"><strong>Pick the structure:</strong> 5-chapter traditional vs 6-chapter extended vs paper-based sandwich. Decision drivers: do you have first-author papers, school mandate, single vs multiple subprojects.</div>
+</div></div>
+<div class="wt-step"><div class="wt-label">Σ₂</div><div class="wt-body">
+<div data-lang="zh"><strong>寫一句 Introduction 目的：</strong>「本研究的核心問題是 ____；本研究的貢獻是 ____。」這一句先寫好，整篇都會有方向。</div>
+<div data-lang="en"><strong>Draft a one-sentence Intro purpose:</strong> "The central question of this study is ____; the contribution is ____." Nail this first and the whole thesis gains direction.</div>
+</div></div>
+<div class="wt-step"><div class="wt-label">Σ₃</div><div class="wt-body">
+<div data-lang="zh"><strong>畫 Methods 骨架：</strong>列出樣本、實驗、分析、統計、軟體版本——條列就好。先求完整不求優美。</div>
+<div data-lang="en"><strong>Sketch Methods skeleton:</strong> list samples, experiments, analyses, statistics, software versions — bullet form. Aim for completeness, not elegance.</div>
+</div></div>
+<div class="wt-step"><div class="wt-label">Σ₄</div><div class="wt-body">
+<div data-lang="zh"><strong>規劃 Results：圖一張一段</strong>。先列出 5–8 張主圖各對應什麼發現，再為每張圖寫一個 topic sentence。</div>
+<div data-lang="en"><strong>Plan Results figure-by-figure:</strong> list 5–8 main figures and the finding each carries, then draft one topic sentence per figure.</div>
+</div></div>
+<div class="wt-step"><div class="wt-label">Σ₅</div><div class="wt-body">
+<div data-lang="zh"><strong>列 Discussion 6 段大綱：</strong>(1) 核心發現 summary、(2) 與文獻對比、(3) 機制解釋、(4) 臨床/領域意義、(5) limitation、(6) 未來方向。每段一個主題。</div>
+<div data-lang="en"><strong>Outline Discussion in 6 paragraphs:</strong> (1) core finding summary, (2) comparison with literature, (3) mechanistic interpretation, (4) clinical / field implications, (5) limitations, (6) future directions. One topic per paragraph.</div>
+</div></div>
+<div class="wt-step"><div class="wt-label">Σ₆</div><div class="wt-body">
+<div data-lang="zh"><strong>把參考文獻映射到章節：</strong>用 Zotero/EndNote 開 4 個 collection（Intro/Methods/Results/Disc），把每篇文獻先丟到「它會被用到的那一節」。寫作時就不會搜不到。</div>
+<div data-lang="en"><strong>Map references to sections:</strong> in Zotero/EndNote create four collections (Intro/Methods/Results/Disc) and drop each ref into the section where it will be cited. Writing then never stalls on hunting refs.</div>
+</div></div>
+<div class="wt-step"><div class="wt-label">Σ₇</div><div class="wt-body">
+<div data-lang="zh"><strong>Abstract 留到最後寫：</strong>所有節都完成後再回頭壓縮 abstract（250 字）。先寫 abstract 通常會卡，因為你還沒釐清「我到底發現什麼」。</div>
+<div data-lang="en"><strong>Write the abstract last:</strong> only compress the abstract (~250 words) after everything else is done. Drafting it first usually stalls because you haven't yet crystallised "what did I actually find".</div>
+</div></div>
+<div class="wt-step"><div class="wt-label">Σ₈</div><div class="wt-body">
+<div data-lang="zh"><strong>IMRaD 連貫性自檢：</strong>Intro 提的 gap、Methods 的對應實驗、Results 的對應數據、Discussion 的對應結論——4 個位置必須「一條線」對得起來。對不上就是斷裂。</div>
+<div data-lang="en"><strong>Cross-check IMRaD coherence:</strong> the gap in Intro, the matching experiment in Methods, the supporting data in Results, and the matching conclusion in Discussion — these four anchors must trace a single straight line. Anything misaligned is a rupture.</div>
+</div></div>
+</div>
+</section>
+
+<!-- ===== Discussion ===== -->
+<section id="discussion" class="section">
+<div class="section-label" data-zh="開放思考" data-en="DISCUSSION">開放思考</div>
+<h2 data-zh="三題反思：結構不是教條" data-en="Three Reflections: Structure Is Not Dogma">三題反思：結構不是教條</h2>
+<div class="discussion-card">
+<span class="disc-label" data-zh="議題 1" data-en="Topic 1">議題 1</span>
+<div class="disc-q" data-lang="zh">Paper-based 三明治論文 vs 5 章傳統式——哪一種對學術職涯更有利？</div>
+<div class="disc-q" data-lang="en">Paper-based sandwich thesis vs 5-chapter traditional — which is better for an academic career?</div>
+<div class="disc-pov" data-lang="zh"><strong>支持 paper-based：</strong>畢業即有發表記錄、申請 postdoc 直接拿出來、各章已通過同儕審查。<strong>支持傳統式：</strong>敘事完整、亞洲口委更熟悉、避免章節風格不一致；對只有 1 篇論文者更安全。</div>
+<div class="disc-pov" data-lang="en"><strong>For paper-based:</strong> graduation = publication record, instantly usable for postdoc applications, each chapter peer-reviewed. <strong>For traditional:</strong> cohesive narrative, more familiar to Asian committees, avoids inter-chapter style mismatch; safer if you only have one paper.</div>
+</div>
+<div class="discussion-card">
+<span class="disc-label" data-zh="議題 2" data-en="Topic 2">議題 2</span>
+<div class="disc-q" data-lang="zh">在 AI 摘要與結構化 metadata 的時代，我們是否應該放棄 IMRaD，改用階層式 XML 標籤？</div>
+<div class="disc-q" data-lang="en">In the age of AI summarization and structured metadata, should we abandon IMRaD for hierarchical XML tagging?</div>
+<div class="disc-pov" data-lang="zh"><strong>支持 XML：</strong>機器更易解析、可組合不同段落、適合 modular publishing (eLife、F1000)。<strong>支持 IMRaD：</strong>人類讀者仍佔大多數、敘事邏輯是論證的根本、XML 反而讓段落變零碎缺乏推理。</div>
+<div class="disc-pov" data-lang="en"><strong>For XML:</strong> machine-parsable, recomposable across articles, fits modular publishing (eLife, F1000). <strong>For IMRaD:</strong> humans still dominate, narrative logic is the core of argument, XML fragments paragraphs and strips reasoning.</div>
+</div>
+<div class="discussion-card">
+<span class="disc-label" data-zh="議題 3" data-en="Topic 3">議題 3</span>
+<div class="disc-q" data-lang="zh">「沙漏 (hourglass)」結構——是優雅還是僵化？</div>
+<div class="disc-q" data-lang="en">The "hourglass" structure — beautiful or rigid?</div>
+<div class="disc-pov" data-lang="zh"><strong>優雅論：</strong>讓讀者用同一張地圖讀任何論文，認知負擔最低。<strong>僵化論：</strong>創新的研究（如方法論、推測性、田野觀察）被迫扭曲成 hourglass，反而失去原本的力量。</div>
+<div class="disc-pov" data-lang="en"><strong>Elegance view:</strong> readers use the same mental map for any paper — minimal cognitive load. <strong>Rigidity view:</strong> innovative work (methods papers, speculative work, field observations) gets forced into the hourglass shape and loses its native power.</div>
+</div>
+</section>
+
+<!-- ===== Spotlight ===== -->
+<section id="spotlight" class="section">
+<div class="section-label" data-zh="案例聚焦" data-en="SPOTLIGHT">案例聚焦</div>
+<h2 data-zh="兩個現實案例：模範與警鐘" data-en="Two Real Cases: Model &amp; Warning">兩個現實案例：模範與警鐘</h2>
+<div class="spotlight">
+<div class="sp-icon">🏆</div>
+<div class="sp-body">
+<span class="sp-tag" data-zh="模範 MODEL" data-en="MODEL">模範 MODEL</span>
+<div data-lang="zh"><p><strong>Watson &amp; Crick, 1953, Nature: "A Structure for Deoxyribose Nucleic Acid"</strong>。整篇僅約 900 字、完美 IMRaD：Intro 1 段（前人模型問題）→ Methods 內嵌（X-ray + 模型搭建）→ Results 1 段（雙螺旋幾何）→ Discussion 1 段（含著名的「It has not escaped our notice...」遺傳機制暗示）。70 年來仍是「短而震撼」的典範。</p></div>
+<div data-lang="en"><p><strong>Watson &amp; Crick, 1953, Nature: "A Structure for Deoxyribose Nucleic Acid"</strong>. ~900 words, textbook IMRaD: 1-paragraph Intro (problems with prior models) → embedded Methods (X-ray + model-building) → 1-paragraph Results (double-helix geometry) → 1-paragraph Discussion (including the famous "It has not escaped our notice..." nod to the genetic mechanism). Still the gold standard for "short and seismic" 70 years on.</p></div>
+</div>
+</div>
+<div class="spotlight">
+<div class="sp-icon">⚠️</div>
+<div class="sp-body">
+<span class="sp-tag" data-zh="警鐘 WARNING" data-en="WARNING">警鐘 WARNING</span>
+<div data-lang="zh"><p><strong>2010 年代基因組學論文：30+ 補充章節</strong>。為了「完整呈現」，許多大型 omics 論文把 IMRaD 主文壓到 3000 字，但 Supplementary 拉到 30–60 個檔案、上百頁。讀者反而抓不到核心發現，IMRaD 的「閱讀地圖」優勢被官僚化破壞——TCGA、ENCODE 早期論文皆是此例。教訓：補充材料是為「可重現」服務，不是傾倒「沒地方放的內容」的垃圾桶。</p></div>
+<div data-lang="en"><p><strong>2010s genomics papers with 30+ supplementary files</strong>. To "be complete," many large omics papers compressed the IMRaD body to ~3000 words but ballooned the Supplement to 30–60 files and hundreds of pages. Readers lost track of the core finding; IMRaD's reading-map advantage was bureaucratized away — early TCGA and ENCODE papers exemplify this. Lesson: supplements serve reproducibility, not as a dumping ground for "stuff with nowhere else to go."</p></div>
+</div>
+</div>
+</section>
+
+<!-- ===== Pitfalls ===== -->
+<section id="pitfalls" class="section">
+<div class="section-label" data-zh="常見陷阱" data-en="PITFALLS">常見陷阱</div>
+<h2 data-zh="六個結構級陷阱" data-en="Six Structure-Level Pitfalls">六個結構級陷阱</h2>
+<div class="pitfall-grid">
+<div class="pitfall-card">
+<h4 data-zh="1. Methods 滲進 Results" data-en="1. Methods bleeds into Results">1. Methods 滲進 Results</h4>
+<div data-lang="zh">Results 段落寫「為了測 X，我們使用 Y...」——這屬於 Methods。Results 只該寫「X 的結果是 N=...」。</div>
+<div data-lang="en">A Results paragraph says "To test X, we used Y..." — that belongs in Methods. Results should only state "the X result was N=...".</div>
+</div>
+<div class="pitfall-card">
+<h4 data-zh="2. Results 滲進 Discussion" data-en="2. Results bleeds into Discussion">2. Results 滲進 Discussion</h4>
+<div data-lang="zh">Results 出現「This suggests / This implies」即犯規。任何推論、機制、與文獻對比都該搬到 Discussion。</div>
+<div data-lang="en">"This suggests / This implies" in Results is a violation. All inference, mechanism, and literature comparison belongs in Discussion.</div>
+</div>
+<div class="pitfall-card">
+<h4 data-zh="3. 沒有「一段一張圖」結構" data-en="3. No clear paragraph-per-figure">3. 沒有「一段一張圖」結構</h4>
+<div data-lang="zh">Results 寫成一大塊長文，讀者抓不到「這段在講哪張圖」。每張主圖應該對應一個獨立段落，topic sentence 直接點名圖號。</div>
+<div data-lang="en">Results becomes one long blob and readers cannot tell which paragraph covers which figure. Each main figure should map to a dedicated paragraph whose topic sentence names the figure.</div>
+</div>
+<div class="pitfall-card">
+<h4 data-zh="4. 先寫 Abstract" data-en="4. Abstract written before paper">4. 先寫 Abstract</h4>
+<div data-lang="zh">很多人從 abstract 開寫，結果發現主文發現跟 abstract 不一致。Abstract 應該<strong>最後</strong>寫——它是全文的索引，不是大綱。</div>
+<div data-lang="en">Many start drafting from the abstract and then find the body diverges. The abstract should be written <strong>last</strong> — it indexes the paper, it doesn't outline it.</div>
+</div>
+<div class="pitfall-card">
+<h4 data-zh="5. Discussion 過度宣稱" data-en="5. Discussion overclaims">5. Discussion 過度宣稱</h4>
+<div data-lang="zh">「本研究證明 X 致病。」其實樣本只 12 例、且只是 correlation。把 "demonstrates" 改成 "is consistent with"、"suggests"，並加 limitation 段。</div>
+<div data-lang="en">"Our study demonstrates that X causes disease." — but n=12 and only a correlation. Switch "demonstrates" to "is consistent with" / "suggests" and add a limitations paragraph.</div>
+</div>
+<div class="pitfall-card">
+<h4 data-zh="6. Paper-based 缺整合章" data-en="6. Paper-based lacks integration">6. Paper-based 缺整合章</h4>
+<div data-lang="zh">三明治論文裡的 General Intro / General Discussion 寫得太空，章節間「拼貼感」嚴重。整合章應該明確說「三篇論文如何回答同一個大問題」。</div>
+<div data-lang="en">In sandwich theses the General Intro / General Discussion is left thin and the chapters feel pasted together. The integration chapter must explicitly argue "how the three papers answer one big question."</div>
+</div>
+</div>
+</section>
+
+<!-- ===== Contrast ===== -->
+<section id="contrast" class="section">
+<div class="section-label" data-zh="正反對照" data-en="CONTRAST">正反對照</div>
+<h2 data-zh="一句摘要：壞 vs 好" data-en="One-Sentence Summary: Bad vs Good">一句摘要：壞 vs 好</h2>
+<div class="contrast-2col">
+<div class="con-card bad">
+<h4 data-zh="❌ 反例" data-en="❌ Bad">❌ 反例</h4>
+<p data-lang="zh">「我們對 TNBC 樣本做了一些實驗與分析。」</p>
+<p data-lang="en">"We did some experiments and analysis on TNBC samples."</p>
+<p data-lang="zh"><em>沒方法、沒對象、沒結果、沒貢獻——IMRaD 四節全失蹤。</em></p>
+<p data-lang="en"><em>No method, no subjects, no result, no contribution — all four IMRaD sections are absent.</em></p>
+</div>
+<div class="con-card good">
+<h4 data-zh="✅ 正例" data-en="✅ Good">✅ 正例</h4>
+<p data-lang="zh">「我們對 18 對化療前/後 TNBC 樣本執行 paired scRNA-seq (10x v3) (<strong>Methods</strong>)；鑑定出 3 個化療抗性相關狀態 (<strong>Results</strong>)；並討論 EMT-high 子群在抗性機制中的角色 (<strong>Discussion</strong>)。」</p>
+<p data-lang="en">"We performed paired scRNA-seq (10x v3) on 18 pre/post-chemotherapy TNBC samples (<strong>Methods</strong>); identified 3 chemoresistance-associated states (<strong>Results</strong>); and discussed the role of the EMT-high subpopulation in resistance mechanisms (<strong>Discussion</strong>)."</p>
+<p data-lang="zh"><em>一句話對應 IMRaD 三節各一個錨點——讀者立刻知道整篇論文長什麼樣。</em></p>
+<p data-lang="en"><em>One sentence anchors three IMRaD sections — the reader immediately knows the paper's shape.</em></p>
+</div>
+</div>
+</section>
+
+<!-- ===== Reflection ===== -->
+<section id="reflection" class="section">
+<div class="section-label" data-zh="自我提問" data-en="REFLECTION">自我提問</div>
+<h2 data-zh="送印前的 6 個問題" data-en="6 Questions Before Final Print">送印前的 6 個問題</h2>
+<div class="reflection-q" data-lang="zh">1. 每一節 (I/M/R/D) 是否只負責一個角色？有沒有「Results 在解釋、Discussion 在補數據」的越界？</div>
+<div class="reflection-q" data-lang="en">1. Does each IMRaD section have one—and only one—role? Any "Results explaining / Discussion adding new numbers" boundary violations?</div>
+<div class="reflection-q" data-lang="zh">2. 整篇是不是「沙漏」？Intro 從寬到窄、Discussion 從窄到寬，看得出來嗎？</div>
+<div class="reflection-q" data-lang="en">2. Is the whole paper an hourglass? Does Intro narrow as Discussion broadens — visibly?</div>
+<div class="reflection-q" data-lang="zh">3. Results 每張主圖是不是有獨立段落、topic sentence 點名圖號？</div>
+<div class="reflection-q" data-lang="en">3. Does every main figure in Results get its own paragraph whose topic sentence names the figure?</div>
+<div class="reflection-q" data-lang="zh">4. Abstract 是不是最後才寫？跟正文有沒有不一致的數字或結論？</div>
+<div class="reflection-q" data-lang="en">4. Was the abstract drafted last? Any numbers or conclusions in it that contradict the body?</div>
+<div class="reflection-q" data-lang="zh">5. Discussion 的 limitation 段是不是真的講出 3 個以上限制？還是敷衍 1 句帶過？</div>
+<div class="reflection-q" data-lang="en">5. Does the Discussion's limitations paragraph really list 3+ limitations, or just gesture at one?</div>
+<div class="reflection-q" data-lang="zh">6. 如果你是 paper-based 三明治論文，整合章 (General Disc) 是否回答「為什麼這幾篇放在一起？」</div>
+<div class="reflection-q" data-lang="en">6. If this is a paper-based sandwich thesis, does the integration (General Discussion) chapter answer "why are these papers together?"</div>
+</section>
+
+<!-- ===== Advanced Note ===== -->
+<section id="advanced" class="section">
+<div class="section-label" data-zh="進階補充" data-en="ADVANCED">進階補充</div>
+<h2 data-zh="2024–2026 結構潮流" data-en="2024–2026 Structural Trends">2024–2026 結構潮流</h2>
+<details class="detail-toggle"><summary><span class="advanced-note"><span class="adv-label" data-zh="趨勢 A" data-en="Trend A">趨勢 A</span><span data-zh="Methods / Code / Data 三節獨立化" data-en="Methods / Code / Data as standalone sections">Methods / Code / Data 三節獨立化</span></span></summary>
+<div data-lang="zh"><p>越來越多期刊 (Nature Methods、Cell Systems、eLife) 開始要求「Code Availability」與「Data Availability」成為與 Methods 同層的獨立 section。某些期刊甚至把 Methods 拆成「Experimental Procedures」+「Computational Methods」+「Statistical Analysis」三節。背景：FAIR 原則 (Wilkinson 2016)、NIH Data Management &amp; Sharing Policy 2023 上路。</p></div>
+<div data-lang="en"><p>Increasingly journals (Nature Methods, Cell Systems, eLife) require "Code Availability" and "Data Availability" as standalone sections alongside Methods. Some split Methods into "Experimental Procedures" + "Computational Methods" + "Statistical Analysis." Drivers: FAIR principles (Wilkinson 2016) and the 2023 NIH Data Management &amp; Sharing Policy.</p></div>
+</details>
+<details class="detail-toggle"><summary><span class="advanced-note"><span class="adv-label" data-zh="趨勢 B" data-en="Trend B">趨勢 B</span><span data-zh="Modular publishing: Cell + Cell Reports 雙投" data-en="Modular publishing: Cell + Cell Reports overlap">Modular publishing: Cell + Cell Reports 雙投</span></span></summary>
+<div data-lang="zh"><p>Cell Press 從 2023 起鼓勵把同一研究<strong>切成 main paper (Cell) + companion resource paper (Cell Reports / Cell Reports Methods)</strong>。Main paper 維持 IMRaD 並聚焦核心生物發現；companion paper 專門放方法細節、benchmark、軟體。挑戰：要重新切 IMRaD，main paper Methods 要極簡（500 字以內）。</p></div>
+<div data-lang="en"><p>Since 2023 Cell Press encourages splitting one study into <strong>a main paper (Cell) + a companion resource paper (Cell Reports / Cell Reports Methods)</strong>. Main paper stays IMRaD and focuses on biology; companion paper carries method details, benchmarks, and software. Catch: requires re-slicing IMRaD — main-paper Methods must be ultra-lean (under 500 words).</p></div>
+</details>
+<details class="detail-toggle"><summary><span class="advanced-note"><span class="adv-label" data-zh="趨勢 C" data-en="Trend C">趨勢 C</span><span data-zh="omics 論文的 pipeline 該放哪？" data-en="Where does the omics pipeline live?">omics 論文的 pipeline 該放哪？</span></span></summary>
+<div data-lang="zh"><p>大型 omics 研究的 pipeline (Snakemake / Nextflow)、container (Docker / Apptainer) 與 workflow DAG 圖，現代慣例是放在 <strong>Methods 末段 + 圖一張 + GitHub/Zenodo + DOI</strong>。<em>不</em>把它寫進 Results；<em>不</em>單獨成節（除非期刊明文要求）。Strategy：主文一句「Full pipeline at github.com/lab/repo (Zenodo DOI: ...)」即可。</p></div>
+<div data-lang="en"><p>For large omics papers, the pipeline (Snakemake / Nextflow), container (Docker / Apptainer) and workflow DAG figure now belong in <strong>the last Methods paragraph + one figure + GitHub/Zenodo + DOI</strong>. <em>Not</em> in Results; <em>not</em> a standalone section (unless mandated). Strategy: one Methods line — "Full pipeline at github.com/lab/repo (Zenodo DOI: ...)" — suffices.</p></div>
+</details>
+</section>
+
 <!-- ===== Section 1: Overview ===== -->
 <section class="section">
 <div class="section-label" data-zh="概覽" data-en="OVERVIEW">概覽</div>
@@ -50,7 +437,7 @@
 </section>
 
 <!-- ===== Section 2: IMRaD section by section ===== -->
-<section class="section">
+<section id="imrad-sections" class="section">
 <div class="section-label" data-zh="IMRaD 逐節" data-en="IMRaD STEP BY STEP">IMRaD 逐節</div>
 <h2 data-zh="一、IMRaD 四節各自回答什麼問題？" data-en="I. What does each IMRaD section answer?">一、IMRaD 四節各自回答什麼問題？</h2>
 <div data-lang="zh"><p>IMRaD 不是隨意排序——它對應讀者腦中的四個問題。記住「沙漏 (hourglass)」形狀：<strong>Introduction 從寬到窄</strong>（領域→ gap →本研究問題）；<strong>Methods 與 Results 保持窄</strong>（只談你做了什麼、發現什麼）；<strong>Discussion 從窄到寬</strong>（你的結果→與文獻對比→領域意義）。</p></div>
@@ -89,7 +476,7 @@
 </section>
 
 <!-- ===== Section 3: Thesis Structure Variants ===== -->
-<section class="section">
+<section id="thesis-variants" class="section">
 <div class="section-label" data-zh="學位論文變體" data-en="THESIS VARIANTS">學位論文變體</div>
 <h2 data-zh="二、學位論文三種主要架構" data-en="II. Three Main Thesis Structures">二、學位論文三種主要架構</h2>
 <div data-lang="zh"><p>期刊論文幾乎都用 IMRaD，但學位論文（碩/博）有<strong>三種主流架構</strong>：傳統 5 章、延伸 6 章、以及 paper-based「三明治」論文。選錯了會讓口委困惑、也讓未來投稿很痛苦。</p></div>
@@ -233,6 +620,11 @@
 <div class="quiz-opt" data-idx="3"><span data-lang="zh">D. 字數要對稱（前後章節字數一樣）</span><span data-lang="en">D. Word counts must be symmetric across chapters</span></div>
 </div><div class="quiz-feedback" id="fb3"></div></div>
 </section>
+
+<div class="history-note">
+<div data-lang="zh"><strong>歷史小檔案：</strong>IMRaD 標準化的種子早在 <strong>1937 年</strong>就由美國微生物學會 (American Society for Microbiology) 提出，但花了 50 年才走向全球——直到 <strong>1985 年</strong> 國際醫學期刊編輯委員會 (ICMJE，俗稱 Vancouver Group) 在《Uniform Requirements》中正式採納 IMRaD，才使其成為生醫期刊近乎強制的格式。今日 (2026) &gt;95% 生醫期刊採用 IMRaD——但這個「標準」其實只有不到半世紀的歷史。</div>
+<div data-lang="en"><strong>History note:</strong> The seed of standardized IMRaD was planted by the American Society for Microbiology back in <strong>1937</strong>, but it took 50 years to go global — only in <strong>1985</strong> did the International Committee of Medical Journal Editors (ICMJE, the "Vancouver Group") formally adopt IMRaD in its <em>Uniform Requirements</em>, making it near-mandatory for biomedical journals. Today (2026) &gt;95% of biomedical journals use IMRaD — yet this "standard" is less than half a century old.</div>
+</div>
 
 <nav class="page-nav">
 <a href="literature-review.html"><span class="nav-dir" data-zh="← 上一步" data-en="← Previous">← 上一步</span><span class="nav-title" data-zh="Step 2: 文獻回顧策略" data-en="Step 2: Literature Review Strategy">Step 2: 文獻回顧策略</span></a>
